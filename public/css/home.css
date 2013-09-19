@@ -1,0 +1,95 @@
+/* Global CSS */
+* {
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%; }
+
+h4 {
+  font-size: 30px; }
+
+h5 {
+  font-size: 20px; }
+
+h6 {
+  font-size: 18px; }
+
+p {
+  font-size: 16px; }
+
+.right {
+  float: right; }
+
+.left {
+  float: left; }
+
+/* Page */
+.pageContent {
+  height: 100%; }
+
+/* Page header */
+.pageContent > header {
+  background-color: #42484d;
+  overflow: hidden;
+  height: 50px; }
+
+.leftHeader, .rightHeader {
+  height: 100%; }
+
+.rightHeader {
+  margin-right: 20px; }
+
+nav {
+  height: 100%; }
+
+/* Nav Buttons */
+.buttonArea {
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 100%;
+  float: left; }
+
+button {
+  height: 50px;
+  border: 0;
+  margin: 0;
+  padding: 0 30px;
+  cursor: pointer;
+  font-size: 20px; }
+  button.me {
+    background-color: green; }
+  button.notes {
+    background-color: orange; }
+  button.lab {
+    background-color: blue; }
+  button.games {
+    background-color: purple; }
+  button.search {
+    background-color: white; }
+
+/* Tile area */
+.tileArea {
+  background-color: #f0f5fa;
+  height: calc(100% - 50px);
+  padding: 5px; }
+
+.tile {
+  width: 330px;
+  background-color: #f16264;
+  margin: 5px;
+  border-radius: 3px;
+  overflow: hidden; }
+
+.tileImageArea {
+  width: 100%;
+  min-height: 100px;
+  background-color: #444; }
+
+.tileTextArea {
+  padding: 10px; }
+  .tileTextArea h4, .tileTextArea h5 {
+    text-align: center; }
+  .tileTextArea hr {
+    height: 1px;
+    width: 80px;
+    border: none;
+    background-color: rgba(44, 44, 44, 0.2); }
