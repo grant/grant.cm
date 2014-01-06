@@ -42,6 +42,7 @@ $cardAreaPadding: 5px;
 
 .pageContent {
 	height: 100%;
+	font-family: 'Open Sans' Arial;
 	background-color: $pageBackgroundColor;
 }
 
@@ -100,6 +101,8 @@ nav {
 	width: 33.3%;
 	margin: 5px;
 
+	color: #eee;
+	box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 	background-color: rgb(241, 98, 100);
 	border-radius: 3px;
 }
@@ -111,7 +114,7 @@ nav {
 }
 
 .cardTextArea {
-	padding: 10px;
+	padding: 20px;
 
 	h4, h5 {
 		text-align: center;

@@ -26,6 +26,7 @@ p {
 /* Page */
 .pageContent {
   height: 100%;
+  font-family: 'Open Sans' Arial;
   background-color: #333333; }
 
 /* Page header */
@@ -69,6 +70,8 @@ nav {
   overflow: hidden;
   width: 33.3%;
   margin: 5px;
+  color: #eee;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
   background-color: #f16264;
   border-radius: 3px; }
 
@@ -78,7 +81,7 @@ nav {
   background-color: #444; }
 
 .cardTextArea {
-  padding: 10px; }
+  padding: 20px; }
   .cardTextArea h4, .cardTextArea h5 {
     text-align: center; }
   .cardTextArea hr {
