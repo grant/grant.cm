@@ -32,14 +32,16 @@ p {
 }
 
 /* Page */
-$headerHeight: 50px;
+$pageBackgroundColor: #333;
+$headerHeight: 40px;
 $navButtonBottomBorderHeight: 3px;
 $cardAreaPadding: 5px;
-$cardAreaColor: rgb(240, 245, 250);
-$headerColor: rgb(66, 72, 77);
+// $cardAreaColor: rgb(240, 245, 250);
+// $headerColor: rgb(66, 72, 77);
 
 .pageContent {
 	height: 100%;
+	background-color: $pageBackgroundColor;
 }
 
 /* Page header */
@@ -48,7 +50,7 @@ $headerColor: rgb(66, 72, 77);
 	top: 0;
 	left: 0;
 
-	background-color: $headerColor;
+	// background-color: $headerColor;
 	overflow: hidden;
 	width: 100%;
 	height: $headerHeight;
@@ -56,10 +58,6 @@ $headerColor: rgb(66, 72, 77);
 
 .leftHeader, .rightHeader {
 	height: 100%;
-}
-
-.rightHeader {
-	margin-right: 20px;
 }
 
 nav {
@@ -73,43 +71,20 @@ nav {
 	float: left;
 }
 
-button {
+.searchButton {
 	height: $headerHeight;
 	border: 0;
 	margin: 0;
-	padding: 0 30px;
 
 	cursor: pointer;
 
 	font-size: 20px;
-
-	&.me {
-		background-color: green;
-	}
-
-	&.notes {
-		background-color: orange;
-	}
-
-	&.lab {
-		background-color: blue;
-	}
-
-	&.games {
-		background-color: purple;
-	}
-
-	&.search {
-		background-color: white;
-	}
 }
 
 /* Card area */
 .cardArea {
-	background-color: $cardAreaColor;
 	height: calc(100% - 50px);
-	margin-top: $headerHeight + $cardAreaPadding;
-	padding: $cardAreaPadding;
+	padding: $cardAreaPadding * 2 + $headerHeight $cardAreaPadding 0 $cardAreaPadding;
 }
 
 .card {

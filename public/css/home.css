@@ -25,23 +25,20 @@ p {
 
 /* Page */
 .pageContent {
-  height: 100%; }
+  height: 100%;
+  background-color: #333333; }
 
 /* Page header */
 .pageContent > header {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #42484d;
   overflow: hidden;
   width: 100%;
-  height: 50px; }
+  height: 40px; }
 
 .leftHeader, .rightHeader {
   height: 100%; }
-
-.rightHeader {
-  margin-right: 20px; }
 
 nav {
   height: 100%; }
@@ -52,30 +49,17 @@ nav {
   height: 100%;
   float: left; }
 
-button {
-  height: 50px;
+.searchButton {
+  height: 40px;
   border: 0;
   margin: 0;
-  padding: 0 30px;
   cursor: pointer;
   font-size: 20px; }
-  button.me {
-    background-color: green; }
-  button.notes {
-    background-color: orange; }
-  button.lab {
-    background-color: blue; }
-  button.games {
-    background-color: purple; }
-  button.search {
-    background-color: white; }
 
 /* Card area */
 .cardArea {
-  background-color: #f0f5fa;
   height: calc(100% - 50px);
-  margin-top: 55px;
-  padding: 5px; }
+  padding: 50px 5px 0 5px; }
 
 .card {
   display: inline-block;
