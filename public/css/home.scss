@@ -34,7 +34,8 @@ p {
 /* Page */
 $headerHeight: 50px;
 $navButtonBottomBorderHeight: 3px;
-$tileAreaColor: rgb(240, 245, 250);
+$cardAreaPadding: 5px;
+$cardAreaColor: rgb(240, 245, 250);
 $headerColor: rgb(66, 72, 77);
 
 .pageContent {
@@ -43,8 +44,13 @@ $headerColor: rgb(66, 72, 77);
 
 /* Page header */
 .pageContent > header {
+	position: absolute;
+	top: 0;
+	left: 0;
+
 	background-color: $headerColor;
 	overflow: hidden;
+	width: 100%;
 	height: $headerHeight;
 }
 
@@ -98,28 +104,32 @@ button {
 	}
 }
 
-/* Tile area */
-.tileArea {
-	background-color: $tileAreaColor;
+/* Card area */
+.cardArea {
+	background-color: $cardAreaColor;
 	height: calc(100% - 50px);
-	padding: 5px;
+	margin-top: $headerHeight + $cardAreaPadding;
+	padding: $cardAreaPadding;
 }
 
-.tile {
-	width: 330px;
-	background-color: rgb(241, 98, 100);
-	margin: 5px;
-	border-radius: 3px;
+.card {
+	display: inline-block;
 	overflow: hidden;
+
+	width: 33.3%;
+	margin: 5px;
+
+	background-color: rgb(241, 98, 100);
+	border-radius: 3px;
 }
 
-.tileImageArea {
+.cardImageArea {
 	width: 100%;
 	min-height: 100px;
 	background-color: #444;
 }
 
-.tileTextArea {
+.cardTextArea {
 	padding: 10px;
 
 	h4, h5 {

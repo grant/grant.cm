@@ -5,8 +5,6 @@
 
 var express = require('express');
 var consolidate = require('consolidate');
-var routes = require('./routes');
-var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
@@ -17,7 +15,9 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 
 // Handlebars
-app.engine('hbs', consolidate.handlebars);
+var hbs = require('hbs');
+hbs.registerPartials(__dirname + '/views/partials');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 
 // Other
@@ -33,8 +33,13 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+//
+// Routes
+//
+var routes = require('./routes');
+
 app.get('/', routes.index);
-app.get('/users', user.list);
+// app.get('/:id', routes.id);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

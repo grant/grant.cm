@@ -29,8 +29,12 @@ p {
 
 /* Page header */
 .pageContent > header {
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: #42484d;
   overflow: hidden;
+  width: 100%;
   height: 50px; }
 
 .leftHeader, .rightHeader {
@@ -66,29 +70,31 @@ button {
   button.search {
     background-color: white; }
 
-/* Tile area */
-.tileArea {
+/* Card area */
+.cardArea {
   background-color: #f0f5fa;
   height: calc(100% - 50px);
+  margin-top: 55px;
   padding: 5px; }
 
-.tile {
-  width: 330px;
-  background-color: #f16264;
+.card {
+  display: inline-block;
+  overflow: hidden;
+  width: 33.3%;
   margin: 5px;
-  border-radius: 3px;
-  overflow: hidden; }
+  background-color: #f16264;
+  border-radius: 3px; }
 
-.tileImageArea {
+.cardImageArea {
   width: 100%;
   min-height: 100px;
   background-color: #444; }
 
-.tileTextArea {
+.cardTextArea {
   padding: 10px; }
-  .tileTextArea h4, .tileTextArea h5 {
+  .cardTextArea h4, .cardTextArea h5 {
     text-align: center; }
-  .tileTextArea hr {
+  .cardTextArea hr {
     height: 1px;
     width: 80px;
     border: none;
