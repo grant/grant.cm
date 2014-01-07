@@ -58,34 +58,30 @@ $cardAreaPadding: 5px;
 	height: $headerHeight;
 
 	.logo {
+		border-bottom-right-radius: 2px;
 		width: $headerHeight;
 		height: $headerHeight;
 	}
-}
 
-.leftHeader, .rightHeader {
-	height: 100%;
-}
+	.leftHeader, .rightHeader {
+		height: 100%;
+	}
 
-nav {
-	height: 100%;
-}
+	/* Nav Buttons */
+	nav {
+		height: 100%;
+	}
 
-/* Nav Buttons */
-.buttonArea {
-	background-color: rgba(255, 255, 255, 0.9);
-	height: 100%;
-	float: left;
-}
+	.searchButton {
+		height: $headerHeight;
+		border: 0;
+		margin: 0;
 
-.searchButton {
-	height: $headerHeight;
-	border: 0;
-	margin: 0;
+		cursor: pointer;
+		border-bottom-left-radius: 2px;
+		font-size: 20px;
+	}
 
-	cursor: pointer;
-
-	font-size: 20px;
 }
 
 /* Card area */
