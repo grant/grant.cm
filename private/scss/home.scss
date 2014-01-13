@@ -163,11 +163,14 @@ $cardAreaPadding: 5px;
 
 		.experienceList {
 			height: 25%;
+			text-align: center;
 
 			li {
 				width: 10%;
 				height: 100%;
-				float: left;
+				display: inline-block;
+
+				margin: 0 3%;
 			}
 
 			// TODO: Move this somewhere else

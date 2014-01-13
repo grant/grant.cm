@@ -99,11 +99,13 @@ p {
     width: 25%;
     border-radius: 50%; }
   .card.profile .experienceList {
-    height: 25%; }
+    height: 25%;
+    text-align: center; }
     .card.profile .experienceList li {
       width: 10%;
       height: 100%;
-      float: left; }
+      display: inline-block;
+      margin: 0 3%; }
     .card.profile .experienceList .nor1 {
       background-color: #494e54;
       padding: .1%; }
