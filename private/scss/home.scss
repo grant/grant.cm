@@ -50,9 +50,19 @@ $cardAreaPadding: 5px;
 // $cardAreaColor: rgb(240, 245, 250);
 // $headerColor: rgb(66, 72, 77);
 
+@mixin littleTextShadow {
+	text-shadow: 3px 3px rgba(20, 10, 0, .1);
+}
+@mixin littleLayerShadow {
+	box-shadow: 3px 3px rgba(20, 10, 0, .1);
+}
+@mixin layerShadow {
+	box-shadow: 10px 10px rgba(20, 10, 0, .1);
+}
+
 .pageContent {
 	height: 100%;
-	font-family: 'Open Sans' Arial;
+	font-family: 'Open Sans', Arial;
 	background-color: $pageBackgroundColor;
 }
 
@@ -124,19 +134,13 @@ $cardAreaPadding: 5px;
 .cardTextArea {
 	padding: 3%;
 	height: 100%;
-
-	// hr {
-	// 	height: 1px;
-	// 	width: 80px;
-	// 	border: none;
-	// 	background-color: rgba(44,44,44,0.2);
-	// }
 }
 
 /* Specific cards */
 .card {
 	&.profile {
 		background-color: rgb(58, 58, 58);
+		background: -webkit-linear-gradient(top, #505050 0%,#3a3a3a 100%);
 
 		.name {
 
@@ -148,6 +152,7 @@ $cardAreaPadding: 5px;
 
 		.name, .bio {
 			text-align: center;
+			@include littleTextShadow;
 		}
 
 		.profilePhoto {
@@ -159,10 +164,24 @@ $cardAreaPadding: 5px;
 
 			width: 25%;
 			border-radius: 50%;
+
+			// Shadow
+			@include layerShadow;
 		}
+
+		hr {
+			margin-top: 2%;
+			height: 1%;
+			width: 20%;
+			border: none;
+			background-color: #999;
+			@include littleLayerShadow;
+		}
+
 
 		.experienceList {
 			height: 25%;
+			padding: 2% 0;
 			text-align: center;
 
 			li {
@@ -184,6 +203,9 @@ $cardAreaPadding: 5px;
 			.squareTile {
 				position: relative;
 				width:100%;
+
+				// Shadow
+				@include layerShadow;
 
 				// Curved edges
 				border-radius: 10%;

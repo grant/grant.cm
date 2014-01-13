@@ -30,7 +30,7 @@ p {
 /* Page */
 .pageContent {
   height: 100%;
-  font-family: 'Open Sans' Arial;
+  font-family: 'Open Sans', Arial;
   background-color: #333333; }
 
 /* Page header */
@@ -86,20 +86,31 @@ p {
 
 /* Specific cards */
 .card.profile {
-  background-color: #3a3a3a; }
+  background-color: #3a3a3a;
+  background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%); }
   .card.profile .bio {
     font-weight: 100; }
   .card.profile .name, .card.profile .bio {
-    text-align: center; }
+    text-align: center;
+    text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
   .card.profile .profilePhoto {
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 1%;
     width: 25%;
-    border-radius: 50%; }
+    border-radius: 50%;
+    box-shadow: 10px 10px rgba(20, 10, 0, 0.1); }
+  .card.profile hr {
+    margin-top: 2%;
+    height: 1%;
+    width: 20%;
+    border: none;
+    background-color: #999;
+    box-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
   .card.profile .experienceList {
     height: 25%;
+    padding: 2% 0;
     text-align: center; }
     .card.profile .experienceList li {
       width: 10%;
@@ -112,6 +123,7 @@ p {
     .card.profile .experienceList .squareTile {
       position: relative;
       width: 100%;
+      box-shadow: 10px 10px rgba(20, 10, 0, 0.1);
       border-radius: 10%;
       overflow: hidden; }
       .card.profile .experienceList .squareTile:before {
