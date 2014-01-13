@@ -5,6 +5,9 @@
 html, body {
   height: 100%; }
 
+h3 {
+  font-size: 36px; }
+
 h4 {
   font-size: 30px; }
 
@@ -23,6 +26,7 @@ p {
 .left {
   float: left; }
 
+/* Font */
 /* Page */
 .pageContent {
   height: 100%;
@@ -63,6 +67,8 @@ p {
   display: inline-block;
   overflow: hidden;
   width: 33.3%;
+  height: 40%;
+  min-height: 300px;
   margin: 5px;
   color: #eee;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
@@ -75,11 +81,24 @@ p {
   background-color: #444; }
 
 .cardTextArea {
-  padding: 20px; }
-  .cardTextArea h4, .cardTextArea h5 {
-    text-align: center; }
+  padding: 3%; }
   .cardTextArea hr {
     height: 1px;
     width: 80px;
     border: none;
     background-color: rgba(44, 44, 44, 0.2); }
+
+/* Specific cards */
+.card.profile {
+  background-color: #3a3a3a; }
+  .card.profile .bio {
+    font-weight: 100; }
+  .card.profile .name, .card.profile .bio {
+    text-align: center; }
+  .card.profile .profilePhoto {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1%;
+    width: 25%;
+    border-radius: 50%; }

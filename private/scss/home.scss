@@ -1,10 +1,15 @@
 /* Global CSS */
+// TODO: Make everything percent-based
 * {
 	box-sizing: border-box;
 }
 
 html, body {
 	height: 100%;
+}
+
+h3 {
+	font-size: 36px;
 }
 
 h4 {
@@ -29,6 +34,11 @@ p {
 
 .left {
 	float: left;
+}
+
+/* Font */
+@mixin font-light {
+	font-weight: 100;
 }
 
 /* Page */
@@ -95,6 +105,8 @@ $cardAreaPadding: 5px;
 	overflow: hidden;
 
 	width: 33.3%;
+	height: 40%;
+	min-height: 300px;
 	margin: 5px;
 
 	color: #eee;
@@ -110,16 +122,42 @@ $cardAreaPadding: 5px;
 }
 
 .cardTextArea {
-	padding: 20px;
-
-	h4, h5 {
-		text-align: center;
-	}
+	padding: 3%;
 
 	hr {
 		height: 1px;
 		width: 80px;
 		border: none;
 		background-color: rgba(44,44,44,0.2);
+	}
+}
+
+/* Specific cards */
+.card {
+	&.profile {
+		background-color: rgb(58, 58, 58);
+
+		.name {
+
+		}
+
+		.bio {
+			@include font-light;
+		}
+
+		.name, .bio {
+			text-align: center;
+		}
+
+		.profilePhoto {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+
+			padding-bottom: 1%;
+
+			width: 25%;
+			border-radius: 50%;
+		}
 	}
 }

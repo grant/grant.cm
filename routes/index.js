@@ -4,6 +4,7 @@
 
 // The home page
 exports.index = function(req, res){
+/*
 	var mongoose = require('mongoose');
 	var extend = require('mongoose-schema-extend');
 	var Schema = mongoose.Schema;
@@ -68,7 +69,6 @@ exports.index = function(req, res){
 		};
 
 		// First model
-		/*
 		var firstPost = new NotePost({
 			title: 'Fresh. Start.',
 			body: 'I created a new website.'
@@ -82,8 +82,8 @@ exports.index = function(req, res){
 		Note.find({}, function (err, post) {
 			console.log(post);
 		});
-		*/
 	});
+	*/
 	var indexParams = { title: 'Express' };
 	res.render('index', indexParams);
 };
