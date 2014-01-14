@@ -170,6 +170,10 @@ $cardAreaPadding: 5px;
 
 				padding: 1.5% 2%;
 
+				.name {
+					@include littleTextShadow;
+				}
+
 				.twitterHandle {
 					padding-top: 1%;
 					@include font-light;
@@ -189,6 +193,13 @@ $cardAreaPadding: 5px;
 
 				.experienceList {
 					padding-top: 1%;
+
+					.iconArea {
+						height: 10%;
+					}
+					.iconArea, .descriptionArea {
+						float: left;
+					}
 				}
 			}
 
