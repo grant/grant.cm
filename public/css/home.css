@@ -31,7 +31,7 @@ p {
 .pageContent {
   height: 100%;
   font-family: 'Open Sans', Arial;
-  background-color: #333333; }
+  background-color: #222222; }
 
 /* Page header */
 .pageContent > header {
@@ -65,77 +65,79 @@ p {
 
 .card {
   display: inline-block;
-  overflow: hidden;
   width: 33.3%;
   height: 40%;
   min-height: 300px;
-  margin: 5px;
-  color: #eee;
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
-  background-color: #f16264;
-  border-radius: 3px; }
+  padding: .5%; }
+  .card .cardContent {
+    color: #eee;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f16264;
+    border-radius: 3px;
+    overflow: hidden;
+    height: 100%; }
 
 .cardImageArea {
   width: 100%;
   min-height: 100px;
   background-color: #444; }
 
-.cardTextArea {
-  padding: 3%;
-  height: 100%; }
-
 /* Specific cards */
-.card.profile {
+.card.profile .cardContent {
+  padding: 2%;
   background-color: #3a3a3a;
   background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%); }
-  .card.profile .bio {
-    font-weight: 100; }
-  .card.profile .name, .card.profile .bio {
-    text-align: center;
-    text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
-  .card.profile .profilePhoto {
+  .card.profile .cardContent .profileText {
+    width: 80%;
+    margin: 0 10%; }
+    .card.profile .cardContent .profileText .bio {
+      font-weight: 100; }
+    .card.profile .cardContent .profileText .name, .card.profile .cardContent .profileText .bio {
+      text-align: center;
+      text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
+  .card.profile .cardContent .profilePhoto {
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 1%;
-    width: 25%;
+    height: 50%;
     border-radius: 50%;
     box-shadow: 10px 10px rgba(20, 10, 0, 0.1); }
-  .card.profile hr {
+  .card.profile .cardContent hr {
     margin-top: 2%;
     height: 1%;
     width: 20%;
     border: none;
     background-color: #999;
     box-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
-  .card.profile .experienceList {
+  .card.profile .cardContent .experienceList {
     height: 25%;
-    padding: 2% 0;
+    padding: 1% 0;
     text-align: center; }
-    .card.profile .experienceList li {
-      width: 10%;
+    .card.profile .cardContent .experienceList li {
+      width: 13%;
       height: 100%;
       display: inline-block;
       margin: 0 3%; }
-    .card.profile .experienceList .nor1 {
+    .card.profile .cardContent .experienceList .nor1 {
       background-color: #494e54;
       padding: .1%; }
-    .card.profile .experienceList .squareTile {
+    .card.profile .cardContent .experienceList .squareTile {
       position: relative;
       width: 100%;
       box-shadow: 10px 10px rgba(20, 10, 0, 0.1);
       border-radius: 10%;
       overflow: hidden; }
-      .card.profile .experienceList .squareTile:before {
+      .card.profile .cardContent .experienceList .squareTile:before {
         content: "";
         display: block;
         padding-top: 100%; }
-      .card.profile .experienceList .squareTile .content {
+      .card.profile .cardContent .experienceList .squareTile .content {
         position: absolute;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0; }
-      .card.profile .experienceList .squareTile .svg {
+      .card.profile .cardContent .experienceList .squareTile .svg {
         width: 100%;
         height: 100%; }
