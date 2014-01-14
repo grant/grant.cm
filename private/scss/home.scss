@@ -168,20 +168,27 @@ $cardAreaPadding: 5px;
 				width: 66.6%;
 				height: 100%;
 
-				padding: 2%;
+				padding: 1.5% 2%;
 
 				.twitterHandle {
+					padding-top: 1%;
 					@include font-light;
 				}
 
 				.longBio {
 					padding: 1% 0;
+					line-height: 150%;
 
 					&:first-letter {
 						float: left;
 						font-size: 400%;
 						line-height: 100%;
+						padding-right: .5%;
 					}
+				}
+
+				.experienceList {
+					padding-top: 1%;
 				}
 			}
 
