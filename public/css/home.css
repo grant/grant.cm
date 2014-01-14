@@ -68,16 +68,21 @@ p {
   width: 33.3%;
   height: 40%;
   min-height: 300px;
-  padding: .5%; }
+  padding: 0.5%; }
   .card:not(.open) .cardContent {
     cursor: pointer; }
   .card .cardContent {
+    position: relative;
     height: 100%;
     overflow: hidden;
     color: #eee;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
     background-color: #f16264;
     border-radius: 3px; }
+    .card .cardContent .open, .card .cardContent .closed {
+      position: absolute;
+      width: 100%;
+      height: 100%; }
 
 .cardImageArea {
   width: 100%;
@@ -85,19 +90,37 @@ p {
   background-color: #444; }
 
 /* Specific cards */
-.card.profile .cardContent {
-  padding: 2%;
-  background-color: #3a3a3a;
-  background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%); }
-  .card.profile .cardContent .profileText {
+.card.profile .cardContent .open .profileText {
+  width: 66.6%;
+  height: 100%;
+  padding: 2%; }
+  .card.profile .cardContent .open .profileText .twitterHandle {
+    font-weight: 100;
+    color: #ccc; }
+  .card.profile .cardContent .open .profileText .longBio {
+    padding: 1% 0; }
+    .card.profile .cardContent .open .profileText .longBio:first-letter {
+      float: left;
+      font-size: 400%;
+      line-height: 100%; }
+.card.profile .cardContent .open .videoArea {
+  width: 33.3%;
+  height: 100%;
+  overflow: hidden; }
+.card.profile .cardContent .open .profileText, .card.profile .cardContent .open .videoArea {
+  float: left; }
+.card.profile .cardContent .closed {
+  padding: 2%; }
+  .card.profile .cardContent .closed .profileText {
     width: 80%;
     margin: 0 10%; }
-    .card.profile .cardContent .profileText .bio {
-      font-weight: 100; }
-    .card.profile .cardContent .profileText .name, .card.profile .cardContent .profileText .bio {
+    .card.profile .cardContent .closed .profileText .bio {
+      font-weight: 100;
+      color: #ccc; }
+    .card.profile .cardContent .closed .profileText .name, .card.profile .cardContent .closed .profileText .bio {
       text-align: center;
       text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
-  .card.profile .cardContent .profilePhoto {
+  .card.profile .cardContent .closed .profilePhoto {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -105,41 +128,44 @@ p {
     height: 50%;
     border-radius: 50%;
     box-shadow: 10px 10px rgba(20, 10, 0, 0.1); }
-  .card.profile .cardContent hr {
+  .card.profile .cardContent .closed hr {
     margin-top: 2%;
     height: 1%;
     width: 20%;
     border: none;
     background-color: #999;
     box-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
-  .card.profile .cardContent .experienceList {
+  .card.profile .cardContent .closed .experienceList {
     height: 25%;
     padding: 1% 0;
     text-align: center; }
-    .card.profile .cardContent .experienceList li {
+    .card.profile .cardContent .closed .experienceList li {
       width: 13%;
       height: 100%;
       display: inline-block;
       margin: 0 3%; }
-    .card.profile .cardContent .experienceList .nor1 {
+    .card.profile .cardContent .closed .experienceList .nor1 {
       background-color: #494e54;
       padding: .1%; }
-    .card.profile .cardContent .experienceList .squareTile {
+    .card.profile .cardContent .closed .experienceList .squareTile {
       position: relative;
       width: 100%;
       box-shadow: 10px 10px rgba(20, 10, 0, 0.1);
       border-radius: 10%;
       overflow: hidden; }
-      .card.profile .cardContent .experienceList .squareTile:before {
+      .card.profile .cardContent .closed .experienceList .squareTile:before {
         content: "";
         display: block;
         padding-top: 100%; }
-      .card.profile .cardContent .experienceList .squareTile .content {
+      .card.profile .cardContent .closed .experienceList .squareTile .content {
         position: absolute;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0; }
-      .card.profile .cardContent .experienceList .squareTile .svg {
+      .card.profile .cardContent .closed .experienceList .squareTile .svg {
         width: 100%;
         height: 100%; }
+.card.profile .cardContent .open, .card.profile .cardContent .closed {
+  background-color: #3a3a3a;
+  background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%); }

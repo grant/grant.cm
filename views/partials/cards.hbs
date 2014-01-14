@@ -1,19 +1,34 @@
 <div class="cardArea">
 	<div class="profile card" data-id="profile">
 		<div class="cardContent">
-			<img class="profilePhoto" src="/images/cards/profile/profile.jpg" alt="Grant Timmerman">
-			<div class="profileText">
-				<h3 class="name">Grant Timmerman</h3>
-				<h5 class="bio">UW CSE student, web fanatic</h5>
+			<div class="open">
+				<div class="profileText">
+					<h3 class="name">Grant Timmerman</h3>
+					<h6 class="twitterHandle"><a href="https://twitter.com/granttimmerman">@granttimmerman</a></h6>
+					<p class="longBio">hello</p>
+					<ol class="experienceList">
+						<li>linkedin</li>
+					</ol>
+				</div><!-- TODO: Remove this when html is compressed
+			--><div class="videoArea">
+					<video class="profileVideo" src="/video/me.mp4" autoplay loop/>
+				</div>
 			</div>
-			<hr>
-			<ol class="experienceList">
-				<li>{{> icons/linkedin}}</li>
-				<li>{{> icons/fb}}</li>
-				<li>{{> icons/tableau}}</li>
-				<li>{{> icons/nor1}}</li>
-				<li>{{> icons/kongregate}}</li>
-			</ol>
+			<div class="closed">
+				<img class="profilePhoto" src="/images/cards/profile/profile.jpg" alt="Grant Timmerman">
+				<div class="profileText">
+					<h3 class="name">Grant Timmerman</h3>
+					<h5 class="bio">UW CSE student, web fanatic</h5>
+				</div>
+				<hr>
+				<ol class="experienceList">
+					<li>{{> icons/linkedin}}</li>
+					<li>{{> icons/fb}}</li>
+					<li>{{> icons/tableau}}</li>
+					<li>{{> icons/nor1}}</li>
+					<li>{{> icons/kongregate}}</li>
+				</ol>
+			</div>
 		</div>
 	</div><!-- TODO: Remove this when html is compressed
 --><div class="card 2">
@@ -22,7 +37,6 @@
 				<img src="" alt="">
 			</div>
 			<div class="cardTextArea">
-				<!-- <video src="/video/me.mp4" style="height:100%" controls autoplay loop/> -->
 				<h4>Insteresting Title</h4>
 				<h5>Interesting Subtitle</h5>
 				<hr>

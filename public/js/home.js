@@ -31,6 +31,12 @@ $(function() {
 			$('.profileText .name').fitText(1.3),
 			$('.profileText .bio').fitText(3)
 		);
+
+		// Resizes the profile video on window resize
+		$(window).on('resize orientationchange', function () {
+			// TODO: Make this happen only if the profile card is open
+			resizeProfileVideo();
+		});
 	})();
 
 	//
@@ -56,6 +62,50 @@ $(function() {
 		fitTexts[cardId].forEach(function (resize) {
 			resize();
 		});
+
+		// Special resizing cards
+		switch (cardId) {
+			case 'profile':
+				resizeProfileVideo();
+				break;
+		}
+	}
+
+	/**
+	 * Resizes the profile video and adjusts the position
+	 */
+	function resizeProfileVideo() {
+		// Resize video
+		var $video = $('.profileVideo');
+		var videoWidth = $video.width();
+		var videoHeight = $video.height();
+
+		var $card = $video.closest('.card');
+		var videoAreaHeight = $card.outerHeight();
+		var videoAreaWidth = $card.outerWidth() / 3; // TODO: Make this more robust
+
+		var videoRatio = videoHeight/videoWidth;
+		var videoAreaRatio = videoAreaHeight/videoAreaWidth;
+
+		var margin;
+		// If videoArea too flat, make 100% height
+		if (videoRatio < videoAreaHeight/videoAreaWidth) {
+			margin = (videoAreaWidth - videoWidth)/2;
+			$video.css({
+				'width': 'auto',
+				'height': '100%',
+				'margin-top': 0,
+				'margin-left': margin
+			});
+		} else {
+			margin = (videoAreaHeight - videoHeight)/2;
+			$video.css({
+				'width': '100%',
+				'height': 'auto',
+				'margin-top': margin,
+				'margin-left': 0
+			});
+		}
 	}
 
 	//
@@ -84,21 +134,27 @@ $(function() {
 			duration: ANIMATION_TIME,
 			step: function () {
 				resizing(cardId);
+			},
+			done: function () {
+
 			}
 		});
+
+		// Animate the contents of the clicked card
+		$card.find('.closed').show().fadeOut(ANIMATION_TIME);
 
 		// Animate the sibling cards on the same row to closed
 		siblingCards.each(function () {
 			var $siblingCard = $(this);
 			$(this).animate({
 				width: HIDE_SIZE.WIDTH,
-				height: HIDE_SIZE.HEIGHT
+				height: OPEN_SIZE.HEIGHT
 			}, ANIMATION_TIME, function () {
 				$siblingCard.hide();
 			});
 		});
 
-		// Set some properties on the opeened card
+		// Set some properties on the opened card
 		$card.addClass('open');
 	}
 

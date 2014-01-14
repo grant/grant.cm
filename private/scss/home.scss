@@ -39,6 +39,7 @@ p {
 /* Font */
 @mixin font-light {
 	font-weight: 100;
+	color: #ccc;
 }
 
 /* Page */
@@ -111,18 +112,22 @@ $cardAreaPadding: 5px;
 }
 
 .card {
+	$cardMargin: 0.5%;
 	display: inline-block;
 
 	width: 33.3%;
 	height: 40%;
 	min-height: 300px;
-	padding: .5%;
+	padding: $cardMargin;
 
+	// Open or not open
 	&:not(.open) .cardContent {
 		cursor: pointer;
 	}
 
+	// Generic card content
 	.cardContent {
+		position: relative;
 		height: 100%;
 		overflow: hidden;
 
@@ -130,6 +135,20 @@ $cardAreaPadding: 5px;
 		box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 		background-color: rgb(241, 98, 100);
 		border-radius: 3px;
+
+		.open {
+
+		}
+
+		.closed {
+
+		}
+
+		.open, .closed {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
 	}
 }
 
@@ -142,102 +161,147 @@ $cardAreaPadding: 5px;
 /* Specific cards */
 .card {
 	&.profile .cardContent {
-		padding: 2%;
-		background-color: rgb(58, 58, 58);
-		background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%);
+		$cardSidePadding: 2%;
 
-		.profileText {
-			$textWidth: 80%;
-			width: $textWidth;
-			margin: 0 (100% - $textWidth)/2;
-			.name {
-			}
-
-			.bio {
-				@include font-light;
-			}
-
-			.name, .bio {
-				text-align: center;
-				@include littleTextShadow;
-			}
-		}
-
-		.profilePhoto {
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-
-			padding-bottom: 1%;
-
-			height: 50%;
-			border-radius: 50%;
-
-			// Shadow
-			@include layerShadow;
-		}
-
-		hr {
-			margin-top: 2%;
-			height: 1%;
-			width: 20%;
-			border: none;
-			background-color: #999;
-			@include littleLayerShadow;
-		}
-
-
-		.experienceList {
-			height: 25%;
-			padding: 1% 0;
-			text-align: center;
-
-			li {
-				width: 13%;
+		.open {
+			.profileText {
+				width: 66.6%;
 				height: 100%;
-				display: inline-block;
 
-				margin: 0 3%;
+				padding: 2%;
+
+				.twitterHandle {
+					@include font-light;
+				}
+
+				.longBio {
+					padding: 1% 0;
+
+					&:first-letter {
+						float: left;
+						font-size: 400%;
+						line-height: 100%;
+					}
+				}
 			}
 
-			// TODO: Move this somewhere else
-			.nor1 {
-				background-color:rgb(73,78,84);
-				padding:.1%;
+			$videoColor: rgb(220, 165, 160);
+			.videoArea {
+				width: 33.3%;
+				height: 100%;
+				overflow: hidden;
+
+				.profileVideo {
+					// width: 100%;
+				}
 			}
 
-			// How to make a percentage-based square tile
-			// http://stackoverflow.com/questions/5445491/height-equal-to-dynamic-width-css-fluid-layout
-			.squareTile {
-				position: relative;
-				width:100%;
+			.profileText, .videoArea {
+				float: left;
+			}
+		}
+
+		.closed {
+			padding: $cardSidePadding;
+
+			.profileText {
+				$textWidth: 80%;
+				width: $textWidth;
+				margin: 0 (100% - $textWidth)/2;
+				.name {
+				}
+
+				.bio {
+					@include font-light;
+				}
+
+				.name, .bio {
+					text-align: center;
+					@include littleTextShadow;
+				}
+			}
+
+			.profilePhoto {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+
+				padding-bottom: 1%;
+
+				height: 50%;
+				border-radius: 50%;
 
 				// Shadow
 				@include layerShadow;
+			}
 
-				// Curved edges
-				border-radius: 10%;
-				overflow: hidden;
+			// TODO: Make this right
+			hr {
+				margin-top: 2%;
+				height: 1%;
+				width: 20%;
+				border: none;
+				background-color: #999;
+				@include littleLayerShadow;
+			}
 
-				&:before {
-					content: "";
-					display: block;
-					padding-top: 100%;
-				}
+			.experienceList {
+				height: 25%;
+				padding: 1% 0;
+				text-align: center;
 
-				.content {
-					position: absolute;
-					top: 0;
-					left: 0;
-					bottom: 0;
-					right: 0;
-				}
-
-				.svg {
-					width: 100%;
+				li {
+					width: 13%;
 					height: 100%;
+					display: inline-block;
+
+					margin: 0 3%;
+				}
+
+				// TODO: Move this somewhere else
+				.nor1 {
+					background-color:rgb(73,78,84);
+					padding:.1%;
+				}
+
+				// How to make a percentage-based square tile
+				// http://stackoverflow.com/questions/5445491/height-equal-to-dynamic-width-css-fluid-layout
+				.squareTile {
+					position: relative;
+					width:100%;
+
+					// Shadow
+					@include layerShadow;
+
+					// Curved edges
+					border-radius: 10%;
+					overflow: hidden;
+
+					&:before {
+						content: "";
+						display: block;
+						padding-top: 100%;
+					}
+
+					.content {
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						right: 0;
+					}
+
+					.svg {
+						width: 100%;
+						height: 100%;
+					}
 				}
 			}
+		}
+
+		.open, .closed {
+			background-color: rgb(58, 58, 58);
+			background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%);
 		}
 	}
 }
