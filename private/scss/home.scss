@@ -169,6 +169,7 @@ $cardAreaPadding: 5px;
 				height: 100%;
 
 				padding: 1.5% 2%;
+				overflow-y: scroll;
 
 				.name {
 					@include littleTextShadow;
@@ -194,9 +195,37 @@ $cardAreaPadding: 5px;
 				.experienceList {
 					padding-top: 1%;
 
-					.iconArea {
-						height: 10%;
+					li {
+						overflow: hidden;
+						padding-bottom: 1%;
 					}
+
+					.iconArea {
+						width: 10%;
+					}
+
+					.descriptionArea {
+						width: 90%;
+						padding-left: 2%;
+
+						.titleBar {
+							padding-bottom: 0.5%;
+							overflow: hidden;
+
+							.title {
+								float: left;
+							}
+
+							.dateRange {
+								float: right;
+							}
+						}
+
+						.description {
+							@include font-light;
+						}
+					}
+
 					.iconArea, .descriptionArea {
 						float: left;
 					}
@@ -275,51 +304,57 @@ $cardAreaPadding: 5px;
 
 					margin: 0 3%;
 				}
-
-				// TODO: Move this somewhere else
-				.nor1 {
-					background-color:rgb(73,78,84);
-					padding:.1%;
-				}
-
-				// How to make a percentage-based square tile
-				// http://stackoverflow.com/questions/5445491/height-equal-to-dynamic-width-css-fluid-layout
-				.squareTile {
-					position: relative;
-					width:100%;
-
-					// Shadow
-					@include layerShadow;
-
-					// Curved edges
-					border-radius: 10%;
-					overflow: hidden;
-
-					&:before {
-						content: "";
-						display: block;
-						padding-top: 100%;
-					}
-
-					.content {
-						position: absolute;
-						top: 0;
-						left: 0;
-						bottom: 0;
-						right: 0;
-					}
-
-					.svg {
-						width: 100%;
-						height: 100%;
-					}
-				}
 			}
 		}
 
 		.open, .closed {
 			background-color: rgb(58, 58, 58);
 			background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%);
+		}
+	}
+}
+
+// How to make a percentage-based square tile
+// http://stackoverflow.com/questions/5445491/height-equal-to-dynamic-width-css-fluid-layout
+.squareTile {
+	position: relative;
+	width:100%;
+
+	// Shadow
+	@include layerShadow;
+
+	// Curved edges
+	border-radius: 10%;
+	overflow: hidden;
+
+	&:before {
+		content: "";
+		display: block;
+		padding-top: 100%;
+	}
+
+	.content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	.svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	// TODO: Move this somewhere else
+	&.nor1 {
+		background-color:rgb(73,78,84);
+		padding: .1%;
+
+		img {
+			width: 90% !important; // TODO: Remove !important
+			margin-top: 25%;
+			margin-left: 5%;
 		}
 	}
 }

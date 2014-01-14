@@ -93,7 +93,8 @@ p {
 .card.profile .cardContent .open .profileText {
   width: 66.6%;
   height: 100%;
-  padding: 1.5% 2%; }
+  padding: 1.5% 2%;
+  overflow-y: scroll; }
   .card.profile .cardContent .open .profileText .name {
     text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
   .card.profile .cardContent .open .profileText .twitterHandle {
@@ -110,8 +111,24 @@ p {
       padding-right: .5%; }
   .card.profile .cardContent .open .profileText .experienceList {
     padding-top: 1%; }
+    .card.profile .cardContent .open .profileText .experienceList li {
+      overflow: hidden;
+      padding-bottom: 1%; }
     .card.profile .cardContent .open .profileText .experienceList .iconArea {
-      height: 10%; }
+      width: 10%; }
+    .card.profile .cardContent .open .profileText .experienceList .descriptionArea {
+      width: 90%;
+      padding-left: 2%; }
+      .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar {
+        padding-bottom: 0.5%;
+        overflow: hidden; }
+        .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .title {
+          float: left; }
+        .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .dateRange {
+          float: right; }
+      .card.profile .cardContent .open .profileText .experienceList .descriptionArea .description {
+        font-weight: 100;
+        color: #ccc; }
     .card.profile .cardContent .open .profileText .experienceList .iconArea, .card.profile .cardContent .open .profileText .experienceList .descriptionArea {
       float: left; }
 .card.profile .cardContent .open .videoArea {
@@ -155,28 +172,33 @@ p {
       height: 100%;
       display: inline-block;
       margin: 0 3%; }
-    .card.profile .cardContent .closed .experienceList .nor1 {
-      background-color: #494e54;
-      padding: .1%; }
-    .card.profile .cardContent .closed .experienceList .squareTile {
-      position: relative;
-      width: 100%;
-      box-shadow: 10px 10px rgba(20, 10, 0, 0.1);
-      border-radius: 10%;
-      overflow: hidden; }
-      .card.profile .cardContent .closed .experienceList .squareTile:before {
-        content: "";
-        display: block;
-        padding-top: 100%; }
-      .card.profile .cardContent .closed .experienceList .squareTile .content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0; }
-      .card.profile .cardContent .closed .experienceList .squareTile .svg {
-        width: 100%;
-        height: 100%; }
 .card.profile .cardContent .open, .card.profile .cardContent .closed {
   background-color: #3a3a3a;
   background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%); }
+
+.squareTile {
+  position: relative;
+  width: 100%;
+  box-shadow: 10px 10px rgba(20, 10, 0, 0.1);
+  border-radius: 10%;
+  overflow: hidden; }
+  .squareTile:before {
+    content: "";
+    display: block;
+    padding-top: 100%; }
+  .squareTile .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; }
+  .squareTile .svg {
+    width: 100%;
+    height: 100%; }
+  .squareTile.nor1 {
+    background-color: #494e54;
+    padding: .1%; }
+    .squareTile.nor1 img {
+      width: 90% !important;
+      margin-top: 25%;
+      margin-left: 5%; }
