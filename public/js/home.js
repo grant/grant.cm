@@ -76,6 +76,7 @@ $(function() {
 			return card !== $card[0];
 		}));
 
+		// Animate the clicked card to open
 		$card.animate({
 			width: OPEN_SIZE.WIDTH,
 			height: OPEN_SIZE.HEIGHT
@@ -86,6 +87,7 @@ $(function() {
 			}
 		});
 
+		// Animate the sibling cards on the same row to closed
 		siblingCards.each(function () {
 			var $siblingCard = $(this);
 			$(this).animate({
@@ -95,6 +97,9 @@ $(function() {
 				$siblingCard.hide();
 			});
 		});
+
+		// Set some properties on the opeened card
+		$card.addClass('open');
 	}
 
 	function closeCard ($card) {
