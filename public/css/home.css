@@ -27,6 +27,26 @@ p {
   float: left; }
 
 /* Font */
+/* Scroll bars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; }
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  height: 100%;
+  display: block;
+  background-color: transparent; }
+
+::-webkit-scrollbar-track-piece {
+  background-color: #3b3b3b;
+  -webkit-border-radius: 6px; }
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 50px;
+  background-color: #666;
+  -webkit-border-radius: 6px; }
+
 /* Page */
 .pageContent {
   height: 100%;
@@ -70,15 +90,36 @@ p {
   min-height: 300px;
   padding: 0.5%; }
   .card:not(.open) .cardContent {
-    cursor: pointer; }
+    cursor: pointer;
+    overflow: hidden; }
   .card .cardContent {
     position: relative;
     height: 100%;
-    overflow: hidden;
     color: #eee;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
     background-color: #f16264;
     border-radius: 3px; }
+    .card .cardContent .open .closeButton {
+      position: absolute;
+      width: 4%;
+      overflow: hidden; }
+      .card .cardContent .open .closeButton:before {
+        content: "";
+        display: block;
+        padding-top: 100%; }
+      .card .cardContent .open .closeButton .content {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 10% 15%;
+        background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.3) 50%, transparent 50%);
+        user-select: none;
+        font-weight: 100;
+        color: #666;
+        cursor: pointer; }
     .card .cardContent .open, .card .cardContent .closed {
       position: absolute;
       width: 100%;
@@ -128,7 +169,8 @@ p {
           float: right; }
       .card.profile .cardContent .open .profileText .experienceList .descriptionArea .description {
         font-weight: 100;
-        color: #ccc; }
+        color: #ccc;
+        line-height: 150%; }
     .card.profile .cardContent .open .profileText .experienceList .iconArea, .card.profile .cardContent .open .profileText .experienceList .descriptionArea {
       float: left; }
 .card.profile .cardContent .open .videoArea {

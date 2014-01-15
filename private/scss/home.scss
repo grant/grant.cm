@@ -41,6 +41,35 @@ p {
 	font-weight: 100;
 	color: #ccc;
 }
+@mixin font-dark {
+	font-weight: 100;
+	color: #666;
+}
+
+/* Scroll bars */
+// https://beautifulpixels.com/goodies/create-custom-webkit-scrollbar/
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment  {
+	height: 100%;
+	display: block;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-track-piece  {
+	background-color: #3b3b3b;
+	-webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	height: 50px;
+	background-color: #666;
+	-webkit-border-radius: 6px;
+}
 
 /* Page */
 $pageBackgroundColor: #222;
@@ -123,13 +152,13 @@ $cardAreaPadding: 5px;
 	// Open or not open
 	&:not(.open) .cardContent {
 		cursor: pointer;
+		overflow: hidden;
 	}
 
 	// Generic card content
 	.cardContent {
 		position: relative;
 		height: 100%;
-		overflow: hidden;
 
 		color: #eee;
 		box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
@@ -137,7 +166,35 @@ $cardAreaPadding: 5px;
 		border-radius: 3px;
 
 		.open {
+			// Hack to make it square
+			.closeButton {
+				$size: 4%;
+				position: absolute;
+				width: $size;
+				overflow: hidden;
 
+				&:before {
+					content: "";
+					display: block;
+					padding-top: 100%;
+				}
+
+				.content {
+					overflow: hidden;
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;
+
+					padding: 10% 15%;
+					background: linear-gradient(to right bottom, rgba(0,0,0,.3) 50%, transparent 50%);
+					user-select: none;
+
+					@include font-dark;
+					cursor: pointer;
+				}
+			}
 		}
 
 		.closed {
@@ -165,6 +222,10 @@ $cardAreaPadding: 5px;
 
 		.open {
 			.profileText {
+				& {
+
+				}
+
 				width: 66.6%;
 				height: 100%;
 
@@ -223,6 +284,7 @@ $cardAreaPadding: 5px;
 
 						.description {
 							@include font-light;
+							line-height: 150%;
 						}
 					}
 

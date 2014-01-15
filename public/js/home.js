@@ -29,7 +29,8 @@ $(function() {
 		// Populate the fitText fields
 		fitTexts['profile'].push(
 			$('.profileText .name').fitText(1.3),
-			$('.profileText .bio').fitText(3)
+			$('.profileText .bio').fitText(3),
+			$('.profile .closeButton .content').fitText(.2)
 		);
 
 		// Resizes the profile video on window resize
