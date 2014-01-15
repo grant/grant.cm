@@ -159,6 +159,7 @@ $cardAreaPadding: 5px;
 	.cardContent {
 		position: relative;
 		height: 100%;
+		overflow: hidden;
 
 		color: #eee;
 		box-shadow: 5px 5px rgba(0, 0, 0, 0.1);

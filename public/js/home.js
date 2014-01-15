@@ -30,13 +30,26 @@ $(function() {
 		fitTexts['profile'].push(
 			$('.profileText .name').fitText(1.3),
 			$('.profileText .bio').fitText(3),
-			$('.profile .closeButton .content').fitText(.2)
+			$('.profile .closeButton .content').fitText(0.2)
 		);
 
 		// Resizes the profile video on window resize
 		$(window).on('resize orientationchange', function () {
 			// TODO: Make this happen only if the profile card is open
 			resizeProfileVideo();
+		});
+
+		// Close button
+		$('.closeButton').click(function () {
+			closeCard($(this).closest('.card'));
+		});
+
+		// If you click outside the card, it automatically closes the opened card
+		$('.cardArea').click(function (event) {
+			var target = event.target;
+			if ($(target).hasClass('cardArea')) {
+				closeCard($('.card.open'));
+			}
 		});
 	})();
 
@@ -115,7 +128,7 @@ $(function() {
 
 	/**
 	 * Opens a card. Expands it to fill the view
-	 * @param {Card} $card The jquery=wrapped card
+	 * @param {Card} $card The jquery-wrapped card
 	 */
 	function openCard ($card) {
 		cardIsOpen = true;
@@ -159,8 +172,48 @@ $(function() {
 		$card.addClass('open');
 	}
 
+	/**
+	 * Closes a card.
+	 * @param {Card} $card The jquery-wrapped card
+	 */
 	function closeCard ($card) {
+		var cardId = $card.data('id');
+		var cardIndex = $card.index();
+		var siblingCardIndices = getRowIndices(cardIndex);
+		var siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
+			return card !== $card[0];
+		}));
 
+		// Animate the clicked card to closed
+		$card.animate({
+			width: CLOSED_SIZE.WIDTH,
+			height: CLOSED_SIZE.HEIGHT
+		}, {
+			duration: ANIMATION_TIME,
+			step: function () {
+				resizing(cardId);
+			},
+			done: function () {
+				// Say card is open after all transitions are done
+				cardIsOpen = false;
+			}
+		});
+
+		// Animate the contents of the clicked card
+		$card.find('.closed').hide().fadeIn(ANIMATION_TIME);
+
+		// Animate the sibling cards on the same row to closed
+		siblingCards.each(function () {
+			var $siblingCard = $(this);
+			$siblingCard.show();
+			$(this).animate({
+				width: CLOSED_SIZE.WIDTH,
+				height: CLOSED_SIZE.HEIGHT
+			}, ANIMATION_TIME);
+		});
+
+
+		$card.removeClass('open');
 	}
 
 	/**
