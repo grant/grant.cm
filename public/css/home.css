@@ -153,7 +153,7 @@ p {
       padding-right: .5%; }
   .card.profile .cardContent .open .profileText .experienceList {
     padding-top: 1%; }
-    .card.profile .cardContent .open .profileText .experienceList li {
+    .card.profile .cardContent .open .profileText .experienceList > li {
       overflow: hidden;
       padding-bottom: 1%; }
     .card.profile .cardContent .open .profileText .experienceList .iconArea {
@@ -168,10 +168,12 @@ p {
           float: left; }
         .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .dateRange {
           float: right; }
-      .card.profile .cardContent .open .profileText .experienceList .descriptionArea .description {
+      .card.profile .cardContent .open .profileText .experienceList .descriptionArea .description, .card.profile .cardContent .open .profileText .experienceList .descriptionArea .descriptionBullets {
         font-weight: 100;
         color: #ccc;
-        line-height: 150%; }
+        line-height: 150%;
+        list-style: disc;
+        list-style-position: inside; }
     .card.profile .cardContent .open .profileText .experienceList .iconArea, .card.profile .cardContent .open .profileText .experienceList .descriptionArea {
       float: left; }
 .card.profile .cardContent .open .videoArea {

@@ -257,7 +257,7 @@ $cardAreaPadding: 5px;
 				.experienceList {
 					padding-top: 1%;
 
-					li {
+					& > li {
 						overflow: hidden;
 						padding-bottom: 1%;
 					}
@@ -283,9 +283,11 @@ $cardAreaPadding: 5px;
 							}
 						}
 
-						.description {
+						.description, .descriptionBullets {
 							@include font-light;
 							line-height: 150%;
+							list-style: disc;
+							list-style-position: inside;
 						}
 					}
 
@@ -386,8 +388,9 @@ $cardAreaPadding: 5px;
 	// Shadow
 	@include layerShadow;
 
+	$borderRadius: 10%;
 	// Curved edges for shadow
-	border-radius: 10%;
+	border-radius: $borderRadius;
 	overflow: hidden;
 
 	&:before {
@@ -404,7 +407,7 @@ $cardAreaPadding: 5px;
 		right: 0;
 
 		// Curved edges
-		border-radius: 10%;
+		border-radius: $borderRadius;
 		overflow: hidden;
 	}
 
