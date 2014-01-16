@@ -28,9 +28,13 @@ $(function() {
 	(function () {
 		// Populate the fitText fields
 		fitTexts['profile'].push(
-			$('.profileText .name').fitText(1.3),
-			$('.profileText .bio').fitText(3),
-			$('.profile .closeButton .content').fitText(0.2)
+			$('.profile .profileText .name').fitText(1.3),
+			$('.profile .profileText .bio').fitText(3),
+			$('.profile .closeButton .content').fitText(0.2),
+			$('.profile .twitterHandle').fitText(7),
+			$('.profile .longBio').fitText(7),
+			$('.profile .experienceList .description').fitText(6),
+			$('.profile .experienceList .descriptionBullets').fitText(6)
 		);
 
 		// Resizes the profile video on window resize
