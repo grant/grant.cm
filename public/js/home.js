@@ -9,7 +9,7 @@ $(function() {
 	};
 	var CLOSED_SIZE = {
 		WIDTH: '33.3%',
-		HEIGHT: '33.3%'
+		HEIGHT: '40%'
 	};
 	var HIDE_SIZE = {
 		WIDTH: '0%',
