@@ -377,6 +377,17 @@ $cardAreaPadding: 5px;
 			background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%);
 		}
 	}
+
+	&.thefourelements .cardContent {
+		.open {
+
+		}
+
+		.closed {
+			background: url('/images/cards/thefourelements/cover.svg') no-repeat center center;
+			background-size: cover;
+		}
+	}
 }
 
 // How to make a percentage-based square tile

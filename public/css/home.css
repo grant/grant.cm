@@ -220,6 +220,9 @@ p {
 .card.profile .cardContent .open, .card.profile .cardContent .closed {
   background-color: #3a3a3a;
   background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%); }
+.card.thefourelements .cardContent .closed {
+  background: url("/images/cards/thefourelements/cover.svg") no-repeat center center;
+  background-size: cover; }
 
 .squareTile {
   position: relative;
