@@ -373,39 +373,50 @@ $cardAreaPadding: 5px;
 		}
 	}
 
-	&.thefourelements .cardContent {
-		.open {
-			.leftArea {
-				width: 33.3%;
-				padding: 1.5% 2%;
-				background-color: rgb(241, 98, 100);
-
-				.name {
-					@include littleTextShadow;
-				}
-				.description, .instructions {
-					@include font-light;
-					padding-top: 1%;
-				}
-				.plays {
-					@include font-light;
-					padding-top: 1%;
-				}
-			}
-			.rightArea {
-				position: relative;
-				width: 66.6%;
-				background-color: black;
-			}
-			.leftArea, .rightArea {
-				float: left;
-				height: 100%;
-			}
-		}
-
+	&.thefourelements {
 		.closed {
 			background: url('/images/cards/thefourelements/cover.svg') no-repeat center center;
-			background-size: cover;
+		}
+	}
+	&.cellularwarfare {
+		.closed {
+			background: url('/images/cards/cellularwarfare/cover.svg') no-repeat center center;
+		}
+	}
+	&.thefourelements, &.cellularwarfare {
+		.cardContent {
+			.open {
+				.leftArea {
+					width: 33.3%;
+					padding: 1.5% 2%;
+					background-color: rgb(241, 98, 100);
+
+					.name {
+						@include littleTextShadow;
+					}
+					.description, .instructions {
+						@include font-light;
+						padding-top: 1%;
+					}
+					.plays {
+						@include font-light;
+						padding-top: 1%;
+					}
+				}
+				.rightArea {
+					position: relative;
+					width: 66.6%;
+					background-color: black;
+				}
+				.leftArea, .rightArea {
+					float: left;
+					height: 100%;
+				}
+			}
+
+			.closed {
+				background-size: cover;
+			}
 		}
 	}
 }

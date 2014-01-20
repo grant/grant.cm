@@ -219,29 +219,32 @@ p {
 .card.profile .cardContent .open, .card.profile .cardContent .closed {
   background-color: #3a3a3a;
   background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%); }
-.card.thefourelements .cardContent .open .leftArea {
+.card.thefourelements .closed {
+  background: url("/images/cards/thefourelements/cover.svg") no-repeat center center; }
+.card.cellularwarfare .closed {
+  background: url("/images/cards/cellularwarfare/cover.svg") no-repeat center center; }
+.card.thefourelements .cardContent .open .leftArea, .card.cellularwarfare .cardContent .open .leftArea {
   width: 33.3%;
   padding: 1.5% 2%;
   background-color: #f16264; }
-  .card.thefourelements .cardContent .open .leftArea .name {
+  .card.thefourelements .cardContent .open .leftArea .name, .card.cellularwarfare .cardContent .open .leftArea .name {
     text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
-  .card.thefourelements .cardContent .open .leftArea .description, .card.thefourelements .cardContent .open .leftArea .instructions {
+  .card.thefourelements .cardContent .open .leftArea .description, .card.thefourelements .cardContent .open .leftArea .instructions, .card.cellularwarfare .cardContent .open .leftArea .description, .card.cellularwarfare .cardContent .open .leftArea .instructions {
     font-weight: 100;
     color: #ccc;
     padding-top: 1%; }
-  .card.thefourelements .cardContent .open .leftArea .plays {
+  .card.thefourelements .cardContent .open .leftArea .plays, .card.cellularwarfare .cardContent .open .leftArea .plays {
     font-weight: 100;
     color: #ccc;
     padding-top: 1%; }
-.card.thefourelements .cardContent .open .rightArea {
+.card.thefourelements .cardContent .open .rightArea, .card.cellularwarfare .cardContent .open .rightArea {
   position: relative;
   width: 66.6%;
   background-color: black; }
-.card.thefourelements .cardContent .open .leftArea, .card.thefourelements .cardContent .open .rightArea {
+.card.thefourelements .cardContent .open .leftArea, .card.thefourelements .cardContent .open .rightArea, .card.cellularwarfare .cardContent .open .leftArea, .card.cellularwarfare .cardContent .open .rightArea {
   float: left;
   height: 100%; }
-.card.thefourelements .cardContent .closed {
-  background: url("/images/cards/thefourelements/cover.svg") no-repeat center center;
+.card.thefourelements .cardContent .closed, .card.cellularwarfare .cardContent .closed {
   background-size: cover; }
 
 .squareTile {
