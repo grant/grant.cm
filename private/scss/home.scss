@@ -163,7 +163,6 @@ $cardAreaPadding: 5px;
 
 		color: #eee;
 		box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
-		background-color: rgb(241, 98, 100);
 		border-radius: 3px;
 
 		.open {
@@ -223,10 +222,6 @@ $cardAreaPadding: 5px;
 
 		.open {
 			.profileText {
-				& {
-
-				}
-
 				width: 66.6%;
 				height: 100%;
 
@@ -380,7 +375,32 @@ $cardAreaPadding: 5px;
 
 	&.thefourelements .cardContent {
 		.open {
+			.leftArea {
+				width: 33.3%;
+				padding: 1.5% 2%;
+				background-color: rgb(241, 98, 100);
 
+				.name {
+					@include littleTextShadow;
+				}
+				.description, .instructions {
+					@include font-light;
+					padding-top: 1%;
+				}
+				.plays {
+					@include font-light;
+					padding-top: 1%;
+				}
+			}
+			.rightArea {
+				position: relative;
+				width: 66.6%;
+				background-color: black;
+			}
+			.leftArea, .rightArea {
+				float: left;
+				height: 100%;
+			}
 		}
 
 		.closed {

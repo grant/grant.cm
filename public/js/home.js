@@ -21,7 +21,8 @@ $(function() {
 	var $cards = $('.card');
 	var numCards = $cards.length;
 	var fitTexts = {
-		'profile': []
+		'profile': [],
+		'thefourelements': []
 	};
 
 	// On load
@@ -36,11 +37,18 @@ $(function() {
 			$('.profile .experienceList .description').fitText(6),
 			$('.profile .experienceList .descriptionBullets').fitText(6)
 		);
+		fitTexts['thefourelements'].push(
+			$('.thefourelements .name').fitText(1.1),
+			$('.thefourelements .description').fitText(2),
+			$('.thefourelements .instructions').fitText(2),
+			$('.thefourelements .plays').fitText(3)
+		);
 
 		// Resizes the profile video on window resize
 		$(window).on('resize orientationchange', function () {
 			// TODO: Make this happen only if the profile card is open
 			resizeProfileVideo();
+			resizeFlash();
 		});
 
 		// Close button
@@ -86,11 +94,14 @@ $(function() {
 			case 'profile':
 				resizeProfileVideo();
 				break;
+			case 'thefourelements':
+				resizeFlash();
+				break;
 		}
 	}
 
 	/**
-	 * Resizes the profile video and adjusts the position
+	 * Resizes the profile video and adjusts the position to cover the parent area
 	 */
 	function resizeProfileVideo() {
 		// Resize video
@@ -98,16 +109,16 @@ $(function() {
 		var videoWidth = $video.width();
 		var videoHeight = $video.height();
 
-		var $card = $video.closest('.card');
-		var videoAreaHeight = $card.outerHeight();
-		var videoAreaWidth = $card.outerWidth() / 3; // TODO: Make this more robust
+		var $videoArea = $video.parent();
+		var videoAreaHeight = $videoArea.height();
+		var videoAreaWidth = $videoArea.width();
 
-		var videoRatio = videoHeight/videoWidth;
-		var videoAreaRatio = videoAreaHeight/videoAreaWidth;
+		var videoRatio = videoWidth/videoHeight;
+		var videoAreaRatio = videoAreaWidth/videoAreaHeight;
 
 		var margin;
 		// If videoArea too flat, make 100% height
-		if (videoRatio < videoAreaHeight/videoAreaWidth) {
+		if (videoAreaRatio < videoRatio) {
 			margin = (videoAreaWidth - videoWidth)/2;
 			$video.css({
 				'width': 'auto',
@@ -120,6 +131,44 @@ $(function() {
 			$video.css({
 				'width': '100%',
 				'height': 'auto',
+				'margin-top': margin,
+				'margin-left': 0
+			});
+		}
+	}
+
+	/**
+	 * Resizes the flash game to fit it (not cover) the parent area
+	 */
+	function resizeFlash () {
+		var $swf = $('.thefourelements .swf');
+
+		var $parent = $swf.parent();
+		var parentWidth = $parent.width();
+		var parentHeight = $parent.height();
+
+		var swfRatio = $swf.data('aspectratio');
+		swfRatio = +swfRatio.split(':')[0]/+swfRatio.split(':')[1];
+		var parentRatio = parentWidth/parentHeight;
+
+		var margin=0;
+		if (swfRatio < parentRatio) {
+			// Use 100% height
+			var width = parentHeight * swfRatio;
+			margin = (parentWidth - width)/2;
+			$swf.css({
+				'width': width + 'px',
+				'height': '100%',
+				'margin-top': 0,
+				'margin-left': margin
+			});
+		} else {
+			// Use 100% width
+			var height = parentWidth/swfRatio;
+			margin = (parentHeight - height)/2;
+			$swf.css({
+				'width': '100%',
+				'height': height + 'px',
 				'margin-top': margin,
 				'margin-left': 0
 			});
