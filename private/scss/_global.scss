@@ -1,0 +1,13 @@
+/**
+ * Global styles
+ */
+
+/* Font */
+@mixin font-light {
+	font-weight: 100;
+	color: #ccc;
+}
+@mixin font-dark {
+	font-weight: 100;
+	color: #666;
+}
