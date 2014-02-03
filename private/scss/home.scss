@@ -73,7 +73,7 @@ p {
 
 /* Page */
 $pageBackgroundColor: #222;
-$headerHeight: 40px;
+$headerHeight: 1%;
 $navButtonBottomBorderHeight: 3px;
 $cardSidePadding: $headerHeight;
 $cardAreaPadding: 5px;
@@ -140,12 +140,14 @@ $cardAreaPadding: 5px;
 	padding: $headerHeight $cardSidePadding 0 $cardSidePadding;
 }
 
+$cardsPerRow: 3; // Must be an integer
+$cardsPerHeight: 2.2; // Can be float
 .card {
-	$cardMargin: 0.5%;
+	$cardMargin: 1.5%;
 	display: inline-block;
 
-	width: 33.3%;
-	height: 40%;
+	width: 100% / $cardsPerRow;
+	height: 100% / $cardsPerHeight;
 	min-height: 300px;
 	padding: $cardMargin;
 
@@ -163,7 +165,7 @@ $cardAreaPadding: 5px;
 
 		color: #eee;
 		box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
-		border-radius: 3px;
+		border-radius: 10px; // Not percentage because aspect ratio is variable to screen aspect ratio
 
 		.open {
 			// Hack to make it square

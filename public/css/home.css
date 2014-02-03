@@ -60,18 +60,18 @@ p {
   left: 0;
   overflow: hidden;
   width: 100%;
-  height: 40px;
+  height: 1%;
   /* Nav Buttons */ }
   .pageContent > header .logo {
     border-bottom-right-radius: 2px;
-    width: 40px;
-    height: 40px; }
+    width: 1%;
+    height: 1%; }
   .pageContent > header .leftHeader, .pageContent > header .rightHeader {
     height: 100%; }
   .pageContent > header nav {
     height: 100%; }
   .pageContent > header .searchButton {
-    height: 40px;
+    height: 1%;
     border: 0;
     margin: 0;
     cursor: pointer;
@@ -81,14 +81,14 @@ p {
 /* Card area */
 .cardArea {
   height: calc(100% - 50px);
-  padding: 40px 40px 0 40px; }
+  padding: 1% 1% 0 1%; }
 
 .card {
   display: inline-block;
-  width: 33.3%;
-  height: 40%;
+  width: 33.33333%;
+  height: 45.45455%;
   min-height: 300px;
-  padding: 0.5%; }
+  padding: 1.5%; }
   .card:not(.open) .cardContent {
     cursor: pointer;
     overflow: hidden; }
@@ -98,7 +98,7 @@ p {
     overflow: hidden;
     color: #eee;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 3px; }
+    border-radius: 10px; }
     .card .cardContent .open .closeButton {
       position: absolute;
       width: 4%;
