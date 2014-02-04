@@ -19,7 +19,6 @@ $(function() {
 	// Page state variables
 	var cardIsOpen = false;
 	var $cardTiles = $('div.cardTiles');
-	var $cardCarousel = $('div.cardCarousel');
 	var $tileCards = $cardTiles.find('div.card');
 	var numCards = $tileCards.length;
 	var fitTexts = {
@@ -53,11 +52,6 @@ $(function() {
 			resizeFlash();
 		});
 
-		// Close button
-		$('.closeButton').click(function () {
-			closeCard($(this).closest('.card'));
-		});
-
 		// If you click outside the card, it automatically closes the opened card
 		$('.cardArea').click(function (event) {
 			var target = event.target;
@@ -65,6 +59,10 @@ $(function() {
 				closeCard($('.card.open'));
 			}
 		});
+
+		// Clicking on the nav buttons
+		$('.leftNavButton').click(navLeft);
+		$('.rightNavButton').click(navRight);
 	})();
 
 	//
@@ -144,36 +142,37 @@ $(function() {
 	 */
 	function resizeFlash () {
 		var $swf = $('.thefourelements .swf');
+		if ($swf.length) {
+			var $parent = $swf.parent();
+			var parentWidth = $parent.width();
+			var parentHeight = $parent.height();
 
-		var $parent = $swf.parent();
-		var parentWidth = $parent.width();
-		var parentHeight = $parent.height();
+			var swfRatio = $swf.data('aspectratio');
+			swfRatio = +swfRatio.split(':')[0]/+swfRatio.split(':')[1];
+			var parentRatio = parentWidth/parentHeight;
 
-		var swfRatio = $swf.data('aspectratio');
-		swfRatio = +swfRatio.split(':')[0]/+swfRatio.split(':')[1];
-		var parentRatio = parentWidth/parentHeight;
-
-		var margin=0;
-		if (swfRatio < parentRatio) {
-			// Use 100% height
-			var width = parentHeight * swfRatio;
-			margin = (parentWidth - width)/2;
-			$swf.css({
-				'width': width + 'px',
-				'height': '100%',
-				'margin-top': 0,
-				'margin-left': margin
-			});
-		} else {
-			// Use 100% width
-			var height = parentWidth/swfRatio;
-			margin = (parentHeight - height)/2;
-			$swf.css({
-				'width': '100%',
-				'height': height + 'px',
-				'margin-top': margin,
-				'margin-left': 0
-			});
+			var margin=0;
+			if (swfRatio < parentRatio) {
+				// Use 100% height
+				var width = parentHeight * swfRatio;
+				margin = (parentWidth - width)/2;
+				$swf.css({
+					'width': width + 'px',
+					'height': '100%',
+					'margin-top': 0,
+					'margin-left': margin
+				});
+			} else {
+				// Use 100% width
+				var height = parentWidth/swfRatio;
+				margin = (parentHeight - height)/2;
+				$swf.css({
+					'width': '100%',
+					'height': height + 'px',
+					'margin-top': margin,
+					'margin-left': 0
+				});
+			}
 		}
 	}
 
@@ -194,7 +193,6 @@ $(function() {
 		var siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
 			return card !== $card[0];
 		}));
-		openCarouselCard(cardId);
 
 		// Animate the clicked card to open
 		$card.animate({
@@ -206,13 +204,18 @@ $(function() {
 				resizing(cardId);
 			},
 			done: function () {
-				$cardTiles.hide();
-				$cardCarousel.show();
 			}
 		});
 
 		// Animate the contents of the clicked card
+		$cardTiles.addClass('fullcard');
 		$card.find('.closed').show().fadeOut(ANIMATION_TIME);
+		$card.find('.open').load('/api/card/' + cardId, function () {
+			// Close button
+			$('.closeButton').click(function () {
+				closeCard($(this).closest('.card'));
+			});
+		});
 
 		// Animate the sibling cards on the same row to closed
 		siblingCards.each(function () {
@@ -242,8 +245,6 @@ $(function() {
 		}));
 
 		// Animate the clicked card to closed
-		$cardTiles.show();
-		$cardCarousel.hide();
 		$card.animate({
 			width: CLOSED_SIZE.WIDTH,
 			height: CLOSED_SIZE.HEIGHT
@@ -259,7 +260,9 @@ $(function() {
 		});
 
 		// Animate the contents of the clicked card
+		$cardTiles.removeClass('fullcard');
 		$card.find('.closed').hide().fadeIn(ANIMATION_TIME);
+		$card.find('.open').html('');
 
 		// Animate the sibling cards on the same row to closed
 		siblingCards.each(function () {
@@ -275,13 +278,39 @@ $(function() {
 	}
 
 	/**
-	 * Opens a carousel card given an id
-	 * @param {String} cardId The id of the card
+	 * Navigates an open card to the project on the left
 	 */
-	function openCarouselCard (cardId) {
-		var partialName = 'api/card/' + cardId;
-		$cardCarousel.find('.cardContent').load(partialName);
+	function navLeft () {
+		navSibling('left');
 	}
+
+	/**
+	 * Navigates an open card to the project on the right
+	 */
+	function navRight () {
+		navSibling('right');
+	}
+
+	function navSibling (direction) {
+		var $openCard = $tileCards.filter('.open');
+		var $siblingCard;
+		switch (direction) {
+			case 'left':
+				$siblingCard = $openCard.prev();
+				break;
+			case 'right':
+				$siblingCard = $openCard.next();
+				break;
+		}
+		if ($siblingCard.length !== 0) {
+			closeCard($openCard);
+			openCard($siblingCard);
+		}
+	}
+
+	//
+	// Helper functions
+	//
 
 	/**
 	 * Gets an array of the indices of a certain row

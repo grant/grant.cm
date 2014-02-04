@@ -65,15 +65,41 @@ p {
 .cardArea {
   height: 100%; }
 
-.cardTiles, .cardCarousel {
+.cardTiles {
   position: absolute;
   width: 100%;
   height: 100%; }
+  .cardTiles.fullcard {
+    overflow: hidden; }
 
 .card {
+  position: relative;
   display: inline-block;
+  width: 33.33333%;
+  height: 45.45455%;
   min-height: 300px;
   padding: 1.5%; }
+  .card:not(.open) .cardContent {
+    cursor: pointer;
+    overflow: hidden;
+    transition: -webkit-transform 100ms, box-shadow 100ms; }
+    .card:not(.open) .cardContent:hover {
+      -webkit-transform: scale(1.05);
+      box-shadow: 10px 10px 5px 5px rgba(0, 0, 0, 0.1); }
+  .card:not(.open) .leftNavButton, .card:not(.open) .rightNavButton {
+    display: none; }
+  .card .leftNavButton {
+    left: 0; }
+  .card .rightNavButton {
+    right: 0; }
+  .card .leftNavButton, .card .rightNavButton {
+    position: absolute;
+    top: 50%;
+    height: 15%;
+    width: 3%;
+    background-color: red;
+    cursor: pointer;
+    z-index: 1000; }
   .card .cardContent {
     position: relative;
     height: 100%;
@@ -81,15 +107,15 @@ p {
     color: #eee;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px; }
-    .card .cardContent .closeButton {
+    .card .cardContent .open .closeButton {
       position: absolute;
       width: 4%;
       overflow: hidden; }
-      .card .cardContent .closeButton:before {
+      .card .cardContent .open .closeButton:before {
         content: "";
         display: block;
         padding-top: 100%; }
-      .card .cardContent .closeButton .content {
+      .card .cardContent .open .closeButton .content {
         overflow: hidden;
         position: absolute;
         top: 0;
@@ -107,173 +133,127 @@ p {
       width: 100%;
       height: 100%; }
 
-.cardCarousel {
-  display: none; }
-  .cardCarousel .card {
-    width: 100%;
-    height: 100%; }
-    .cardCarousel .card .cardContent {
-      background-color: red; }
-    .cardCarousel .card.profile .cardContent {
-      background-color: #3a3a3a;
-      background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%); }
-      .cardCarousel .card.profile .cardContent .profileText {
-        width: 66.6%;
-        height: 100%;
-        padding: 1.5% 2%;
-        overflow-y: scroll; }
-        .cardCarousel .card.profile .cardContent .profileText .name {
-          text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
-        .cardCarousel .card.profile .cardContent .profileText .twitterHandle {
-          padding-top: 1%;
-          font-weight: 100;
-          color: #ccc; }
-        .cardCarousel .card.profile .cardContent .profileText .longBio {
-          padding: 1% 0;
-          line-height: 150%; }
-          .cardCarousel .card.profile .cardContent .profileText .longBio:first-letter {
-            float: left;
-            font-size: 400%;
-            line-height: 100%;
-            padding-right: .5%; }
-        .cardCarousel .card.profile .cardContent .profileText .experienceList {
-          padding-top: 1%; }
-          .cardCarousel .card.profile .cardContent .profileText .experienceList > li {
-            overflow: hidden;
-            padding-bottom: 1%; }
-          .cardCarousel .card.profile .cardContent .profileText .experienceList .iconArea {
-            width: 10%; }
-          .cardCarousel .card.profile .cardContent .profileText .experienceList .descriptionArea {
-            width: 90%;
-            padding-left: 2%; }
-            .cardCarousel .card.profile .cardContent .profileText .experienceList .descriptionArea .titleBar {
-              padding-bottom: 0.5%;
-              overflow: hidden; }
-              .cardCarousel .card.profile .cardContent .profileText .experienceList .descriptionArea .titleBar .title {
-                float: left; }
-              .cardCarousel .card.profile .cardContent .profileText .experienceList .descriptionArea .titleBar .dateRange {
-                float: right; }
-            .cardCarousel .card.profile .cardContent .profileText .experienceList .descriptionArea .description, .cardCarousel .card.profile .cardContent .profileText .experienceList .descriptionArea .descriptionBullets {
-              font-weight: 100;
-              color: #ccc;
-              line-height: 150%;
-              list-style: disc;
-              list-style-position: inside; }
-          .cardCarousel .card.profile .cardContent .profileText .experienceList .iconArea, .cardCarousel .card.profile .cardContent .profileText .experienceList .descriptionArea {
-            float: left; }
-      .cardCarousel .card.profile .cardContent .videoArea {
-        width: 33.3%;
-        height: 100%;
-        overflow: hidden; }
-      .cardCarousel .card.profile .cardContent .profileText, .cardCarousel .card.profile .cardContent .videoArea {
-        float: left; }
-    .cardCarousel .card.thefourelements .closed {
-      background: url("/images/cards/thefourelements/cover.svg") no-repeat center center; }
-    .cardCarousel .card.cellularwarfare .closed {
-      background: url("/images/cards/cellularwarfare/cover.svg") no-repeat center center; }
-    .cardCarousel .card.thefourelements .cardContent .leftArea, .cardCarousel .card.cellularwarfare .cardContent .leftArea {
-      width: 33.3%;
-      padding: 1.5% 2%;
-      background-color: #f16264; }
-      .cardCarousel .card.thefourelements .cardContent .leftArea .name, .cardCarousel .card.cellularwarfare .cardContent .leftArea .name {
-        text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
-      .cardCarousel .card.thefourelements .cardContent .leftArea .description, .cardCarousel .card.thefourelements .cardContent .leftArea .instructions, .cardCarousel .card.cellularwarfare .cardContent .leftArea .description, .cardCarousel .card.cellularwarfare .cardContent .leftArea .instructions {
-        font-weight: 100;
-        color: #ccc;
-        padding-top: 1%; }
-      .cardCarousel .card.thefourelements .cardContent .leftArea .plays, .cardCarousel .card.cellularwarfare .cardContent .leftArea .plays {
-        font-weight: 100;
-        color: #ccc;
-        padding-top: 1%; }
-    .cardCarousel .card.thefourelements .cardContent .rightArea, .cardCarousel .card.cellularwarfare .cardContent .rightArea {
-      position: relative;
-      width: 66.6%;
-      background-color: black; }
-    .cardCarousel .card.thefourelements .cardContent .leftArea, .cardCarousel .card.thefourelements .cardContent .rightArea, .cardCarousel .card.cellularwarfare .cardContent .leftArea, .cardCarousel .card.cellularwarfare .cardContent .rightArea {
-      float: left;
-      height: 100%; }
+.cardImageArea {
+  width: 100%;
+  min-height: 100px;
+  background-color: #444; }
 
-.cardTiles {
-  /* Specific cards */ }
-  .cardTiles .card {
-    width: 33.33333%;
-    height: 45.45455%; }
-  .cardTiles .cardImageArea {
-    width: 100%;
-    min-height: 100px;
-    background-color: #444; }
-  .cardTiles:not(.open) .cardContent {
-    cursor: pointer;
-    overflow: hidden;
-    transition: -webkit-transform 100ms, box-shadow 100ms; }
-    .cardTiles:not(.open) .cardContent:hover {
-      -webkit-transform: scale(1.05);
-      box-shadow: 10px 10px 5px 5px rgba(0, 0, 0, 0.1); }
-  .cardTiles .card.profile .cardContent .closed {
-    padding: 2%; }
-    .cardTiles .card.profile .cardContent .closed .profileText {
-      width: 80%;
-      margin: 0 10%; }
-      .cardTiles .card.profile .cardContent .closed .profileText .bio {
+/* Specific cards */
+.card.profile .cardContent .open .profileText {
+  width: 66.6%;
+  height: 100%;
+  padding: 1.5% 2%;
+  overflow-y: scroll; }
+  .card.profile .cardContent .open .profileText .name {
+    text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
+  .card.profile .cardContent .open .profileText .twitterHandle {
+    padding-top: 1%;
+    font-weight: 100;
+    color: #ccc; }
+  .card.profile .cardContent .open .profileText .longBio {
+    padding: 1% 0;
+    line-height: 150%; }
+    .card.profile .cardContent .open .profileText .longBio:first-letter {
+      float: left;
+      font-size: 400%;
+      line-height: 100%;
+      padding-right: .5%; }
+  .card.profile .cardContent .open .profileText .experienceList {
+    padding-top: 1%; }
+    .card.profile .cardContent .open .profileText .experienceList > li {
+      overflow: hidden;
+      padding-bottom: 1%; }
+    .card.profile .cardContent .open .profileText .experienceList .iconArea {
+      width: 10%; }
+    .card.profile .cardContent .open .profileText .experienceList .descriptionArea {
+      width: 90%;
+      padding-left: 2%; }
+      .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar {
+        padding-bottom: 0.5%;
+        overflow: hidden; }
+        .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .title {
+          float: left; }
+        .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .dateRange {
+          float: right; }
+      .card.profile .cardContent .open .profileText .experienceList .descriptionArea .description, .card.profile .cardContent .open .profileText .experienceList .descriptionArea .descriptionBullets {
         font-weight: 100;
-        color: #ccc; }
-      .cardTiles .card.profile .cardContent .closed .profileText .name, .cardTiles .card.profile .cardContent .closed .profileText .bio {
-        text-align: center;
-        text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
-    .cardTiles .card.profile .cardContent .closed .profilePhoto {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      padding-bottom: 1%;
-      height: 50%;
-      border-radius: 50%;
-      box-shadow: 10px 10px rgba(20, 10, 0, 0.1); }
-    .cardTiles .card.profile .cardContent .closed hr {
-      margin-top: 2%;
-      height: 1%;
-      width: 20%;
-      border: none;
-      background-color: #999;
-      box-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
-    .cardTiles .card.profile .cardContent .closed .experienceList {
-      height: 25%;
-      padding: 1% 0;
-      text-align: center; }
-      .cardTiles .card.profile .cardContent .closed .experienceList li {
-        width: 13%;
-        height: 100%;
-        display: inline-block;
-        margin: 0 3%; }
-  .cardTiles .card.profile .cardContent .closed {
-    background-color: #3a3a3a;
-    background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%); }
-  .cardTiles .card.thefourelements .closed {
-    background: url("/images/cards/thefourelements/cover.svg") no-repeat center center; }
-  .cardTiles .card.cellularwarfare .closed {
-    background: url("/images/cards/cellularwarfare/cover.svg") no-repeat center center; }
-  .cardTiles .card.thefourelements .cardContent .open .leftArea, .cardTiles .card.cellularwarfare .cardContent .open .leftArea {
-    width: 33.3%;
-    padding: 1.5% 2%;
-    background-color: #f16264; }
-    .cardTiles .card.thefourelements .cardContent .open .leftArea .name, .cardTiles .card.cellularwarfare .cardContent .open .leftArea .name {
+        color: #ccc;
+        line-height: 150%;
+        list-style: disc;
+        list-style-position: inside; }
+    .card.profile .cardContent .open .profileText .experienceList .iconArea, .card.profile .cardContent .open .profileText .experienceList .descriptionArea {
+      float: left; }
+.card.profile .cardContent .open .videoArea {
+  width: 33.3%;
+  height: 100%;
+  overflow: hidden; }
+.card.profile .cardContent .open .profileText, .card.profile .cardContent .open .videoArea {
+  float: left; }
+.card.profile .cardContent .closed {
+  padding: 2%; }
+  .card.profile .cardContent .closed .profileText {
+    width: 80%;
+    margin: 0 10%; }
+    .card.profile .cardContent .closed .profileText .bio {
+      font-weight: 100;
+      color: #ccc; }
+    .card.profile .cardContent .closed .profileText .name, .card.profile .cardContent .closed .profileText .bio {
+      text-align: center;
       text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
-    .cardTiles .card.thefourelements .cardContent .open .leftArea .description, .cardTiles .card.thefourelements .cardContent .open .leftArea .instructions, .cardTiles .card.cellularwarfare .cardContent .open .leftArea .description, .cardTiles .card.cellularwarfare .cardContent .open .leftArea .instructions {
-      font-weight: 100;
-      color: #ccc;
-      padding-top: 1%; }
-    .cardTiles .card.thefourelements .cardContent .open .leftArea .plays, .cardTiles .card.cellularwarfare .cardContent .open .leftArea .plays {
-      font-weight: 100;
-      color: #ccc;
-      padding-top: 1%; }
-  .cardTiles .card.thefourelements .cardContent .open .rightArea, .cardTiles .card.cellularwarfare .cardContent .open .rightArea {
-    position: relative;
-    width: 66.6%;
-    background-color: black; }
-  .cardTiles .card.thefourelements .cardContent .open .leftArea, .cardTiles .card.thefourelements .cardContent .open .rightArea, .cardTiles .card.cellularwarfare .cardContent .open .leftArea, .cardTiles .card.cellularwarfare .cardContent .open .rightArea {
-    float: left;
-    height: 100%; }
-  .cardTiles .card.thefourelements .cardContent .closed, .cardTiles .card.cellularwarfare .cardContent .closed {
-    background-size: cover; }
+  .card.profile .cardContent .closed .profilePhoto {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1%;
+    height: 50%;
+    border-radius: 50%;
+    box-shadow: 10px 10px rgba(20, 10, 0, 0.1); }
+  .card.profile .cardContent .closed hr {
+    margin-top: 2%;
+    height: 1%;
+    width: 20%;
+    border: none;
+    background-color: #999;
+    box-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
+  .card.profile .cardContent .closed .experienceList {
+    height: 25%;
+    padding: 1% 0;
+    text-align: center; }
+    .card.profile .cardContent .closed .experienceList li {
+      width: 13%;
+      height: 100%;
+      display: inline-block;
+      margin: 0 3%; }
+.card.profile .cardContent .open, .card.profile .cardContent .closed {
+  background-color: #3a3a3a;
+  background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%); }
+.card.thefourelements .closed {
+  background: url("/images/cards/thefourelements/cover.svg") no-repeat center center; }
+.card.cellularwarfare .closed {
+  background: url("/images/cards/cellularwarfare/cover.svg") no-repeat center center; }
+.card.thefourelements .cardContent .open .leftArea, .card.cellularwarfare .cardContent .open .leftArea {
+  width: 33.3%;
+  padding: 1.5% 2%;
+  background-color: #f16264; }
+  .card.thefourelements .cardContent .open .leftArea .name, .card.cellularwarfare .cardContent .open .leftArea .name {
+    text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
+  .card.thefourelements .cardContent .open .leftArea .description, .card.thefourelements .cardContent .open .leftArea .instructions, .card.cellularwarfare .cardContent .open .leftArea .description, .card.cellularwarfare .cardContent .open .leftArea .instructions {
+    font-weight: 100;
+    color: #ccc;
+    padding-top: 1%; }
+  .card.thefourelements .cardContent .open .leftArea .plays, .card.cellularwarfare .cardContent .open .leftArea .plays {
+    font-weight: 100;
+    color: #ccc;
+    padding-top: 1%; }
+.card.thefourelements .cardContent .open .rightArea, .card.cellularwarfare .cardContent .open .rightArea {
+  position: relative;
+  width: 66.6%;
+  background-color: black; }
+.card.thefourelements .cardContent .open .leftArea, .card.thefourelements .cardContent .open .rightArea, .card.cellularwarfare .cardContent .open .leftArea, .card.cellularwarfare .cardContent .open .rightArea {
+  float: left;
+  height: 100%; }
+.card.thefourelements .cardContent .closed, .card.cellularwarfare .cardContent .closed {
+  background-size: cover; }
 
 .squareTile {
   position: relative;
