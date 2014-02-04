@@ -87,3 +87,8 @@ exports.index = function(req, res){
 	var indexParams = { title: 'Express' };
 	res.render('index', indexParams);
 };
+
+exports.cardAPI = function (req, res) {
+	var id = req.params.id;
+	res.render('partials/cards/data/' + id + '/open');
+};

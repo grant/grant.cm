@@ -1,7 +1,7 @@
 $(function() {
 	// TODO: Put constants somwhere
 	var CARDS_PER_ROW = 3;
-	var ANIMATION_TIME = 500;
+	var ANIMATION_TIME = 2000;
 
 	var OPEN_SIZE = {
 		WIDTH: '100%',
@@ -18,8 +18,10 @@ $(function() {
 
 	// Page state variables
 	var cardIsOpen = false;
-	var $cards = $('.card');
-	var numCards = $cards.length;
+	var $cardTiles = $('div.cardTiles');
+	var $cardCarousel = $('div.cardCarousel');
+	var $tileCards = $cardTiles.find('div.card');
+	var numCards = $tileCards.length;
 	var fitTexts = {
 		'profile': [],
 		'thefourelements': []
@@ -72,7 +74,7 @@ $(function() {
 	/**
 	 * When clickcing on a card, open it up.
 	 */
-	$cards.click(function() {
+	$tileCards.click(function() {
 		if (!cardIsOpen) {
 			var $card = $(this);
 			openCard($card);
@@ -192,6 +194,7 @@ $(function() {
 		var siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
 			return card !== $card[0];
 		}));
+		openCarouselCard(cardId);
 
 		// Animate the clicked card to open
 		$card.animate({
@@ -203,7 +206,8 @@ $(function() {
 				resizing(cardId);
 			},
 			done: function () {
-
+				$cardTiles.hide();
+				$cardCarousel.show();
 			}
 		});
 
@@ -238,6 +242,8 @@ $(function() {
 		}));
 
 		// Animate the clicked card to closed
+		$cardTiles.show();
+		$cardCarousel.hide();
 		$card.animate({
 			width: CLOSED_SIZE.WIDTH,
 			height: CLOSED_SIZE.HEIGHT
@@ -265,8 +271,16 @@ $(function() {
 			}, ANIMATION_TIME);
 		});
 
-
 		$card.removeClass('open');
+	}
+
+	/**
+	 * Opens a carousel card given an id
+	 * @param {String} cardId The id of the card
+	 */
+	function openCarouselCard (cardId) {
+		var partialName = 'api/card/' + cardId;
+		$cardCarousel.find('.cardContent').load(partialName);
 	}
 
 	/**
@@ -290,10 +304,10 @@ $(function() {
 	 */
 	function getCards (indices) {
 		if (typeof indices === 'number') {
-			return $cards[indices];
+			return $tileCards[indices];
 		} else { // Assume it's an array
 			return indices.map(function(i) {
-				return $cards[i];
+				return $tileCards[i];
 			});
 		}
 	}
