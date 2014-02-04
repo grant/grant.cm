@@ -1,7 +1,7 @@
 $(function() {
 	// TODO: Put constants somwhere
 	var CARDS_PER_ROW = 3;
-	var ANIMATION_TIME = 2000;
+	var ANIMATION_TIME = 200;
 
 	var OPEN_SIZE = {
 		WIDTH: '100%',
@@ -58,6 +58,7 @@ $(function() {
 			if ($(target).hasClass('cardArea')) {
 				closeCard($('.card.open'));
 			}
+			return false;
 		});
 
 		// Clicking on the nav buttons
@@ -77,6 +78,7 @@ $(function() {
 			var $card = $(this);
 			openCard($card);
 		}
+		return false;
 	});
 
 	/**
@@ -214,6 +216,7 @@ $(function() {
 			// Close button
 			$('.closeButton').click(function () {
 				closeCard($(this).closest('.card'));
+				return false;
 			});
 		});
 
