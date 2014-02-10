@@ -1,7 +1,8 @@
 $(function() {
 	// TODO: Put constants somwhere
+	var CARD_PADDING = '1.5%';
 	var CARDS_PER_ROW = 3;
-	var ANIMATION_TIME = 4000;
+	var ANIMATION_TIME = 2000;
 
 	var OPEN_SIZE = {
 		WIDTH: '100%',
@@ -220,9 +221,11 @@ $(function() {
 		// Animate the sibling cards on the same row to closed
 		$siblingCards.each(function () {
 			var $siblingCard = $(this);
-			$(this).animate({
+			$(this).css({width: '33.3%'}).animate({
 				width: HIDE_SIZE.WIDTH,
-				height: OPEN_SIZE.HEIGHT
+				height: OPEN_SIZE.HEIGHT,
+				paddingRight: 0,
+				paddingLeft: 0
 			}, ANIMATION_TIME, function () {
 				$siblingCard.hide();
 			});
@@ -283,7 +286,9 @@ $(function() {
 			$siblingCard.show();
 			$(this).animate({
 				width: CLOSED_SIZE.WIDTH,
-				height: CLOSED_SIZE.HEIGHT
+				height: CLOSED_SIZE.HEIGHT,
+				paddingRight: CARD_PADDING,
+				paddingLeft: CARD_PADDING
 			}, ANIMATION_TIME);
 		});
 
@@ -337,7 +342,11 @@ $(function() {
 				resizing(cardCloseId);
 			},
 			done: function () {
-				$cardClose.hide();
+				// Reset card
+				$cardClose.hide().css({
+					padding: CARD_PADDING
+				}).find('.open').html('');
+				$cardClose.find('.closed').show();
 			}
 		});
 		$cardClose.removeClass('open');
@@ -345,7 +354,9 @@ $(function() {
 		// Open card
 		openCardContent($cardOpen);
 		$cardOpen.css({
-			display: 'inline-block'
+			display: 'inline-block',
+			paddingRight: CARD_PADDING,
+			paddingLeft: CARD_PADDING
 		}).animate({
 			width: OPEN_SIZE.WIDTH
 		}, {
