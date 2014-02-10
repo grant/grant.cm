@@ -1,7 +1,7 @@
 $(function() {
 	// TODO: Put constants somwhere
 	var CARDS_PER_ROW = 3;
-	var ANIMATION_TIME = 200;
+	var ANIMATION_TIME = 4000;
 
 	var OPEN_SIZE = {
 		WIDTH: '100%',
@@ -189,12 +189,14 @@ $(function() {
 	function openCard ($card) {
 		cardIsOpen = true;
 
+		// Setup vars
 		var cardId = $card.data('id');
 		var cardIndex = $card.index();
 		var siblingCardIndices = getRowIndices(cardIndex);
-		var siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
+		var $siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
 			return card !== $card[0];
 		}));
+		var $otherCards = $tileCards.not($card);
 
 		// Animate the clicked card to open
 		$card.animate({
@@ -206,22 +208,17 @@ $(function() {
 				resizing(cardId);
 			},
 			done: function () {
+				// Hide all cards
+				$otherCards.hide();
 			}
 		});
 
 		// Animate the contents of the clicked card
 		$cardTiles.addClass('fullcard');
-		$card.find('.closed').show().fadeOut(ANIMATION_TIME);
-		$card.find('.open').load('/api/card/' + cardId, function () {
-			// Close button
-			$('.closeButton').click(function () {
-				closeCard($(this).closest('.card'));
-				return false;
-			});
-		});
+		openCardContent($card);
 
 		// Animate the sibling cards on the same row to closed
-		siblingCards.each(function () {
+		$siblingCards.each(function () {
 			var $siblingCard = $(this);
 			$(this).animate({
 				width: HIDE_SIZE.WIDTH,
@@ -235,15 +232,28 @@ $(function() {
 		$card.addClass('open');
 	}
 
+	function openCardContent ($card) {
+		var cardId =$card.data('id');
+		$card.find('.closed').show().fadeOut(ANIMATION_TIME);
+		$card.find('.open').load('/api/card/' + cardId, function () {
+			// Close button
+			$('.closeButton').click(function () {
+				closeCard($(this).closest('.card'));
+				return false;
+			});
+		});
+	}
+
 	/**
 	 * Closes a card.
 	 * @param {Card} $card The jquery-wrapped card
 	 */
-	function closeCard ($card) {
+	function closeCard ($card, horizontally) {
+		// Setup vars
 		var cardId = $card.data('id');
 		var cardIndex = $card.index();
 		var siblingCardIndices = getRowIndices(cardIndex);
-		var siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
+		var $siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
 			return card !== $card[0];
 		}));
 
@@ -268,7 +278,7 @@ $(function() {
 		$card.find('.open').html('');
 
 		// Animate the sibling cards on the same row to closed
-		siblingCards.each(function () {
+		$siblingCards.each(function () {
 			var $siblingCard = $(this);
 			$siblingCard.show();
 			$(this).animate({
@@ -306,9 +316,48 @@ $(function() {
 				break;
 		}
 		if ($siblingCard.length !== 0) {
-			closeCard($openCard);
-			openCard($siblingCard);
+			shiftCard($openCard, $siblingCard);
+			// closeCard($openCard, true);
+			// openCard($siblingCard);
 		}
+	}
+
+	function shiftCard ($cardClose, $cardOpen) {
+		var cardCloseId = $cardClose.data('id');
+		var cardOpenId = $cardOpen.data('id');
+
+		// Close card
+		$cardClose.css({width:'95%'}).animate({
+			paddingRight: 0,
+			paddingLeft: 0,
+			width: HIDE_SIZE.WIDTH
+		}, {
+			duration: ANIMATION_TIME/1.01,
+			step: function () {
+				resizing(cardCloseId);
+			},
+			done: function () {
+				$cardClose.hide();
+			}
+		});
+		$cardClose.removeClass('open');
+
+		// Open card
+		openCardContent($cardOpen);
+		$cardOpen.css({
+			display: 'inline-block'
+		}).animate({
+			width: OPEN_SIZE.WIDTH
+		}, {
+			duration: ANIMATION_TIME,
+			step: function () {
+				resizing(cardOpenId);
+			},
+			done: function () {
+				$cardClose.hide();
+			}
+		});
+		$cardOpen.addClass('open');
 	}
 
 	//
