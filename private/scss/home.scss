@@ -62,7 +62,7 @@ $cardsPerHeight: 2.2; // Can be float
 		$transitionTime: 100ms;
 		transition: -webkit-transform $transitionTime, box-shadow $transitionTime;
 		&:hover {
-			-webkit-transform: scale(1.05);
+			// -webkit-transform: scale(1.05);
 			box-shadow: 10px 10px 5px 5px rgba(0, 0, 0, 0.1);
 		}
 	}

@@ -2,7 +2,7 @@ $(function() {
 	// TODO: Put constants somwhere
 	var CARD_PADDING = '1.5%';
 	var CARDS_PER_ROW = 3;
-	var ANIMATION_TIME = 2000;
+	var ANIMATION_TIME = 1000;
 
 	var OPEN_SIZE = {
 		WIDTH: '100%',
@@ -199,14 +199,24 @@ $(function() {
 		}));
 		var $otherCards = $tileCards.not($card);
 
+		// Animate the contents of the clicked card
+		$cardTiles.addClass('fullcard');
+		openCardContent($card);
+
 		// Animate the clicked card to open
 		$card.animate({
 			width: OPEN_SIZE.WIDTH,
 			height: OPEN_SIZE.HEIGHT
 		}, {
 			duration: ANIMATION_TIME,
-			step: function () {
-				resizing(cardId);
+			step: function (now, fx) {
+				if (fx.prop === 'width') {
+					resizing(cardId);
+					var otherWidth = (100 - now) / 2;
+					$siblingCards.css({
+						width: otherWidth + '%'
+					});
+				}
 			},
 			done: function () {
 				// Hide all cards
@@ -214,15 +224,11 @@ $(function() {
 			}
 		});
 
-		// Animate the contents of the clicked card
-		$cardTiles.addClass('fullcard');
-		openCardContent($card);
-
 		// Animate the sibling cards on the same row to closed
 		$siblingCards.each(function () {
 			var $siblingCard = $(this);
-			$(this).css({width: '33.3%'}).animate({
-				width: HIDE_SIZE.WIDTH,
+			$(this).animate({
+				// width: HIDE_SIZE.WIDTH,
 				height: OPEN_SIZE.HEIGHT,
 				paddingRight: 0,
 				paddingLeft: 0
@@ -256,9 +262,7 @@ $(function() {
 		var cardId = $card.data('id');
 		var cardIndex = $card.index();
 		var siblingCardIndices = getRowIndices(cardIndex);
-		var $siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
-			return card !== $card[0];
-		}));
+		var $siblingCards = $(getCards(siblingCardIndices)).not($card);
 
 		// Animate the clicked card to closed
 		$card.animate({
@@ -266,8 +270,13 @@ $(function() {
 			height: CLOSED_SIZE.HEIGHT
 		}, {
 			duration: ANIMATION_TIME,
-			step: function () {
-				resizing(cardId);
+			step: function (now, fx) {
+				if (fx.prop === 'width') {
+					var otherWidth = (100 - now) / 2;
+					$siblingCards.css({
+						width: otherWidth + '%'
+					});
+				}
 			},
 			done: function () {
 				// Say card is open after all transitions are done
@@ -283,13 +292,14 @@ $(function() {
 		// Animate the sibling cards on the same row to closed
 		$siblingCards.each(function () {
 			var $siblingCard = $(this);
-			$siblingCard.show();
-			$(this).animate({
-				width: CLOSED_SIZE.WIDTH,
+			$siblingCard.show().animate({
+				// width: CLOSED_SIZE.WIDTH,
 				height: CLOSED_SIZE.HEIGHT,
 				paddingRight: CARD_PADDING,
 				paddingLeft: CARD_PADDING
-			}, ANIMATION_TIME);
+			}, {
+				duration: ANIMATION_TIME,
+			});
 		});
 
 		$card.removeClass('open');
@@ -353,6 +363,7 @@ $(function() {
 
 		// Open card
 		openCardContent($cardOpen);
+		$cardOpen.find('.closed').hide();
 		$cardOpen.css({
 			display: 'inline-block',
 			paddingRight: CARD_PADDING,
