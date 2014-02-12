@@ -2,7 +2,7 @@ $(function() {
 	// TODO: Put constants somwhere
 	var CARD_PADDING = '1.5%';
 	var CARDS_PER_ROW = 3;
-	var ANIMATION_TIME = 1000;
+	var ANIMATION_TIME = 500;
 
 	var OPEN_SIZE = {
 		WIDTH: '100%',
@@ -242,17 +242,19 @@ $(function() {
 		});
 
 		// Animate the sibling cards on the same row to closed
-		$siblingCards.each(function () {
-			var $siblingCard = $(this);
-			$(this).animate({
-				// width: HIDE_SIZE.WIDTH,
-				height: OPEN_SIZE.HEIGHT,
-				paddingRight: 0,
-				paddingLeft: 0
-			}, ANIMATION_TIME, function () {
-				$siblingCard.hide();
+		if ($siblingCards.length) {
+			$siblingCards.each(function () {
+				var $siblingCard = $(this);
+				$(this).animate({
+					// width: HIDE_SIZE.WIDTH,
+					height: OPEN_SIZE.HEIGHT,
+					paddingRight: 0,
+					paddingLeft: 0
+				}, ANIMATION_TIME, function () {
+					$siblingCard.hide();
+				});
 			});
-		});
+		}
 
 		// Set some properties on the opened card
 		$card.addClass('open');
@@ -308,26 +310,29 @@ $(function() {
 		$card.find('.closed').hide().fadeIn(ANIMATION_TIME);
 
 		// Animate the sibling cards on the same row to closed
-		$siblingCards.each(function () {
-			var $siblingCard = $(this);
-			$siblingCard.show().animate({
-				height: CLOSED_SIZE.HEIGHT + '%',
-				paddingRight: CARD_PADDING,
-				paddingLeft: CARD_PADDING
-			}, {
-				duration: ANIMATION_TIME,
+		if ($siblingCards.length) {
+			$siblingCards.each(function () {
+				var $siblingCard = $(this);
+				console.log($siblingCard);
+				$siblingCard.show().animate({
+					height: CLOSED_SIZE.HEIGHT + '%',
+					padding: CARD_PADDING
+				}, {
+					duration: ANIMATION_TIME,
+				});
 			});
-		});
+		}
 
 		// Animate other row cards
 		$otherRowCards.each(function () {
 			$(this).show().animate({
+				width: CLOSED_SIZE.WIDTH + '%',
 				height: CLOSED_SIZE.HEIGHT + '%',
 				padding: CARD_PADDING
 			}, {
 				duration: ANIMATION_TIME
 			});
-		})
+		});
 
 		$card.removeClass('open');
 	}
@@ -359,8 +364,6 @@ $(function() {
 		}
 		if ($siblingCard.length !== 0) {
 			shiftCard($openCard, $siblingCard);
-			// closeCard($openCard, true);
-			// openCard($siblingCard);
 		}
 	}
 
@@ -393,8 +396,9 @@ $(function() {
 		$cardOpen.find('.closed').hide();
 		$cardOpen.css({
 			display: 'inline-block',
-			paddingRight: CARD_PADDING,
-			paddingLeft: CARD_PADDING
+			height: OPEN_SIZE.HEIGHT,
+			width: HIDE_SIZE.WIDTH,
+			padding: CARD_PADDING
 		}).animate({
 			width: OPEN_SIZE.WIDTH
 		}, {
@@ -407,6 +411,7 @@ $(function() {
 			}
 		});
 		$cardOpen.addClass('open');
+
 	}
 
 	//
@@ -438,6 +443,9 @@ $(function() {
 		} else { // Assume it's an array
 			return indices.map(function(i) {
 				return $tileCards[i];
+			}).filter(function ($card) {
+				// Removed cards that are falsey (ex. undefined)
+				return !!$card;
 			});
 		}
 	}
