@@ -280,6 +280,7 @@ $(function() {
 		var cardIndex = $card.index();
 		var siblingCardIndices = getRowIndices(cardIndex);
 		var $siblingCards = $(getCards(siblingCardIndices)).not($card);
+		var $otherRowCards = $tileCards.not($siblingCards).not($card);
 
 		// Animate the clicked card to closed
 		$card.animate({
@@ -298,13 +299,13 @@ $(function() {
 			done: function () {
 				// Say card is open after all transitions are done
 				cardIsOpen = false;
+				$card.find('.open').html('');
 			}
 		});
 
 		// Animate the contents of the clicked card
 		$cardTiles.removeClass('fullcard');
 		$card.find('.closed').hide().fadeIn(ANIMATION_TIME);
-		$card.find('.open').html('');
 
 		// Animate the sibling cards on the same row to closed
 		$siblingCards.each(function () {
@@ -317,6 +318,16 @@ $(function() {
 				duration: ANIMATION_TIME,
 			});
 		});
+
+		// Animate other row cards
+		$otherRowCards.each(function () {
+			$(this).show().animate({
+				height: CLOSED_SIZE.HEIGHT + '%',
+				padding: CARD_PADDING
+			}, {
+				duration: ANIMATION_TIME
+			});
+		})
 
 		$card.removeClass('open');
 	}
