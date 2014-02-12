@@ -26,6 +26,7 @@ $(function() {
 		'profile': [],
 		'thefourelements': []
 	};
+	var shiftKey = false;
 
 	// On load
 	(function () {
@@ -80,6 +81,14 @@ $(function() {
 			openCard($card);
 		}
 		return false;
+	});
+
+	// Check for shift key
+	$(window).keydown(function (event) {
+		shiftKey = event.shiftKey;
+	});
+	$(window).keyup(function (event) {
+		shiftKey = event.shiftKey;
 	});
 
 	/**
@@ -154,7 +163,7 @@ $(function() {
 			swfRatio = +swfRatio.split(':')[0]/+swfRatio.split(':')[1];
 			var parentRatio = parentWidth/parentHeight;
 
-			var margin=0;
+			var margin = 0;
 			if (swfRatio < parentRatio) {
 				// Use 100% height
 				var width = parentHeight * swfRatio;
@@ -189,6 +198,7 @@ $(function() {
 	 */
 	function openCard ($card) {
 		cardIsOpen = true;
+		var animationTime = (shiftKey) ? ANIMATION_TIME * 10 : ANIMATION_TIME;
 
 		// Setup vars
 		var cardId = $card.data('id');
@@ -210,7 +220,7 @@ $(function() {
 			width: OPEN_SIZE.WIDTH,
 			height: OPEN_SIZE.HEIGHT
 		}, {
-			duration: ANIMATION_TIME,
+			duration: animationTime,
 			step: function (now, fx) {
 				if (fx.prop === 'width') {
 					var ratio = Math.max(0, Math.min(1, (now - CLOSED_SIZE.WIDTH)/(100 - CLOSED_SIZE.WIDTH)));
@@ -250,7 +260,7 @@ $(function() {
 					height: OPEN_SIZE.HEIGHT,
 					paddingRight: 0,
 					paddingLeft: 0
-				}, ANIMATION_TIME, function () {
+				}, animationTime, function () {
 					$siblingCard.hide();
 				});
 			});
@@ -278,6 +288,7 @@ $(function() {
 	 */
 	function closeCard ($card, horizontally) {
 		// Setup vars
+		var animationTime = (shiftKey) ? ANIMATION_TIME * 10 : ANIMATION_TIME;
 		var cardId = $card.data('id');
 		var cardIndex = $card.index();
 		var siblingCardIndices = getRowIndices(cardIndex);
@@ -289,7 +300,7 @@ $(function() {
 			width: CLOSED_SIZE.WIDTH + '%',
 			height: CLOSED_SIZE.HEIGHT + '%'
 		}, {
-			duration: ANIMATION_TIME,
+			duration: animationTime,
 			step: function (now, fx) {
 				if (fx.prop === 'width') {
 					var otherWidth = (100 - now) / 2;
@@ -307,18 +318,17 @@ $(function() {
 
 		// Animate the contents of the clicked card
 		$cardTiles.removeClass('fullcard');
-		$card.find('.closed').hide().fadeIn(ANIMATION_TIME);
+		$card.find('.closed').hide().fadeIn(animationTime);
 
 		// Animate the sibling cards on the same row to closed
 		if ($siblingCards.length) {
 			$siblingCards.each(function () {
 				var $siblingCard = $(this);
-				console.log($siblingCard);
 				$siblingCard.show().animate({
 					height: CLOSED_SIZE.HEIGHT + '%',
 					padding: CARD_PADDING
 				}, {
-					duration: ANIMATION_TIME,
+					duration: animationTime,
 				});
 			});
 		}
@@ -330,7 +340,7 @@ $(function() {
 				height: CLOSED_SIZE.HEIGHT + '%',
 				padding: CARD_PADDING
 			}, {
-				duration: ANIMATION_TIME
+				duration: animationTime
 			});
 		});
 
@@ -370,6 +380,7 @@ $(function() {
 	function shiftCard ($cardClose, $cardOpen) {
 		var cardCloseId = $cardClose.data('id');
 		var cardOpenId = $cardOpen.data('id');
+		var animationTime = (shiftKey) ? ANIMATION_TIME * 10 : ANIMATION_TIME;
 
 		// Close card
 		$cardClose.css({width:'95%'}).animate({
@@ -377,7 +388,7 @@ $(function() {
 			paddingLeft: 0,
 			width: HIDE_SIZE.WIDTH
 		}, {
-			duration: ANIMATION_TIME/1.01,
+			duration: animationTime/1.01,
 			step: function () {
 				resizing(cardCloseId);
 			},
@@ -402,7 +413,7 @@ $(function() {
 		}).animate({
 			width: OPEN_SIZE.WIDTH
 		}, {
-			duration: ANIMATION_TIME,
+			duration: animationTime,
 			step: function () {
 				resizing(cardOpenId);
 			},
