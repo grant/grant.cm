@@ -78,7 +78,6 @@ p {
   display: inline-block;
   width: 33.33333%;
   height: 45.45455%;
-  min-height: 300px;
   padding: 1.5%; }
   .card:not(.open) .cardContent {
     cursor: pointer;

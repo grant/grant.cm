@@ -9,8 +9,8 @@ $(function() {
 		HEIGHT: '100%'
 	};
 	var CLOSED_SIZE = {
-		WIDTH: '33.3%',
-		HEIGHT: (100/2.2) + '%'
+		WIDTH: 33.3,
+		HEIGHT: (100/2.2)
 	};
 	var HIDE_SIZE = {
 		WIDTH: '0%',
@@ -197,13 +197,15 @@ $(function() {
 		var $siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
 			return card !== $card[0];
 		}));
-		var $otherCards = $tileCards.not($card);
+		var $otherCards = $tileCards.not($card).not($siblingCards);
 
 		// Animate the contents of the clicked card
 		$cardTiles.addClass('fullcard');
 		openCardContent($card);
 
 		// Animate the clicked card to open
+		var $cardPadding = +$otherCards.css('padding').split('px')[0];
+		var $cardHeight = $otherCards.height() + 2 * $cardPadding;
 		$card.animate({
 			width: OPEN_SIZE.WIDTH,
 			height: OPEN_SIZE.HEIGHT
@@ -211,15 +213,30 @@ $(function() {
 			duration: ANIMATION_TIME,
 			step: function (now, fx) {
 				if (fx.prop === 'width') {
+					var ratio = Math.max(0, Math.min(1, (now - CLOSED_SIZE.WIDTH)/(100 - CLOSED_SIZE.WIDTH)));
+					var inverseRatio = 1 - ratio;
+
 					resizing(cardId);
 					var otherWidth = (100 - now) / 2;
 					$siblingCards.css({
 						width: otherWidth + '%'
 					});
+
+					if (inverseRatio < 0.05) {
+						$otherCards.hide();
+					}
+					var otherHeight = inverseRatio * $cardHeight + 'px';
+					var otherPadding = inverseRatio * $cardPadding + 'px';
+					$otherCards.css({
+						height: otherHeight,
+						paddingTop: otherPadding,
+						paddingBottom: otherPadding
+					});
 				}
 			},
 			done: function () {
 				// Hide all cards
+				$siblingCards.hide();
 				$otherCards.hide();
 			}
 		});
@@ -266,8 +283,8 @@ $(function() {
 
 		// Animate the clicked card to closed
 		$card.animate({
-			width: CLOSED_SIZE.WIDTH,
-			height: CLOSED_SIZE.HEIGHT
+			width: CLOSED_SIZE.WIDTH + '%',
+			height: CLOSED_SIZE.HEIGHT + '%'
 		}, {
 			duration: ANIMATION_TIME,
 			step: function (now, fx) {
@@ -293,8 +310,7 @@ $(function() {
 		$siblingCards.each(function () {
 			var $siblingCard = $(this);
 			$siblingCard.show().animate({
-				// width: CLOSED_SIZE.WIDTH,
-				height: CLOSED_SIZE.HEIGHT,
+				height: CLOSED_SIZE.HEIGHT + '%',
 				paddingRight: CARD_PADDING,
 				paddingLeft: CARD_PADDING
 			}, {
