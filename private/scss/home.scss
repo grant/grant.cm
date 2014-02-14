@@ -369,6 +369,17 @@ $cardsPerHeight: 2.2; // Can be float
 			}
 		}
 	}
+	&.github {
+		.closed {
+			background: linear-gradient(#f9f9f9, #f3f3f3);
+
+			.svg {
+				height: 80%;
+				background: url('/images/icons/github.svg');
+				background-size: 100% 100%;
+			}
+		}
+	}
 }
 
 // How to make a percentage-based square tile

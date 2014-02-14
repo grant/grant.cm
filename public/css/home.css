@@ -260,6 +260,12 @@ p {
     height: 80%; }
   .card.vidwall .closed .vidwallSearch {
     height: 20%; }
+.card.github .closed {
+  background: linear-gradient(#f9f9f9, #f3f3f3); }
+  .card.github .closed .svg {
+    height: 80%;
+    background: url("/images/icons/github.svg");
+    background-size: 100% 100%; }
 
 .squareTile {
   position: relative;
