@@ -64,8 +64,8 @@ $(function() {
 		});
 
 		// Clicking on the nav buttons
-		$('.leftNavButton').click(navLeft);
-		$('.rightNavButton').click(navRight);
+		$('.paginate.left').click(navLeft);
+		$('.paginate.right').click(navRight);
 
 		// Github
 		// setGithubData();
@@ -274,6 +274,7 @@ $(function() {
 
 		// Set some properties on the opened card
 		$card.addClass('open');
+		setNavButtonState();
 	}
 
 	function openCardContent ($card) {
@@ -381,6 +382,7 @@ $(function() {
 		if ($siblingCard.length !== 0) {
 			shiftCard($openCard, $siblingCard);
 		}
+		setNavButtonState();
 	}
 
 	function shiftCard ($cardClose, $cardOpen) {
@@ -465,6 +467,17 @@ $(function() {
 				return !!$card;
 			});
 		}
+	}
+
+	/**
+	 * Sets the state of teh nav buttons
+	 */
+	function setNavButtonState () {
+		var $openCard = $tileCards.filter('.open');
+		var $prev = $openCard.prev();
+		var $next = $openCard.next();
+		$openCard.find('.paginate.left').attr('data-state', $prev.length === 0 ? 'disabled' : '');
+		$openCard.find('.paginate.right').attr('data-state', $next.length === 0 ? 'disabled' : '');
 	}
 
 	/**

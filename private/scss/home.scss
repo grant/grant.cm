@@ -68,28 +68,7 @@ $cardsPerHeight: 2.2; // Can be float
 	}
 
 	// Project nav buttons
-	&:not(.open) {
-		.leftNavButton, .rightNavButton {
-			display: none;
-		}
-	}
-	.leftNavButton {
-		left: 0;
-		// margin-left: -2%;
-	}
-	.rightNavButton {
-		right: 0;
-		// margin-right: -2%;
-	}
-	.leftNavButton, .rightNavButton {
-		position: absolute;
-		top: 50%;
-		height: 15%;
-		width: 3%;
-		background-color: red;
-		cursor: pointer;
-		z-index: 1000;
-	}
+	@import 'navButtons';
 
 	// Generic card content
 	.cardContent {
