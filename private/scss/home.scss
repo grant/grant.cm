@@ -372,11 +372,42 @@ $cardsPerHeight: 2.2; // Can be float
 	&.github {
 		.closed {
 			background: linear-gradient(#f9f9f9, #f3f3f3);
+			padding: $cardSidePadding;
+			text-align: center;
 
-			.svg {
-				height: 80%;
-				background: url('/images/icons/github.svg');
-				background-size: 100% 100%;
+			$topHeight: 75%;
+			.top {
+				height: $topHeight;
+				padding: 2%;
+
+				.svg {
+					height: 90%;
+					margin-bottom: 3%;
+					background: url('/images/icons/github.svg');
+					background-size: 100% 100%;
+				}
+
+				.username {
+					color: #333;
+					font-size: 20px;
+				}
+			}
+			.bottom {
+				height: 100% - $topHeight;
+				padding-top: 2%;
+				color: #aaa;
+				line-height: 1.2;
+
+				.stat {
+					float: left;
+					width: 33.3%;
+
+					.statCount {
+						font-size: 25px;
+						color: #333;
+						display: block;
+					}
+				}
 			}
 		}
 	}

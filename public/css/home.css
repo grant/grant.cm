@@ -20,6 +20,9 @@ h6 {
 p {
   font-size: 16px; }
 
+strong {
+  font-weight: 700; }
+
 .right {
   float: right; }
 
@@ -261,11 +264,32 @@ p {
   .card.vidwall .closed .vidwallSearch {
     height: 20%; }
 .card.github .closed {
-  background: linear-gradient(#f9f9f9, #f3f3f3); }
-  .card.github .closed .svg {
-    height: 80%;
-    background: url("/images/icons/github.svg");
-    background-size: 100% 100%; }
+  background: linear-gradient(#f9f9f9, #f3f3f3);
+  padding: 2%;
+  text-align: center; }
+  .card.github .closed .top {
+    height: 75%;
+    padding: 2%; }
+    .card.github .closed .top .svg {
+      height: 90%;
+      margin-bottom: 3%;
+      background: url("/images/icons/github.svg");
+      background-size: 100% 100%; }
+    .card.github .closed .top .username {
+      color: #333;
+      font-size: 20px; }
+  .card.github .closed .bottom {
+    height: 25%;
+    padding-top: 2%;
+    color: #aaa;
+    line-height: 1.2; }
+    .card.github .closed .bottom .stat {
+      float: left;
+      width: 33.3%; }
+      .card.github .closed .bottom .stat .statCount {
+        font-size: 25px;
+        color: #333;
+        display: block; }
 
 .squareTile {
   position: relative;

@@ -84,7 +84,14 @@ exports.index = function(req, res){
 		});
 	});
 	*/
-	var indexParams = { title: 'Express' };
+	var indexParams = {
+		title: 'Grant Timmerman',
+		card: {
+			github: {
+				api: {}
+			}
+		}
+	};
 	res.render('index', indexParams);
 };
 

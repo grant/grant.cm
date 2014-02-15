@@ -66,6 +66,12 @@ $(function() {
 		// Clicking on the nav buttons
 		$('.leftNavButton').click(navLeft);
 		$('.rightNavButton').click(navRight);
+
+		// Github
+		// setGithubData();
+		$('.github.card').click(function () {
+			window.location = "https://github.com/grant";
+		});
 	})();
 
 	//
@@ -459,5 +465,19 @@ $(function() {
 				return !!$card;
 			});
 		}
+	}
+
+	/**
+	 * Sets the data from github for the github card's stats
+	 */
+	function setGithubData () {
+		$.ajax({
+			url: "https://api.github.com/users/grant"
+		}).done(function (data) {
+			var $githubCard = $('.card.github');
+			$githubCard.find('.followers .statCount').html(data.followers);
+			$githubCard.find('.following .statCount').html(data.following);
+			$githubCard.find('.repos .statCount').html(data.public_repos);
+		});
 	}
 });
