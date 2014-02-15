@@ -61,9 +61,37 @@ $cardsPerHeight: 2.2; // Can be float
 
 		$transitionTime: 100ms;
 		transition: -webkit-transform $transitionTime, box-shadow $transitionTime;
-		&:hover {
+	}
+
+	// Shadow
+	$cardShadowXOffset: 10px;
+	$cardShadowYOffset: 10px;
+	$cardShadowHoverOffset: 10px;
+	$cardShadowBlur: 5px;
+	$cardShadowColor: rgba(0, 0, 0, 0.1);
+	&:nth-child(3n + 1) {
+		&:not(.open) .cardContent:hover {
 			// -webkit-transform: scale(1.05);
-			box-shadow: 10px 10px 5px 5px rgba(0, 0, 0, 0.1);
+			box-shadow: $cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
+		}
+		.cardContent {
+			box-shadow: $cardShadowXOffset $cardShadowYOffset $cardShadowColor;
+		}
+	}
+	&:nth-child(3n + 2) {
+		&:not(.open) .cardContent:hover {
+			box-shadow: 0 $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
+		}
+		.cardContent {
+			box-shadow: 0 $cardShadowYOffset $cardShadowColor;
+		}
+	}
+	&:nth-child(3n + 3) {
+		&:not(.open) .cardContent:hover {
+			box-shadow: -$cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
+		}
+		.cardContent {
+			box-shadow: -$cardShadowXOffset $cardShadowYOffset $cardShadowColor;
 		}
 	}
 
@@ -77,7 +105,6 @@ $cardsPerHeight: 2.2; // Can be float
 		overflow: hidden;
 
 		color: #eee;
-		box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 		border-radius: 10px; // Not percentage because aspect ratio is variable to screen aspect ratio
 
 		.open {
