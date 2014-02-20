@@ -64,34 +64,37 @@ $cardsPerHeight: 2.2; // Can be float
 	}
 
 	// Shadow
+	$cardShadow: true;
 	$cardShadowXOffset: 10px;
 	$cardShadowYOffset: 10px;
-	$cardShadowHoverOffset: 10px;
-	$cardShadowBlur: 5px;
+	$cardShadowHoverOffset: 15px;
+	$cardShadowBlur: 2px;
 	$cardShadowColor: rgba(0, 0, 0, 0.1);
-	&:nth-child(3n + 1) {
-		&:not(.open) .cardContent:hover {
-			// -webkit-transform: scale(1.05);
-			box-shadow: $cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
+	@if $cardShadow {
+		&:nth-child(3n + 1) {
+			&:not(.open) .cardContent:hover {
+				// -webkit-transform: scale(1.05);
+				box-shadow: $cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
+			}
+			.cardContent {
+				box-shadow: $cardShadowXOffset $cardShadowYOffset $cardShadowColor;
+			}
 		}
-		.cardContent {
-			box-shadow: $cardShadowXOffset $cardShadowYOffset $cardShadowColor;
+		&:nth-child(3n + 2) {
+			&:not(.open) .cardContent:hover {
+				box-shadow: 0 $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
+			}
+			.cardContent {
+				box-shadow: 0 $cardShadowYOffset $cardShadowColor;
+			}
 		}
-	}
-	&:nth-child(3n + 2) {
-		&:not(.open) .cardContent:hover {
-			box-shadow: 0 $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
-		}
-		.cardContent {
-			box-shadow: 0 $cardShadowYOffset $cardShadowColor;
-		}
-	}
-	&:nth-child(3n + 3) {
-		&:not(.open) .cardContent:hover {
-			box-shadow: -$cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
-		}
-		.cardContent {
-			box-shadow: -$cardShadowXOffset $cardShadowYOffset $cardShadowColor;
+		&:nth-child(3n + 3) {
+			&:not(.open) .cardContent:hover {
+				box-shadow: -$cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
+			}
+			.cardContent {
+				box-shadow: -$cardShadowXOffset $cardShadowYOffset $cardShadowColor;
+			}
 		}
 	}
 
@@ -105,7 +108,7 @@ $cardsPerHeight: 2.2; // Can be float
 		overflow: hidden;
 
 		color: #eee;
-		border-radius: 10px; // Not percentage because aspect ratio is variable to screen aspect ratio
+		border-radius: 3px; // Not percentage because aspect ratio is variable to screen aspect ratio
 
 		.open {
 			// Hack to make it square
@@ -428,7 +431,7 @@ $cardsPerHeight: 2.2; // Can be float
 	// Shadow
 	@include layerShadow;
 
-	$borderRadius: 10%;
+	$borderRadius: 5%;
 	// Curved edges for shadow
 	border-radius: $borderRadius;
 	overflow: hidden;
