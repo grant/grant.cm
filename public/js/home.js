@@ -57,10 +57,10 @@ $(function() {
 		// If you click outside the card, it automatically closes the opened card
 		$('.cardArea').click(function (event) {
 			var target = event.target;
-			if ($(target).hasClass('cardArea')) {
+			if ($(target).hasClass('card')) {
 				closeCard($('.card.open'));
+				return false;
 			}
-			return false;
 		});
 
 		// Clicking on the nav buttons
@@ -82,8 +82,8 @@ $(function() {
 		if (!cardIsOpen) {
 			var $card = $(this);
 			openCard($card);
+			return false;
 		}
-		return false;
 	});
 
 	// Check for shift key
