@@ -66,7 +66,7 @@ button {
 .pageContent {
   height: 100%;
   font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
-  background-color: #dde2e6; }
+  background: -webkit-linear-gradient(top, #be9f8a 0%, #b97a69 100%); }
 
 /* Card area */
 .cardArea {
@@ -85,30 +85,32 @@ button {
   display: inline-block;
   width: 33.33333%;
   height: 45.45455%;
-  padding: 1.5%; }
+  padding: 1%; }
   .card:not(.open) .cardContent {
     cursor: pointer;
     overflow: hidden;
     border: 1px solid rgba(65, 64, 61, 0.2);
     transition: -webkit-transform 100ms, box-shadow 100ms; }
-  .card:nth-child(3n + 1):not(.open) .cardContent:hover {
-    box-shadow: 15px 15px 2px 2px rgba(0, 0, 0, 0.1); }
-  .card:nth-child(3n + 1) .cardContent {
-    box-shadow: 10px 10px rgba(0, 0, 0, 0.1); }
-  .card:nth-child(3n + 1).open .cardContent {
-    box-shadow: 20px 20px rgba(0, 0, 0, 0.1); }
-  .card:nth-child(3n + 2):not(.open) .cardContent:hover {
-    box-shadow: 0 15px 2px 2px rgba(0, 0, 0, 0.1); }
-  .card:nth-child(3n + 2) .cardContent {
-    box-shadow: 0 10px rgba(0, 0, 0, 0.1); }
-  .card:nth-child(3n + 2).open .cardContent {
-    box-shadow: 0 20px rgba(0, 0, 0, 0.1); }
-  .card:nth-child(3n + 3):not(.open) .cardContent:hover {
-    box-shadow: -15px 15px 2px 2px rgba(0, 0, 0, 0.1); }
-  .card:nth-child(3n + 3) .cardContent {
-    box-shadow: -10px 10px rgba(0, 0, 0, 0.1); }
-  .card:nth-child(3n + 3).open .cardContent {
-    box-shadow: -20px 20px rgba(0, 0, 0, 0.1); }
+  .card:not(.open):not(.transitioning) .cardContent:hover {
+    -webkit-transform: scale(1.05); }
+  .card:nth-child(3n+1):not(.open) .cardContent:hover {
+    box-shadow: 15px 15px 2px 2px rgba(140, 30, 20, 0.1); }
+  .card:nth-child(3n+1) .cardContent {
+    box-shadow: 10px 10px rgba(140, 30, 20, 0.1); }
+  .card:nth-child(3n+1).open .cardContent {
+    box-shadow: 20px 20px rgba(140, 30, 20, 0.1); }
+  .card:nth-child(3n+2):not(.open) .cardContent:hover {
+    box-shadow: 0 15px 2px 2px rgba(140, 30, 20, 0.1); }
+  .card:nth-child(3n+2) .cardContent {
+    box-shadow: 0 10px rgba(140, 30, 20, 0.1); }
+  .card:nth-child(3n+2).open .cardContent {
+    box-shadow: 0 20px rgba(140, 30, 20, 0.1); }
+  .card:nth-child(3n+3):not(.open) .cardContent:hover {
+    box-shadow: -15px 15px 2px 2px rgba(140, 30, 20, 0.1); }
+  .card:nth-child(3n+3) .cardContent {
+    box-shadow: -10px 10px rgba(140, 30, 20, 0.1); }
+  .card:nth-child(3n+3).open .cardContent {
+    box-shadow: -20px 20px rgba(140, 30, 20, 0.1); }
   .card:not(.open) .paginate {
     display: none; }
   .card .paginate {
@@ -414,7 +416,7 @@ button {
 .card.thefourelements .cardContent .closed, .card.cellularwarfare .cardContent .closed {
   background-size: cover; }
 .card.vidwall .closed {
-  background-color: blue;
+  background-color: #91cfd7;
   text-align: center; }
   .card.vidwall .closed .svg {
     height: 80%; }
@@ -441,8 +443,11 @@ button {
     color: #aaa;
     line-height: 1.2; }
     .card.github .closed .bottom .stat {
+      height: 100%;
       float: left;
       width: 33.3%; }
+      .card.github .closed .bottom .stat:not(:last-child) {
+        border-right: 1px solid rgba(20, 20, 20, 0.1); }
       .card.github .closed .bottom .stat .statCount {
         font-size: 25px;
         color: #333;

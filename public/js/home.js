@@ -1,6 +1,6 @@
 $(function() {
 	// TODO: Put constants somwhere
-	var CARD_PADDING = '1.5%';
+	var CARD_PADDING = '1.0%';
 	var CARDS_PER_ROW = 3;
 	var ANIMATION_TIME = 500;
 
@@ -254,6 +254,8 @@ $(function() {
 				// Hide all cards
 				$siblingCards.hide();
 				$otherCards.hide();
+
+				$card.removeClass('transitioning');
 			}
 		});
 
@@ -273,7 +275,7 @@ $(function() {
 		}
 
 		// Set some properties on the opened card
-		$card.addClass('open');
+		$card.addClass('open transitioning');
 		setNavButtonState();
 	}
 
@@ -320,6 +322,7 @@ $(function() {
 				// Say card is open after all transitions are done
 				cardIsOpen = false;
 				$card.find('.open').html('');
+				$card.removeClass('transitioning');
 			}
 		});
 
@@ -351,6 +354,7 @@ $(function() {
 			});
 		});
 
+		$card.addClass('transitioning');
 		$card.removeClass('open');
 	}
 

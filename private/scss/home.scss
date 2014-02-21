@@ -22,7 +22,8 @@ $cardAreaPadding: 5px;
 .pageContent {
 	height: 100%;
 	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
-	background-color: $pageBackgroundColor;
+	// background-color: $pageBackgroundColor;
+	background: -webkit-linear-gradient(top, rgb(190,159, 138) 0%, rgb(185, 122, 105) 100%);
 }
 
 /* Card area */
@@ -45,7 +46,7 @@ $cardAreaPadding: 5px;
 $cardsPerRow: 3; // Must be an integer
 $cardsPerHeight: 2.2; // Can be float
 .card {
-	$cardMargin: 1.5%;
+	$cardMargin: 1.0%;
 
 	position: relative;
 	display: inline-block;
@@ -65,18 +66,25 @@ $cardsPerHeight: 2.2; // Can be float
 		transition: -webkit-transform $transitionTime, box-shadow $transitionTime;
 	}
 
+	// Pop out
+	$cardPopout: true;
+	@if $cardPopout {
+		&:not(.open):not(.transitioning) .cardContent:hover {
+			-webkit-transform: scale(1.05);
+		}
+	}
+
 	// Shadow
 	$cardShadow: true;
 	$cardShadowXOffset: 10px;
 	$cardShadowYOffset: 10px;
 	$cardShadowHoverOffset: 15px;
 	$cardShadowBlur: 2px;
-	$cardShadowColor: rgba(0, 0, 0, 0.1);
+	$cardShadowColor: rgba(140, 30, 20, 0.1);
 	@if $cardShadow {
-		&:nth-child(3n + 1) {
-			&:not(.open) .cardContent:hover {
+		&:nth-child(3n+1) {
 			// When hovering over a closed card
-				// -webkit-transform: scale(1.05);
+			&:not(.open) .cardContent:hover {
 				box-shadow: $cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
 			}
 			// When not hovering over a closed card
@@ -88,7 +96,7 @@ $cardsPerHeight: 2.2; // Can be float
 				box-shadow: 2*$cardShadowXOffset 2*$cardShadowYOffset $cardShadowColor;
 			}
 		}
-		&:nth-child(3n + 2) {
+		&:nth-child(3n+2) {
 			// When hovering over a closed card
 			&:not(.open) .cardContent:hover {
 				box-shadow: 0 $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
@@ -102,7 +110,7 @@ $cardsPerHeight: 2.2; // Can be float
 				box-shadow: 2*0 2*$cardShadowYOffset $cardShadowColor;
 			}
 		}
-		&:nth-child(3n + 3) {
+		&:nth-child(3n+3) {
 			// When hovering over a closed card
 			&:not(.open) .cardContent:hover {
 				box-shadow: -$cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
@@ -386,7 +394,7 @@ $cardsPerHeight: 2.2; // Can be float
 	}
 	&.vidwall {
 		.closed {
-			background-color: blue;
+			background-color: $BLUE;
 			text-align: center;
 
 			$playIconHeight: 80%;
@@ -404,6 +412,7 @@ $cardsPerHeight: 2.2; // Can be float
 			padding: $cardSidePadding;
 			text-align: center;
 
+			// Github logo
 			$topHeight: 75%;
 			.top {
 				height: $topHeight;
@@ -421,6 +430,8 @@ $cardsPerHeight: 2.2; // Can be float
 					font-size: 20px;
 				}
 			}
+
+			// Github Stats
 			.bottom {
 				height: 100% - $topHeight;
 				padding-top: 2%;
@@ -428,8 +439,13 @@ $cardsPerHeight: 2.2; // Can be float
 				line-height: 1.2;
 
 				.stat {
+					height: 100%;
 					float: left;
 					width: 33.3%;
+
+					&:not(:last-child) {
+						border-right: 1px solid rgba(20, 20, 20, 0.1);
+					}
 
 					.statCount {
 						font-size: 25px;
