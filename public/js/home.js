@@ -69,9 +69,6 @@ $(function() {
 
 		// Github
 		// setGithubData();
-		$('.github.card').click(function () {
-			window.location = "https://github.com/grant";
-		});
 	})();
 
 	//
