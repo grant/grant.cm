@@ -7,7 +7,6 @@ $headerHeight: 1%;
 $navButtonBottomBorderHeight: 3px;
 $cardSidePadding: $headerHeight;
 $cardAreaPadding: 5px;
-// $cardAreaColor: rgb(240, 245, 250);
 
 @mixin littleTextShadow {
 	text-shadow: 3px 3px rgba(20, 10, 0, .1);
@@ -22,7 +21,7 @@ $cardAreaPadding: 5px;
 .pageContent {
 	height: 100%;
 	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
-	// background-color: $pageBackgroundColor;
+	background-color: rgb(185, 122, 105);
 	background: -webkit-linear-gradient(top, rgb(190,159, 138) 0%, rgb(185, 122, 105) 100%);
 }
 
@@ -138,6 +137,14 @@ $cardsPerHeight: 2.2; // Can be float
 
 		color: #eee;
 		border-radius: 3px; // Not percentage because aspect ratio is variable to screen aspect ratio
+
+		a {
+			font-style: italic;
+			font-weight: 400;
+
+			border-bottom: 2px solid rgba($GRAY, 0.7);
+			padding-bottom: 1px;
+		}
 
 		.open {
 			// Hack to make it square
