@@ -532,8 +532,27 @@ $(function() {
 					case 'GollumEvent':
 						break;
 					case 'IssueCommentEvent':
+						// Add comment
+						// .created_at
+						// .repo
+							// .name
+						// .payload
+							// .title
+							// .html_url
+							// .comment
+								// .html_url
+								// .body
 						break;
 					case 'IssuesEvent':
+						// Add issue message
+						// .created_at
+						// .repo
+							// .name
+						// .payload
+							// .action: ['opened', 'closed', 'reopened']
+							// .issue
+								// .title
+								// .html_url
 						break;
 					case 'MemberEvent':
 						break;
@@ -544,6 +563,14 @@ $(function() {
 					case 'PullRequestReviewCommentEvent':
 						break;
 					case 'PushEvent':
+						// Go through all commits
+						// .created_at
+						// .repo
+							// .name
+						// for each .payload.commits
+							// .message
+							// .url
+							// .sha
 						break;
 					case 'ReleaseEvent':
 						break;
@@ -552,6 +579,10 @@ $(function() {
 					case 'TeamAddEvent':
 						break;
 					case 'WatchEvent':
+						// Create watch message
+						// .created_at
+						// .repo.name
+						// .payload.action ['started'] (Starred)
 						break;
 				}
 			}
