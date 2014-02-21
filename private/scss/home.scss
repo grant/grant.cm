@@ -1,5 +1,6 @@
 @import 'reset';
 @import 'global';
+@import 'octicon';
 
 /* Page */
 $pageBackgroundColor: rgb(221, 226, 230);
@@ -412,11 +413,11 @@ $cardsPerHeight: 2.2; // Can be float
 	}
 	&.github {
 		.open {
+			color: $DARK_GRAY;
+
 			.leftArea {
 				width: 33.3%;
-				padding: 1.5% 2%;
 				text-align: center;
-				color: $DARK_GRAY;
 
 				.username {
 					padding-bottom: 2%;
@@ -430,8 +431,13 @@ $cardsPerHeight: 2.2; // Can be float
 
 			.rightArea {
 				width: 66.6%;
+
+				.messages {
+
+				}
 			}
 			.leftArea, .rightArea {
+				padding: 1.5% 2%;
 				float: left;
 				height: 100%;
 			}

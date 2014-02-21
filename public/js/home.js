@@ -504,10 +504,55 @@ $(function() {
 			url: 'https://api.github.com/users/grant/events'
 		}).done(function (events) {
 			var $githubCard = $('.card.github');
+			// Event types: https://developer.github.com/v3/activity/events/types/
+			// Github icons: https://github.com/styleguide/css/7.0
 			for (var i in events) {
 				var event = events[i];
 				switch (event.type) {
-
+					case 'CommitCommentEvent':
+						break;
+					case 'CreateEvent':
+						break;
+					case 'DeleteEvent':
+						break;
+					case 'DeploymentEvent':
+						break;
+					case 'DeploymentStatusEvent':
+						break;
+					case 'DownloadEvent':
+						break;
+					case 'FollowEvent':
+						break;
+					case 'ForkEvent':
+						break;
+					case 'ForkApplyEvent':
+						break;
+					case 'GistEvent':
+						break;
+					case 'GollumEvent':
+						break;
+					case 'IssueCommentEvent':
+						break;
+					case 'IssuesEvent':
+						break;
+					case 'MemberEvent':
+						break;
+					case 'PublicEvent':
+						break;
+					case 'PullRequestEvent':
+						break;
+					case 'PullRequestReviewCommentEvent':
+						break;
+					case 'PushEvent':
+						break;
+					case 'ReleaseEvent':
+						break;
+					case 'StatusEvent':
+						break;
+					case 'TeamAddEvent':
+						break;
+					case 'WatchEvent':
+						break;
 				}
 			}
 			console.log(data);
