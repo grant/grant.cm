@@ -22,7 +22,7 @@ $cardAreaPadding: 5px;
 	height: 100%;
 	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
 	background-color: rgb(185, 122, 105);
-	background: -webkit-linear-gradient(top, rgb(190,159, 138) 0%, rgb(185, 122, 105) 100%);
+	background: -webkit-linear-gradient(top, rgb(190, 159, 138) 0%, rgb(185, 122, 105) 100%);
 }
 
 /* Card area */
@@ -411,8 +411,33 @@ $cardsPerHeight: 2.2; // Can be float
 		}
 	}
 	&.github {
+		.open {
+			.leftArea {
+				width: 33.3%;
+				padding: 1.5% 2%;
+				text-align: center;
+				color: $DARK_GRAY;
+
+				.username {
+					padding-bottom: 2%;
+				}
+
+				.profilePhoto {
+					width: 50%;
+					border-radius: 10px;
+				}
+			}
+
+			.rightArea {
+				width: 66.6%;
+			}
+			.leftArea, .rightArea {
+				float: left;
+				height: 100%;
+			}
+		}
+
 		.closed {
-			background: linear-gradient(#f9f9f9, #f3f3f3);
 			padding: $cardSidePadding;
 			text-align: center;
 
@@ -458,6 +483,10 @@ $cardsPerHeight: 2.2; // Can be float
 					}
 				}
 			}
+		}
+
+		.open, .closed {
+			background: linear-gradient(#f9f9f9, #f3f3f3);
 		}
 	}
 }

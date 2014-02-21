@@ -68,7 +68,8 @@ $(function() {
 		$('.paginate.right').click(navRight);
 
 		// Github
-		// setGithubData();
+		// setGithubProfileData();
+		// setGithubEventData();
 	})();
 
 	//
@@ -484,7 +485,7 @@ $(function() {
 	/**
 	 * Sets the data from github for the github card's stats
 	 */
-	function setGithubData () {
+	function setGithubProfileData () {
 		$.ajax({
 			url: "https://api.github.com/users/grant"
 		}).done(function (data) {
@@ -492,6 +493,24 @@ $(function() {
 			$githubCard.find('.followers .statCount').html(data.followers);
 			$githubCard.find('.following .statCount').html(data.following);
 			$githubCard.find('.repos .statCount').html(data.public_repos);
+		});
+	}
+
+	/**
+	 * Sets the event data for the github card event feed
+	 */
+	function setGithubEventData () {
+		$.ajax({
+			url: 'https://api.github.com/users/grant/events'
+		}).done(function (events) {
+			var $githubCard = $('.card.github');
+			for (var i in events) {
+				var event = events[i];
+				switch (event.type) {
+
+				}
+			}
+			console.log(data);
 		});
 	}
 });
