@@ -80,7 +80,8 @@ $cardsPerHeight: 2.2; // Can be float
 	$cardShadowYOffset: 10px;
 	$cardShadowHoverOffset: 15px;
 	$cardShadowBlur: 2px;
-	$cardShadowColor: rgba(140, 30, 20, 0.1);
+	$cardShadowFullScale: 1.5; // How much the card shadow scales when showing a full card
+	$cardShadowColor: rgba(140, 30, 20, 0.2);
 	@if $cardShadow {
 		&:nth-child(3n+1) {
 			// When hovering over a closed card
@@ -93,7 +94,7 @@ $cardsPerHeight: 2.2; // Can be float
 			}
 			// When a card is open
 			&.open .cardContent {
-				box-shadow: 2*$cardShadowXOffset 2*$cardShadowYOffset $cardShadowColor;
+				box-shadow: $cardShadowFullScale*$cardShadowXOffset $cardShadowFullScale*$cardShadowYOffset $cardShadowColor;
 			}
 		}
 		&:nth-child(3n+2) {
@@ -107,7 +108,7 @@ $cardsPerHeight: 2.2; // Can be float
 			}
 			// When a card is open
 			&.open .cardContent {
-				box-shadow: 2*0 2*$cardShadowYOffset $cardShadowColor;
+				box-shadow: $cardShadowFullScale*0 $cardShadowFullScale*$cardShadowYOffset $cardShadowColor;
 			}
 		}
 		&:nth-child(3n+3) {
@@ -121,7 +122,7 @@ $cardsPerHeight: 2.2; // Can be float
 			}
 			// When a card is open
 			&.open .cardContent {
-				box-shadow: -2*$cardShadowXOffset 2*$cardShadowYOffset $cardShadowColor;
+				box-shadow: -$cardShadowFullScale*$cardShadowXOffset $cardShadowFullScale*$cardShadowYOffset $cardShadowColor;
 			}
 		}
 	}
@@ -320,7 +321,7 @@ $cardsPerHeight: 2.2; // Can be float
 				height: 1%;
 				width: 20%;
 				border: none;
-				background-color: #999;
+				background-color: rgba(255, 255, 255, 0.7);
 				@include littleLayerShadow;
 			}
 
@@ -397,12 +398,8 @@ $cardsPerHeight: 2.2; // Can be float
 			background-color: $BLUE;
 			text-align: center;
 
-			$playIconHeight: 80%;
 			.svg {
-				height: $playIconHeight;
-			}
-			.vidwallSearch {
-				height: 100% - $playIconHeight;
+				height: 100%;
 			}
 		}
 	}
