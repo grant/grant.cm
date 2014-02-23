@@ -1087,7 +1087,8 @@ button {
       .card.github .open .rightArea .events li .body {
         width: 95%;
         padding-left: 1%;
-        font-size: 30px; }
+        font-size: 30px;
+        line-height: 1.2; }
         .card.github .open .rightArea .events li .body .date {
           padding-top: 0.5%;
           font-size: 20px;

@@ -69,7 +69,6 @@ $(function() {
 
 		// Github
 		// setGithubProfileData();
-		// setGithubEventData();
 	})();
 
 	//
@@ -107,12 +106,12 @@ $(function() {
 
 		// Special resizing cards
 		switch (cardId) {
-			case 'profile':
+			case 'profile': {
 				resizeProfileVideo();
-				break;
-			case 'thefourelements':
+			} break;
+			case 'thefourelements': {
 				resizeFlash();
-				break;
+			} break;
 		}
 	}
 
@@ -275,6 +274,11 @@ $(function() {
 		// Set some properties on the opened card
 		$card.addClass('open transitioning');
 		setNavButtonState();
+
+		// Special events
+		if ($card.hasClass('github')) {
+			// setGithubEventData();
+		}
 	}
 
 	function openCardContent ($card) {
@@ -374,12 +378,12 @@ $(function() {
 		var $openCard = $tileCards.filter('.open');
 		var $siblingCard;
 		switch (direction) {
-			case 'left':
+			case 'left': {
 				$siblingCard = $openCard.prev();
-				break;
-			case 'right':
+			} break;
+			case 'right': {
 				$siblingCard = $openCard.next();
-				break;
+			} break;
 		}
 		if ($siblingCard.length !== 0) {
 			shiftCard($openCard, $siblingCard);
@@ -433,6 +437,10 @@ $(function() {
 		});
 		$cardOpen.addClass('open');
 
+		// Special events
+		if ($cardOpen.hasClass('github')) {
+			// setGithubEventData();
+		}
 	}
 
 	//
@@ -503,36 +511,52 @@ $(function() {
 		$.ajax({
 			url: 'https://api.github.com/users/grant/events'
 		}).done(function (events) {
+			console.log(events);
 			var $githubCard = $('.card.github');
+			var $messages = $githubCard.find('.events');
+
+			var githubURL = 'https://www.github.com/';
+
+			var iconType;
+			var date;
+			var messageBody;
+
 			// Event types: https://developer.github.com/v3/activity/events/types/
 			// Github icons: https://github.com/styleguide/css/7.0
 			for (var i in events) {
 				var event = events[i];
 				switch (event.type) {
-					case 'CommitCommentEvent':
-						break;
-					case 'CreateEvent':
-						break;
-					case 'DeleteEvent':
-						break;
-					case 'DeploymentEvent':
-						break;
-					case 'DeploymentStatusEvent':
-						break;
-					case 'DownloadEvent':
-						break;
-					case 'FollowEvent':
-						break;
-					case 'ForkEvent':
-						break;
-					case 'ForkApplyEvent':
-						break;
-					case 'GistEvent':
-						break;
-					case 'GollumEvent':
-						break;
-					case 'IssueCommentEvent':
-						// Add comment
+					case 'CommitCommentEvent': {
+					} break;
+					case 'CreateEvent': {
+					} break;
+					case 'DeleteEvent': {
+					} break;
+					case 'DeploymentEvent': {
+					} break;
+					case 'DeploymentStatusEvent': {
+					} break;
+					case 'DownloadEvent': {
+					} break;
+					case 'FollowEvent': {
+					} break;
+					case 'ForkEvent': {
+					} break;
+					case 'ForkApplyEvent': {
+					} break;
+					case 'GistEvent': {
+					} break;
+					case 'GollumEvent': {
+					} break;
+					case 'IssueCommentEvent': {
+						iconType = 'comment';
+						date = event.created_at;
+
+						var comment = event.payload.comment;
+
+						var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+						var commentBody = '<a href="' + comment.html_url + '">' + comment.body + '</a>';
+						messageBody = 'Commented ' + repoBody + ': ' + commentBody;
 						// .created_at
 						// .repo
 							// .name
@@ -542,9 +566,17 @@ $(function() {
 							// .comment
 								// .html_url
 								// .body
-						break;
-					case 'IssuesEvent':
-						// Add issue message
+					} break;
+					case 'IssuesEvent': {
+						var action = event.payload.action;
+						var issue = event.payload.issue;
+						iconType = 'issue-' + action;
+						date = event.created_at;
+
+						var actionTitle = ucfirst(action);
+						var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+						var issueBody = '<a href="' + issue.html_url + '">' + issue.title + '</a>';
+						messageBody = actionTitle + ' issue ' + issueBody + ' for ' + repoBody;
 						// .created_at
 						// .repo
 							// .name
@@ -553,13 +585,21 @@ $(function() {
 							// .issue
 								// .title
 								// .html_url
-						break;
-					case 'MemberEvent':
-						break;
-					case 'PublicEvent':
-						break;
-					case 'PullRequestEvent':
-						// Add PR event
+					} break;
+					case 'MemberEvent': {
+					} break;
+					case 'PublicEvent': {
+					} break;
+					case 'PullRequestEvent': {
+						var action = event.payload.action;
+						iconType = 'git-pull-request';
+						var pr = event.payload.pull_request;
+						date = pr.created_at;
+
+						var actionTitle = ucfirst(action);
+						var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+						var prBody = '<a href="' + pr.html_url + '">' + pr.title + '</a>';
+						messageBody = actionTitle + ' ' + prBody + ' for ' + repoBody;
 						// .repo.name
 						// .payload
 							// .action [“opened”, “closed”, “synchronize”, or “reopened”]
@@ -567,11 +607,16 @@ $(function() {
 								// .created_at
 								// .html_url
 								// .body
-						break;
-					case 'PullRequestReviewCommentEvent':
-						break;
-					case 'PushEvent':
-						// Go through all commits
+					} break;
+					case 'PullRequestReviewCommentEvent': {
+					} break;
+					case 'PushEvent': {
+						iconType = 'repo-push';
+						date = event.created_at;
+						var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+						var commits = event.payload.commits;
+						var commitsText = commits.length + ' ' + (commits.length === 1 ? 'commit' : 'commits');
+						messageBody = 'Pushed ' + commitsText + ' to ' + repoBody;
 						// .created_at
 						// .repo
 							// .name
@@ -579,22 +624,62 @@ $(function() {
 							// .message
 							// .url
 							// .sha
-						break;
-					case 'ReleaseEvent':
-						break;
-					case 'StatusEvent':
-						break;
-					case 'TeamAddEvent':
-						break;
-					case 'WatchEvent':
-						// Create watch message
+					} break;
+					case 'ReleaseEvent': {
+					} break;
+					case 'StatusEvent': {
+					} break;
+					case 'TeamAddEvent': {
+					} break;
+					case 'WatchEvent': {
+						iconType = 'eye';
+						date = event.created_at;
+						var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+						messageBody = 'Starred ' + repoBody;
 						// .created_at
 						// .repo.name
 						// .payload.action ['started'] (Starred)
-						break;
+					} break;
+				}
+
+				// If the event was captured
+				if (iconType) {
+					var prettyDate = $.timeago(date);
+
+					// Create the message
+					var data = {
+						iconType: iconType,
+						messageBody: messageBody,
+						prettyDate: prettyDate
+					};
+
+					// Add the message to the list
+					var message = '<li>' +
+						'<div class="octicon octicon-' + data.iconType + '"></div>' +
+						'<div class="body">' +
+						data.messageBody +
+						'<div class="date">' + data.prettyDate + '</div>' +
+						'</div>' +
+						'</li>';
+
+					var $message = $(message);
+					$messages.append($message);
 				}
 			}
-			console.log(data);
 		});
+	}
+
+	/**
+	 * Helper uppercase function
+	 * @param {String} s The string to uppercase the first letter of
+	 * @returns {String} The first string to uppercase
+	 */
+	function ucfirst(s) {
+		s += '';
+		if (s.length) {
+			return s.charAt(0).toUpperCase() + s.substr(1);
+		} else {
+			return s;
+		}
 	}
 });
