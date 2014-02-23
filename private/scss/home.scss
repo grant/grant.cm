@@ -418,6 +418,7 @@ $cardsPerHeight: 2.2; // Can be float
 			.leftArea {
 				width: 33.3%;
 				text-align: center;
+				overflow-y: auto;
 
 				.username {
 					padding-bottom: 2%;
@@ -432,8 +433,50 @@ $cardsPerHeight: 2.2; // Can be float
 			.rightArea {
 				width: 66.6%;
 
-				.messages {
+				.eventArea {
+					height: 100%;
+					overflow-y: auto;
+				}
 
+				.eventsTitle {
+					color: $GRAY;
+					text-align: center;
+					font-style: italic;
+					margin-bottom: 1%;
+				}
+
+				.events {
+					li {
+						overflow: hidden;
+						padding: 2% 0;
+
+						$iconSize: 5%;
+						.octicon {
+							font-size: 50px;
+							width: $iconSize;
+						}
+
+						.body {
+							width: 100% - $iconSize;
+							padding-left: 1%;
+							font-size: 30px;
+
+							.date {
+								padding-top: 0.5%;
+								font-size: 20px;
+								font-weight: 700;
+								color: $GRAY;
+							}
+						}
+
+						.octicon, .body {
+							float: left;
+						}
+
+						&:not(:first-child) {
+							border-top: 1px solid $GRAY;
+						}
+					}
 				}
 			}
 			.leftArea, .rightArea {

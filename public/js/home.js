@@ -559,6 +559,14 @@ $(function() {
 					case 'PublicEvent':
 						break;
 					case 'PullRequestEvent':
+						// Add PR event
+						// .repo.name
+						// .payload
+							// .action [“opened”, “closed”, “synchronize”, or “reopened”]
+							// .pull_request
+								// .created_at
+								// .html_url
+								// .body
 						break;
 					case 'PullRequestReviewCommentEvent':
 						break;

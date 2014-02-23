@@ -1061,7 +1061,8 @@ button {
   color: #41403d; }
   .card.github .open .leftArea {
     width: 33.3%;
-    text-align: center; }
+    text-align: center;
+    overflow-y: auto; }
     .card.github .open .leftArea .username {
       padding-bottom: 2%; }
     .card.github .open .leftArea .profilePhoto {
@@ -1069,6 +1070,33 @@ button {
       border-radius: 10px; }
   .card.github .open .rightArea {
     width: 66.6%; }
+    .card.github .open .rightArea .eventArea {
+      height: 100%;
+      overflow-y: auto; }
+    .card.github .open .rightArea .eventsTitle {
+      color: #dedbcb;
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 1%; }
+    .card.github .open .rightArea .events li {
+      overflow: hidden;
+      padding: 2% 0; }
+      .card.github .open .rightArea .events li .octicon {
+        font-size: 50px;
+        width: 5%; }
+      .card.github .open .rightArea .events li .body {
+        width: 95%;
+        padding-left: 1%;
+        font-size: 30px; }
+        .card.github .open .rightArea .events li .body .date {
+          padding-top: 0.5%;
+          font-size: 20px;
+          font-weight: 700;
+          color: #dedbcb; }
+      .card.github .open .rightArea .events li .octicon, .card.github .open .rightArea .events li .body {
+        float: left; }
+      .card.github .open .rightArea .events li:not(:first-child) {
+        border-top: 1px solid #dedbcb; }
   .card.github .open .leftArea, .card.github .open .rightArea {
     padding: 1.5% 2%;
     float: left;
