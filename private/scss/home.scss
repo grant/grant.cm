@@ -402,13 +402,31 @@ $cardsPerHeight: 2.2; // Can be float
 		}
 	}
 	&.vidwall {
+		.open {
+			.searchArea {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				text-align: center;
+				width: 100%;
+				margin-left: -50%;
+
+				.textArea {
+					// margin-top: 50%;
+				}
+			}
+		}
+
 		.closed {
-			background-color: $BLUE;
 			text-align: center;
 
 			.svg {
 				height: 100%;
 			}
+		}
+
+		.open, .closed {
+			background-color: $BLUE;
 		}
 	}
 	&.github {

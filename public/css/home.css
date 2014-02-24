@@ -1052,11 +1052,19 @@ button {
   height: 100%; }
 .card.thefourelements .cardContent .closed, .card.cellularwarfare .cardContent .closed {
   background-size: cover; }
+.card.vidwall .open .searchArea {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  width: 100%;
+  margin-left: -50%; }
 .card.vidwall .closed {
-  background-color: #91cfd7;
   text-align: center; }
   .card.vidwall .closed .svg {
     height: 100%; }
+.card.vidwall .open, .card.vidwall .closed {
+  background-color: #91cfd7; }
 .card.github .open {
   color: #41403d; }
   .card.github .open .leftArea {
