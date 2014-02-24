@@ -8,6 +8,12 @@ html {
 html, body {
   height: 100%; }
 
+h1 {
+  font-size: 60px; }
+
+h2 {
+  font-size: 46px; }
+
 h3 {
   font-size: 36px; }
 
@@ -1056,8 +1062,9 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  text-align: center;
   width: 100%;
+  text-align: center;
+  margin-top: -4%;
   margin-left: -50%; }
 .card.vidwall .closed {
   text-align: center; }

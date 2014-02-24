@@ -407,13 +407,12 @@ $cardsPerHeight: 2.2; // Can be float
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				text-align: center;
 				width: 100%;
-				margin-left: -50%;
 
-				.textArea {
-					// margin-top: 50%;
-				}
+				text-align: center;
+
+				margin-top: -4%;
+				margin-left: -50%;
 			}
 		}
 
