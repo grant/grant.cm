@@ -1064,8 +1064,24 @@ button {
   left: 50%;
   width: 100%;
   text-align: center;
-  margin-top: -4%;
+  margin-top: -9%;
   margin-left: -50%; }
+  .card.vidwall .open .searchArea .title {
+    font-style: italic;
+    font-weight: 100;
+    padding-bottom: 3%; }
+  .card.vidwall .open .searchArea .query {
+    background-color: transparent;
+    border: none;
+    user-select: none;
+    margin: 0;
+    color: white;
+    text-align: center;
+    font-size: 100px;
+    width: 40%;
+    padding-bottom: 1%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    outline: none; }
 .card.vidwall .closed {
   text-align: center; }
   .card.vidwall .closed .svg {

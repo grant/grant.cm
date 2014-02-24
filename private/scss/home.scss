@@ -411,8 +411,31 @@ $cardsPerHeight: 2.2; // Can be float
 
 				text-align: center;
 
-				margin-top: -4%;
+				margin-top: -9%;
 				margin-left: -50%;
+
+				.title {
+					font-style: italic;
+					font-weight: 100;
+					padding-bottom: 3%;
+				}
+
+				.query {
+					// Reset user agent
+					background-color: transparent;
+					border: none;
+					user-select: none;
+					margin: 0;
+
+					color: white;
+					text-align: center;
+					font-size: 100px;
+
+					width: 40%;
+					padding-bottom: 1%;
+					border-bottom: 2px solid rgba(white, 0.5);
+					outline: none;
+				}
 			}
 		}
 
