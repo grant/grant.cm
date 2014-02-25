@@ -211,15 +211,19 @@ $cardsPerHeight: 2.2; // Can be float
 				overflow-y: auto;
 
 				.name {
+					font-size: 116px;
 					@include littleTextShadow;
+					margin-top: -11px;
 				}
 
 				.twitterHandle {
+					font-size: 19px;
 					padding-top: 1%;
 					@include font-light;
 				}
 
 				.longBio {
+					font-size: 19px;
 					padding: 1% 0;
 					line-height: 150%;
 
@@ -254,21 +258,17 @@ $cardsPerHeight: 2.2; // Can be float
 
 							.title {
 								float: left;
+								font-size: 34px;
 							}
 
 							.dateRange {
-								position: absolute;
-								top: 0;
-								right: 0;
-								text-align: right;
-							}
-
-							.title, .dateRange {
-								width: 100%;
+								float: right;
+								font-size: 25px;
 							}
 						}
 
 						.description, .descriptionBullets {
+							font-size: 25px;
 							@include font-light;
 							line-height: 150%;
 							list-style: disc;
@@ -306,9 +306,11 @@ $cardsPerHeight: 2.2; // Can be float
 				width: $textWidth;
 				margin: 0 (100% - $textWidth)/2;
 				.name {
+					font-size: 35px;
 				}
 
 				.bio {
+					font-size: 16px;
 					@include font-light;
 				}
 
@@ -382,9 +384,11 @@ $cardsPerHeight: 2.2; // Can be float
 					background-color: rgb(241, 98, 100);
 
 					.name {
+						font-size: 50px;
 						@include littleTextShadow;
 					}
 					.description, .instructions {
+						font-size: 28px;
 						@include font-light;
 						padding-top: 1%;
 					}
@@ -423,6 +427,7 @@ $cardsPerHeight: 2.2; // Can be float
 				margin-left: -50%;
 
 				.title {
+					font-size: 60px;
 					font-style: italic;
 					font-weight: 100;
 					padding-bottom: 3%;
@@ -555,7 +560,7 @@ $cardsPerHeight: 2.2; // Can be float
 
 				.username {
 					color: #333;
-					font-size: 20px;
+					font-size: 28px;
 				}
 			}
 
@@ -577,13 +582,14 @@ $cardsPerHeight: 2.2; // Can be float
 					}
 
 					.statCount {
-						font-size: 25px;
+						font-size: 48px;
 						color: #333;
 						display: block;
 						line-height: 1;
 					}
 
 					.statCountTitle {
+						font-size: 28px;
 						width: 100%;
 						text-overflow: ellipsis;
 					}

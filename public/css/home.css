@@ -948,12 +948,16 @@ button {
   padding: 1.5% 2%;
   overflow-y: auto; }
   .card.profile .cardContent .open .profileText .name {
-    text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
+    font-size: 116px;
+    text-shadow: 3px 3px rgba(20, 10, 0, 0.1);
+    margin-top: -11px; }
   .card.profile .cardContent .open .profileText .twitterHandle {
+    font-size: 19px;
     padding-top: 1%;
     font-weight: 100;
     color: #ccc; }
   .card.profile .cardContent .open .profileText .longBio {
+    font-size: 19px;
     padding: 1% 0;
     line-height: 150%; }
     .card.profile .cardContent .open .profileText .longBio:first-letter {
@@ -976,15 +980,13 @@ button {
         padding-bottom: 0.5%;
         overflow: hidden; }
         .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .title {
-          float: left; }
+          float: left;
+          font-size: 34px; }
         .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .dateRange {
-          position: absolute;
-          top: 0;
-          right: 0;
-          text-align: right; }
-        .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .title, .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .dateRange {
-          width: 100%; }
+          float: right;
+          font-size: 25px; }
       .card.profile .cardContent .open .profileText .experienceList .descriptionArea .description, .card.profile .cardContent .open .profileText .experienceList .descriptionArea .descriptionBullets {
+        font-size: 25px;
         font-weight: 100;
         color: #ccc;
         line-height: 150%;
@@ -1003,7 +1005,10 @@ button {
   .card.profile .cardContent .closed .profileText {
     width: 80%;
     margin: 0 10%; }
+    .card.profile .cardContent .closed .profileText .name {
+      font-size: 35px; }
     .card.profile .cardContent .closed .profileText .bio {
+      font-size: 16px;
       font-weight: 100;
       color: #ccc; }
     .card.profile .cardContent .closed .profileText .name, .card.profile .cardContent .closed .profileText .bio {
@@ -1046,8 +1051,10 @@ button {
   padding: 1.5% 2%;
   background-color: #f16264; }
   .card.thefourelements .cardContent .open .leftArea .name, .card.cellularwarfare .cardContent .open .leftArea .name {
+    font-size: 50px;
     text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
   .card.thefourelements .cardContent .open .leftArea .description, .card.thefourelements .cardContent .open .leftArea .instructions, .card.cellularwarfare .cardContent .open .leftArea .description, .card.cellularwarfare .cardContent .open .leftArea .instructions {
+    font-size: 28px;
     font-weight: 100;
     color: #ccc;
     padding-top: 1%; }
@@ -1073,6 +1080,7 @@ button {
   margin-top: -9%;
   margin-left: -50%; }
   .card.vidwall .open .searchArea .title {
+    font-size: 60px;
     font-style: italic;
     font-weight: 100;
     padding-bottom: 3%; }
@@ -1153,7 +1161,7 @@ button {
       background-size: 100% 100%; }
     .card.github .closed .top .username {
       color: #333;
-      font-size: 20px; }
+      font-size: 28px; }
   .card.github .closed .bottom {
     height: 25%;
     padding-top: 2%;
@@ -1167,11 +1175,12 @@ button {
       .card.github .closed .bottom .stat:not(:last-child) {
         border-right: 1px solid rgba(20, 20, 20, 0.1); }
       .card.github .closed .bottom .stat .statCount {
-        font-size: 25px;
+        font-size: 48px;
         color: #333;
         display: block;
         line-height: 1; }
       .card.github .closed .bottom .stat .statCountTitle {
+        font-size: 28px;
         width: 100%;
         text-overflow: ellipsis; }
 .card.github .open, .card.github .closed {
