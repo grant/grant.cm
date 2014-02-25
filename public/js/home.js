@@ -29,67 +29,24 @@ $(function() {
 	var $cardTiles = $('div.cardTiles');
 	var $tileCards = $cardTiles.find('div.card');
 	var numCards = $tileCards.length;
-	var fitTexts = {
-		'profile': [],
-		'thefourelements': []
-	};
 	var shiftKey = false;
 
 	/**
 	 * Contains a (cached) blob of data for each card.
 	 * Since card.open is created and destroyed often, we can keep data persistant here
-	 * This includes cached API calls, fittext data, etc.
+	 * This includes cached API calls, etc.
 	 * @type {Object[cardId]}
 	 */
 	var cardData = {
-		profile: {
-			fittext: {
-				open: [],
-				closed: []
-			}
-		},
-		cellularwarfare: {
-			fittext: {
-				open: [],
-				closed: []
-			}
-		},
-		vidwall: {
-			fittext: {
-				open: [],
-				closed: []
-			}
-		},
-		github: {
-			fittext: {
-				open: [],
-				closed: []
-			}
-		},
-		thefourelements: {
-			fittext: {
-				open: [],
-				closed: []
-			}
-		}
+		profile: {},
+		cellularwarfare: {},
+		vidwall: {},
+		github: {},
+		thefourelements: {}
 	};
 
 	// On load
 	(function () {
-		// Fittext closed cards
-		// (Since open cards are dynamically created)
-		var $profile = $('.profile');
-		cardData.profile.fittext.closed = [
-			$profile.find('.profileText .name').fitText(1.3),
-			$profile.find('.profileText .bio').fitText(3)
-		];
-		var $github = $('.github');
-		cardData.github.fittext.closed = [
-			$github.find('.username').fitText(2),
-			$github.find('.statCount').fitText(0.4),
-			$github.find('.statCountTitle').fitText(0.7)
-		];
-
 		// Resizes the profile video on window resize
 		$(window).on('resize orientationchange', function () {
 			// TODO: Make this happen only if the profile card is open
@@ -158,12 +115,6 @@ $(function() {
 	 * @param {String} cardId The id of the card that is being resized
 	 */
 	function resizing (cardId) {
-		// TODO: Delete this when fittext works
-		// fitTexts[cardId] = fitTexts[cardId] || [];
-		// fitTexts[cardId].forEach(function (resize) {
-		// 	resize();
-		// });
-
 		// Special resizing cards
 		switch (cardId) {
 			case 'profile': {
@@ -528,26 +479,11 @@ $(function() {
 	 */
 	function bindCardEvents ($card) {
 		var cardId = $card.data('id');
-		// Bind fittext
 		switch (cardId) {
 			case 'profile':
-				$card.find('.name').fitText(1);
-				$card.find('.twitterHandle').fitText(6);
-				$card.find('.longBio').fitText(6);
-				$card.find('.experienceList .title').fitText(3);
-				$card.find('.experienceList .dateRange').fitText(4);
-				$card.find('.experienceList .description').fitText(4);
-				$card.find('.experienceList .descriptionBullets').fitText(4);
 				break;
 			case 'thefourelements':
 			case 'cellularwarfare':
-				$card.find('.name').fitText(1.1);
-				$card.find('.description').fitText(2);
-				$card.find('.instructions').fitText(2);
-				$card.find('.plays').fitText(2);
-				$card.find('.devnotesTitle').fitText(1.5);
-				$card.find('.devnotes').fitText(3);
-				// $card.find('.githubLink').fitText(2); Doesn't work atm
 				break;
 			case 'github':
 				break;
