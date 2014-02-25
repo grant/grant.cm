@@ -51,7 +51,8 @@ $(function() {
 		$(window).on('resize orientationchange', function () {
 			// TODO: Make this happen only if the profile card is open
 			resizeProfileVideo();
-			resizeFlash();
+			var $swf = $tileCards.filter('.open').find('.swf');
+			resizeFlash($swf);
 		});
 
 		// Keyboard presses
@@ -121,7 +122,12 @@ $(function() {
 				resizeProfileVideo();
 			} break;
 			case 'thefourelements': {
-				resizeFlash();
+				var $swf = $('.thefourelements .swf');
+				resizeFlash($swf);
+			} break;
+			case 'cellularwarfare': {
+				var $swf = $('.cellularwarfare .swf');
+				resizeFlash($swf);
 			} break;
 		}
 	}
@@ -166,9 +172,8 @@ $(function() {
 	/**
 	 * Resizes the flash game to fit it (not cover) the parent area
 	 */
-	function resizeFlash () {
-		var $swf = $('.thefourelements .swf');
-		if ($swf.length) {
+	function resizeFlash ($swf) {
+		if ($swf && $swf.length) {
 			var $parent = $swf.parent();
 			var parentWidth = $parent.width();
 			var parentHeight = $parent.height();
