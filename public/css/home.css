@@ -1156,13 +1156,18 @@ button {
     .card.github .closed .bottom .stat {
       height: 100%;
       float: left;
-      width: 33.3%; }
+      width: 33.3%;
+      overflow: hidden; }
       .card.github .closed .bottom .stat:not(:last-child) {
         border-right: 1px solid rgba(20, 20, 20, 0.1); }
       .card.github .closed .bottom .stat .statCount {
         font-size: 25px;
         color: #333;
-        display: block; }
+        display: block;
+        line-height: 1; }
+      .card.github .closed .bottom .stat .statCountTitle {
+        width: 100%;
+        text-overflow: ellipsis; }
 .card.github .open, .card.github .closed {
   background: linear-gradient(#f9f9f9, #f3f3f3); }
 

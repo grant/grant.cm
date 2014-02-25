@@ -35,16 +35,61 @@ $(function() {
 	};
 	var shiftKey = false;
 
+	/**
+	 * Contains a (cached) blob of data for each card.
+	 * Since card.open is created and destroyed often, we can keep data persistant here
+	 * This includes cached API calls, fittext data, etc.
+	 * @type {Object[cardId]}
+	 */
+	var cardData = {
+		profile: {
+			fittext: {
+				open: [],
+				closed: []
+			}
+		},
+		cellularwarfare: {
+			fittext: {
+				open: [],
+				closed: []
+			}
+		},
+		vidwall: {
+			fittext: {
+				open: [],
+				closed: []
+			}
+		},
+		github: {
+			fittext: {
+				open: [],
+				closed: []
+			}
+		},
+		thefourelements: {
+			fittext: {
+				open: [],
+				closed: []
+			}
+		}
+	};
+
 	// On load
 	(function () {
 		// Populate the fitText fields
-		// Closed cards only!
+		// Closed cards only! (Since open cards are dynamically created)
 		var $profile = $('.profile');
-		fitTexts['profile'].push(
+		cardData.profile.fittext.closed = [
 			$profile.find('.profileText .name').fitText(1.3),
 			$profile.find('.profileText .bio').fitText(3),
 			$profile.find('.closeButton .content').fitText(0.2)
-		);
+		];
+		var $github = $('.github');
+		cardData.github.fittext.closed = [
+			$github.find('.username').fitText(2),
+			$github.find('.statCount').fitText(.4),
+			$github.find('.statCountTitle').fitText(.7)
+		];
 
 		// Resizes the profile video on window resize
 		$(window).on('resize orientationchange', function () {

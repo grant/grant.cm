@@ -1,4 +1,5 @@
 // Modified fitText
+// Note: DOES NOT WORK WITH SPANS!!!
 (function( $ ){
 
   $.fn.fitText = function( kompressor, options ) {

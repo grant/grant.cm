@@ -562,6 +562,7 @@ $cardsPerHeight: 2.2; // Can be float
 					height: 100%;
 					float: left;
 					width: 33.3%;
+					overflow: hidden;
 
 					&:not(:last-child) {
 						border-right: 1px solid rgba(20, 20, 20, 0.1);
@@ -571,6 +572,12 @@ $cardsPerHeight: 2.2; // Can be float
 						font-size: 25px;
 						color: #333;
 						display: block;
+						line-height: 1;
+					}
+
+					.statCountTitle {
+						width: 100%;
+						text-overflow: ellipsis;
 					}
 				}
 			}
