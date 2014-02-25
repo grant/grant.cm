@@ -44,27 +44,32 @@ $(function() {
 	var cardData = {
 		profile: {
 			fittext: {
-				open: []
+				open: [],
+				closed: []
 			}
 		},
 		cellularwarfare: {
 			fittext: {
-				open: []
+				open: [],
+				closed: []
 			}
 		},
 		vidwall: {
 			fittext: {
-				open: []
+				open: [],
+				closed: []
 			}
 		},
 		github: {
 			fittext: {
-				open: []
+				open: [],
+				closed: []
 			}
 		},
 		thefourelements: {
 			fittext: {
-				open: []
+				open: [],
+				closed: []
 			}
 		}
 	};
@@ -74,12 +79,16 @@ $(function() {
 		// Fittext closed cards
 		// (Since open cards are dynamically created)
 		var $profile = $('.profile');
-		$profile.find('.profileText .name').fitText(1.3);
-		$profile.find('.profileText .bio').fitText(3);
+		cardData.profile.fittext.closed = [
+			$profile.find('.profileText .name').fitText(1.3),
+			$profile.find('.profileText .bio').fitText(3)
+		];
 		var $github = $('.github');
-		$github.find('.username').fitText(2);
-		$github.find('.statCount').fitText(0.4);
-		$github.find('.statCountTitle').fitText(0.7);
+		cardData.github.fittext.closed = [
+			$github.find('.username').fitText(2),
+			$github.find('.statCount').fitText(0.4),
+			$github.find('.statCountTitle').fitText(0.7)
+		];
 
 		// Resizes the profile video on window resize
 		$(window).on('resize orientationchange', function () {
@@ -515,14 +524,16 @@ $(function() {
 				$card.find('.experienceList .descriptionBullets').fitText(4);
 				break;
 			case 'thefourelements':
+			case 'cellularwarfare':
 				$card.find('.name').fitText(1.1);
 				$card.find('.description').fitText(2);
 				$card.find('.instructions').fitText(2);
-				$card.find('.plays').fitText(3);
+				$card.find('.plays').fitText(2);
+				$card.find('.devnotesTitle').fitText(1.5);
+				$card.find('.devnotes').fitText(3);
+				// $card.find('.githubLink').fitText(2); Doesn't work atm
 				break;
 			case 'github':
-				break;
-			case 'cellularwarfare':
 				break;
 			case 'vidwall':
 				break;

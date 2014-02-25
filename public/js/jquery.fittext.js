@@ -20,7 +20,7 @@
       var $width = $this.width();
       // If no glitch
       if ($width !== 0) {
-        var fontSize = Math.max(Math.min($this.width() / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize));
+        var fontSize = Math.max(Math.min($width / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize));
         $this.css('font-size', fontSize);
       }
     };

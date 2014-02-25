@@ -39,6 +39,7 @@ if ('development' == app.get('env')) {
 var routes = require('./routes');
 
 app.get('/', routes.index);
+app.get('/vidwall', routes.vidwall);
 // app.get('/:id', routes.id);
 
 // API
