@@ -31,14 +31,15 @@ $(function() {
 	// On load
 	(function () {
 		// Populate the fitText fields
+		var $profile = $('.profile');
 		fitTexts['profile'].push(
-			$('.profile .profileText .name').fitText(1.3),
-			$('.profile .profileText .bio').fitText(3),
-			$('.profile .closeButton .content').fitText(0.2),
-			$('.profile .twitterHandle').fitText(7),
-			$('.profile .longBio').fitText(7),
-			$('.profile .experienceList .description').fitText(6),
-			$('.profile .experienceList .descriptionBullets').fitText(6)
+			$profile.find('.profileText .name').fitText(1.3),
+			$profile.find('.profileText .bio').fitText(3),
+			$profile.find('.closeButton .content').fitText(0.2),
+			$profile.find('.twitterHandle').fitText(7),
+			$profile.find('.longBio').fitText(7),
+			$profile.find('.experienceList .description').fitText(6),
+			$profile.find('.experienceList .descriptionBullets').fitText(6)
 		);
 		fitTexts['thefourelements'].push(
 			$('.thefourelements .name').fitText(1.1),
@@ -314,6 +315,8 @@ $(function() {
 			duration: animationTime,
 			step: function (now, fx) {
 				if (fx.prop === 'width') {
+					resizing(cardId);
+
 					var otherWidth = (100 - now) / 2;
 					$siblingCards.css({
 						width: otherWidth + '%'
