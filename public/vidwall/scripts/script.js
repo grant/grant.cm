@@ -44,8 +44,13 @@ function loadFromQuery (query) {
         '&orderby=relevance' +//viewcount
         '&alt=json';
     $.getJSON(url, function(data) {
-        var entries = data.feed.entry.slice(0, numRows * numCols);
-        loadPlayers(entries);
+        if (!data.feed.entry) {
+            alertify.error('No videos were found from the search "' + query + '"" :(');
+            $('#videoSearch').focus().select();
+        } else {
+            var entries = data.feed.entry.slice(0, numRows * numCols);
+            loadPlayers(entries);
+        }
     });
 }
 
@@ -168,6 +173,7 @@ function _run () {
                 $('#videoSearch').focus().select();
                 return false;
         }
+        $('#videoSearch').focus();
     });
 
     $('.videoWall').mousemove(function(data) {
@@ -182,7 +188,9 @@ function _run () {
             for (var i = 0; i < numRows; ++i) {
                 for (var j = 0; j < numCols; ++j) {
                     player = document.getElementById('video' + i + j);
-                    player.mute();
+                    if (player && player.mute) {
+                        player.mute();
+                    }
                 }
             }
 
@@ -191,7 +199,9 @@ function _run () {
             var newFocusRow = Math.max(Math.min(Math.floor(data.clientY / vidHeight), numRows), 0);
             player = document.getElementById('video' + newFocusRow + newFocusCol);
 
-            player.unMute();
+            if (player && player.unMute) {
+                player.unMute();
+            }
         }
     });
 }

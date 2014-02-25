@@ -97,6 +97,19 @@ $(function() {
 			resizeFlash();
 		});
 
+		// Keyboard presses
+		$(window).keydown(function (event) {
+			var $openCard = $tileCards.filter('.open');
+			var cardId = $openCard.data('id');
+			if (cardId === 'vidwall') {
+				if (event.which === 13) {
+					var query = $openCard.find('.query').val();
+					window.location.href = '/vidwall#' + query;
+				}
+			}
+		});
+
+
 		// If you click outside the card, it automatically closes the opened card
 		$('.cardArea').click(function (event) {
 			var target = event.target;
