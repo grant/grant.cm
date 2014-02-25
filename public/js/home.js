@@ -4,6 +4,13 @@ $(function() {
 	var CARDS_PER_ROW = 3;
 	var ANIMATION_TIME = 500;
 
+	// Enum
+	var CARD_STATE = {
+		CLOSED: 'CLOSED',
+		TRANSITIONING: 'TRANSITIONING',
+		OPEN: 'OPEN'
+	};
+
 	var OPEN_SIZE = {
 		WIDTH: '100%',
 		HEIGHT: '100%'
@@ -18,7 +25,7 @@ $(function() {
 	};
 
 	// Page state variables
-	var cardIsOpen = false;
+	var cardState = CARD_STATE.CLOSED; // See CARD_STATE
 	var $cardTiles = $('div.cardTiles');
 	var $tileCards = $cardTiles.find('div.card');
 	var numCards = $tileCards.length;
@@ -31,21 +38,12 @@ $(function() {
 	// On load
 	(function () {
 		// Populate the fitText fields
+		// Closed cards only!
 		var $profile = $('.profile');
 		fitTexts['profile'].push(
 			$profile.find('.profileText .name').fitText(1.3),
 			$profile.find('.profileText .bio').fitText(3),
-			$profile.find('.closeButton .content').fitText(0.2),
-			$profile.find('.twitterHandle').fitText(7),
-			$profile.find('.longBio').fitText(7),
-			$profile.find('.experienceList .description').fitText(6),
-			$profile.find('.experienceList .descriptionBullets').fitText(6)
-		);
-		fitTexts['thefourelements'].push(
-			$('.thefourelements .name').fitText(1.1),
-			$('.thefourelements .description').fitText(2),
-			$('.thefourelements .instructions').fitText(2),
-			$('.thefourelements .plays').fitText(3)
+			$profile.find('.closeButton .content').fitText(0.2)
 		);
 
 		// Resizes the profile video on window resize
@@ -80,7 +78,7 @@ $(function() {
 	 * When clickcing on a card, open it up.
 	 */
 	$tileCards.click(function() {
-		if (!cardIsOpen) {
+		if (cardState === CARD_STATE.CLOSED) {
 			var $card = $(this);
 			openCard($card);
 			return false;
@@ -100,6 +98,19 @@ $(function() {
 	 * @param {String} cardId The id of the card that is being resized
 	 */
 	function resizing (cardId) {
+		// Resize text
+		// 	$profile.find('.twitterHandle').fitText(7),
+		// 	$profile.find('.longBio').fitText(7),
+		// 	$profile.find('.experienceList .description').fitText(6),
+		// 	$profile.find('.experienceList .descriptionBullets').fitText(6)
+
+		// fitTexts['thefourelements'].push(
+		// 	$('.thefourelements .name').fitText(1.1),
+		// 	$('.thefourelements .description').fitText(2),
+		// 	$('.thefourelements .instructions').fitText(2),
+		// 	$('.thefourelements .plays').fitText(3)
+		// );
+
 		fitTexts[cardId] = fitTexts[cardId] || [];
 		fitTexts[cardId].forEach(function (resize) {
 			resize();
@@ -201,7 +212,7 @@ $(function() {
 	 * @param {Card} $card The jquery-wrapped card
 	 */
 	function openCard ($card) {
-		cardIsOpen = true;
+		cardState = CARD_STATE.TRANSITIONING;
 		var animationTime = (shiftKey) ? ANIMATION_TIME * 10 : ANIMATION_TIME;
 
 		// Setup vars
@@ -249,6 +260,7 @@ $(function() {
 				}
 			},
 			done: function () {
+				cardState = CARD_STATE.OPEN;
 				// Hide all cards
 				$siblingCards.hide();
 				$otherCards.hide();
@@ -299,6 +311,7 @@ $(function() {
 	 * @param {Card} $card The jquery-wrapped card
 	 */
 	function closeCard ($card, horizontally) {
+		cardState = CARD_STATE.TRANSITIONING;
 		// Setup vars
 		var animationTime = (shiftKey) ? ANIMATION_TIME * 10 : ANIMATION_TIME;
 		var cardId = $card.data('id');
@@ -325,7 +338,7 @@ $(function() {
 			},
 			done: function () {
 				// Say card is open after all transitions are done
-				cardIsOpen = false;
+				cardState = CARD_STATE.CLOSED;
 				$card.find('.open').html('');
 				$card.removeClass('transitioning');
 			}
@@ -395,6 +408,7 @@ $(function() {
 	}
 
 	function shiftCard ($cardClose, $cardOpen) {
+		cardState = CARD_STATE.TRANSITIONING;
 		var cardCloseId = $cardClose.data('id');
 		var cardOpenId = $cardOpen.data('id');
 		var animationTime = (shiftKey) ? ANIMATION_TIME * 10 : ANIMATION_TIME;
@@ -410,6 +424,7 @@ $(function() {
 				resizing(cardCloseId);
 			},
 			done: function () {
+				cardState = CARD_STATE.OPEN;
 				// Reset card
 				$cardClose.hide().css({
 					padding: CARD_PADDING
