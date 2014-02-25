@@ -248,6 +248,7 @@ $cardsPerHeight: 2.2; // Can be float
 						padding-left: 2%;
 
 						.titleBar {
+							position: relative;
 							padding-bottom: 0.5%;
 							overflow: hidden;
 
@@ -256,7 +257,14 @@ $cardsPerHeight: 2.2; // Can be float
 							}
 
 							.dateRange {
-								float: right;
+								position: absolute;
+								top: 0;
+								right: 0;
+								text-align: right;
+							}
+
+							.title, .dateRange {
+								width: 100%;
 							}
 						}
 

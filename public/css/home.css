@@ -972,12 +972,18 @@ button {
       width: 90%;
       padding-left: 2%; }
       .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar {
+        position: relative;
         padding-bottom: 0.5%;
         overflow: hidden; }
         .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .title {
           float: left; }
         .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .dateRange {
-          float: right; }
+          position: absolute;
+          top: 0;
+          right: 0;
+          text-align: right; }
+        .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .title, .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .dateRange {
+          width: 100%; }
       .card.profile .cardContent .open .profileText .experienceList .descriptionArea .description, .card.profile .cardContent .open .profileText .experienceList .descriptionArea .descriptionBullets {
         font-weight: 100;
         color: #ccc;

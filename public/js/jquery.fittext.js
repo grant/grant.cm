@@ -1,5 +1,6 @@
 // Modified fitText
 // Note: DOES NOT WORK WITH SPANS!!!
+// Note: ELEMENT MUST HAVE FIXED WIDTH
 (function( $ ){
 
   $.fn.fitText = function( kompressor, options ) {

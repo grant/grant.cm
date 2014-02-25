@@ -44,52 +44,43 @@ $(function() {
 	var cardData = {
 		profile: {
 			fittext: {
-				open: [],
-				closed: []
+				open: []
 			}
 		},
 		cellularwarfare: {
 			fittext: {
-				open: [],
-				closed: []
+				open: []
 			}
 		},
 		vidwall: {
 			fittext: {
-				open: [],
-				closed: []
+				open: []
 			}
 		},
 		github: {
 			fittext: {
-				open: [],
-				closed: []
+				open: []
 			}
 		},
 		thefourelements: {
 			fittext: {
-				open: [],
-				closed: []
+				open: []
 			}
 		}
 	};
 
 	// On load
 	(function () {
-		// Populate the fitText fields
-		// Closed cards only! (Since open cards are dynamically created)
+		// Fittext closed cards
+		// (Since open cards are dynamically created)
 		var $profile = $('.profile');
-		cardData.profile.fittext.closed = [
-			$profile.find('.profileText .name').fitText(1.3),
-			$profile.find('.profileText .bio').fitText(3),
-			$profile.find('.closeButton .content').fitText(0.2)
-		];
+		$profile.find('.profileText .name').fitText(1.3);
+		$profile.find('.profileText .bio').fitText(3);
+		$profile.find('.closeButton .content').fitText(0.2);
 		var $github = $('.github');
-		cardData.github.fittext.closed = [
-			$github.find('.username').fitText(2),
-			$github.find('.statCount').fitText(.4),
-			$github.find('.statCountTitle').fitText(.7)
-		];
+		$github.find('.username').fitText(2);
+		$github.find('.statCount').fitText(0.4);
+		$github.find('.statCountTitle').fitText(0.7);
 
 		// Resizes the profile video on window resize
 		$(window).on('resize orientationchange', function () {
@@ -143,23 +134,11 @@ $(function() {
 	 * @param {String} cardId The id of the card that is being resized
 	 */
 	function resizing (cardId) {
-		// Resize text
-		// 	$profile.find('.twitterHandle').fitText(7),
-		// 	$profile.find('.longBio').fitText(7),
-		// 	$profile.find('.experienceList .description').fitText(6),
-		// 	$profile.find('.experienceList .descriptionBullets').fitText(6)
-
-		// fitTexts['thefourelements'].push(
-		// 	$('.thefourelements .name').fitText(1.1),
-		// 	$('.thefourelements .description').fitText(2),
-		// 	$('.thefourelements .instructions').fitText(2),
-		// 	$('.thefourelements .plays').fitText(3)
-		// );
-
-		fitTexts[cardId] = fitTexts[cardId] || [];
-		fitTexts[cardId].forEach(function (resize) {
-			resize();
-		});
+		// TODO: Delete this when fittext works
+		// fitTexts[cardId] = fitTexts[cardId] || [];
+		// fitTexts[cardId].forEach(function (resize) {
+		// 	resize();
+		// });
 
 		// Special resizing cards
 		switch (cardId) {
@@ -339,8 +318,14 @@ $(function() {
 		}
 	}
 
+	/**
+	 * Opens the card by making a API call to get the html contents.
+	 * Calls external APIs when necessary
+	 * Sets up the DOM-binded card event handlers
+	 * @param {Card} $card The card DOM
+	 */
 	function openCardContent ($card) {
-		var cardId =$card.data('id');
+		var cardId = $card.data('id');
 		$card.find('.closed').show().fadeOut(ANIMATION_TIME);
 		$card.find('.open').load('/api/card/' + cardId, function () {
 			// Close button
@@ -348,6 +333,8 @@ $(function() {
 				closeCard($(this).closest('.card'));
 				return false;
 			});
+			// Add DOM-binded events
+			bindCardEvents($card);
 		});
 	}
 
@@ -509,6 +496,39 @@ $(function() {
 	//
 	// Helper functions
 	//
+
+	/**
+	 * Bind all DOM related events to a card
+	 * @pre card.open has been loaded with html
+	 * @param {Card} $card The card DOM
+	 */
+	function bindCardEvents ($card) {
+		var cardId = $card.data('id');
+		// Bind fittext
+		switch (cardId) {
+			case 'profile':
+				$card.find('.name').fitText(1);
+				$card.find('.twitterHandle').fitText(6);
+				$card.find('.longBio').fitText(6);
+				$card.find('.experienceList .title').fitText(3);
+				$card.find('.experienceList .dateRange').fitText(4);
+				$card.find('.experienceList .description').fitText(4);
+				$card.find('.experienceList .descriptionBullets').fitText(4);
+				break;
+			case 'thefourelements':
+				$card.find('.name').fitText(1.1);
+				$card.find('.description').fitText(2);
+				$card.find('.instructions').fitText(2);
+				$card.find('.plays').fitText(3);
+				break;
+			case 'github':
+				break;
+			case 'cellularwarfare':
+				break;
+			case 'vidwall':
+				break;
+		}
+	}
 
 	/**
 	 * Gets an array of the indices of a certain row
