@@ -102,9 +102,12 @@ $(function() {
 			var $openCard = $tileCards.filter('.open');
 			var cardId = $openCard.data('id');
 			if (cardId === 'vidwall') {
+				var $query = $openCard.find('.query');
 				if (event.which === 13) {
-					var query = $openCard.find('.query').val();
+					var query = $query.val();
 					window.location.href = '/vidwall#' + query;
+				} else {
+					$query.focus();
 				}
 			}
 		});
