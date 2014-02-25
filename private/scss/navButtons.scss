@@ -47,13 +47,10 @@ $angleActive: 25deg;
 	width: 3%;
 	cursor: pointer;
 	z-index: 1000;
-}
+	opacity: 0.6;
 
-.paginate {
 	position: relative;
 	margin: 10px;
-	// width: $size;
-	// height: $size;
 	cursor: pointer;
 	@include transform( translate3d(0,0,0) ); // fixes flicker in webkit
 

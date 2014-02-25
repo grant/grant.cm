@@ -76,7 +76,6 @@ $(function() {
 		var $profile = $('.profile');
 		$profile.find('.profileText .name').fitText(1.3);
 		$profile.find('.profileText .bio').fitText(3);
-		$profile.find('.closeButton .content').fitText(0.2);
 		var $github = $('.github');
 		$github.find('.username').fitText(2);
 		$github.find('.statCount').fitText(0.4);
