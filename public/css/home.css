@@ -1155,10 +1155,10 @@ button {
   padding: 2%;
   text-align: center; }
   .card.github .closed .top {
-    height: 75%;
+    height: 65%;
     padding: 2%; }
     .card.github .closed .top .svg {
-      height: 90%;
+      height: 85%;
       margin-bottom: 3%;
       background: url("/images/icons/github.svg");
       background-size: 100% 100%; }
@@ -1166,7 +1166,7 @@ button {
       color: #333;
       font-size: 28px; }
   .card.github .closed .bottom {
-    height: 25%;
+    height: 35%;
     padding-top: 2%;
     color: #aaa;
     line-height: 1.2; }

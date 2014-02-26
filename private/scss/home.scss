@@ -549,13 +549,13 @@ $cardsPerHeight: 2.2; // Can be float
 			text-align: center;
 
 			// Github logo
-			$topHeight: 75%;
+			$topHeight: 65%;
 			.top {
 				height: $topHeight;
 				padding: 2%;
 
 				.svg {
-					height: 90%;
+					height: 85%;
 					margin-bottom: 3%;
 					background: url('/images/icons/github.svg');
 					background-size: 100% 100%;
