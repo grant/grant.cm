@@ -172,6 +172,7 @@ $cardsPerHeight: 2.2; // Can be float
 					padding: 10% 15%;
 					background: linear-gradient(to right bottom, rgba(0,0,0,.3) 50%, transparent 50%);
 					user-select: none;
+					z-index: 100;
 
 					@include font-dark;
 					cursor: pointer;

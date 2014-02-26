@@ -928,6 +928,7 @@ button {
         padding: 10% 15%;
         background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.3) 50%, transparent 50%);
         user-select: none;
+        z-index: 100;
         font-weight: 100;
         color: #666;
         cursor: pointer; }
