@@ -1,6 +1,9 @@
 {
   "name": "granttimmerman.com",
   "version": "0.0.1",
+  "engines": {
+     "node": "0.10.x"
+  },
   "description": "The website granttimmerman.com",
   "homepage": "http://www.granttimmerman.com/",
   "private": true,
