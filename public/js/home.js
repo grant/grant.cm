@@ -41,7 +41,13 @@ $(function() {
 		profile: {},
 		cellularwarfare: {},
 		vidwall: {},
-		github: {},
+		github: {
+			api: {
+				// The api's json blobs
+				profile: null,
+				events: null
+			}
+		},
 		thefourelements: {}
 	};
 
@@ -85,7 +91,7 @@ $(function() {
 		$('.paginate.right').click(navRight);
 
 		// Github
-		// setGithubProfileData();
+		setGithubProfileData();
 	})();
 
 	//
@@ -291,11 +297,6 @@ $(function() {
 		// Set some properties on the opened card
 		$card.addClass('open transitioning');
 		setNavButtonState();
-
-		// Special events
-		if ($card.hasClass('github')) {
-			// setGithubEventData();
-		}
 	}
 
 	/**
@@ -466,11 +467,6 @@ $(function() {
 			}
 		});
 		$cardOpen.addClass('open');
-
-		// Special events
-		if ($cardOpen.hasClass('github')) {
-			// setGithubEventData();
-		}
 	}
 
 	//
@@ -491,6 +487,7 @@ $(function() {
 			case 'cellularwarfare':
 				break;
 			case 'github':
+				setGithubEventData();
 				break;
 			case 'vidwall':
 				break;
@@ -544,24 +541,49 @@ $(function() {
 	 * Sets the data from github for the github card's stats
 	 */
 	function setGithubProfileData () {
-		$.ajax({
-			url: "https://api.github.com/users/grant"
-		}).done(function (data) {
+		if (cardData.github.api.profile) {
+			setGithubProfileDataDOM(cardData.github.api.profile);
+		} else {
+			$.ajax({
+				url: "https://api.github.com/users/grant"
+			}).done(function (data) {
+				cardData.github.api.profile = data;
+				setGithubProfileDataDOM(data);
+			});
+		}
+
+		/**
+		 * Sets the actual DOM of the card
+		 * @param {Object} data The json api data
+		 */
+		function setGithubProfileDataDOM (data) {
 			var $githubCard = $('.card.github');
 			$githubCard.find('.followers .statCount').html(data.followers);
 			$githubCard.find('.following .statCount').html(data.following);
 			$githubCard.find('.repos .statCount').html(data.public_repos);
-		});
+		}
 	}
 
 	/**
 	 * Sets the event data for the github card event feed
 	 */
 	function setGithubEventData () {
-		$.ajax({
-			url: 'https://api.github.com/users/grant/events'
-		}).done(function (events) {
-			console.log(events);
+		if (cardData.github.api.events) {
+			setGithubEventDataDOM(cardData.github.api.events);
+		} else {
+			$.ajax({
+				url: 'https://api.github.com/users/grant/events'
+			}).done(function (events) {
+				cardData.github.api.events = events;
+				setGithubEventDataDOM(events);
+			});
+		}
+
+		/**
+		 * Sets the DOM of the event stream
+		 * @param {Object} events The json api data
+		 */
+		function setGithubEventDataDOM (events) {
 			var $githubCard = $('.card.github');
 			var $messages = $githubCard.find('.events');
 
@@ -716,7 +738,7 @@ $(function() {
 					$messages.append($message);
 				}
 			}
-		});
+		}
 	}
 
 	/**
