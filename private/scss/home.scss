@@ -504,10 +504,12 @@ $cardsPerHeight: 2.2; // Can be float
 					li {
 						overflow: hidden;
 						padding: 2% 0;
+						margin-right: 2%; // Keep away from scroll bar
 
 						$iconSize: 5%;
 						.octicon {
 							font-size: 50px;
+							text-align: center;
 							width: $iconSize;
 						}
 

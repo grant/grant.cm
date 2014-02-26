@@ -613,6 +613,12 @@ $(function() {
 					case 'FollowEvent': {
 					} break;
 					case 'ForkEvent': {
+						iconType = 'repo-forked';
+						date = event.created_at;
+						var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+						messageBody = 'Forked ' + repoBody;
+						// .created_at
+						// .repo.name
 					} break;
 					case 'ForkApplyEvent': {
 					} break;

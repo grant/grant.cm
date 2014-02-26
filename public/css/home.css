@@ -1127,9 +1127,11 @@ button {
       margin-bottom: 1%; }
     .card.github .open .rightArea .events li {
       overflow: hidden;
-      padding: 2% 0; }
+      padding: 2% 0;
+      margin-right: 2%; }
       .card.github .open .rightArea .events li .octicon {
         font-size: 50px;
+        text-align: center;
         width: 5%; }
       .card.github .open .rightArea .events li .body {
         width: 95%;
