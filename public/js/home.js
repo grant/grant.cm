@@ -3,6 +3,7 @@ $(function() {
 	var CARD_PADDING = '1.0%';
 	var CARDS_PER_ROW = 3;
 	var ANIMATION_TIME = 300;
+	var API_ENABLED = false;
 
 	// Enum
 	var CARD_STATE = {
@@ -544,12 +545,14 @@ $(function() {
 		if (cardData.github.api.profile) {
 			setGithubProfileDataDOM(cardData.github.api.profile);
 		} else {
-			$.ajax({
-				url: "https://api.github.com/users/grant"
-			}).done(function (data) {
-				cardData.github.api.profile = data;
-				setGithubProfileDataDOM(data);
-			});
+			if (API_ENABLED) {
+				$.ajax({
+					url: "https://api.github.com/users/grant"
+				}).done(function (data) {
+					cardData.github.api.profile = data;
+					setGithubProfileDataDOM(data);
+				});
+			}
 		}
 
 		/**
@@ -571,12 +574,14 @@ $(function() {
 		if (cardData.github.api.events) {
 			setGithubEventDataDOM(cardData.github.api.events);
 		} else {
-			$.ajax({
-				url: 'https://api.github.com/users/grant/events'
-			}).done(function (events) {
-				cardData.github.api.events = events;
-				setGithubEventDataDOM(events);
-			});
+			if (API_ENABLED) {
+				$.ajax({
+					url: 'https://api.github.com/users/grant/events'
+				}).done(function (events) {
+					cardData.github.api.events = events;
+					setGithubEventDataDOM(events);
+				});
+			}
 		}
 
 		/**

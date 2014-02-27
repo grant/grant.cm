@@ -1058,10 +1058,6 @@ button {
     font-weight: 100;
     color: #ccc;
     padding-top: 1%; }
-  .card.thefourelements .cardContent .open .leftArea .plays, .card.cellularwarfare .cardContent .open .leftArea .plays {
-    font-weight: 100;
-    color: #ccc;
-    padding-top: 1%; }
 .card.thefourelements .cardContent .open .rightArea, .card.cellularwarfare .cardContent .open .rightArea {
   position: relative;
   width: 66.6%;
