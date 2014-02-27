@@ -1,0 +1,15 @@
+/**
+ * Global styles
+ */
+/* Font */
+a {
+  font-style: italic;
+  font-weight: 400;
+  padding-bottom: 1px; }
+
+footer {
+  background-color: #222;
+  height: 50px;
+  color: #666;
+  font-size: 16px;
+  padding: 15px 1%; }

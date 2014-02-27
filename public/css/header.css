@@ -1,0 +1,41 @@
+/**
+ * Global styles
+ */
+/* Font */
+a {
+  font-style: italic;
+  font-weight: 400;
+  padding-bottom: 1px; }
+
+header {
+  background-color: #181818;
+  padding: 60px 20% 30px 20%;
+  overflow: hidden; }
+  header .leftArea {
+    width: 33.3%; }
+    header .leftArea .profile {
+      width: 100%;
+      border-radius: 30px; }
+  header .rightArea {
+    padding-left: 5%;
+    width: 66.6%; }
+    header .rightArea .title {
+      color: white;
+      font-size: 40px; }
+    header .rightArea .subtitle {
+      letter-spacing: 1.2px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #bebebe; }
+      header .rightArea .subtitle .bullet {
+        font-size: 12px;
+        vertical-align: middle; }
+    header .rightArea .bio, header .rightArea .contact {
+      letter-spacing: 1.2px;
+      font-size: 16px;
+      color: #777777; }
+    header .rightArea .title, header .rightArea .subtitle, header .rightArea .bio, header .rightArea .contact {
+      padding-bottom: 3%;
+      line-height: 1.3; }
+  header .leftArea, header .rightArea {
+    float: left; }

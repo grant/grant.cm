@@ -24,6 +24,8 @@ $cardAreaPadding: 5px;
 	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
 }
 
+@import 'header';
+
 /* Card area */
 .cardArea {
 	height: 100%;
@@ -46,8 +48,6 @@ $cardAreaPadding: 5px;
 $cardsPerRow: 3; // Must be an integer
 $cardsPerHeight: 2.2; // Can be float
 .card {
-	$cardMargin: 1.0%;
-
 	position: relative;
 	display: inline-block;
 
@@ -138,17 +138,6 @@ $cardsPerHeight: 2.2; // Can be float
 
 		color: #eee;
 		border-radius: 3px; // Not percentage because aspect ratio is variable to screen aspect ratio
-
-		a {
-			font-style: italic;
-			font-weight: 400;
-
-			padding-bottom: 1px;
-
-			&:hover {
-				// TODO: Add hover effect
-			}
-		}
 
 		.open {
 			// Hack to make it square
@@ -493,7 +482,7 @@ $cardsPerHeight: 2.2; // Can be float
 				}
 
 				.eventsTitle {
-					color: $GRAY;
+					color: $LIGHT_GRAY;
 					text-align: center;
 					font-style: italic;
 					margin-bottom: 1%;
@@ -522,7 +511,7 @@ $cardsPerHeight: 2.2; // Can be float
 								padding-top: 0.5%;
 								font-size: $FONT_SMALL;
 								font-weight: 700;
-								color: $GRAY;
+								color: $LIGHT_GRAY;
 							}
 						}
 
@@ -531,7 +520,7 @@ $cardsPerHeight: 2.2; // Can be float
 						}
 
 						&:not(:first-child) {
-							border-top: 1px solid $GRAY;
+							border-top: 1px solid $LIGHT_GRAY;
 						}
 					}
 				}
@@ -654,3 +643,5 @@ $cardsPerHeight: 2.2; // Can be float
 		}
 	}
 }
+
+@import 'footer';

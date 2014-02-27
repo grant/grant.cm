@@ -23,10 +23,26 @@ $FONT_TINY: 12px;
 $RED: rgb(234, 95, 78);
 $YELLOW: rgb(255, 236, 132);
 $BLUE: rgb(145, 207, 215);
-$GRAY: rgb(222, 219, 203);
+$LIGHT_GRAY: #bebebe;
+$GRAY: #777;
 $DARK_GRAY: rgb(65, 64, 61);
 $BROWN: rgb(119, 107, 93);
 $DARK_BLUE: rgb(145, 189, 225);
 $GREEN: rgb(138, 192, 158);
 $ORANGE: rgb(232, 132, 59);
 $PURPLE: rgb(183, 143, 216);
+
+// Other
+$cardMargin: 1.0%;
+
+// Default anchor tag
+a {
+	font-style: italic;
+	font-weight: 400;
+
+	padding-bottom: 1px;
+
+	&:hover {
+		// TODO: Add hover effect
+	}
+}

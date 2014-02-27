@@ -73,6 +73,11 @@ button {
  * Global styles
  */
 /* Font */
+a {
+  font-style: italic;
+  font-weight: 400;
+  padding-bottom: 1px; }
+
 @font-face {
   font-family: octicons;
   src: url(/fonts/octicons.woff) format(woff);
@@ -704,6 +709,48 @@ button {
   height: 100%;
   font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif; }
 
+/**
+ * Global styles
+ */
+/* Font */
+a {
+  font-style: italic;
+  font-weight: 400;
+  padding-bottom: 1px; }
+
+header {
+  background-color: #181818;
+  padding: 60px 20% 30px 20%;
+  overflow: hidden; }
+  header .leftArea {
+    width: 33.3%; }
+    header .leftArea .profile {
+      width: 100%;
+      border-radius: 30px; }
+  header .rightArea {
+    padding-left: 5%;
+    width: 66.6%; }
+    header .rightArea .title {
+      color: white;
+      font-size: 40px; }
+    header .rightArea .subtitle {
+      letter-spacing: 1.2px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #bebebe; }
+      header .rightArea .subtitle .bullet {
+        font-size: 12px;
+        vertical-align: middle; }
+    header .rightArea .bio, header .rightArea .contact {
+      letter-spacing: 1.2px;
+      font-size: 16px;
+      color: #777777; }
+    header .rightArea .title, header .rightArea .subtitle, header .rightArea .bio, header .rightArea .contact {
+      padding-bottom: 3%;
+      line-height: 1.3; }
+  header .leftArea, header .rightArea {
+    float: left; }
+
 /* Card area */
 .cardArea {
   height: 100%;
@@ -905,10 +952,6 @@ button {
     overflow: hidden;
     color: #eee;
     border-radius: 3px; }
-    .card .cardContent a {
-      font-style: italic;
-      font-weight: 400;
-      padding-bottom: 1px; }
     .card .cardContent .open .closeButton {
       position: absolute;
       width: 4%;
@@ -1116,7 +1159,7 @@ button {
       height: 100%;
       overflow-y: auto; }
     .card.github .open .rightArea .eventsTitle {
-      color: #dedbcb;
+      color: #bebebe;
       text-align: center;
       font-style: italic;
       margin-bottom: 1%; }
@@ -1137,11 +1180,11 @@ button {
           padding-top: 0.5%;
           font-size: 16px;
           font-weight: 700;
-          color: #dedbcb; }
+          color: #bebebe; }
       .card.github .open .rightArea .events li .octicon, .card.github .open .rightArea .events li .body {
         float: left; }
       .card.github .open .rightArea .events li:not(:first-child) {
-        border-top: 1px solid #dedbcb; }
+        border-top: 1px solid #bebebe; }
   .card.github .open .leftArea, .card.github .open .rightArea {
     padding: 1.5% 2%;
     float: left;
@@ -1212,3 +1255,19 @@ button {
       width: 90% !important;
       margin-top: 25%;
       margin-left: 5%; }
+
+/**
+ * Global styles
+ */
+/* Font */
+a {
+  font-style: italic;
+  font-weight: 400;
+  padding-bottom: 1px; }
+
+footer {
+  background-color: #222;
+  height: 50px;
+  color: #666;
+  font-size: 16px;
+  padding: 15px 1%; }
