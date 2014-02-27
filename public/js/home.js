@@ -2,7 +2,7 @@ $(function() {
 	// TODO: Put constants somwhere
 	var CARD_PADDING = '1.0%';
 	var CARDS_PER_ROW = 3;
-	var ANIMATION_TIME = 500;
+	var ANIMATION_TIME = 300;
 
 	// Enum
 	var CARD_STATE = {

@@ -143,8 +143,11 @@ $cardsPerHeight: 2.2; // Can be float
 			font-style: italic;
 			font-weight: 400;
 
-			border-bottom: 2px solid rgba($GRAY, 0.7);
 			padding-bottom: 1px;
+
+			&:hover {
+				// TODO: Add hover effect
+			}
 		}
 
 		.open {
@@ -212,19 +215,19 @@ $cardsPerHeight: 2.2; // Can be float
 				overflow-y: auto;
 
 				.name {
-					font-size: 116px;
+					font-size: $FONT_HUGE;
 					@include littleTextShadow;
 					margin-top: -11px;
 				}
 
 				.twitterHandle {
-					font-size: 19px;
+					font-size: $FONT_MEDIUM;
 					padding-top: 1%;
 					@include font-light;
 				}
 
 				.longBio {
-					font-size: 19px;
+					font-size: $FONT_SMALL;
 					padding: 1% 0;
 					line-height: 150%;
 
@@ -259,17 +262,17 @@ $cardsPerHeight: 2.2; // Can be float
 
 							.title {
 								float: left;
-								font-size: 34px;
+								font-size: $FONT_MEDIUM;
 							}
 
 							.dateRange {
 								float: right;
-								font-size: 25px;
+								font-size: $FONT_SMALL;
 							}
 						}
 
 						.description, .descriptionBullets {
-							font-size: 25px;
+							font-size: $FONT_SMALL;
 							@include font-light;
 							line-height: 150%;
 							list-style: disc;
@@ -307,11 +310,11 @@ $cardsPerHeight: 2.2; // Can be float
 				width: $textWidth;
 				margin: 0 (100% - $textWidth)/2;
 				.name {
-					font-size: 35px;
+					font-size: $FONT_LARGE;
 				}
 
 				.bio {
-					font-size: 16px;
+					font-size: $FONT_SMALL;
 					@include font-light;
 				}
 
@@ -385,11 +388,11 @@ $cardsPerHeight: 2.2; // Can be float
 					background-color: rgb(241, 98, 100);
 
 					.name {
-						font-size: 50px;
+						font-size: $FONT_LARGE;
 						@include littleTextShadow;
 					}
 					.description, .instructions {
-						font-size: 28px;
+						font-size: $FONT_SMALL;
 						@include font-light;
 						padding-top: 1%;
 					}
@@ -443,7 +446,7 @@ $cardsPerHeight: 2.2; // Can be float
 
 					color: white;
 					text-align: center;
-					font-size: 100px;
+					font-size: $FONT_HUGE;
 
 					width: 40%;
 					padding-bottom: 1%;
@@ -508,7 +511,7 @@ $cardsPerHeight: 2.2; // Can be float
 
 						$iconSize: 5%;
 						.octicon {
-							font-size: 50px;
+							font-size: $FONT_LARGE;
 							text-align: center;
 							width: $iconSize;
 						}
@@ -516,12 +519,12 @@ $cardsPerHeight: 2.2; // Can be float
 						.body {
 							width: 100% - $iconSize;
 							padding-left: 1%;
-							font-size: 30px;
+							font-size: $FONT_MEDIUM;
 							line-height: 1.2;
 
 							.date {
 								padding-top: 0.5%;
-								font-size: 20px;
+								font-size: $FONT_SMALL;
 								font-weight: 700;
 								color: $GRAY;
 							}
@@ -563,7 +566,7 @@ $cardsPerHeight: 2.2; // Can be float
 
 				.username {
 					color: #333;
-					font-size: 28px;
+					font-size: $FONT_MEDIUM;
 				}
 			}
 
@@ -585,14 +588,14 @@ $cardsPerHeight: 2.2; // Can be float
 					}
 
 					.statCount {
-						font-size: 48px;
+						font-size: $FONT_LARGE;
 						color: #333;
 						display: block;
 						line-height: 1;
 					}
 
 					.statCountTitle {
-						font-size: 28px;
+						font-size: $FONT_MEDIUM;
 						width: 100%;
 						text-overflow: ellipsis;
 					}

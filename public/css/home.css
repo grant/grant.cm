@@ -908,7 +908,6 @@ button {
     .card .cardContent a {
       font-style: italic;
       font-weight: 400;
-      border-bottom: 2px solid rgba(222, 219, 203, 0.7);
       padding-bottom: 1px; }
     .card .cardContent .open .closeButton {
       position: absolute;
@@ -949,16 +948,16 @@ button {
   padding: 1.5% 2%;
   overflow-y: auto; }
   .card.profile .cardContent .open .profileText .name {
-    font-size: 116px;
+    font-size: 100px;
     text-shadow: 3px 3px rgba(20, 10, 0, 0.1);
     margin-top: -11px; }
   .card.profile .cardContent .open .profileText .twitterHandle {
-    font-size: 19px;
+    font-size: 26px;
     padding-top: 1%;
     font-weight: 100;
     color: #ccc; }
   .card.profile .cardContent .open .profileText .longBio {
-    font-size: 19px;
+    font-size: 16px;
     padding: 1% 0;
     line-height: 150%; }
     .card.profile .cardContent .open .profileText .longBio:first-letter {
@@ -982,12 +981,12 @@ button {
         overflow: hidden; }
         .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .title {
           float: left;
-          font-size: 34px; }
+          font-size: 26px; }
         .card.profile .cardContent .open .profileText .experienceList .descriptionArea .titleBar .dateRange {
           float: right;
-          font-size: 25px; }
+          font-size: 16px; }
       .card.profile .cardContent .open .profileText .experienceList .descriptionArea .description, .card.profile .cardContent .open .profileText .experienceList .descriptionArea .descriptionBullets {
-        font-size: 25px;
+        font-size: 16px;
         font-weight: 100;
         color: #ccc;
         line-height: 150%;
@@ -1007,7 +1006,7 @@ button {
     width: 80%;
     margin: 0 10%; }
     .card.profile .cardContent .closed .profileText .name {
-      font-size: 35px; }
+      font-size: 40px; }
     .card.profile .cardContent .closed .profileText .bio {
       font-size: 16px;
       font-weight: 100;
@@ -1052,10 +1051,10 @@ button {
   padding: 1.5% 2%;
   background-color: #f16264; }
   .card.thefourelements .cardContent .open .leftArea .name, .card.cellularwarfare .cardContent .open .leftArea .name {
-    font-size: 50px;
+    font-size: 40px;
     text-shadow: 3px 3px rgba(20, 10, 0, 0.1); }
   .card.thefourelements .cardContent .open .leftArea .description, .card.thefourelements .cardContent .open .leftArea .instructions, .card.cellularwarfare .cardContent .open .leftArea .description, .card.cellularwarfare .cardContent .open .leftArea .instructions {
-    font-size: 28px;
+    font-size: 16px;
     font-weight: 100;
     color: #ccc;
     padding-top: 1%; }
@@ -1130,17 +1129,17 @@ button {
       padding: 2% 0;
       margin-right: 2%; }
       .card.github .open .rightArea .events li .octicon {
-        font-size: 50px;
+        font-size: 40px;
         text-align: center;
         width: 5%; }
       .card.github .open .rightArea .events li .body {
         width: 95%;
         padding-left: 1%;
-        font-size: 30px;
+        font-size: 26px;
         line-height: 1.2; }
         .card.github .open .rightArea .events li .body .date {
           padding-top: 0.5%;
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 700;
           color: #dedbcb; }
       .card.github .open .rightArea .events li .octicon, .card.github .open .rightArea .events li .body {
@@ -1164,7 +1163,7 @@ button {
       background-size: 100% 100%; }
     .card.github .closed .top .username {
       color: #333;
-      font-size: 28px; }
+      font-size: 26px; }
   .card.github .closed .bottom {
     height: 35%;
     padding-top: 2%;
@@ -1178,12 +1177,12 @@ button {
       .card.github .closed .bottom .stat:not(:last-child) {
         border-right: 1px solid rgba(20, 20, 20, 0.1); }
       .card.github .closed .bottom .stat .statCount {
-        font-size: 48px;
+        font-size: 40px;
         color: #333;
         display: block;
         line-height: 1; }
       .card.github .closed .bottom .stat .statCountTitle {
-        font-size: 28px;
+        font-size: 26px;
         width: 100%;
         text-overflow: ellipsis; }
 .card.github .open, .card.github .closed {
