@@ -22,13 +22,13 @@ $cardAreaPadding: 5px;
 .pageContent {
 	height: 100%;
 	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
-	background-color: rgb(185, 122, 105);
-	background: -webkit-linear-gradient(top, rgb(190, 159, 138) 0%, rgb(185, 122, 105) 100%);
 }
 
 /* Card area */
 .cardArea {
 	height: 100%;
+	background-color: rgb(241, 241, 241);
+	background: -webkit-linear-gradient(#f9f9f9, #f3f3f3);
 }
 
 .cardTiles {
@@ -81,7 +81,7 @@ $cardsPerHeight: 2.2; // Can be float
 	$cardShadowHoverOffset: 15px;
 	$cardShadowBlur: 2px;
 	$cardShadowFullScale: 1.5; // How much the card shadow scales when showing a full card
-	$cardShadowColor: rgba(140, 30, 20, 0.2);
+	$cardShadowColor: rgba(140, 140, 140, 0.2);
 	@if $cardShadow {
 		&:nth-child(3n+1) {
 			// When hovering over a closed card
@@ -600,7 +600,7 @@ $cardsPerHeight: 2.2; // Can be float
 		}
 
 		.open, .closed {
-			background: linear-gradient(#f9f9f9, #f3f3f3);
+			background: white;
 		}
 	}
 }

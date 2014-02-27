@@ -702,13 +702,13 @@ button {
 /* Page */
 .pageContent {
   height: 100%;
-  font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
-  background-color: #b97a69;
-  background: -webkit-linear-gradient(top, #be9f8a 0%, #b97a69 100%); }
+  font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif; }
 
 /* Card area */
 .cardArea {
-  height: 100%; }
+  height: 100%;
+  background-color: #f1f1f1;
+  background: -webkit-linear-gradient(#f9f9f9, #f3f3f3); }
 
 .cardTiles {
   position: absolute;
@@ -732,23 +732,23 @@ button {
   .card:not(.open):not(.transitioning) .cardContent:hover {
     -webkit-transform: scale(1.05); }
   .card:nth-child(3n+1):not(.open) .cardContent:hover {
-    box-shadow: 15px 15px 2px 2px rgba(140, 30, 20, 0.2); }
+    box-shadow: 15px 15px 2px 2px rgba(140, 140, 140, 0.2); }
   .card:nth-child(3n+1) .cardContent {
-    box-shadow: 10px 10px rgba(140, 30, 20, 0.2); }
+    box-shadow: 10px 10px rgba(140, 140, 140, 0.2); }
   .card:nth-child(3n+1).open .cardContent {
-    box-shadow: 15px 15px rgba(140, 30, 20, 0.2); }
+    box-shadow: 15px 15px rgba(140, 140, 140, 0.2); }
   .card:nth-child(3n+2):not(.open) .cardContent:hover {
-    box-shadow: 0 15px 2px 2px rgba(140, 30, 20, 0.2); }
+    box-shadow: 0 15px 2px 2px rgba(140, 140, 140, 0.2); }
   .card:nth-child(3n+2) .cardContent {
-    box-shadow: 0 10px rgba(140, 30, 20, 0.2); }
+    box-shadow: 0 10px rgba(140, 140, 140, 0.2); }
   .card:nth-child(3n+2).open .cardContent {
-    box-shadow: 0 15px rgba(140, 30, 20, 0.2); }
+    box-shadow: 0 15px rgba(140, 140, 140, 0.2); }
   .card:nth-child(3n+3):not(.open) .cardContent:hover {
-    box-shadow: -15px 15px 2px 2px rgba(140, 30, 20, 0.2); }
+    box-shadow: -15px 15px 2px 2px rgba(140, 140, 140, 0.2); }
   .card:nth-child(3n+3) .cardContent {
-    box-shadow: -10px 10px rgba(140, 30, 20, 0.2); }
+    box-shadow: -10px 10px rgba(140, 140, 140, 0.2); }
   .card:nth-child(3n+3).open .cardContent {
-    box-shadow: -15px 15px rgba(140, 30, 20, 0.2); }
+    box-shadow: -15px 15px rgba(140, 140, 140, 0.2); }
   .card:not(.open) .paginate {
     display: none; }
   .card .paginate {
@@ -1182,7 +1182,7 @@ button {
         width: 100%;
         text-overflow: ellipsis; }
 .card.github .open, .card.github .closed {
-  background: linear-gradient(#f9f9f9, #f3f3f3); }
+  background: white; }
 
 .squareTile {
   position: relative;
