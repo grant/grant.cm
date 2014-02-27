@@ -22,6 +22,11 @@ $cardAreaPadding: 5px;
 .pageContent {
 	height: 100%;
 	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
+
+	> .title {
+		text-align: center;
+		padding: 2%;
+	}
 }
 
 @import 'header';

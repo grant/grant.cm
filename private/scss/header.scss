@@ -10,6 +10,10 @@ header {
 	// height: $headerHeight;
 	overflow: hidden;
 
+	a:hover {
+		color: white;
+	}
+
 	.leftArea {
 		width: 33.3%;
 
