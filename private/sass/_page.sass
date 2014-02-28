@@ -16,14 +16,12 @@ $cardAreaPadding: 5px
 =layerShadow
   box-shadow: 10px 10px rgba(20, 10, 0, 0.1)
 
-=pageTitle
+=pageTitle($color: 'inherit')
   .title
+    color: $color
     text-align: center
     padding: 2%
 
 .pageContent
   height: 100%
   font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif
-
-  section
-    box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.05), inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1)
