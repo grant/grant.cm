@@ -1,0 +1,89 @@
+$size: 100%
+$thickness: 5px
+$angle: 40deg
+$angleHover: 30deg
+$angleActive: 25deg
+
+=transition($value)
+  -webkit-transition: $value
+  -moz-transition: $value
+  -ms-transition: $value
+  transition: $value
+
+=transform($value)
+  -webkit-transform: $value
+  -moz-transform: $value
+  -ms-transform: $value
+  transform: $value
+
+=transform-origin($value)
+  -webkit-transform-origin: $value
+  -moz-transform-origin: $value
+  -ms-transform-origin: $value
+  transform-origin: $value
+
+=arrowTransform($angle, $x: 0, $y: 0)
+  i:first-child
+    +transform(translate($x, $y) rotate($angle))
+  i:last-child
+    +transform(translate($x, -$y) rotate(-$angle))
+
+&:not(.open)
+  .paginate
+    display: none
+
+.paginate
+  position: absolute
+  top: 50%
+  height: 15%
+  width: 3%
+  cursor: pointer
+  z-index: 1000
+  opacity: 0.6
+  position: relative
+  margin: 10px
+  cursor: pointer
+  +transform(translate3d(0, 0, 0))
+  // fixes flicker in webkit
+  position: absolute
+  top: 50%
+  margin-top: -20px
+  -webkit-filter: drop-shadow(0 2px 0px rgba(0, 0, 0, 0.2))
+  i
+    position: absolute
+    top: 40%
+    left: 0
+    width: $size
+    height: $thickness
+    border-radius: $thickness / 2
+    background: #fff
+    +transition(all 0.15s ease)
+  &.left
+    left: 0
+    i
+      +transform-origin(0% 50%)
+    +arrowTransform($angle, 0, -1px)
+    &:hover
+      +arrowTransform($angleHover, 0, -1px)
+    &:active
+      +arrowTransform($angleActive, 1px, -1px)
+    &[data-state=disabled]
+      +arrowTransform(0deg, -5px, 0)
+      &:hover
+        +arrowTransform(0deg, -5px, 0)
+  &.right
+    right: 0
+    i
+      +transform-origin(100% 50%)
+    +arrowTransform($angle, 0, 1px)
+    &:hover
+      +arrowTransform($angleHover, 0, 1px)
+    &:active
+      +arrowTransform($angleActive, 1px, 1px)
+    &[data-state=disabled]
+      +arrowTransform(0deg, 5px, 0)
+      &:hover
+        +arrowTransform(0deg, 5px, 0)
+  &[data-state=disabled]
+    opacity: 0.3
+    cursor: default

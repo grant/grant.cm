@@ -1,41 +1,21 @@
 /*
-Syntax error: Base-level rules cannot contain the parent-selector-referencing character '&'.
-        on line 38 of ../private/scss/navButtons.scss
+Syntax error: Invalid CSS after "$thickness": expected selector or at-rule, was ": 5px"
+        on line 2 of ../private/scss/navButtons.scss
 
-33:   i:last-child {
-34:     @include transform( translate( $x, -$y ) rotate( -$angle ) );
-35:   }
-36: }
-37: 
-38: &:not(.open) {
-39:   .paginate {
-40:     display: none;
-41:   }
-42: }
-43: .paginate {
+1: $size: 100%
+2: $thickness: 5px
+3: $angle: 40deg
+4: $angleHover: 30deg
+5: $angleActive: 25deg
+6: 
+7: =transition($value)
 
 Backtrace:
-../private/scss/navButtons.scss:38
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/selector/comma_sequence.rb:30:in `resolve_parent_refs'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/cssize.rb:199:in `visit_rule'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/cssize.rb:21:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/cssize.rb:30:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/cssize.rb:52:in `with_parent'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/cssize.rb:29:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/cssize.rb:65:in `visit_root'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/cssize.rb:21:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/base.rb:24:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/base.rb:24:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/visitors/cssize.rb:6:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/tree/root_node.rb:22:in `render'
+../private/scss/navButtons.scss:2
+/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/scss/parser.rb:1148:in `expected'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/scss/parser.rb:1084:in `expected'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/scss/parser.rb:28:in `parse'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/engine.rb:342:in `_to_tree'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/engine.rb:315:in `_render'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/engine.rb:262:in `render'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/plugin/compiler.rb:341:in `update_stylesheet'
@@ -68,4 +48,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Base-level rules cannot contain the parent-selector-referencing character '&'.\A         on line 38 of ../private/scss/navButtons.scss\A \A 33:   i:last-child {\A 34:     @include transform( translate( $x, -$y ) rotate( -$angle ) );\A 35:   }\A 36: }\A 37: \A 38: &:not(.open) {\A 39:   .paginate {\A 40:     display: none;\A 41:   }\A 42: }\A 43: .paginate {"; }
+  content: "Syntax error: Invalid CSS after \"$thickness\": expected selector or at-rule, was \": 5px\"\A         on line 2 of ../private/scss/navButtons.scss\A \A 1: $size: 100%\A 2: $thickness: 5px\A 3: $angle: 40deg\A 4: $angleHover: 30deg\A 5: $angleActive: 25deg\A 6: \A 7: =transition($value)"; }
