@@ -19,6 +19,13 @@ $cardAreaPadding: 5px;
 	box-shadow: 10px 10px rgba(20, 10, 0, .1);
 }
 
+@mixin pageTitle {
+	.title {
+		text-align: center;
+		padding: 2%;
+	}
+}
+
 .pageContent {
 	height: 100%;
 	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
@@ -31,9 +38,8 @@ $cardAreaPadding: 5px;
 	background-color: rgb(241, 241, 241);
 	background: -webkit-linear-gradient(#f9f9f9, #f3f3f3);
 
-	> .title {
-		text-align: center;
-		padding: 2%;
+	> {
+		@include pageTitle;
 	}
 }
 
