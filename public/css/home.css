@@ -78,6 +78,10 @@ a {
   font-weight: 400;
   padding-bottom: 1px; }
 
+hr {
+  width: 25%;
+  background-color: rgba(0, 0, 0, 0.33); }
+
 @font-face {
   font-family: octicons;
   src: url(/fonts/octicons.woff) format(woff);
@@ -718,6 +722,10 @@ a {
   font-weight: 400;
   padding-bottom: 1px; }
 
+hr {
+  width: 25%;
+  background-color: rgba(0, 0, 0, 0.33); }
+
 header {
   background-color: #181818;
   padding: 60px 20% 30px 20%;
@@ -786,7 +794,7 @@ header {
   position: relative;
   display: inline-block;
   width: 33.33333%;
-  height: 45.45455%;
+  height: 400px;
   padding: 1%; }
   .card:not(.open) .cardContent {
     cursor: pointer;
@@ -1281,6 +1289,10 @@ a {
   font-style: italic;
   font-weight: 400;
   padding-bottom: 1px; }
+
+hr {
+  width: 25%;
+  background-color: rgba(0, 0, 0, 0.33); }
 
 footer {
   background-color: #222;

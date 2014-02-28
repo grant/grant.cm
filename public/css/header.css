@@ -7,6 +7,10 @@ a {
   font-weight: 400;
   padding-bottom: 1px; }
 
+hr {
+  width: 25%;
+  background-color: rgba(0, 0, 0, 0.33); }
+
 header {
   background-color: #181818;
   padding: 60px 20% 30px 20%;

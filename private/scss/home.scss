@@ -45,13 +45,13 @@ $cardAreaPadding: 5px;
 }
 
 $cardsPerRow: 3; // Must be an integer
-$cardsPerHeight: 2.2; // Can be float
+$cardHeight: 400px;
 .card {
 	position: relative;
 	display: inline-block;
 
 	width: 100% / $cardsPerRow;
-	height: 100% / $cardsPerHeight;
+	height: $cardHeight;
 	padding: $cardMargin;
 
 	// Open or not open
