@@ -60,3 +60,19 @@ header {
 		float: left;
 	}
 }
+
+.pageBreak {
+	width: 100%;
+	height: 5px;
+
+	div {
+		float: left;
+		width: 25%;
+		height: 100%;
+	}
+	.green { background-color: $GREEN }
+	.blue { background-color: $BLUE }
+	.purple { background-color: $PURPLE }
+	.yellow { background-color: $YELLOW }
+	.red { background-color: $RED }
+}

@@ -708,9 +708,6 @@ a {
 .pageContent {
   height: 100%;
   font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif; }
-  .pageContent > .title {
-    text-align: center;
-    padding: 2%; }
 
 /**
  * Global styles
@@ -756,19 +753,34 @@ header {
   header .leftArea, header .rightArea {
     float: left; }
 
-/* Card area */
-.cardArea {
-  height: 100%;
+.pageBreak {
+  width: 100%;
+  height: 5px; }
+  .pageBreak div {
+    float: left;
+    width: 25%;
+    height: 100%; }
+  .pageBreak .green {
+    background-color: #8ac09e; }
+  .pageBreak .blue {
+    background-color: #91cfd7; }
+  .pageBreak .purple {
+    background-color: #b78fd8; }
+  .pageBreak .yellow {
+    background-color: #ffec84; }
+  .pageBreak .red {
+    background-color: #ea5f4e; }
+
+/* Project area */
+.projectArea {
   background-color: #f1f1f1;
   background: -webkit-linear-gradient(#f9f9f9, #f3f3f3); }
+  .projectArea > .title {
+    text-align: center;
+    padding: 2%; }
 
-.cardTiles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow-y: auto; }
-  .cardTiles.fullcard {
-    overflow: hidden; }
+.cardTiles.fullcard {
+  overflow: hidden; }
 
 .card {
   position: relative;

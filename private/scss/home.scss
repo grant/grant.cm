@@ -22,6 +22,14 @@ $cardAreaPadding: 5px;
 .pageContent {
 	height: 100%;
 	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
+}
+
+@import 'header';
+
+/* Project area */
+.projectArea {
+	background-color: rgb(241, 241, 241);
+	background: -webkit-linear-gradient(#f9f9f9, #f3f3f3);
 
 	> .title {
 		text-align: center;
@@ -29,20 +37,7 @@ $cardAreaPadding: 5px;
 	}
 }
 
-@import 'header';
-
-/* Card area */
-.cardArea {
-	background-color: rgb(241, 241, 241);
-	background: -webkit-linear-gradient(#f9f9f9, #f3f3f3);
-}
-
 .cardTiles {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	overflow-y: auto;
-
 	// When a card is going to be full screen, hide all overflow
 	&.fullcard {
 		overflow: hidden;
