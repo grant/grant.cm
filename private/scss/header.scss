@@ -1,78 +1,76 @@
 @import 'global';
 
 header {
-	$headerHeight: 500px;
-	$topPadding: 60px;
-	$sidePadding: 20%;
+  $topPadding: 60px;
+  $sidePadding: 20%;
 
-	background-color: rgb(24, 24, 24);
-	padding: $topPadding $sidePadding $topPadding/2 $sidePadding;
-	// height: $headerHeight;
-	overflow: hidden;
+  background-color: rgb(24, 24, 24);
+  padding: $topPadding $sidePadding $topPadding/2 $sidePadding;
+  overflow: hidden;
 
-	a:hover {
-		color: white;
-	}
+  a:hover {
+    color: white;
+  }
 
-	.leftArea {
-		width: 33.3%;
+  .leftArea {
+    width: 33.3%;
 
-		.profile {
-			width: 100%;
-			border-radius: 30px;
-		}
-	}
+    .profile {
+      width: 100%;
+      border-radius: 30px;
+    }
+  }
 
-	.rightArea {
-		padding-left: 5%;
-		width: 66.6%;
+  .rightArea {
+    padding-left: 5%;
+    width: 66.6%;
 
-		.title {
-			color: white;
-			font-size: $FONT_LARGE;
-		}
+    .title {
+      color: white;
+      font-size: $FONT_LARGE;
+    }
 
-		.subtitle {
-			letter-spacing: 1.2px;
-			font-size: $FONT_SMALL;
-			font-weight: 700;
-			color: $LIGHT_GRAY;
+    .subtitle {
+      letter-spacing: 1.2px;
+      font-size: $FONT_SMALL;
+      font-weight: 700;
+      color: $LIGHT_GRAY;
 
-			.bullet {
-				font-size: 12px;
-				vertical-align: middle;
-			}
-		}
+      .bullet {
+        font-size: 12px;
+        vertical-align: middle;
+      }
+    }
 
-		.bio, .contact {
-			letter-spacing: 1.2px;
-			font-size: $FONT_SMALL;
-			color: $GRAY;
-		}
+    .bio, .contact {
+      letter-spacing: 1.2px;
+      font-size: $FONT_SMALL;
+      color: $GRAY;
+    }
 
-		.title, .subtitle, .bio, .contact {
-			padding-bottom: 3%;
-			line-height: 1.3;
-		}
-	}
+    .title, .subtitle, .bio, .contact {
+      padding-bottom: 3%;
+      line-height: 1.3;
+    }
+  }
 
-	.leftArea, .rightArea {
-		float: left;
-	}
+  .leftArea, .rightArea {
+    float: left;
+  }
 }
 
 .pageBreak {
-	width: 100%;
-	height: 5px;
+  width: 100%;
+  height: 5px;
 
-	div {
-		float: left;
-		width: 25%;
-		height: 100%;
-	}
-	.green { background-color: $GREEN }
-	.blue { background-color: $BLUE }
-	.purple { background-color: $PURPLE }
-	.yellow { background-color: $YELLOW }
-	.red { background-color: $RED }
+  div {
+    float: left;
+    width: 25%;
+    height: 100%;
+  }
+  .green { background-color: $GREEN }
+  .blue { background-color: $BLUE }
+  .purple { background-color: $PURPLE }
+  .yellow { background-color: $YELLOW }
+  .red { background-color: $RED }
 }

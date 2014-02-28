@@ -1,15 +1,15 @@
-/**
- * Global styles
- */
+//
+// Global styles
+//
 
-/* Font */
+// Font
 @mixin font-light {
-	font-weight: 100;
-	color: #ccc;
+  font-weight: 100;
+  color: #ccc;
 }
 @mixin font-dark {
-	font-weight: 100;
-	color: #666;
+  font-weight: 100;
+  color: #666;
 }
 
 // Font Size
@@ -37,18 +37,18 @@ $cardMargin: 1.0%;
 
 // Default anchor tag
 a {
-	font-style: italic;
-	font-weight: 400;
+  font-style: italic;
+  font-weight: 400;
 
-	padding-bottom: 1px;
+  padding-bottom: 1px;
 
-	&:hover {
-		// TODO: Add hover effect
-	}
+  &:hover {
+    // TODO: Add hover effect
+  }
 }
 
 // Default hr
 hr {
-	width: 25%;
-	background-color: rgba(0, 0, 0, 0.33);
+  width: 25%;
+  background-color: rgba(0, 0, 0, 0.33);
 }

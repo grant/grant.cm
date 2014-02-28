@@ -1,26 +1,26 @@
 @import 'global';
 
 footer {
-	background-color: #222;
-	height: 50px;
-	color: #666;
-	font-size: $FONT_SMALL;
+  background-color: #222;
+  height: 50px;
+  color: #666;
+  font-size: $FONT_SMALL;
 
-	padding: 15px $cardMargin;
+  padding: 15px $cardMargin;
 
-	.left {
-		$linkSeparation: 10px;
+  .left {
+    $linkSeparation: 10px;
 
-		li {
-			display: inline;
+    li {
+      display: inline;
 
-			&:not(:first-child) {
-				padding-left: $linkSeparation;
-			}
-		}
-		li + li a:before {
-			content: "|";
-			padding-right: $linkSeparation;
-		}
-	}
+      &:not(:first-child) {
+        padding-left: $linkSeparation;
+      }
+    }
+    li + li a:before {
+      content: "|";
+      padding-right: $linkSeparation;
+    }
+  }
 }

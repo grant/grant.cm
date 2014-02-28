@@ -2,7 +2,7 @@
 @import 'global';
 @import 'octicon';
 
-/* Page */
+// Page
 $pageBackgroundColor: rgb(221, 226, 230);
 $headerHeight: 1%;
 $navButtonBottomBorderHeight: 3px;
@@ -10,643 +10,643 @@ $cardSidePadding: $headerHeight;
 $cardAreaPadding: 5px;
 
 @mixin littleTextShadow {
-	text-shadow: 3px 3px rgba(20, 10, 0, .1);
+  text-shadow: 3px 3px rgba(20, 10, 0, .1);
 }
 @mixin littleLayerShadow {
-	box-shadow: 3px 3px rgba(20, 10, 0, .1);
+  box-shadow: 3px 3px rgba(20, 10, 0, .1);
 }
 @mixin layerShadow {
-	box-shadow: 10px 10px rgba(20, 10, 0, .1);
+  box-shadow: 10px 10px rgba(20, 10, 0, .1);
 }
 
 @mixin pageTitle {
-	.title {
-		text-align: center;
-		padding: 2%;
-	}
+  .title {
+    text-align: center;
+    padding: 2%;
+  }
 }
 
 .pageContent {
-	height: 100%;
-	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
+  height: 100%;
+  font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
 }
 
 @import 'header';
 
-/* Project area */
+// Project Area
 .projectArea {
-	background-color: rgb(241, 241, 241);
-	background: -webkit-linear-gradient(#f9f9f9, #f3f3f3);
+  background-color: rgb(241, 241, 241);
+  background: -webkit-linear-gradient(#f9f9f9, #f3f3f3);
 
-	> {
-		@include pageTitle;
-	}
+  > {
+    @include pageTitle;
+  }
 }
 
 .cardTiles {
-	// When a card is going to be full screen, hide all overflow
-	&.fullcard {
-		overflow: hidden;
-	}
+  // When a card is going to be full screen, hide all overflow
+  &.fullcard {
+    overflow: hidden;
+  }
 }
 
 $cardsPerRow: 3; // Must be an integer
 $cardHeight: 400px;
 .card {
-	position: relative;
-	display: inline-block;
+  position: relative;
+  display: inline-block;
 
-	width: 100% / $cardsPerRow;
-	height: $cardHeight;
-	padding: $cardMargin;
+  width: 100% / $cardsPerRow;
+  height: $cardHeight;
+  padding: $cardMargin;
 
-	// Open or not open
-	&:not(.open) .cardContent {
-		cursor: pointer;
-		overflow: hidden;
+  // Open or not open
+  &:not(.open) .cardContent {
+    cursor: pointer;
+    overflow: hidden;
 
-		border: 1px solid rgba(65, 64, 61, 0.2);
+    border: 1px solid rgba(65, 64, 61, 0.2);
 
-		$transitionTime: 100ms;
-		transition: -webkit-transform $transitionTime, box-shadow $transitionTime;
-	}
+    $transitionTime: 100ms;
+    transition: -webkit-transform $transitionTime, box-shadow $transitionTime;
+  }
 
-	// Pop out
-	$cardPopout: true;
-	@if $cardPopout {
-		&:not(.open):not(.transitioning) .cardContent:hover {
-			-webkit-transform: scale(1.05);
-		}
-	}
+  // Pop out
+  $cardPopout: true;
+  @if $cardPopout {
+    &:not(.open):not(.transitioning) .cardContent:hover {
+      -webkit-transform: scale(1.05);
+    }
+  }
 
-	// Shadow
-	$cardShadow: true;
-	$cardShadowXOffset: 10px;
-	$cardShadowYOffset: 10px;
-	$cardShadowHoverOffset: 15px;
-	$cardShadowBlur: 2px;
-	$cardShadowFullScale: 1.5; // How much the card shadow scales when showing a full card
-	$cardShadowColor: rgba(140, 140, 140, 0.2);
-	@if $cardShadow {
-		&:nth-child(3n+1) {
-			// When hovering over a closed card
-			&:not(.open) .cardContent:hover {
-				box-shadow: $cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
-			}
-			// When not hovering over a closed card
-			.cardContent {
-				box-shadow: $cardShadowXOffset $cardShadowYOffset $cardShadowColor;
-			}
-			// When a card is open
-			&.open .cardContent {
-				box-shadow: $cardShadowFullScale*$cardShadowXOffset $cardShadowFullScale*$cardShadowYOffset $cardShadowColor;
-			}
-		}
-		&:nth-child(3n+2) {
-			// When hovering over a closed card
-			&:not(.open) .cardContent:hover {
-				box-shadow: 0 $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
-			}
-			// When not hovering over a closed card
-			.cardContent {
-				box-shadow: 0 $cardShadowYOffset $cardShadowColor;
-			}
-			// When a card is open
-			&.open .cardContent {
-				box-shadow: $cardShadowFullScale*0 $cardShadowFullScale*$cardShadowYOffset $cardShadowColor;
-			}
-		}
-		&:nth-child(3n+3) {
-			// When hovering over a closed card
-			&:not(.open) .cardContent:hover {
-				box-shadow: -$cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
-			}
-			// When not hovering over a closed card
-			.cardContent {
-				box-shadow: -$cardShadowXOffset $cardShadowYOffset $cardShadowColor;
-			}
-			// When a card is open
-			&.open .cardContent {
-				box-shadow: -$cardShadowFullScale*$cardShadowXOffset $cardShadowFullScale*$cardShadowYOffset $cardShadowColor;
-			}
-		}
-	}
+  // Shadow
+  $cardShadow: true;
+  $cardShadowXOffset: 10px;
+  $cardShadowYOffset: 10px;
+  $cardShadowHoverOffset: 15px;
+  $cardShadowBlur: 2px;
+  $cardShadowFullScale: 1.5; // How much the card shadow scales when showing a full card
+  $cardShadowColor: rgba(140, 140, 140, 0.2);
+  @if $cardShadow {
+    &:nth-child(3n+1) {
+      // When hovering over a closed card
+      &:not(.open) .cardContent:hover {
+        box-shadow: $cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
+      }
+      // When not hovering over a closed card
+      .cardContent {
+        box-shadow: $cardShadowXOffset $cardShadowYOffset $cardShadowColor;
+      }
+      // When a card is open
+      &.open .cardContent {
+        box-shadow: $cardShadowFullScale*$cardShadowXOffset $cardShadowFullScale*$cardShadowYOffset $cardShadowColor;
+      }
+    }
+    &:nth-child(3n+2) {
+      // When hovering over a closed card
+      &:not(.open) .cardContent:hover {
+        box-shadow: 0 $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
+      }
+      // When not hovering over a closed card
+      .cardContent {
+        box-shadow: 0 $cardShadowYOffset $cardShadowColor;
+      }
+      // When a card is open
+      &.open .cardContent {
+        box-shadow: $cardShadowFullScale*0 $cardShadowFullScale*$cardShadowYOffset $cardShadowColor;
+      }
+    }
+    &:nth-child(3n+3) {
+      // When hovering over a closed card
+      &:not(.open) .cardContent:hover {
+        box-shadow: -$cardShadowHoverOffset $cardShadowHoverOffset $cardShadowBlur $cardShadowBlur $cardShadowColor;
+      }
+      // When not hovering over a closed card
+      .cardContent {
+        box-shadow: -$cardShadowXOffset $cardShadowYOffset $cardShadowColor;
+      }
+      // When a card is open
+      &.open .cardContent {
+        box-shadow: -$cardShadowFullScale*$cardShadowXOffset $cardShadowFullScale*$cardShadowYOffset $cardShadowColor;
+      }
+    }
+  }
 
-	// Project nav buttons
-	@import 'navButtons';
+  // Project nav buttons
+  @import 'navButtons';
 
-	// Generic card content
-	.cardContent {
-		position: relative;
-		height: 100%;
-		overflow: hidden;
+  // Generic card content
+  .cardContent {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
 
-		color: #eee;
-		border-radius: 3px; // Not percentage because aspect ratio is variable to screen aspect ratio
+    color: #eee;
+    border-radius: 3px; // Not percentage because aspect ratio is variable to screen aspect ratio
 
-		.open {
-			// Hack to make it square
-			.closeButton {
-				$size: 4%;
-				position: absolute;
-				width: $size;
-				overflow: hidden;
+    .open {
+      // Hack to make it square
+      .closeButton {
+        $size: 4%;
+        position: absolute;
+        width: $size;
+        overflow: hidden;
 
-				&:before {
-					content: "";
-					display: block;
-					padding-top: 100%;
-				}
+        &:before {
+          content: "";
+          display: block;
+          padding-top: 100%;
+        }
 
-				.content {
-					overflow: hidden;
-					position: absolute;
-					top: 0;
-					left: 0;
-					bottom: 0;
-					right: 0;
+        .content {
+          overflow: hidden;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
 
-					padding: 10% 15%;
-					background: linear-gradient(to right bottom, rgba(0,0,0,.3) 50%, transparent 50%);
-					user-select: none;
-					z-index: 100;
+          padding: 10% 15%;
+          background: linear-gradient(to right bottom, rgba(0,0,0,.3) 50%, transparent 50%);
+          user-select: none;
+          z-index: 100;
 
-					@include font-dark;
-					cursor: pointer;
-				}
-			}
-		}
+          @include font-dark;
+          cursor: pointer;
+        }
+      }
+    }
 
-		.closed {
+    .closed {
 
-		}
+    }
 
-		.open, .closed {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-		}
-	}
+    .open, .closed {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 .cardImageArea {
-	width: 100%;
-	min-height: 100px;
-	background-color: #444;
+  width: 100%;
+  min-height: 100px;
+  background-color: #444;
 }
 
-/* Specific cards */
+// Specific cards
 .card {
-	&.profile .cardContent {
-		$cardSidePadding: 2%;
+  &.profile .cardContent {
+    $cardSidePadding: 2%;
 
-		.open {
-			.profileText {
-				width: 66.6%;
-				height: 100%;
+    .open {
+      .profileText {
+        width: 66.6%;
+        height: 100%;
 
-				padding: 1.5% 2%;
-				overflow-y: auto;
+        padding: 1.5% 2%;
+        overflow-y: auto;
 
-				.name {
-					font-size: $FONT_HUGE;
-					@include littleTextShadow;
-					margin-top: -11px;
-				}
+        .name {
+          font-size: $FONT_HUGE;
+          @include littleTextShadow;
+          margin-top: -11px;
+        }
 
-				.twitterHandle {
-					font-size: $FONT_MEDIUM;
-					padding-top: 1%;
-					@include font-light;
-				}
+        .twitterHandle {
+          font-size: $FONT_MEDIUM;
+          padding-top: 1%;
+          @include font-light;
+        }
 
-				.longBio {
-					font-size: $FONT_SMALL;
-					padding: 1% 0;
-					line-height: 150%;
+        .longBio {
+          font-size: $FONT_SMALL;
+          padding: 1% 0;
+          line-height: 150%;
 
-					&:first-letter {
-						float: left;
-						font-size: 400%;
-						line-height: 100%;
-						padding-right: .5%;
-					}
-				}
+          &:first-letter {
+            float: left;
+            font-size: 400%;
+            line-height: 100%;
+            padding-right: .5%;
+          }
+        }
 
-				.experienceList {
-					padding-top: 1%;
+        .experienceList {
+          padding-top: 1%;
 
-					& > li {
-						overflow: hidden;
-						padding-bottom: 1%;
-					}
+          & > li {
+            overflow: hidden;
+            padding-bottom: 1%;
+          }
 
-					.iconArea {
-						width: 10%;
-					}
+          .iconArea {
+            width: 10%;
+          }
 
-					.descriptionArea {
-						width: 90%;
-						padding-left: 2%;
+          .descriptionArea {
+            width: 90%;
+            padding-left: 2%;
 
-						.titleBar {
-							position: relative;
-							padding-bottom: 0.5%;
-							overflow: hidden;
+            .titleBar {
+              position: relative;
+              padding-bottom: 0.5%;
+              overflow: hidden;
 
-							.title {
-								float: left;
-								font-size: $FONT_MEDIUM;
-							}
+              .title {
+                float: left;
+                font-size: $FONT_MEDIUM;
+              }
 
-							.dateRange {
-								float: right;
-								font-size: $FONT_SMALL;
-							}
-						}
+              .dateRange {
+                float: right;
+                font-size: $FONT_SMALL;
+              }
+            }
 
-						.description, .descriptionBullets {
-							font-size: $FONT_SMALL;
-							@include font-light;
-							line-height: 150%;
-							list-style: disc;
-							list-style-position: inside;
-						}
-					}
+            .description, .descriptionBullets {
+              font-size: $FONT_SMALL;
+              @include font-light;
+              line-height: 150%;
+              list-style: disc;
+              list-style-position: inside;
+            }
+          }
 
-					.iconArea, .descriptionArea {
-						float: left;
-					}
-				}
-			}
+          .iconArea, .descriptionArea {
+            float: left;
+          }
+        }
+      }
 
-			$videoColor: rgb(220, 165, 160);
-			.videoArea {
-				width: 33.3%;
-				height: 100%;
-				overflow: hidden;
+      $videoColor: rgb(220, 165, 160);
+      .videoArea {
+        width: 33.3%;
+        height: 100%;
+        overflow: hidden;
 
-				.profileVideo {
-					// width: 100%;
-				}
-			}
+        .profileVideo {
+          // width: 100%;
+        }
+      }
 
-			.profileText, .videoArea {
-				float: left;
-			}
-		}
+      .profileText, .videoArea {
+        float: left;
+      }
+    }
 
-		.closed {
-			padding: $cardSidePadding;
+    .closed {
+      padding: $cardSidePadding;
 
-			.profileText {
-				$textWidth: 80%;
-				width: $textWidth;
-				margin: 0 (100% - $textWidth)/2;
-				.name {
-					font-size: $FONT_LARGE;
-				}
+      .profileText {
+        $textWidth: 80%;
+        width: $textWidth;
+        margin: 0 (100% - $textWidth)/2;
+        .name {
+          font-size: $FONT_LARGE;
+        }
 
-				.bio {
-					font-size: $FONT_SMALL;
-					@include font-light;
-				}
+        .bio {
+          font-size: $FONT_SMALL;
+          @include font-light;
+        }
 
-				.name, .bio {
-					text-align: center;
-					@include littleTextShadow;
-				}
-			}
+        .name, .bio {
+          text-align: center;
+          @include littleTextShadow;
+        }
+      }
 
-			.profilePhoto {
-				display: block;
-				margin-left: auto;
-				margin-right: auto;
+      .profilePhoto {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
 
-				margin-bottom: 1%;
-				padding: 1%;
+        margin-bottom: 1%;
+        padding: 1%;
 
-				height: 50%;
-				border-radius: 50%;
-				border: 3px dotted rgba(255, 255, 255, 0.3);
-			}
+        height: 50%;
+        border-radius: 50%;
+        border: 3px dotted rgba(255, 255, 255, 0.3);
+      }
 
-			// TODO: Make this right
-			hr {
-				margin-top: 2%;
-				height: 1%;
-				width: 20%;
-				border: none;
-				background-color: rgba(255, 255, 255, 0.7);
-				@include littleLayerShadow;
-			}
+      // TODO: Make this right
+      hr {
+        margin-top: 2%;
+        height: 1%;
+        width: 20%;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.7);
+        @include littleLayerShadow;
+      }
 
-			.experienceList {
-				height: 25%;
-				padding: 1% 0;
-				text-align: center;
+      .experienceList {
+        height: 25%;
+        padding: 1% 0;
+        text-align: center;
 
-				li {
-					width: 13%;
-					height: 100%;
-					display: inline-block;
+        li {
+          width: 13%;
+          height: 100%;
+          display: inline-block;
 
-					margin: 0 2%;
-				}
-			}
-		}
+          margin: 0 2%;
+        }
+      }
+    }
 
-		.open, .closed {
-			background-color: rgb(234, 95, 78);
-			// background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%);
-		}
-	}
+    .open, .closed {
+      background-color: rgb(234, 95, 78);
+      // background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%);
+    }
+  }
 
-	&.thefourelements {
-		.closed {
-			background: url('/images/cards/thefourelements/cover.svg') no-repeat center center;
-			background-color: $DARK_GRAY;
-		}
-	}
-	&.cellularwarfare {
-		.closed {
-			background: url('/images/cards/cellularwarfare/cover.svg') no-repeat center center;
-		}
-	}
-	&.thefourelements, &.cellularwarfare {
-		.cardContent {
-			.open {
-				.leftArea {
-					width: 33.3%;
-					padding: 1.5% 2%;
-					background-color: rgb(241, 98, 100);
+  &.thefourelements {
+    .closed {
+      background: url('/images/cards/thefourelements/cover.svg') no-repeat center center;
+      background-color: $DARK_GRAY;
+    }
+  }
+  &.cellularwarfare {
+    .closed {
+      background: url('/images/cards/cellularwarfare/cover.svg') no-repeat center center;
+    }
+  }
+  &.thefourelements, &.cellularwarfare {
+    .cardContent {
+      .open {
+        .leftArea {
+          width: 33.3%;
+          padding: 1.5% 2%;
+          background-color: rgb(241, 98, 100);
 
-					.name {
-						font-size: $FONT_LARGE;
-						@include littleTextShadow;
-					}
-					.description, .instructions {
-						font-size: $FONT_SMALL;
-						@include font-light;
-						padding-top: 1%;
-					}
-				}
-				.rightArea {
-					position: relative;
-					width: 66.6%;
-					background-color: black;
-				}
-				.leftArea, .rightArea {
-					float: left;
-					height: 100%;
-				}
-			}
+          .name {
+            font-size: $FONT_LARGE;
+            @include littleTextShadow;
+          }
+          .description, .instructions {
+            font-size: $FONT_SMALL;
+            @include font-light;
+            padding-top: 1%;
+          }
+        }
+        .rightArea {
+          position: relative;
+          width: 66.6%;
+          background-color: black;
+        }
+        .leftArea, .rightArea {
+          float: left;
+          height: 100%;
+        }
+      }
 
-			.closed {
-				background-size: cover;
-			}
-		}
-	}
-	&.vidwall {
-		.open {
-			.searchArea {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				width: 100%;
+      .closed {
+        background-size: cover;
+      }
+    }
+  }
+  &.vidwall {
+    .open {
+      .searchArea {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
 
-				text-align: center;
+        text-align: center;
 
-				margin-top: -9%;
-				margin-left: -50%;
+        margin-top: -9%;
+        margin-left: -50%;
 
-				.title {
-					font-size: 60px;
-					font-style: italic;
-					font-weight: 100;
-					padding-bottom: 3%;
-				}
+        .title {
+          font-size: 60px;
+          font-style: italic;
+          font-weight: 100;
+          padding-bottom: 3%;
+        }
 
-				.query {
-					// Reset user agent
-					background-color: transparent;
-					border: none;
-					user-select: none;
-					margin: 0;
+        .query {
+          // Reset user agent
+          background-color: transparent;
+          border: none;
+          user-select: none;
+          margin: 0;
 
-					color: white;
-					text-align: center;
-					font-size: $FONT_HUGE;
+          color: white;
+          text-align: center;
+          font-size: $FONT_HUGE;
 
-					width: 40%;
-					padding-bottom: 1%;
-					border-bottom: 2px solid rgba(white, 0.5);
-					outline: none;
-				}
-			}
-		}
+          width: 40%;
+          padding-bottom: 1%;
+          border-bottom: 2px solid rgba(white, 0.5);
+          outline: none;
+        }
+      }
+    }
 
-		.closed {
-			.svg {
-				width: 100%;
-				height: 100%;
-				background: url('/images/icons/play.svg') no-repeat center;
-				background-size: contain;
-			}
-		}
+    .closed {
+      .svg {
+        width: 100%;
+        height: 100%;
+        background: url('/images/icons/play.svg') no-repeat center;
+        background-size: contain;
+      }
+    }
 
-		.open, .closed {
-			background-color: $BLUE;
-		}
-	}
-	&.github {
-		.open {
-			color: $DARK_GRAY;
+    .open, .closed {
+      background-color: $BLUE;
+    }
+  }
+  &.github {
+    .open {
+      color: $DARK_GRAY;
 
-			.leftArea {
-				width: 33.3%;
-				text-align: center;
-				overflow-y: auto;
+      .leftArea {
+        width: 33.3%;
+        text-align: center;
+        overflow-y: auto;
 
-				.username {
-					padding-bottom: 2%;
-				}
+        .username {
+          padding-bottom: 2%;
+        }
 
-				.profilePhoto {
-					width: 50%;
-					border-radius: 10px;
-				}
-			}
+        .profilePhoto {
+          width: 50%;
+          border-radius: 10px;
+        }
+      }
 
-			.rightArea {
-				width: 66.6%;
+      .rightArea {
+        width: 66.6%;
 
-				.eventArea {
-					height: 100%;
-					overflow-y: auto;
-				}
+        .eventArea {
+          height: 100%;
+          overflow-y: auto;
+        }
 
-				.eventsTitle {
-					color: $LIGHT_GRAY;
-					text-align: center;
-					font-style: italic;
-					margin-bottom: 1%;
-				}
+        .eventsTitle {
+          color: $LIGHT_GRAY;
+          text-align: center;
+          font-style: italic;
+          margin-bottom: 1%;
+        }
 
-				.events {
-					li {
-						overflow: hidden;
-						padding: 2% 0;
-						margin-right: 2%; // Keep away from scroll bar
+        .events {
+          li {
+            overflow: hidden;
+            padding: 2% 0;
+            margin-right: 2%; // Keep away from scroll bar
 
-						$iconSize: 5%;
-						.octicon {
-							font-size: $FONT_LARGE;
-							text-align: center;
-							width: $iconSize;
-						}
+            $iconSize: 5%;
+            .octicon {
+              font-size: $FONT_LARGE;
+              text-align: center;
+              width: $iconSize;
+            }
 
-						.body {
-							width: 100% - $iconSize;
-							padding-left: 1%;
-							font-size: $FONT_MEDIUM;
-							line-height: 1.2;
+            .body {
+              width: 100% - $iconSize;
+              padding-left: 1%;
+              font-size: $FONT_MEDIUM;
+              line-height: 1.2;
 
-							.date {
-								padding-top: 0.5%;
-								font-size: $FONT_SMALL;
-								font-weight: 700;
-								color: $LIGHT_GRAY;
-							}
-						}
+              .date {
+                padding-top: 0.5%;
+                font-size: $FONT_SMALL;
+                font-weight: 700;
+                color: $LIGHT_GRAY;
+              }
+            }
 
-						.octicon, .body {
-							float: left;
-						}
+            .octicon, .body {
+              float: left;
+            }
 
-						&:not(:first-child) {
-							border-top: 1px solid $LIGHT_GRAY;
-						}
-					}
-				}
-			}
-			.leftArea, .rightArea {
-				padding: 1.5% 2%;
-				float: left;
-				height: 100%;
-			}
-		}
+            &:not(:first-child) {
+              border-top: 1px solid $LIGHT_GRAY;
+            }
+          }
+        }
+      }
+      .leftArea, .rightArea {
+        padding: 1.5% 2%;
+        float: left;
+        height: 100%;
+      }
+    }
 
-		.closed {
-			padding: $cardSidePadding;
-			text-align: center;
+    .closed {
+      padding: $cardSidePadding;
+      text-align: center;
 
-			// Github logo
-			$topHeight: 65%;
-			.top {
-				height: $topHeight;
-				padding: 2%;
+      // Github logo
+      $topHeight: 65%;
+      .top {
+        height: $topHeight;
+        padding: 2%;
 
-				.svg {
-					height: 85%;
-					margin-bottom: 3%;
-					background: url('/images/icons/github.svg');
-					background-size: 100% 100%;
-				}
+        .svg {
+          height: 85%;
+          margin-bottom: 3%;
+          background: url('/images/icons/github.svg');
+          background-size: 100% 100%;
+        }
 
-				.username {
-					color: #333;
-					font-size: $FONT_MEDIUM;
-				}
-			}
+        .username {
+          color: #333;
+          font-size: $FONT_MEDIUM;
+        }
+      }
 
-			// Github Stats
-			.bottom {
-				height: 100% - $topHeight;
-				padding-top: 2%;
-				color: #aaa;
-				line-height: 1.2;
+      // Github Stats
+      .bottom {
+        height: 100% - $topHeight;
+        padding-top: 2%;
+        color: #aaa;
+        line-height: 1.2;
 
-				.stat {
-					height: 100%;
-					float: left;
-					width: 33.3%;
-					overflow: hidden;
+        .stat {
+          height: 100%;
+          float: left;
+          width: 33.3%;
+          overflow: hidden;
 
-					&:not(:last-child) {
-						border-right: 1px solid rgba(20, 20, 20, 0.1);
-					}
+          &:not(:last-child) {
+            border-right: 1px solid rgba(20, 20, 20, 0.1);
+          }
 
-					.statCount {
-						font-size: $FONT_LARGE;
-						color: #333;
-						display: block;
-						line-height: 1;
-					}
+          .statCount {
+            font-size: $FONT_LARGE;
+            color: #333;
+            display: block;
+            line-height: 1;
+          }
 
-					.statCountTitle {
-						font-size: $FONT_MEDIUM;
-						width: 100%;
-						text-overflow: ellipsis;
-					}
-				}
-			}
-		}
+          .statCountTitle {
+            font-size: $FONT_MEDIUM;
+            width: 100%;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
 
-		.open, .closed {
-			background: white;
-		}
-	}
+    .open, .closed {
+      background: white;
+    }
+  }
 }
 
 // How to make a percentage-based square tile
 // http://stackoverflow.com/questions/5445491/height-equal-to-dynamic-width-css-fluid-layout
 .squareTile {
-	position: relative;
-	width:100%;
+  position: relative;
+  width:100%;
 
-	// Shadow
-	@include layerShadow;
+  // Shadow
+  @include layerShadow;
 
-	$borderRadius: 5%;
-	// Curved edges for shadow
-	border-radius: $borderRadius;
-	overflow: hidden;
+  $borderRadius: 5%;
+  // Curved edges for shadow
+  border-radius: $borderRadius;
+  overflow: hidden;
 
-	&:before {
-		content: "";
-		display: block;
-		padding-top: 100%;
-	}
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
 
-	.content {
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 
-		// Curved edges
-		border-radius: $borderRadius;
-		overflow: hidden;
-	}
+    // Curved edges
+    border-radius: $borderRadius;
+    overflow: hidden;
+  }
 
-	.svg {
-		width: 100%;
-		height: 100%;
-	}
+  .svg {
+    width: 100%;
+    height: 100%;
+  }
 
-	// TODO: Move this somewhere else
-	&.nor1 {
-		background-color:rgb(73,78,84);
-		padding: .1%;
+  // TODO: Move this somewhere else
+  &.nor1 {
+    background-color:rgb(73,78,84);
+    padding: .1%;
 
-		img {
-			width: 90% !important; // TODO: Remove !important
-			margin-top: 25%;
-			margin-left: 5%;
-		}
-	}
+    img {
+      width: 90% !important; // TODO: Remove !important
+      margin-top: 25%;
+      margin-left: 5%;
+    }
+  }
 }
 
 @import 'footer';

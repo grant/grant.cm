@@ -2,15 +2,15 @@
 Syntax error: Base-level rules cannot contain the parent-selector-referencing character '&'.
         on line 38 of ../private/scss/navButtons.scss
 
-33: 	i:last-child {
-34: 		@include transform( translate( $x, -$y ) rotate( -$angle ) );
-35: 	}
+33:   i:last-child {
+34:     @include transform( translate( $x, -$y ) rotate( -$angle ) );
+35:   }
 36: }
 37: 
 38: &:not(.open) {
-39: 	.paginate {
-40: 		display: none;
-41: 	}
+39:   .paginate {
+40:     display: none;
+41:   }
 42: }
 43: .paginate {
 
@@ -68,4 +68,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Base-level rules cannot contain the parent-selector-referencing character '&'.\A         on line 38 of ../private/scss/navButtons.scss\A \A 33: 	i:last-child {\A 34: 		@include transform( translate( $x, -$y ) rotate( -$angle ) );\A 35: 	}\A 36: }\A 37: \A 38: &:not(.open) {\A 39: 	.paginate {\A 40: 		display: none;\A 41: 	}\A 42: }\A 43: .paginate {"; }
+  content: "Syntax error: Base-level rules cannot contain the parent-selector-referencing character '&'.\A         on line 38 of ../private/scss/navButtons.scss\A \A 33:   i:last-child {\A 34:     @include transform( translate( $x, -$y ) rotate( -$angle ) );\A 35:   }\A 36: }\A 37: \A 38: &:not(.open) {\A 39:   .paginate {\A 40:     display: none;\A 41:   }\A 42: }\A 43: .paginate {"; }
