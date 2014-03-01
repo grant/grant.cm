@@ -16,31 +16,40 @@ section.github
         text-align: center
         .content
           padding: 5%
+          $textPadding: 2%
           .githubsvg
             height: 400px
             margin: 3%
             background: url("/images/icons/github.svg")
             background-size: 100% 100%
           .username
-            padding-bottom: 2%
+            padding-bottom: $textPadding
             font-size: $FONT_LARGE
           .description
-            padding-bottom: 2%
             font-size: $FONT_SMALL
+            transition: opacity $transitionSpeed
+            opacity: 0.6
+            &:hover
+              opacity: 1
           // Github Stats
-          .stat
-            float: left
-            width: 33.3%
-            &:not(:last-child)
-              border-right: 1px solid rgba(20, 20, 20, 0.1)
-            .statCount
-              font-size: $FONT_LARGE
-              display: block
-              line-height: 1
-            .statCountTitle
-              font-size: $FONT_MEDIUM
-              width: 100%
-              text-overflow: ellipsis
+          .stats
+            overflow: hidden
+            padding-bottom: $textPadding
+            margin-bottom: $textPadding
+            border-bottom: 1px solid rgba($LIGHT_GRAY, 0.5)
+            .stat
+              float: left
+              width: 33.3%
+              &:not(:last-child)
+                border-right: 1px solid rgba($LIGHT_GRAY, 0.5)
+              .statCount
+                font-size: $FONT_LARGE
+                display: block
+                line-height: 1
+              .statCountTitle
+                font-size: $FONT_MEDIUM
+                width: 100%
+                text-overflow: ellipsis
       .rightArea
         width: 66.6%
         .content

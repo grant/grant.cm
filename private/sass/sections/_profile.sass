@@ -1,12 +1,15 @@
 // Profile Section
+$textColor: $WHITE
 section.profile
-  color: $WHITE
+  color: $textColor
+  a:hover
+    color: $DARK_RED
   background-color: $RED
   overflow: hidden
   >
     overflow: hidden
 
-    +pageTitle($WHITE)
+    +pageTitle($WHITE, $DARK_RED)
 
     $cardSidePadding: 2%
     .profileText
@@ -30,9 +33,11 @@ section.profile
           border-radius: 10px
           transition: -webkit-transform $transitionSpeed, background-color $transitionSpeed
           &:hover
-            background-color: rgba($BLACK, 0.1)
+            background-color: $DARK_RED
             -webkit-transform: translateX(5px)
             transform: translateX(5px)
+          a:hover
+            color: $textColor
         .iconArea
           width: 10%
         .descriptionArea

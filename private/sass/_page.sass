@@ -16,7 +16,7 @@ $cardAreaPadding: 5px
 =layerShadow
   box-shadow: 10px 10px rgba(20, 10, 0, 0.1)
 
-=pageTitle($color)
+=pageTitle($color, $hoverColor: mix($color, invert($color), 80%))
   .title
     +littleTextShadow
     color: $color
@@ -24,7 +24,7 @@ $cardAreaPadding: 5px
     padding: 2%
     transition: color $transitionSpeed
     &:hover
-      color: mix($color, invert($color), 80%)
+      color: $hoverColor
 
 .pageContent
   height: 100%
