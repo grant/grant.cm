@@ -11,18 +11,11 @@ section.profile
     $cardSidePadding: 2%
     .profileText
       width: 66.6%
-      padding: 1.5% 2%
-      .name
-        font-size: $FONT_HUGE
-        +littleTextShadow
-        margin-top: -11px
-      .twitterHandle
-        font-size: $FONT_MEDIUM
-        padding-top: 1%
-        +font-light
+      padding: 0 $sideMargin + $cardMargin
+      // padding: 1.5% 2%
       .longBio
-        font-size: $FONT_SMALL
-        padding: 1% 0
+        font-size: $FONT_MEDIUM
+        padding-bottom: 1%
         line-height: 150%
         &:first-letter
           float: left
