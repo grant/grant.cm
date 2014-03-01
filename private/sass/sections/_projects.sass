@@ -1,4 +1,9 @@
+//
 // Project Section
+//
+
+@import mixins/squareTile
+
 section.project
   background-color: rgb(241, 241, 241)
   background: -webkit-linear-gradient(#f9f9f9, #f3f3f3)
@@ -12,9 +17,7 @@ section.project
     overflow: hidden
 
 $cardsPerRow: 3
-
-// Must be an integer
-$cardHeight: 400px
+$cardHeight: 400px // Must be an integer
 
 .card
   position: relative
@@ -121,118 +124,15 @@ $cardHeight: 400px
 
 // Specific cards
 .card
-  &.profile .cardContent
-    $cardSidePadding: 2%
-    .open
-      .profileText
-        width: 66.6%
-        height: 100%
-        padding: 1.5% 2%
-        overflow-y: auto
-        .name
-          font-size: $FONT_HUGE
-          +littleTextShadow
-          margin-top: -11px
-        .twitterHandle
-          font-size: $FONT_MEDIUM
-          padding-top: 1%
-          +font-light
-        .longBio
-          font-size: $FONT_SMALL
-          padding: 1% 0
-          line-height: 150%
-          &:first-letter
-            float: left
-            font-size: 400%
-            line-height: 100%
-            padding-right: .5%
-        .experienceList
-          padding-top: 1%
-          & > li
-            overflow: hidden
-            padding-bottom: 1%
-          .iconArea
-            width: 10%
-          .descriptionArea
-            width: 90%
-            padding-left: 2%
-            .titleBar
-              position: relative
-              padding-bottom: 0.5%
-              overflow: hidden
-              .title
-                float: left
-                font-size: $FONT_MEDIUM
-              .dateRange
-                float: right
-                font-size: $FONT_SMALL
-            .description, .descriptionBullets
-              font-size: $FONT_SMALL
-              +font-light
-              line-height: 150%
-              list-style: disc
-              list-style-position: inside
-          .iconArea, .descriptionArea
-            float: left
-      $videoColor: rgb(220, 165, 160)
-      .videoArea
-        width: 33.3%
-        height: 100%
-        overflow: hidden
-        .profileVideo
-          // width: 100%;
-      .profileText, .videoArea
-        float: left
-    .closed
-      padding: $cardSidePadding
-      .profileText
-        $textWidth: 80%
-        width: $textWidth
-        margin: 0 (100% - $textWidth) / 2
-        .name
-          font-size: $FONT_LARGE
-        .bio
-          font-size: $FONT_SMALL
-          +font-light
-        .name, .bio
-          text-align: center
-          +littleTextShadow
-      .profilePhoto
-        display: block
-        margin-left: auto
-        margin-right: auto
-        margin-bottom: 1%
-        padding: 1%
-        height: 50%
-        border-radius: 50%
-        border: 3px dotted rgba($WHITE, 0.3)
-      // TODO: Make this right
-      hr
-        margin-top: 2%
-        height: 1%
-        width: 20%
-        border: none
-        background-color: rgba($WHITE, 0.7)
-        +littleLayerShadow
-      .experienceList
-        height: 25%
-        padding: 1% 0
-        text-align: center
-        li
-          width: 13%
-          height: 100%
-          display: inline-block
-          margin: 0 2%
-    .open, .closed
-      background-color: rgb(234, 95, 78)
-      // background: -webkit-linear-gradient(top, #505050 0%, #3a3a3a 100%);
   &.thefourelements
     .closed
       background: url("/images/cards/thefourelements/cover.svg") no-repeat center center
       background-color: $DARK_GRAY
+
   &.cellularwarfare
     .closed
       background: url("/images/cards/cellularwarfare/cover.svg") no-repeat center center
+
   &.thefourelements, &.cellularwarfare
     .cardContent
       .open
@@ -256,6 +156,7 @@ $cardHeight: 400px
           height: 100%
       .closed
         background-size: cover
+
   &.vidwall
     .open
       .searchArea
@@ -292,6 +193,7 @@ $cardHeight: 400px
         background-size: contain
     .open, .closed
       background-color: $BLUE
+
   &.github
     .open
       color: $DARK_GRAY
@@ -383,5 +285,3 @@ $cardHeight: 400px
             text-overflow: ellipsis
     .open, .closed
       background: white
-
-@import mixins/squareTile

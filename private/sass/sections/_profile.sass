@@ -1,5 +1,66 @@
 // Profile Section
 section.profile
+  color: $WHITE
   background-color: $RED
+  overflow: hidden
   >
+    overflow: hidden
+
     +pageTitle($WHITE)
+
+    $cardSidePadding: 2%
+    .profileText
+      width: 66.6%
+      padding: 1.5% 2%
+      .name
+        font-size: $FONT_HUGE
+        +littleTextShadow
+        margin-top: -11px
+      .twitterHandle
+        font-size: $FONT_MEDIUM
+        padding-top: 1%
+        +font-light
+      .longBio
+        font-size: $FONT_SMALL
+        padding: 1% 0
+        line-height: 150%
+        &:first-letter
+          float: left
+          font-size: 400%
+          line-height: 100%
+          padding-right: .5%
+      .experienceList
+        padding-top: 1%
+        & > li
+          overflow: hidden
+          padding-bottom: 1%
+        .iconArea
+          width: 10%
+        .descriptionArea
+          width: 90%
+          padding-left: 2%
+          .titleBar
+            position: relative
+            padding-bottom: 0.5%
+            overflow: hidden
+            .title
+              float: left
+              font-size: $FONT_MEDIUM
+            .dateRange
+              float: right
+              font-size: $FONT_SMALL
+          .description, .descriptionBullets
+            font-size: $FONT_SMALL
+            +font-light
+            line-height: 150%
+            list-style: disc
+            list-style-position: inside
+        .iconArea, .descriptionArea
+          float: left
+    $videoColor: rgb(220, 165, 160)
+    .videoArea
+      width: 33.3%
+      height: 100%
+      overflow: hidden
+    .profileText, .videoArea
+      float: left
