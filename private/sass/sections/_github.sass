@@ -1,11 +1,17 @@
 // Github Section
+$textColor: $LIGHT_BLACK
 section.github
   background-color: $BLUE
-  color: $LIGHT_BLACK
+  color: $textColor
+  $anchorColor: $DARK_BLUE
+  a
+    color: $anchorColor
+    &:hover
+      color: mix($anchorColor, $WHITE, 80%)
   line-height: 1.2
   padding-bottom: $sectionMargin
   >
-    +pageTitle($WHITE)
+    +pageTitle($WHITE, $DARK_BLUE)
     .content
       display: table
       width: 100%
