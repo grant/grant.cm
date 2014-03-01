@@ -16,12 +16,15 @@ $cardAreaPadding: 5px
 =layerShadow
   box-shadow: 10px 10px rgba(20, 10, 0, 0.1)
 
-=pageTitle($color: 'inherit')
+=pageTitle($color)
   .title
     +littleTextShadow
     color: $color
     text-align: center
     padding: 2%
+    transition: color $transitionSpeed
+    &:hover
+      color: mix($color, invert($color), 80%)
 
 .pageContent
   height: 100%

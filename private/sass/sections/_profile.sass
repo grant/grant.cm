@@ -26,7 +26,13 @@ section.profile
         padding-top: 1%
         & > li
           overflow: hidden
-          padding-bottom: 1%
+          padding: 1%
+          border-radius: 10px
+          transition: -webkit-transform $transitionSpeed, background-color $transitionSpeed
+          &:hover
+            background-color: rgba($BLACK, 0.1)
+            -webkit-transform: translateX(5px)
+            transform: translateX(5px)
         .iconArea
           width: 10%
         .descriptionArea
