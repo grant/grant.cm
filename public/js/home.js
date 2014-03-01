@@ -38,7 +38,7 @@ $(function() {
 	 * This includes cached API calls, etc.
 	 * @type {Object[cardId]}
 	 */
-	var cardData = {
+	var savedData = {
 		profile: {},
 		cellularwarfare: {},
 		vidwall: {},
@@ -93,6 +93,7 @@ $(function() {
 
 		// Github
 		setGithubProfileData();
+		setGithubEventData();
 	})();
 
 	//
@@ -487,9 +488,6 @@ $(function() {
 			case 'thefourelements':
 			case 'cellularwarfare':
 				break;
-			case 'github':
-				setGithubEventData();
-				break;
 			case 'vidwall':
 				break;
 		}
@@ -542,14 +540,14 @@ $(function() {
 	 * Sets the data from github for the github card's stats
 	 */
 	function setGithubProfileData () {
-		if (cardData.github.api.profile) {
-			setGithubProfileDataDOM(cardData.github.api.profile);
+		if (savedData.github.api.profile) {
+			setGithubProfileDataDOM(savedData.github.api.profile);
 		} else {
 			if (API_ENABLED) {
 				$.ajax({
 					url: "https://api.github.com/users/grant"
 				}).done(function (data) {
-					cardData.github.api.profile = data;
+					savedData.github.api.profile = data;
 					setGithubProfileDataDOM(data);
 				});
 			}
@@ -560,10 +558,10 @@ $(function() {
 		 * @param {Object} data The json api data
 		 */
 		function setGithubProfileDataDOM (data) {
-			var $githubCard = $('.card.github');
-			$githubCard.find('.followers .statCount').html(data.followers);
-			$githubCard.find('.following .statCount').html(data.following);
-			$githubCard.find('.repos .statCount').html(data.public_repos);
+			var $githubSection = $('section.github');
+			$githubSection.find('.followers .statCount').html(data.followers);
+			$githubSection.find('.following .statCount').html(data.following);
+			$githubSection.find('.repos .statCount').html(data.public_repos);
 		}
 	}
 
@@ -571,14 +569,14 @@ $(function() {
 	 * Sets the event data for the github card event feed
 	 */
 	function setGithubEventData () {
-		if (cardData.github.api.events) {
-			setGithubEventDataDOM(cardData.github.api.events);
+		if (savedData.github.api.events) {
+			setGithubEventDataDOM(savedData.github.api.events);
 		} else {
 			if (API_ENABLED) {
 				$.ajax({
 					url: 'https://api.github.com/users/grant/events'
 				}).done(function (events) {
-					cardData.github.api.events = events;
+					savedData.github.api.events = events;
 					setGithubEventDataDOM(events);
 				});
 			}
@@ -589,8 +587,8 @@ $(function() {
 		 * @param {Object} events The json api data
 		 */
 		function setGithubEventDataDOM (events) {
-			var $githubCard = $('.card.github');
-			var $messages = $githubCard.find('.events');
+			var $githubSection = $('section.github');
+			var $messages = $githubSection.find('.events');
 
 			var githubURL = 'https://www.github.com/';
 
