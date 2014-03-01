@@ -3,3 +3,69 @@ section.github
   background-color: $BLUE
   >
     +pageTitle($WHITE)
+    color: $WHITE
+    line-height: 1.2
+    .leftArea
+      width: 33.3%
+      text-align: center
+      .githubsvg
+        height: 400px
+        margin: 3%
+        background: url("/images/icons/github.svg")
+        background-size: 100% 100%
+      .username
+        padding-bottom: 2%
+        font-size: $FONT_MEDIUM
+        color: #333
+      // Github Stats
+      .stat
+        float: left
+        width: 33.3%
+        overflow: hidden
+        &:not(:last-child)
+          border-right: 1px solid rgba(20, 20, 20, 0.1)
+        .statCount
+          font-size: $FONT_LARGE
+          color: #333
+          display: block
+          line-height: 1
+        .statCountTitle
+          font-size: $FONT_MEDIUM
+          width: 100%
+          text-overflow: ellipsis
+    .rightArea
+      width: 66.6%
+      .eventArea
+      .eventsTitle
+        color: $WHITE
+        text-align: center
+        font-style: italic
+        margin-bottom: 1%
+      .events
+        li
+          overflow: hidden
+          padding: 2% 0
+          margin-right: 2%
+          // Keep away from scroll bar
+          $iconSize: 5%
+          .octicon
+            font-size: $FONT_LARGE
+            text-align: center
+            width: $iconSize
+          .body
+            width: 100% - $iconSize
+            padding-left: 1%
+            font-size: $FONT_MEDIUM
+            line-height: 1.2
+            .date
+              padding-top: 0.5%
+              font-size: $FONT_SMALL
+              font-weight: 700
+              color: $LIGHT_GRAY
+          .octicon, .body
+            float: left
+          &:not(:first-child)
+            border-top: 1px solid $LIGHT_GRAY
+    .leftArea, .rightArea
+      padding: 1.5% 2%
+      float: left
