@@ -6,7 +6,8 @@ var prefix = require('gulp-autoprefixer');
 
 var src = {
   js: ['public/js/**.js', 'gulpfile.js', '!public/js/jquery.min.js', '!public/js/jquery.timeago.js'],
-  css: 'public/css/**.css'
+  css: 'public/css/**.css',
+  sass: 'private/sass/**.sass'
 };
 
 var dest = {

@@ -111,7 +111,6 @@ $cardHeight: 400px // Must be an integer
           z-index: 100
           +font-dark
           cursor: pointer
-    .closed
     .open, .closed
       position: absolute
       width: 100%
@@ -126,8 +125,11 @@ $cardHeight: 400px // Must be an integer
 .card
   &.thefourelements
     .closed
+      // Firefox doesn't display the cover properly for some reason TODO: Fix this
+      @-moz-document url-prefix()
+        background: url("/images/cards/thefourelements/cover.png") no-repeat center center
       background: url("/images/cards/thefourelements/cover.svg") no-repeat center center
-      background-color: $DARK_GRAY
+      background-color: $LIGHT_BLACK
 
   &.cellularwarfare
     .closed
