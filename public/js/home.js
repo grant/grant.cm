@@ -603,14 +603,12 @@ $(function () {
         case 'FollowEvent':
           break;
         case 'ForkEvent':
-          {
-            iconType = 'repo-forked';
-            date = event.created_at;
-            var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
-            messageBody = 'Forked ' + repoBody;
-            // .created_at
-            // .repo.name
-          }
+          iconType = 'repo-forked';
+          date = event.created_at;
+          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          messageBody = 'Forked ' + repoBody;
+          // .created_at
+          // .repo.name
           break;
         case 'ForkApplyEvent':
           break;
@@ -619,89 +617,81 @@ $(function () {
         case 'GollumEvent':
           break;
         case 'IssueCommentEvent':
-          {
-            iconType = 'comment';
-            date = event.created_at;
+          iconType = 'comment';
+          date = event.created_at;
 
-            var comment = event.payload.comment;
+          var comment = event.payload.comment;
 
-            var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
-            var commentBody = '<a href="' + comment.html_url + '">' + comment.body + '</a>';
-            messageBody = 'Commented ' + repoBody + ': ' + commentBody;
-            // .created_at
-            // .repo
-            // .name
-            // .payload
-            // .title
-            // .html_url
-            // .comment
-            // .html_url
-            // .body
-          }
+          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          var commentBody = '<a href="' + comment.html_url + '">' + comment.body + '</a>';
+          messageBody = 'Commented ' + repoBody + ': ' + commentBody;
+          // .created_at
+          // .repo
+          // .name
+          // .payload
+          // .title
+          // .html_url
+          // .comment
+          // .html_url
+          // .body
           break;
         case 'IssuesEvent':
-          {
-            var action = event.payload.action;
-            var issue = event.payload.issue;
-            iconType = 'issue-' + action;
-            date = event.created_at;
+          var action = event.payload.action;
+          var issue = event.payload.issue;
+          iconType = 'issue-' + action;
+          date = event.created_at;
 
-            var actionTitle = ucfirst(action);
-            var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
-            var issueBody = '<a href="' + issue.html_url + '">' + issue.title + '</a>';
-            messageBody = actionTitle + ' issue ' + issueBody + ' for ' + repoBody;
-            // .created_at
-            // .repo
-            // .name
-            // .payload
-            // .action: ['opened', 'closed', 'reopened']
-            // .issue
-            // .title
-            // .html_url
-          }
+          var actionTitle = ucfirst(action);
+          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          var issueBody = '<a href="' + issue.html_url + '">' + issue.title + '</a>';
+          messageBody = actionTitle + ' issue ' + issueBody + ' for ' + repoBody;
+          // .created_at
+          // .repo
+          // .name
+          // .payload
+          // .action: ['opened', 'closed', 'reopened']
+          // .issue
+          // .title
+          // .html_url
           break;
         case 'MemberEvent':
           break;
         case 'PublicEvent':
           break;
         case 'PullRequestEvent':
-          {
-            var action = event.payload.action;
-            iconType = 'git-pull-request';
-            var pr = event.payload.pull_request;
-            date = pr.created_at;
+          var action = event.payload.action;
+          iconType = 'git-pull-request';
+          var pr = event.payload.pull_request;
+          date = pr.created_at;
 
-            var actionTitle = ucfirst(action);
-            var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
-            var prBody = '<a href="' + pr.html_url + '">' + pr.title + '</a>';
-            messageBody = actionTitle + ' ' + prBody + ' for ' + repoBody;
-            // .repo.name
-            // .payload
-            // .action [“opened”, “closed”, “synchronize”, or “reopened”]
-            // .pull_request
-            // .created_at
-            // .html_url
-            // .body
-          }
+          var actionTitle = ucfirst(action);
+          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          var prBody = '<a href="' + pr.html_url + '">' + pr.title + '</a>';
+          messageBody = actionTitle + ' ' + prBody + ' for ' + repoBody;
+          // .repo.name
+          // .payload
+          // .action [“opened”, “closed”, “synchronize”, or “reopened”]
+          // .pull_request
+          // .created_at
+          // .html_url
+          // .body
           break;
         case 'PullRequestReviewCommentEvent':
           break;
         case 'PushEvent':
-          {
-            iconType = 'repo-push';
-            date = event.created_at;
-            var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
-            var commits = event.payload.commits;
-            var commitsText = commits.length + ' ' + (commits.length === 1 ? 'commit' : 'commits');
-            messageBody = 'Pushed ' + commitsText + ' to ' + repoBody;
-            // .created_at
-            // .repo
-            // .name
-            // for each .payload.commits
-            // .message
-            // .url
-            // .sha
-          }
+          iconType = 'repo-push';
+          date = event.created_at;
+          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          var commits = event.payload.commits;
+          var commitsText = commits.length + ' ' + (commits.length === 1 ? 'commit' : 'commits');
+          messageBody = 'Pushed ' + commitsText + ' to ' + repoBody;
+          // .created_at
+          // .repo
+          // .name
+          // for each .payload.commits
+          // .message
+          // .url
+          // .sha
           break;
         case 'ReleaseEvent':
           break;
@@ -710,15 +700,13 @@ $(function () {
         case 'TeamAddEvent':
           break;
         case 'WatchEvent':
-          {
-            iconType = 'eye';
-            date = event.created_at;
-            var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
-            messageBody = 'Starred ' + repoBody;
-            // .created_at
-            // .repo.name
-            // .payload.action ['started'] (Starred)
-          }
+          iconType = 'eye';
+          date = event.created_at;
+          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          messageBody = 'Starred ' + repoBody;
+          // .created_at
+          // .repo.name
+          // .payload.action ['started'] (Starred)
           break;
         }
 
