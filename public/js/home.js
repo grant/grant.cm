@@ -222,7 +222,7 @@ $(function () {
    * @param {Card} $card The jquery-wrapped card
    */
   function openCard($card) {
-    if (cardState === CARD_STATE.OPEN) {
+    if (cardState === CARD_STATE.CLOSED) {
       // Scroll to card
       scrollTo($card);
 
