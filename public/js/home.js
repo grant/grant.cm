@@ -313,74 +313,64 @@ $(function() {
 	 * @param {Card} $card The jquery-wrapped card
 	 */
 	function closeCard ($card, horizontally) {
-		cardState = CARD_STATE.TRANSITIONING;
+		if (cardState === CARD_STATE.OPEN) {
+			cardState = CARD_STATE.TRANSITIONING;
 
-		// Setup vars
-		var cardId = $card.data('id');
-		var cardIndex = $card.index();
-		var siblingCardIndices = getRowIndices(cardIndex);
-		var $siblingCards = $(getCards(siblingCardIndices)).not($card);
-		var $otherRowCards = $tileCards.not($siblingCards).not($card);
+			// Setup vars
+			var cardId = $card.data('id');
+			var cardIndex = $card.index();
+			var siblingCardIndices = getRowIndices(cardIndex);
+			var $siblingCards = $(getCards(siblingCardIndices)).not($card);
 
-		// Animate the clicked card to closed
-		$card.animate({
-			width: CLOSED_SIZE.WIDTH + '%',
-			height: CLOSED_SIZE.HEIGHT
-		}, {
-			duration: ANIMATION_TIME,
-			step: function (now, fx) {
-				if (fx.prop === 'width') {
-					resizing(cardId);
-
-					var otherWidth = (100 - now) / 2;
-					$siblingCards.css({
-						width: otherWidth + '%'
-					});
-				} else if (fx.prop === 'height') {
-					var otherHeight = now;
-					$siblingCards.css({
-						height: otherHeight
-					});
-				}
-			},
-			done: function () {
-				// Say card is open after all transitions are done
-				cardState = CARD_STATE.CLOSED;
-				$card.find('.open').html('');
-				$card.removeClass('transitioning');
-			}
-		});
-
-		// Animate the contents of the clicked card
-		$cardTiles.removeClass('fullcard');
-		$card.find('.closed').hide().fadeIn(ANIMATION_TIME);
-
-		// Animate the sibling cards on the same row to closed
-		if ($siblingCards.length) {
-			$siblingCards.each(function () {
-				var $siblingCard = $(this);
-				$siblingCard.show().animate({
-					height: CLOSED_SIZE.HEIGHT + '%',
-					padding: CARD_PADDING
-				}, {
-					duration: ANIMATION_TIME,
-				});
-			});
-		}
-
-		// Animate other row cards
-		$otherRowCards.each(function () {
-			$(this).show().animate({
+			// Animate the clicked card to closed
+			$card.animate({
 				width: CLOSED_SIZE.WIDTH + '%',
-				height: CLOSED_SIZE.HEIGHT + '%',
-				padding: CARD_PADDING
+				height: CLOSED_SIZE.HEIGHT
 			}, {
-				duration: ANIMATION_TIME
-			});
-		});
+				duration: ANIMATION_TIME,
+				step: function (now, fx) {
+					if (fx.prop === 'width') {
+						resizing(cardId);
 
-		$card.addClass('transitioning');
-		$card.removeClass('open');
+						var otherWidth = (100 - now) / 2;
+						$siblingCards.css({
+							width: otherWidth + '%'
+						});
+					} else if (fx.prop === 'height') {
+						var otherHeight = now;
+						$siblingCards.css({
+							height: otherHeight
+						});
+					}
+				},
+				done: function () {
+					// Say card is open after all transitions are done
+					$cardTiles.removeClass('fullcard');
+					cardState = CARD_STATE.CLOSED;
+					$card.find('.open').html('');
+					$card.removeClass('transitioning');
+				}
+			});
+
+			// Animate the contents of the clicked card
+			$card.find('.closed').hide().fadeIn(ANIMATION_TIME);
+
+			// Animate the sibling cards on the same row to closed
+			if ($siblingCards.length) {
+				$siblingCards.each(function () {
+					var $siblingCard = $(this);
+					$siblingCard.show().animate({
+						height: CLOSED_SIZE.HEIGHT + '%',
+						padding: CARD_PADDING
+					}, {
+						duration: ANIMATION_TIME,
+					});
+				});
+			}
+
+			$card.addClass('transitioning');
+			$card.removeClass('open');
+		}
 	}
 
 	/**

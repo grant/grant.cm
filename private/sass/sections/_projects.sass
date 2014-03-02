@@ -16,6 +16,13 @@ section.project
   // When a card is going to be full screen, hide all overflow
   &.fullcard
     overflow: hidden
+  // Pop out
+  $cardPopout: true
+  &:not(.fullcard)
+    @if $cardPopout
+      .card:not(.open):not(.transitioning) .cardContent:hover
+        transform: scale(1.05)
+
 
 $cardsPerRow: 3
 $cardHeight: 400px // Must be an integer
@@ -32,11 +39,6 @@ $cardHeight: 400px // Must be an integer
     overflow: hidden
     border: 1px solid rgba(65, 64, 61, 0.2)
     transition: transform $transitionSpeedFast, box-shadow $transitionSpeedFast
-  // Pop out
-  $cardPopout: true
-  @if $cardPopout
-    &:not(.open):not(.transitioning) .cardContent:hover
-      transform: scale(1.05)
   // Shadow
   $cardShadow: true
   $cardShadowXOffset: 10px
