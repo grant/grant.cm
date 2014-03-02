@@ -1,5 +1,21 @@
 // Contact Section
 section.contact
   background-color: $GREEN
+  padding-bottom: 1%
   >
     +pageTitle($WHITE, $DARK_GREEN)
+    .contactList
+      margin: 0 $sideMargin
+      ul
+        padding: 0 0 1% 0
+        text-align: center
+
+        li
+          width: 5%
+          height: 100%
+          display: inline-block
+
+          margin: 0 1%
+          transition: -webkit-transform $transitionSpeed
+          &:hover
+            -webkit-transform: scale(1.15)
