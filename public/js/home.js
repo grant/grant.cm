@@ -93,10 +93,7 @@ $(function () {
     $('a.animate').click(function() {
       var $this = $(this);
       var $dest = $($this.attr('href'));
-      $('html, body').animate({
-        scrollTop: $dest.offset().top
-      }, ANIMATION_TIME);
-
+      scrollTo($dest);
       return false;
     });
 
@@ -128,16 +125,12 @@ $(function () {
     // Special resizing cards
     switch (cardId) {
     case 'thefourelements':
-      {
-        var $swf = $('.thefourelements .swf');
-        resizeFlash($swf);
-      }
+      var $swf = $('.thefourelements .swf');
+      resizeFlash($swf);
       break;
     case 'cellularwarfare':
-      {
-        var $swf = $('.cellularwarfare .swf');
-        resizeFlash($swf);
-      }
+      var $swf = $('.cellularwarfare .swf');
+      resizeFlash($swf);
       break;
     }
   }
@@ -229,11 +222,9 @@ $(function () {
    * @param {Card} $card The jquery-wrapped card
    */
   function openCard($card) {
-    if (cardState = CARD_STATE.OPEN) {
+    if (cardState === CARD_STATE.OPEN) {
       // Scroll to card
-      $('html, body').animate({
-        scrollTop: $card.offset().top
-      }, ANIMATION_TIME);
+      scrollTo($card);
 
       // Setup vars
       cardState = CARD_STATE.TRANSITIONING;
@@ -811,5 +802,11 @@ $(function () {
       window.removeEventListener('DOMMouseScroll', wheel, false);
     }
     window.onmousewheel = document.onmousewheel = document.onkeydown = null;
+  }
+
+  function scrollTo ($dest) {
+    $('html, body').animate({
+      scrollTop: $dest.offset().top
+    }, ANIMATION_TIME);
   }
 });
