@@ -89,6 +89,17 @@ $(function () {
     $('.paginate.left').click(navLeft);
     $('.paginate.right').click(navRight);
 
+    // Internal anchor links
+    $('a.animate').click(function() {
+      var $this = $(this);
+      var $dest = $($this.attr('href'));
+      $('html, body').animate({
+        scrollTop: $dest.offset().top
+      }, ANIMATION_TIME);
+
+      return false;
+    });
+
     // Github
     setGithubProfileData();
     setGithubEventData();
@@ -218,74 +229,80 @@ $(function () {
    * @param {Card} $card The jquery-wrapped card
    */
   function openCard($card) {
-    cardState = CARD_STATE.TRANSITIONING;
+    if (cardState = CARD_STATE.OPEN) {
+      // Scroll to card
+      $('html, body').animate({
+        scrollTop: $card.offset().top
+      }, ANIMATION_TIME);
 
-    // Setup vars
-    var cardId = $card.data('id');
-    var cardIndex = $card.index();
-    var siblingCardIndices = getRowIndices(cardIndex);
-    var $siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
-      return card !== $card[0];
-    }));
+      // Setup vars
+      cardState = CARD_STATE.TRANSITIONING;
+      var cardId = $card.data('id');
+      var cardIndex = $card.index();
+      var siblingCardIndices = getRowIndices(cardIndex);
+      var $siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
+        return card !== $card[0];
+      }));
 
-    // Animate the contents of the clicked card
-    $cardTiles.addClass('fullcard');
-    openCardContent($card);
+      // Animate the contents of the clicked card
+      $cardTiles.addClass('fullcard');
+      openCardContent($card);
 
-    // Animate the clicked card to open
-    $card.animate({
-      width: OPEN_SIZE.WIDTH,
-      height: $(window).height()
-    }, {
-      duration: ANIMATION_TIME,
-      step: function (now, fx) {
-        if (fx.prop === 'width') {
-          var ratio = Math.max(0, Math.min(1, (now - CLOSED_SIZE.WIDTH) / (100 - CLOSED_SIZE.WIDTH)));
-          var inverseRatio = 1 - ratio;
-          resizing(cardId);
-          var otherWidth = (100 - now) / 2;
+      // Animate the clicked card to open
+      $card.animate({
+        width: OPEN_SIZE.WIDTH,
+        height: $(window).height()
+      }, {
+        duration: ANIMATION_TIME,
+        step: function (now, fx) {
+          if (fx.prop === 'width') {
+            var ratio = Math.max(0, Math.min(1, (now - CLOSED_SIZE.WIDTH) / (100 - CLOSED_SIZE.WIDTH)));
+            var inverseRatio = 1 - ratio;
+            resizing(cardId);
+            var otherWidth = (100 - now) / 2;
 
-          if (inverseRatio < 0.05) {
-            $siblingCards.hide();
+            if (inverseRatio < 0.05) {
+              $siblingCards.hide();
+            }
+            $siblingCards.css({
+              width: otherWidth + '%'
+            });
+          } else if (fx.prop === 'height') {
+            var otherHeight = now;
+            $siblingCards.css({
+              height: otherHeight
+            });
           }
-          $siblingCards.css({
-            width: otherWidth + '%'
-          });
-        } else if (fx.prop === 'height') {
-          var otherHeight = now;
-          $siblingCards.css({
-            height: otherHeight
-          });
+        },
+        done: function () {
+          cardState = CARD_STATE.OPEN;
+          // Hide all cards
+          $siblingCards.hide();
+
+          $card.removeClass('transitioning');
         }
-      },
-      done: function () {
-        cardState = CARD_STATE.OPEN;
-        // Hide all cards
-        $siblingCards.hide();
-
-        $card.removeClass('transitioning');
-      }
-    });
-
-    // Fixes a weird visual bug
-    $siblingCards.css({
-      paddingTop: 0
-    });
-
-    // Animate the sibling cards on the same row to closed padding
-    if ($siblingCards.length) {
-      $siblingCards.each(function () {
-        var $siblingCard = $(this);
-        $(this).animate({
-          paddingRight: 0,
-          paddingLeft: 0
-        }, ANIMATION_TIME);
       });
-    }
 
-    // Set some properties on the opened card
-    $card.addClass('open transitioning');
-    setNavButtonState();
+      // Fixes a weird visual bug
+      $siblingCards.css({
+        paddingTop: 0
+      });
+
+      // Animate the sibling cards on the same row to closed padding
+      if ($siblingCards.length) {
+        $siblingCards.each(function () {
+          var $siblingCard = $(this);
+          $(this).animate({
+            paddingRight: 0,
+            paddingLeft: 0
+          }, ANIMATION_TIME);
+        });
+      }
+
+      // Set some properties on the opened card
+      $card.addClass('open transitioning');
+      setNavButtonState();
+    }
   }
 
   /**
@@ -314,9 +331,12 @@ $(function () {
    */
   function closeCard($card, horizontally) {
     if (cardState === CARD_STATE.OPEN) {
-      cardState = CARD_STATE.TRANSITIONING;
+      $('html, body').animate({
+        scrollTop: $('.project').offset().top
+      }, ANIMATION_TIME);
 
       // Setup vars
+      cardState = CARD_STATE.TRANSITIONING;
       var cardId = $card.data('id');
       var cardIndex = $card.index();
       var siblingCardIndices = getRowIndices(cardIndex);
