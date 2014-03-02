@@ -126,6 +126,10 @@ $cardHeight: 400px // Must be an integer
 // Specific cards
 .card
   &.thefourelements
+    .open .leftArea
+      background-color: $DARK_GREEN
+      .githubLink:hover
+        color: $GREEN
     .closed
       // Firefox doesn't display the cover properly for some reason TODO: Fix this
       @-moz-document url-prefix()
@@ -134,6 +138,10 @@ $cardHeight: 400px // Must be an integer
       background-color: $LIGHT_BLACK
 
   &.cellularwarfare
+    .open .leftArea
+      background-color: $DARK_BLUE
+      .githubLink:hover
+        color: $BLUE
     .closed
       background: url("/images/cards/cellularwarfare/cover.svg") no-repeat center center
 
@@ -143,14 +151,31 @@ $cardHeight: 400px // Must be an integer
         .leftArea
           width: 33.3%
           padding: 1.5% 2%
-          background-color: rgb(241, 98, 100)
           .name
             font-size: $FONT_LARGE
             +littleTextShadow
+          .description
+            font-style: italic
           .description, .instructions
-            font-size: $FONT_SMALL
             +font-light
-            padding-top: 1%
+          .instructions, .devnotes
+            padding-top: 2%
+            ul
+              color: $LIGHT_GRAY
+              font-size: $FONT_MEDIUM
+              list-style: disc
+              margin-left: 30px
+              li
+                padding-top: 1%
+            .title
+              font-size: $FONT_MEDIUM
+              font-weight: 700
+              color: $WHITE
+          .githubLink
+            display: block
+          .description, .instructions, .githubLink
+            font-size: $FONT_MEDIUM
+            padding-top: 3%
         .rightArea
           position: relative
           width: 66.6%
