@@ -331,9 +331,13 @@ $(function () {
         return false;
       });
       // Flash focus
-      $card.find('.swf')[0].onfocus = function () {
-        flashFocused = true;
-      };
+      var $swf = $card.find('.swf');
+      if ($swf.length) {
+        $swf[0].onfocus = function () {
+          flashFocused = true;
+        };
+      }
+
       // Add DOM-binded events
       bindCardEvents($card);
     });
@@ -825,7 +829,10 @@ $(function () {
   }
 
   function wheel(e) {
+    console.log('event');
+    e.preventDefault();
     preventDefault(e);
+    return false;
   }
 
   function disable_scroll() {
