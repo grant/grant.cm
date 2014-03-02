@@ -53,8 +53,19 @@ $(function () {
     $(window).on('resize orientationchange', function () {
       // TODO: Make this happen only if the profile card is open
       resizeProfileVideo();
-      var $swf = $tileCards.filter('.open').find('.swf');
+
+      // Fix open card
+      var $openCard = $('.card.open');
+      var $swf = $openCard.find('.swf');
       resizeFlash($swf);
+      // Fixes random glitch
+      setTimeout(function () {
+        resizeFlash($swf);
+      }, 1);
+      $openCard.css({
+        height: $(window).height()
+      });
+      scrollTo($openCard);
     });
     resizeProfileVideo();
 
@@ -268,10 +279,9 @@ $(function () {
         },
         done: function () {
           cardState = CARD_STATE.OPEN;
-          // Hide all cards
           $siblingCards.hide();
-
           $card.removeClass('transitioning');
+          fixCardResizing(cardId);
         }
       });
 
@@ -465,6 +475,7 @@ $(function () {
       },
       done: function () {
         $cardClose.hide();
+        fixCardResizing(cardOpenId);
       }
     });
     $cardOpen.addClass('open');
@@ -473,6 +484,21 @@ $(function () {
   //
   // Helper functions
   //
+
+  /**
+   * Fixes card resizing.
+   * For some reason, when you resize the card, it doesn't properyl get the right dimensions
+   * So we're going to wait a short while and resize the card a couple times
+   * @param {String} cardId The card id
+   */
+  function fixCardResizing (cardId) {
+    setTimeout(function () {
+      resizing(cardId);
+    }, 1);
+    setTimeout(function () {
+      resizing(cardId);
+    }, 10);
+  }
 
   /**
    * Bind all DOM related events to a card
@@ -806,6 +832,9 @@ $(function () {
   }
 
   function scrollTo ($dest) {
+    if (!$dest) {
+      return;
+    }
     $('html, body').animate({
       scrollTop: $dest.offset().top
     }, ANIMATION_TIME);
