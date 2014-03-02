@@ -61,6 +61,7 @@ $(function() {
 			var $swf = $tileCards.filter('.open').find('.swf');
 			resizeFlash($swf);
 		});
+		resizeProfileVideo();
 
 		// Keyboard presses
 		$(window).keydown(function (event) {
@@ -126,9 +127,6 @@ $(function() {
 	function resizing (cardId) {
 		// Special resizing cards
 		switch (cardId) {
-			case 'profile': {
-				resizeProfileVideo();
-			} break;
 			case 'thefourelements': {
 				var $swf = $('.thefourelements .swf');
 				resizeFlash($swf);
@@ -146,34 +144,37 @@ $(function() {
 	function resizeProfileVideo() {
 		// Resize video
 		var $video = $('.profileVideo');
-		var videoWidth = $video.width();
-		var videoHeight = $video.height();
 
-		var $videoArea = $video.parent();
-		var videoAreaHeight = $videoArea.height();
-		var videoAreaWidth = $videoArea.width();
+		var $profileText = $('.profileText');
+		var videoAreaHeight = $profileText.outerHeight();
+		var videoAreaWidth = $profileText.width()/2;
 
-		var videoRatio = videoWidth/videoHeight;
+		var videoRatio = 9/16;
 		var videoAreaRatio = videoAreaWidth/videoAreaHeight;
 
 		var margin;
 		// If videoArea too flat, make 100% height
 		if (videoAreaRatio < videoRatio) {
-			margin = (videoAreaWidth - videoWidth)/2;
+			var actualWidth = videoAreaHeight * videoRatio;
+			margin = (videoAreaWidth - actualWidth)/2 + 40;
 			$video.css({
 				'width': 'auto',
-				'height': '100%',
+				'height': videoAreaHeight,
 				'margin-top': 0,
 				'margin-left': margin
 			});
+			$('.videoArea').height('auto');
 		} else {
-			margin = (videoAreaHeight - videoHeight)/2;
+			// margin = -(videoAreaWidth * videoRatio)/2;
+			var actualHeight = videoAreaWidth * (1/videoRatio);
+			margin = (videoAreaHeight - actualHeight);
 			$video.css({
 				'width': '100%',
 				'height': 'auto',
 				'margin-top': margin,
 				'margin-left': 0
 			});
+			$('.videoArea').height(videoAreaHeight);
 		}
 	}
 
