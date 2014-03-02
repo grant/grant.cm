@@ -5,6 +5,7 @@ section.github
   background-color: $BLUE
   color: $textColor
   $anchorColor: $DARK_BLUE
+  $githubHeight: 900px
   a
     color: $anchorColor
     &:hover
@@ -23,7 +24,7 @@ section.github
         text-align: center
         .content
           padding: 5%
-          $textPadding: 2%
+          $textPadding: 4%
           .githubsvg
             height: 400px
             margin: 3%
@@ -60,11 +61,16 @@ section.github
       .rightArea
         width: 66.6%
         .content
+          $eventTitleHeight: 50px
           .eventsTitle
+            height: $eventTitleHeight
             text-align: center
             font-style: italic
-            margin-bottom: 1%
+            padding: 20px 0
+            color: $DARK_BLUE
           .events
+            overflow-y: auto
+            height: $githubHeight - $eventTitleHeight
             padding: 0 1%
             li
               overflow: hidden
@@ -94,5 +100,6 @@ section.github
         float: left
         padding: 0 $cardMargin $cardMargin $cardMargin
         .content
+          height: $githubHeight
           overflow: hidden
           background-color: rgba($WHITE, 0.4)
