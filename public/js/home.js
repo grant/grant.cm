@@ -30,6 +30,7 @@ $(function () {
   var $cardTiles = $('div.cardTiles');
   var $tileCards = $cardTiles.find('div.card');
   var numCards = $tileCards.length;
+  var flashFocused = false;
 
   /**
    * Contains a (cached) blob of data for each card.
@@ -116,6 +117,13 @@ $(function () {
   //
   // Events
   //
+
+  /**
+   * Click anywhere (won't trigger if clicking flash)
+   */
+  $(window).click(function (event) {
+    flashFocused = false;
+  });
 
   /**
    * When clickcing on a card, open it up.
@@ -322,6 +330,10 @@ $(function () {
         closeCard($(this).closest('.card'));
         return false;
       });
+      // Flash focus
+      $card.find('.swf')[0].onfocus = function () {
+        flashFocused = true;
+      };
       // Add DOM-binded events
       bindCardEvents($card);
     });
@@ -805,7 +817,7 @@ $(function () {
 
   function keydown(e) {
     for (var i = keys.length; i--;) {
-      if (e.keyCode === keys[i]) {
+      if (e.keyCode === keys[i] && !flashFocused) {
         preventDefault(e);
         return;
       }
