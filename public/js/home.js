@@ -225,6 +225,7 @@ $(function () {
     if (cardState === CARD_STATE.CLOSED) {
       // Scroll to card
       scrollTo($card);
+      disable_scroll();
 
       // Setup vars
       cardState = CARD_STATE.TRANSITIONING;
@@ -322,9 +323,9 @@ $(function () {
    */
   function closeCard($card, horizontally) {
     if (cardState === CARD_STATE.OPEN) {
-      $('html, body').animate({
-        scrollTop: $('.project').offset().top
-      }, ANIMATION_TIME);
+      // Scroll
+      scrollTo($('.project'));
+      enable_scroll();
 
       // Setup vars
       cardState = CARD_STATE.TRANSITIONING;
