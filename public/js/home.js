@@ -18,7 +18,7 @@ $(function() {
 	};
 	var CLOSED_SIZE = {
 		WIDTH: 33.3,
-		HEIGHT: (100/2.2)
+		HEIGHT: '400px'
 	};
 	var HIDE_SIZE = {
 		WIDTH: '0%',
@@ -314,6 +314,7 @@ $(function() {
 	 */
 	function closeCard ($card, horizontally) {
 		cardState = CARD_STATE.TRANSITIONING;
+
 		// Setup vars
 		var cardId = $card.data('id');
 		var cardIndex = $card.index();
@@ -324,7 +325,7 @@ $(function() {
 		// Animate the clicked card to closed
 		$card.animate({
 			width: CLOSED_SIZE.WIDTH + '%',
-			height: CLOSED_SIZE.HEIGHT + '%'
+			height: CLOSED_SIZE.HEIGHT
 		}, {
 			duration: ANIMATION_TIME,
 			step: function (now, fx) {
@@ -334,6 +335,11 @@ $(function() {
 					var otherWidth = (100 - now) / 2;
 					$siblingCards.css({
 						width: otherWidth + '%'
+					});
+				} else if (fx.prop === 'height') {
+					var otherHeight = now;
+					$siblingCards.css({
+						height: otherHeight
 					});
 				}
 			},
