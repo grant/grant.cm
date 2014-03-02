@@ -2,7 +2,7 @@ $(function() {
 	// TODO: Put constants somwhere
 	var CARD_PADDING = '1.0%';
 	var CARDS_PER_ROW = 3;
-	var ANIMATION_TIME = 3000;
+	var ANIMATION_TIME = 300;
 	var API_ENABLED = false;
 
 	// Enum
@@ -435,7 +435,7 @@ $(function() {
 		$cardOpen.find('.closed').hide();
 		$cardOpen.css({
 			display: 'inline-block',
-			height: OPEN_SIZE.HEIGHT,
+			height: $(window).height(),
 			width: HIDE_SIZE.WIDTH,
 			padding: CARD_PADDING
 		}).animate({
