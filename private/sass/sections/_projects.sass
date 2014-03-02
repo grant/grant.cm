@@ -6,7 +6,7 @@
 
 section.project
   background-color: rgb(241, 241, 241)
-  background: -webkit-linear-gradient(#f9f9f9, #f3f3f3)
+  background: linear-gradient(#f9f9f9, #f3f3f3)
   >
     +pageTitle($DARK_GRAY)
 
@@ -31,12 +31,12 @@ $cardHeight: 400px // Must be an integer
     cursor: pointer
     overflow: hidden
     border: 1px solid rgba(65, 64, 61, 0.2)
-    transition: -webkit-transform $transitionSpeedFast, box-shadow $transitionSpeedFast
+    transition: transform $transitionSpeedFast, box-shadow $transitionSpeedFast
   // Pop out
   $cardPopout: true
   @if $cardPopout
     &:not(.open):not(.transitioning) .cardContent:hover
-      -webkit-transform: scale(1.05)
+      transform: scale(1.05)
   // Shadow
   $cardShadow: true
   $cardShadowXOffset: 10px
