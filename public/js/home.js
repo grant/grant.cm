@@ -2,7 +2,7 @@ $(function() {
 	// TODO: Put constants somwhere
 	var CARD_PADDING = '1.0%';
 	var CARDS_PER_ROW = 3;
-	var ANIMATION_TIME = 300;
+	var ANIMATION_TIME = 3000;
 	var API_ENABLED = false;
 
 	// Enum
@@ -30,7 +30,6 @@ $(function() {
 	var $cardTiles = $('div.cardTiles');
 	var $tileCards = $cardTiles.find('div.card');
 	var numCards = $tileCards.length;
-	var shiftKey = false;
 
 	/**
 	 * Contains a (cached) blob of data for each card.
@@ -67,6 +66,8 @@ $(function() {
 		$(window).keydown(function (event) {
 			var $openCard = $tileCards.filter('.open');
 			var cardId = $openCard.data('id');
+
+			// When you press enter on the vidwall card
 			if (cardId === 'vidwall') {
 				var $query = $openCard.find('.query');
 				if (event.which === 13) {
@@ -80,7 +81,7 @@ $(function() {
 
 
 		// If you click outside the card, it automatically closes the opened card
-		$('.cardArea').click(function (event) {
+		$('section.project').click(function (event) {
 			var target = event.target;
 			if ($(target).hasClass('card')) {
 				closeCard($('.card.open'));
@@ -110,14 +111,6 @@ $(function() {
 			openCard($card);
 			return false;
 		}
-	});
-
-	// Check for shift key
-	$(window).keydown(function (event) {
-		shiftKey = event.shiftKey;
-	});
-	$(window).keyup(function (event) {
-		shiftKey = event.shiftKey;
 	});
 
 	/**
@@ -226,7 +219,6 @@ $(function() {
 	 */
 	function openCard ($card) {
 		cardState = CARD_STATE.TRANSITIONING;
-		var animationTime = (shiftKey) ? ANIMATION_TIME * 10 : ANIMATION_TIME;
 
 		// Setup vars
 		var cardId = $card.data('id');
@@ -235,40 +227,34 @@ $(function() {
 		var $siblingCards = $(getCards(siblingCardIndices).filter(function (card) {
 			return card !== $card[0];
 		}));
-		var $otherCards = $tileCards.not($card).not($siblingCards);
 
 		// Animate the contents of the clicked card
 		$cardTiles.addClass('fullcard');
 		openCardContent($card);
 
 		// Animate the clicked card to open
-		var $cardPadding = +$otherCards.css('padding').split('px')[0];
-		var $cardHeight = $otherCards.height() + 2 * $cardPadding;
 		$card.animate({
 			width: OPEN_SIZE.WIDTH,
-			height: OPEN_SIZE.HEIGHT
+			height: $(window).height()
 		}, {
-			duration: animationTime,
+			duration: ANIMATION_TIME,
 			step: function (now, fx) {
 				if (fx.prop === 'width') {
 					var ratio = Math.max(0, Math.min(1, (now - CLOSED_SIZE.WIDTH)/(100 - CLOSED_SIZE.WIDTH)));
 					var inverseRatio = 1 - ratio;
-
 					resizing(cardId);
 					var otherWidth = (100 - now) / 2;
+
+					if (inverseRatio < 0.05) {
+						$siblingCards.hide();
+					}
 					$siblingCards.css({
 						width: otherWidth + '%'
 					});
-
-					if (inverseRatio < 0.05) {
-						$otherCards.hide();
-					}
-					var otherHeight = inverseRatio * $cardHeight + 'px';
-					var otherPadding = inverseRatio * $cardPadding + 'px';
-					$otherCards.css({
-						height: otherHeight,
-						paddingTop: otherPadding,
-						paddingBottom: otherPadding
+				} else if (fx.prop === 'height') {
+					var otherHeight = now;
+					$siblingCards.css({
+						height: otherHeight
 					});
 				}
 			},
@@ -276,24 +262,24 @@ $(function() {
 				cardState = CARD_STATE.OPEN;
 				// Hide all cards
 				$siblingCards.hide();
-				$otherCards.hide();
 
 				$card.removeClass('transitioning');
 			}
 		});
 
-		// Animate the sibling cards on the same row to closed
+		// Fixes a weird visual bug
+		$siblingCards.css({
+			paddingTop: 0
+		});
+
+		// Animate the sibling cards on the same row to closed padding
 		if ($siblingCards.length) {
 			$siblingCards.each(function () {
 				var $siblingCard = $(this);
 				$(this).animate({
-					// width: HIDE_SIZE.WIDTH,
-					height: OPEN_SIZE.HEIGHT,
 					paddingRight: 0,
 					paddingLeft: 0
-				}, animationTime, function () {
-					$siblingCard.hide();
-				});
+				}, ANIMATION_TIME);
 			});
 		}
 
@@ -329,7 +315,6 @@ $(function() {
 	function closeCard ($card, horizontally) {
 		cardState = CARD_STATE.TRANSITIONING;
 		// Setup vars
-		var animationTime = (shiftKey) ? ANIMATION_TIME * 10 : ANIMATION_TIME;
 		var cardId = $card.data('id');
 		var cardIndex = $card.index();
 		var siblingCardIndices = getRowIndices(cardIndex);
@@ -341,7 +326,7 @@ $(function() {
 			width: CLOSED_SIZE.WIDTH + '%',
 			height: CLOSED_SIZE.HEIGHT + '%'
 		}, {
-			duration: animationTime,
+			duration: ANIMATION_TIME,
 			step: function (now, fx) {
 				if (fx.prop === 'width') {
 					resizing(cardId);
@@ -362,7 +347,7 @@ $(function() {
 
 		// Animate the contents of the clicked card
 		$cardTiles.removeClass('fullcard');
-		$card.find('.closed').hide().fadeIn(animationTime);
+		$card.find('.closed').hide().fadeIn(ANIMATION_TIME);
 
 		// Animate the sibling cards on the same row to closed
 		if ($siblingCards.length) {
@@ -372,7 +357,7 @@ $(function() {
 					height: CLOSED_SIZE.HEIGHT + '%',
 					padding: CARD_PADDING
 				}, {
-					duration: animationTime,
+					duration: ANIMATION_TIME,
 				});
 			});
 		}
@@ -384,7 +369,7 @@ $(function() {
 				height: CLOSED_SIZE.HEIGHT + '%',
 				padding: CARD_PADDING
 			}, {
-				duration: animationTime
+				duration: ANIMATION_TIME
 			});
 		});
 
@@ -427,7 +412,6 @@ $(function() {
 		cardState = CARD_STATE.TRANSITIONING;
 		var cardCloseId = $cardClose.data('id');
 		var cardOpenId = $cardOpen.data('id');
-		var animationTime = (shiftKey) ? ANIMATION_TIME * 10 : ANIMATION_TIME;
 
 		// Close card
 		$cardClose.css({width:'95%'}).animate({
@@ -435,7 +419,7 @@ $(function() {
 			paddingLeft: 0,
 			width: HIDE_SIZE.WIDTH
 		}, {
-			duration: animationTime/1.01,
+			duration: ANIMATION_TIME/1.01,
 			step: function () {
 				resizing(cardCloseId);
 			},
@@ -461,7 +445,7 @@ $(function() {
 		}).animate({
 			width: OPEN_SIZE.WIDTH
 		}, {
-			duration: animationTime,
+			duration: ANIMATION_TIME,
 			step: function () {
 				resizing(cardOpenId);
 			},
