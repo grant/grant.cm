@@ -29,6 +29,7 @@
     "gulp-concat": "^2.1.7",
     "gulp-handlebars": "^1.0.2",
     "browserify": "^3.31.2",
-    "gulp-browserify": "^0.4.6"
+    "gulp-browserify": "^0.4.6",
+    "gulp-uglify": "^0.2.1"
   }
 }

@@ -3,6 +3,7 @@ var concat = require('gulp-concat');
 var declare = require('gulp-declare');
 var handlebars = require('gulp-handlebars');
 var browserify = require('gulp-browserify');
+var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 var stylish = require('jshint-stylish');
 var jshint = require('gulp-jshint');
@@ -32,6 +33,7 @@ gulp.task('js', function () {
     .pipe(browserify({
       insertGlobals: true
     }))
+    .pipe(uglify())
     .pipe(gulp.dest(dest.js));
 });
 
