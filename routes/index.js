@@ -98,8 +98,3 @@ exports.index = function(req, res){
 exports.vidwall = function (req, res) {
 	res.render('vidwall');
 };
-
-exports.cardAPI = function (req, res) {
-	var id = req.params.id;
-	res.render('partials/cards/data/' + id + '/open');
-};
