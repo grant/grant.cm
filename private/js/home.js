@@ -143,13 +143,14 @@ $(function () {
    */
   function resizing(cardId) {
     // Special resizing cards
+    var $swf;
     switch (cardId) {
     case 'thefourelements':
-      var $swf = $('.thefourelements .swf');
+      $swf = $('.thefourelements .swf');
       resizeFlash($swf);
       break;
     case 'cellularwarfare':
-      var $swf = $('.cellularwarfare .swf');
+      $swf = $('.cellularwarfare .swf');
       resizeFlash($swf);
       break;
     }
@@ -631,6 +632,9 @@ $(function () {
 
       // Event types: https://developer.github.com/v3/activity/events/types/
       // Github icons: https://github.com/styleguide/css/7.0
+      var repoBody;
+      var action;
+      var actionTitle;
       for (var i in events) {
         var event = events[i];
         switch (event.type) {
@@ -651,7 +655,7 @@ $(function () {
         case 'ForkEvent':
           iconType = 'repo-forked';
           date = event.created_at;
-          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
           messageBody = 'Forked ' + repoBody;
           // .created_at
           // .repo.name
@@ -668,7 +672,7 @@ $(function () {
 
           var comment = event.payload.comment;
 
-          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
           var commentBody = '<a href="' + comment.html_url + '">' + comment.body + '</a>';
           messageBody = 'Commented ' + repoBody + ': ' + commentBody;
           // .created_at
@@ -682,13 +686,13 @@ $(function () {
           // .body
           break;
         case 'IssuesEvent':
-          var action = event.payload.action;
+          action = event.payload.action;
           var issue = event.payload.issue;
           iconType = 'issue-' + action;
           date = event.created_at;
 
-          var actionTitle = ucfirst(action);
-          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          actionTitle = ucfirst(action);
+          repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
           var issueBody = '<a href="' + issue.html_url + '">' + issue.title + '</a>';
           messageBody = actionTitle + ' issue ' + issueBody + ' for ' + repoBody;
           // .created_at
@@ -705,13 +709,13 @@ $(function () {
         case 'PublicEvent':
           break;
         case 'PullRequestEvent':
-          var action = event.payload.action;
+          action = event.payload.action;
           iconType = 'git-pull-request';
           var pr = event.payload.pull_request;
           date = pr.created_at;
 
-          var actionTitle = ucfirst(action);
-          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          actionTitle = ucfirst(action);
+          repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
           var prBody = '<a href="' + pr.html_url + '">' + pr.title + '</a>';
           messageBody = actionTitle + ' ' + prBody + ' for ' + repoBody;
           // .repo.name
@@ -727,7 +731,7 @@ $(function () {
         case 'PushEvent':
           iconType = 'repo-push';
           date = event.created_at;
-          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
           var commits = event.payload.commits;
           var commitsText = commits.length + ' ' + (commits.length === 1 ? 'commit' : 'commits');
           messageBody = 'Pushed ' + commitsText + ' to ' + repoBody;
@@ -748,7 +752,7 @@ $(function () {
         case 'WatchEvent':
           iconType = 'eye';
           date = event.created_at;
-          var repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
+          repoBody = '<a href="' + githubURL + event.repo.name + '">' + event.repo.name + '</a>';
           messageBody = 'Starred ' + repoBody;
           // .created_at
           // .repo.name
