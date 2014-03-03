@@ -3,7 +3,7 @@ $(function () {
   var CARD_PADDING = '1.0%';
   var CARDS_PER_ROW = 3;
   var ANIMATION_TIME = 300;
-  var API_ENABLED = false;
+  var API_ENABLED = true;
 
   // Enum
   var CARD_STATE = {

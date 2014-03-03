@@ -12,6 +12,11 @@
   line-height: 1
   text-decoration: none
 
+// Firefox can't load the octicons, so we just won't show them
+@-moz-document url-prefix()
+  .octicon
+    display: none
+
 .octicon-alert:before
   content: '\f02d'
 
