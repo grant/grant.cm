@@ -11,7 +11,7 @@ var jshint = require('gulp-jshint');
 var prefix = require('gulp-autoprefixer');
 
 var src = {
-  js: ['gulpfile.js', 'private/js/**.js', '!private/js/templates.js'],
+  js: ['gulpfile.js', 'gruntfile.js', 'private/js/**.js', '!private/js/templates.js'],
   jshome: 'private/js/home.js',
   css: 'public/css/**.css',
   sass: 'private/sass/**.sass',

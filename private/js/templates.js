@@ -11,6 +11,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"closeButton\"><div class=\"content\">X</div></div>";
   });
 
+this["JST"]["cards/components/errors/noflash"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<a href=\"http://www.adobe.com/go/getflashplayer\">You need flash to play this game unfortunately.</a>";
+  });
+
 this["JST"]["cards/components/navigationButtons"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -91,7 +100,7 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   stack1 = self.invokePartial(partials['cards/components/closeButton'], 'cards/components/closeButton', depth0, helpers, partials, data);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n<div class=\"leftArea\">\n  <h3 class=\"name\">Cellular Warfare</h3>\n  <p class=\"description\">Conquer the cell kingdom and evolve into an almighty cell! Along the way you will be able to upgrade your cell's speed, size, and growth rate. Try to get the fastest time! <br> Song: Colour My World - COIN (liluxiaorealnew)</p>\n  <div class=\"instructions\">\n    <h4 class=\"title\">Instructions</h4>\n    <ul>\n      <li>Move: W,S,A,D</li>\n      <li>M: Menu</li>\n      <li>P: Pause</li>\n      <li>R: Restart</li>\n    </ul>\n  </div>\n  <div class=\"devnotes\">\n    <h4 class=\"title\">Programming highlights:</h4>\n    <ul>\n      <li>Array of Cell objects</li>\n      <li>Ellipse vs. ellipse collision detection</li>\n      <li>Oscillating cell size</li>\n      <li>Ugrading cell properties</li>\n      <li>Acceleration and max speed of cell</li>\n      <li>Use of AS Timer class</li>\n      <li>Key shortcuts</li>\n    </ul>\n  </div>\n  <a href=\"https://github.com/granttimmerman/Flash-Games/tree/master/Games/Cellular%20Warfare\" class=\"githubLink\">See the source on Github</a>\n</div>\n<div class=\"rightArea\">\n  <object class=\"swf\" type=\"application/x-shockwave-flash\" data-aspectratio=\"550:400\" data=\"/flash/cellularwarfare/cellular_warfare.swf\">\n    <param name=\"movie\" value=\"/flash/cellularwarfare/cellular_warfare.swf\">\n    ";
-  stack1 = self.invokePartial(partials['errors/noflash'], 'errors/noflash', depth0, helpers, partials, data);
+  stack1 = self.invokePartial(partials['cards/components/errors/noflash'], 'cards/components/errors/noflash', depth0, helpers, partials, data);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n     </object>\n</div>";
   return buffer;
@@ -168,7 +177,7 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   stack1 = self.invokePartial(partials['cards/components/closeButton'], 'cards/components/closeButton', depth0, helpers, partials, data);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n<div class=\"leftArea\">\n  <h3 class=\"name\">The Four Elements</h3>\n  <p class=\"description\">Master the four elements by solving each of the unique marble puzzles.</p>\n  <p class=\"instructions\"><span class=\"title\">Instructions:</span> Hop one marble over another. Try to leave the least number of marbles as possible. Music controls are located on the bottom left.</p>\n  <a href=\"https://github.com/granttimmerman/Flash-Games/tree/master/Games/The%20Four%20Elements/Final/Game\" class=\"githubLink\">See the source on Github</a>\n</div>\n<div class=\"rightArea\">\n  <object class=\"swf\" type=\"application/x-shockwave-flash\" data-aspectratio=\"4:3\" data=\"/flash/thefourelements/elements.swf\">\n    <param name=\"movie\" value=\"/flash/thefourelements/elements.swf\">\n    ";
-  stack1 = self.invokePartial(partials['errors/noflash'], 'errors/noflash', depth0, helpers, partials, data);
+  stack1 = self.invokePartial(partials['cards/components/errors/noflash'], 'cards/components/errors/noflash', depth0, helpers, partials, data);
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n  </object>\n</div>";
   return buffer;

@@ -1,7 +1,7 @@
 granttimmerman.com
 ==================
 
-The website granttimmerman.com
+The website [granttimmerman.com](granttimmerman.com)
 
 ### How to start server
 ```

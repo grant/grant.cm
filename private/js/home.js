@@ -1,5 +1,4 @@
 var Templater = require('./Templater');
-console.log(Templater.render('cards/data/vidwall/open'));
 
 $(function () {
   // TODO: Put constants somwhere
@@ -326,30 +325,32 @@ $(function () {
   function openCardContent($card) {
     var cardId = $card.data('id');
     $card.find('.closed').show().fadeOut(ANIMATION_TIME);
-    $card.find('.open').load('/api/card/' + cardId, function () {
-      // Close button
-      $('.closeButton').click(function () {
-        closeCard($(this).closest('.card'));
-        return false;
-      });
 
-      // Flash
-      var $swf = $card.find('.swf');
-      if ($swf.length) {
-        // Flash focus
-        $swf[0].onfocus = function () {
-          flashFocused = true;
-        };
+    // Load template
+    var template = Templater.render('cards/data/' + cardId + '/open');
+    $card.find('.open').html(template);
 
-        // Resize swf
-        resizeFlash($swf);
-        // Fixes random glitch
-        setTimeout(function () {
-          resizeFlash($swf);
-        }, 1);
-      }
-
+    // Close button
+    $('.closeButton').click(function () {
+      closeCard($(this).closest('.card'));
+      return false;
     });
+
+    // Flash
+    var $swf = $card.find('.swf');
+    if ($swf.length) {
+      // Flash focus
+      $swf[0].onfocus = function () {
+        flashFocused = true;
+      };
+
+      // Resize swf
+      resizeFlash($swf);
+      // Fixes random glitch
+      setTimeout(function () {
+        resizeFlash($swf);
+      }, 1);
+    }
   }
 
   /**
@@ -820,7 +821,6 @@ $(function () {
   }
 
   function wheel(e) {
-    console.log('event');
     e.preventDefault();
     preventDefault(e);
     return false;
