@@ -846,7 +846,7 @@ $(function () {
   }
 
   function scrollTo ($dest) {
-    if (!$dest) {
+    if (!$dest.length) {
       return;
     }
     $('html, body').animate({
