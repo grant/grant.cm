@@ -1,3 +1,6 @@
+var Templater = require('./Templater');
+console.log(Templater.render('cards/data/vidwall/open'));
+
 $(function () {
   // TODO: Put constants somwhere
   var CARD_PADDING = '1.0%';

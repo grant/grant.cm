@@ -1,4 +1,26 @@
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["card"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+module.exports = function(Handlebars) {
+
+this["JST"] = this["JST"] || {};
+
+this["JST"]["cards/components/closeButton"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"closeButton\"><div class=\"content\">X</div></div>";
+  });
+
+this["JST"]["cards/components/navigationButtons"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<button class=\"paginate left\"><i></i><i></i></button>\n<button class=\"paginate right\"><i></i><i></i></button>";
+  });
+
+this["JST"]["cards/data/areyouhungrynow/card"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, self=this;
@@ -12,16 +34,18 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </div>\n  </div>\n</div>";
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["closed"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/areyouhungrynow/closed"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
   return "<img src=\"/images/icons/github.svg\" alt=\"Github\" class=\"svg\">";
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["open"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/areyouhungrynow/open"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, self=this;
@@ -31,8 +55,9 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n<div class=\"leftArea\">\n  <h3 class=\"name\">Vidwall</h3>\n  <p class=\"description\">Use Youtube's API </p>\n  <h4>Programming highlights:</h4>\n  <ul class=\"devnotes\">\n    <li>Youtube API</li>\n    <li>Dynamic resizing</li>\n  </ul>\n  <a href=\"https://github.com/granttimmerman/Flash-Games/tree/master/Games/Cellular%20Warfare\">See the source on Github</a>\n</div>\n<div class=\"rightArea\">\n</div>";
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["card"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/cellularwarfare/card"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, self=this;
@@ -46,16 +71,18 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </div>\n  </div>\n</div>";
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["closed"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/cellularwarfare/closed"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "";
 
 
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["open"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/cellularwarfare/open"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, self=this;
@@ -68,8 +95,9 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n     </object>\n</div>";
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["card"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/glass/card"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, self=this;
@@ -83,16 +111,18 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </div>\n  </div>\n</div>";
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["closed"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/glass/closed"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
   return "<img src=\"/images/icons/play.svg\" alt=\"Play\" class=\"svg\">\n<div class=\"vidwallSearch\">\n  <input type=\"text\" value=\"hi\">\n</div>";
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["open"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/glass/open"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, self=this;
@@ -102,8 +132,9 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n<div class=\"leftArea\">\n  <h3 class=\"name\">Vidwall</h3>\n  <p class=\"description\">Use Youtube's API </p>\n  <h4>Programming highlights:</h4>\n  <ul class=\"devnotes\">\n    <li>Youtube API</li>\n    <li>Dynamic resizing</li>\n  </ul>\n  <a href=\"https://github.com/granttimmerman/Flash-Games/tree/master/Games/Cellular%20Warfare\">See the source on Github</a>\n</div>\n<div class=\"rightArea\">\n</div>";
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["card"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/thefourelements/card"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, self=this;
@@ -117,16 +148,18 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </div>\n  </div>\n</div>";
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["closed"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/thefourelements/closed"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "";
 
 
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["open"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/thefourelements/open"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, self=this;
@@ -139,8 +172,9 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n  </object>\n</div>";
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["card"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/vidwall/card"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, self=this;
@@ -154,16 +188,18 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </div>\n  </div>\n</div>";
   return buffer;
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["closed"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/vidwall/closed"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
   return "<div class=\"svg\"></div>";
-  };;
-this["MyApp"] = this["MyApp"] || {};this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};this["MyApp"]["templates"]["open"] = module.exports = function (Handlebars,depth0,helpers,partials,data) {
+  });
+
+this["JST"]["cards/data/vidwall/open"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
   var buffer = "", stack1, self=this;
@@ -173,4 +209,8 @@ helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partial
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n<div class=\"searchArea\">\n  <h1 class=\"title\">Search anything...</h1>\n  <input type=\"text\" class=\"query\" value=\"psy\" />\n</div>";
   return buffer;
-  };;
+  });
+
+return this["JST"];
+
+};

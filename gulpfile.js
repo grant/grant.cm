@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+require('gulp-grunt')(gulp);
 var concat = require('gulp-concat');
 var declare = require('gulp-declare');
 var handlebars = require('gulp-handlebars');
@@ -10,26 +11,26 @@ var jshint = require('gulp-jshint');
 var prefix = require('gulp-autoprefixer');
 
 var src = {
-  jslint: ['gulpfile.js', 'private/js/**.js'],
-  js: ['private/js/**.js'],
+  js: ['gulpfile.js', 'private/js/**.js', '!private/js/templates.js'],
+  jshome: 'private/js/home.js',
   css: 'public/css/**.css',
   sass: 'private/sass/**.sass',
-  hbs: 'views/partials/cards/data/**/*.hbs'
+  hbs: 'views/partials/cards/**/*.hbs'
 };
 
 var dest = {
   css: 'public/css/',
-  hbs: 'public/js/',
+  hbs: 'private/js/',
   js: 'public/js/'
 };
 
 gulp.task('js', function () {
   // Lint
-  gulp.src(src.jslint)
+  gulp.src(src.js)
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
   // Browserify
-  gulp.src(src.js)
+  gulp.src(src.jshome)
     .pipe(browserify({
       insertGlobals: true
     }))
@@ -38,19 +39,11 @@ gulp.task('js', function () {
 });
 
 gulp.task('hbs', function () {
-  return gulp.src(src.hbs)
-    .pipe(handlebars({
-      outputType: 'node'
-    }))
-    .pipe(declare({
-      namespace: 'MyApp.templates'
-    }))
-    .pipe(concat('templates.js'))
-    .pipe(gulp.dest(dest.hbs));
+  gulp.run('grunt-handlebars');
 });
 
 gulp.task('css', function () {
-  return gulp.src(src.css)
+  gulp.src(src.css)
     .pipe(prefix())
     .pipe(gulp.dest(dest.css));
 });
