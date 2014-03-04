@@ -102,11 +102,16 @@ $(function () {
     $('.paginate.left').click(navLeft);
     $('.paginate.right').click(navRight);
 
-    // Internal anchor links
-    $('a.animate').click(function() {
+    $('a').click(function (event) {
+      event.preventDefault();
+
       var $this = $(this);
-      var $dest = $($this.attr('href'));
-      scrollTo($dest);
+      var href = $this.attr('href');
+      if (href.charAt(0) === '#') {
+        scrollTo($dest);
+      } else {
+        window.location.href = href;
+      }
       return false;
     });
 
