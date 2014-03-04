@@ -110,6 +110,7 @@ $(function () {
       if (href.charAt(0) === '#') {
         scrollTo($dest);
       } else {
+        window.location.top = '_top';
         window.location.href = href;
       }
       return false;
