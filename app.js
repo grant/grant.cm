@@ -40,6 +40,7 @@ var routes = require('./routes');
 app.get('/', routes.index);
 app.get('/vidwall/', routes.vidwall);
 // app.get('/:id', routes.id);
+app.get('/googlefaf81eb610534b6f.html', routes.google);
 
 // API
 
