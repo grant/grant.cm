@@ -29,3 +29,4 @@ $ gulp
 	www.uwfood.com
 
 - hnplays2048.herokuapp.com
+- Make all projects separate pages
