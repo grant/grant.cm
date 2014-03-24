@@ -1,7 +1,7 @@
-granttimmerman.com
+grant.cm
 ==================
 
-The website [granttimmerman.com](granttimmerman.com)
+The website [grant.cm](http://grant.cm) (and [granttimmerman.com](http://granttimmerman.com))
 
 ### How to start server
 ```
