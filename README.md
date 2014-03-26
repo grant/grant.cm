@@ -30,3 +30,4 @@ $ gulp
 
 - hnplays2048.herokuapp.com
 - Make all projects separate pages
+- Make website feel more "full-screen"
