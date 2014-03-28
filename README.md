@@ -27,6 +27,7 @@ $ gulp
 	www.teddylabs.com
 	www.granttimmerman.com
 	www.uwfood.com
+	www.students.washington.edu/uwsudo/
 
 - hnplays2048.herokuapp.com
 - Make all projects separate pages
