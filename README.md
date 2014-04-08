@@ -28,8 +28,10 @@ $ gulp
 	www.granttimmerman.com
 	www.uwfood.com
 	www.students.washington.edu/uwsudo/
-  www.hnplays2048.herokuapp.com
+        www.hnplays2048.herokuapp.com
 
 - Make all projects separate pages
 - Make website feel more "full-screen"
 - Use proxima nova
+- More minimal, bleed, mobile first.
+- Make pinterest like feed for projects. 3 columns max. 2 for tablet, 1 for mobile.
