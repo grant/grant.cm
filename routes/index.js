@@ -19,10 +19,6 @@ exports.vidwall = function (req, res) {
 	res.render('vidwall');
 };
 
-exports.google = function (req, res) {
-	res.sendfile('googlefaf81eb610534b6f.html');
-};
-
 exports.notfound = function (req, res) {
   res.render('404');
 };

@@ -46,7 +46,6 @@ app.redirect("/vidwall", "http://grant.github.io/vidwall");
 app.redirect("/openacademy", "http://grant.github.io/open-academy-map");
 
 // app.get('/:id', routes.id);
-app.get('/googlefaf81eb610534b6f.html', routes.google);
 app.get('*', routes.notfound);
 
 // API
