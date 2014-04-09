@@ -15,11 +15,10 @@ redirect(app);
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 
-// Handlebars
-var hbs = require('hbs');
-hbs.registerPartials(__dirname + '/views/partials');
+// Jade
+var jade = require('jade');
 app.set('views', __dirname + '/views');
-app.set('view engine', 'hbs');
+app.set('view engine', 'jade');
 
 // Other
 app.use(express.favicon());

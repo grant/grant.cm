@@ -1,28 +1,24 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <title>Grant Timmerman</title>
+doctype html
+html(lang="en")
+head
+  title= Grant Timmerman
 
-  <meta charset="UTF-8">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="keywords" content="Grant Timmerman, University of Washington, UW, Seattle">
-  <meta name="description" content="Grant Timmerman web evangelist, hacker, and maker who is studing Computer Science at the University of Washington">
+  meta(charset="UTF-8")
+  meta(http-equiv="content-type" content="text/html; charset=utf-8")
+  meta(name="keywords" content="Grant Timmerman, University of Washington, UW, Seattle")
+  meta(name="description" content="Grant Timmerman web evangelist, hacker, and maker who is studing Computer Science at the University of Washington")
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/css/home.css">
-</head>
-<body>
-  <div class="pageContent">
-    {{> header }}
-    {{> sections/project }}
-    {{> sections/github }}
-    {{> sections/profile }}
-    {{> sections/contact }}
-    {{> footer }}
-  </div>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.timeago.js"></script>
-  <script src="js/home.js"></script>
-  {{> ga}}
-</body>
-</html>
+  link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
+  link(rel="stylesheet" href="/css/home.css")
+body
+  .pageContent
+    {{ header }}
+    {{ sections/project }}
+    {{ sections/github }}
+    {{ sections/profile }}
+    {{ sections/contact }}
+    {{ footer }}
+  script(src="js/jquery.min.js")
+  script(src="js/jquery.timeago.js")
+  script(src="js/home.js")
+  {{ ga}}
