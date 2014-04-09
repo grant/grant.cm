@@ -10,6 +10,11 @@ exports.index = function(req, res){
 	res.render('index', indexParams);
 };
 
+// About page
+exports.about = function (req, res) {
+  res.render('about');
+};
+
 exports.vidwall = function (req, res) {
 	res.render('vidwall');
 };
@@ -20,4 +25,4 @@ exports.google = function (req, res) {
 
 exports.notfound = function (req, res) {
   res.render('404');
-}
+};

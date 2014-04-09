@@ -40,6 +40,7 @@ if ('development' == app.get('env')) {
 var routes = require('./routes');
 
 app.get('/', routes.index);
+app.get('/about', routes.about);
 
 // Github page redirects
 app.redirect("/vidwall", "http://grant.github.io/vidwall");
