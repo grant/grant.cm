@@ -9,6 +9,7 @@ var http = require('http');
 var path = require('path');
 
 var app = express();
+redirect(app);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -41,8 +42,8 @@ var routes = require('./routes');
 app.get('/', routes.index);
 
 // Github page redirects
-app.redirect("/vidwall", "grant.github.io/vidwall");
-app.redirect("/openacademy", "grant.github.io/open-academy-map");
+app.redirect("/vidwall", "http://grant.github.io/vidwall");
+app.redirect("/openacademy", "http://grant.github.io/open-academy-map");
 
 // app.get('/:id', routes.id);
 app.get('/googlefaf81eb610534b6f.html', routes.google);
