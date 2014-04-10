@@ -1,3 +1,5 @@
+# Note: Don't try to use gulp-sass. It doesn't work.
+
 gulp = require 'gulp'
 concat = require 'gulp-concat'
 declare = require 'gulp-declare'
@@ -8,26 +10,25 @@ coffeelint = require 'gulp-coffeelint'
 prefix = require 'gulp-autoprefixer'
 
 src =
-  coffee: ['gulpfile.coffee', 'private/coffee/**.coffee']
-  coffee_index: 'private/coffee/index.coffee'
-  css: 'public/css/**.css'
-  sass: 'private/sass/**.sass'
+  coffee: ['gulpfile.coffee', 'client/coffee/**.coffee', 'server/**.coffee']
+  coffee_index: 'client/coffee/index.coffee'
+  css: 'client_build/css/**.css'
   jade: 'views/partials/cards/**/*.jade'
 
 dest =
-  css: 'public/css/'
-  jade: 'private/coffee/'
-  coffee: 'public/coffee/'
+  css: 'client_build/css/'
+  jade: 'client/coffee/'
+  coffee: 'client_build/coffee/'
 
 gulp.task 'coffee', ->
   # Lint
   console.log '\nLinting coffeescript...\n'
-  gulp.src(src.coffee)
+  gulp.src src.coffee
     .pipe coffeelint()
     .pipe coffeelint.reporter()
 
   # Browserify
-  gulp.src(src.coffee_index)
+  gulp.src src.coffee_index
     .pipe browserify(insertGlobals: true)
     .pipe uglify()
     .pipe gulp.dest dest.coffee
@@ -36,7 +37,7 @@ gulp.task 'jade', ->
   # Nothing for now
 
 gulp.task 'css', ->
-  gulp.src(src.css)
+  gulp.src src.css
     .pipe prefix()
     .pipe gulp.dest dest.css
 
