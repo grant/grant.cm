@@ -3,10 +3,12 @@ extends layout
 block css
   link(rel="stylesheet" href='css/index.css')
 
+block js
+  script(src="js/jquery.min.js")
+  script(src="js/index.js")
+  include includes/ga
+
 block content
   .pageContent
     include includes/home/header
     include includes/footer
-  script(src="js/jquery.min.js")
-  script(src="js/index.js")
-  include includes/ga

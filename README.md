@@ -13,7 +13,7 @@ $ node app
 $ cd sass
 $ sh sass.sh
 
-$ gulp
+$ gulp --require coffee-script
 ```
 
 ### Things to add
@@ -28,7 +28,7 @@ $ gulp
 	www.granttimmerman.com
 	www.uwfood.com
 	www.students.washington.edu/uwsudo/
-        www.hnplays2048.herokuapp.com
+  www.hnplays2048.herokuapp.com
 
 - Make all projects separate pages
 - Make website feel more "full-screen"
