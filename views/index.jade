@@ -1,6 +1,12 @@
-.pageContent
-  include includes/home/header
-  include includes/footer
+extends layout
+
+block css
+  link(rel="stylesheet" href='css/index.css')
+
+block content
+  .pageContent
+    include includes/home/header
+    include includes/footer
   script(src="js/jquery.min.js")
   script(src="js/index.js")
-include includes/ga
+  include includes/ga

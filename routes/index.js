@@ -4,10 +4,10 @@
 
 // The home page
 exports.index = function(req, res){
-	var indexParams = {
-		title: "Grant Timmerman's Portfolio"
+	var params = {
+		css: ['index']
 	};
-	res.render('index', indexParams);
+	res.render('index', params);
 };
 
 // About page
