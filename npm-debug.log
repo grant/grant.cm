@@ -7,13 +7,13 @@
 6 info start grant.cm@0.0.1
 7 verbose unsafe-perm in lifecycle true
 8 info grant.cm@0.0.1 Failed to exec start script
-9 error grant.cm@0.0.1 start: `node build/app.js`
-9 error Exit status 8
+9 error grant.cm@0.0.1 start: `coffee server/app.coffee`
+9 error Exit status 1
 10 error Failed at the grant.cm@0.0.1 start script.
 10 error This is most likely a problem with the grant.cm package,
 10 error not with npm itself.
 10 error Tell the author that this fails on your system:
-10 error     node build/app.js
+10 error     coffee server/app.coffee
 10 error You can get their info via:
 10 error     npm owner ls grant.cm
 10 error There is likely additional logging output above.

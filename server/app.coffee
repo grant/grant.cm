@@ -1,21 +1,20 @@
 ###
 Module dependencies.
 ###
-express = require('express')
-redirect = require('express-redirect')
-consolidate = require('consolidate')
-http = require('http')
-path = require('path')
+express = require 'express'
+redirect = require 'express-redirect'
+consolidate = require 'consolidate'
+http = require 'http'
+path = require 'path'
 app = express()
 redirect app
 
 # all environments
-app.set 'port', process.env.PORT or 3000
-app.set 'views', __dirname + '/views'
+app.set 'port', process.env.PORT || 3000
 
 # Jade
-jade = require('jade')
-app.set 'views', __dirname + '/views'
+jade = require 'jade'
+app.set 'views', __dirname + '/../views'
 app.set 'view engine', 'jade'
 
 # Other
@@ -32,7 +31,7 @@ app.use express.errorHandler() if 'development' is app.get('env')
 #
 # Routes
 #
-routes = require('./routes')
+routes = require '../routes'
 app.get '/', routes.index
 app.get '/about', routes.about
 
