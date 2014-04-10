@@ -8,7 +8,7 @@
   "homepage": "http://www.grant.cm/",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node build/app.js"
   },
   "dependencies": {
     "express": ">= 3.4.0",

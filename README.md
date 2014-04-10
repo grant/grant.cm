@@ -5,7 +5,7 @@ The website [grant.cm](http://grant.cm) (and [granttimmerman.com](http://grantti
 
 ### How to start server
 ```
-$ node app
+$ npm start
 ```
 
 ### How to development (2 terminal tabs)
@@ -13,7 +13,7 @@ $ node app
 $ cd sass
 $ sh sass.sh
 
-$ gulp --require coffee-script
+$ gulp
 ```
 
 ### Things to add
@@ -28,7 +28,7 @@ $ gulp --require coffee-script
 	www.granttimmerman.com
 	www.uwfood.com
 	www.students.washington.edu/uwsudo/
-  www.hnplays2048.herokuapp.com
+	www.hnplays2048.herokuapp.com
 
 - Make all projects separate pages
 - Make website feel more "full-screen"
