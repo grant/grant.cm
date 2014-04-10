@@ -7,7 +7,10 @@ consolidate = require 'consolidate'
 http = require 'http'
 path = require 'path'
 
+# Common directories
 rootDir = __dirname + '/../'
+client_build = rootDir + 'client_build'
+
 app = express()
 redirect app
 
@@ -20,11 +23,11 @@ app.set 'views', rootDir + 'views'
 app.set 'view engine', 'jade'
 
 # Other
-app.use express.favicon()
+app.use express.favicon client_build + '/images/favicon.ico'
 app.use express.logger('dev')
 app.use express.bodyParser()
 app.use express.methodOverride()
-app.use express.static(rootDir + 'client_build')
+app.use express.static client_build
 app.use app.router
 
 # development only
@@ -47,8 +50,6 @@ app.get '/500', routes.serverError
 # Github page redirects
 app.redirect '/vidwall', 'http://grant.github.io/vidwall'
 app.redirect '/openacademy', 'http://grant.github.io/open-academy-map'
-
-# app.get('/:id', routes.id);
 
 #
 # Errors
