@@ -11,8 +11,9 @@ exports.index = (req, res) ->
 exports.about = (req, res) ->
   res.render 'about'
 
-exports.vidwall = (req, res) ->
-  res.render 'vidwall'
-
-exports.notfound = (req, res) ->
+# Error pages
+exports.notFound = (req, res) ->
   res.render '404'
+
+exports.serverError = (req, res) ->
+  res.render '500'
