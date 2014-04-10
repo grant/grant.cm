@@ -11,13 +11,31 @@
   font-weight: 100
   color: #666
 
-// Font Size
+// Font size
 $FONT_HUGE: 100px
 $FONT_XLARGE: 60px
 $FONT_LARGE: 40px
 $FONT_MEDIUM: 26px
 $FONT_SMALL: 16px
 $FONT_TINY: 12px
+
+// Font family
+
+@font-face
+  font-family: 'Montserrat'
+  font-style: normal
+  font-weight: 700
+  src: local('Montserrat-Bold'), url(http://themes.googleusercontent.com/static/fonts/montserrat/v4/IQHow_FEYlDC4Gzy_m8fcnbFhgvWbfSbdVg11QabG8w.woff) format('woff')
+@font-face
+  font-family: 'Open Sans'
+  font-style: normal
+  font-weight: 400
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff')
+
+=title-font
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif
+=text-font
+  font-family: 'Open Sans', 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif
 
 //
 // Colors
@@ -52,15 +70,15 @@ $transitionSpeedFast: 100ms
 $transitionSpeed: 200ms
 
 // Default anchor tag
-a
-  font-style: italic
-  font-weight: 400
-  padding-bottom: 1px
-  transition: color $transitionSpeed
-  &:hover
-    color: $WHITE
+// a
+//   font-style: italic
+//   font-weight: 400
+//   padding-bottom: 1px
+//   transition: color $transitionSpeed
+//   &:hover
+//     color: $WHITE
 
 // Default hr
-hr
-  width: 25%
-  background-color: rgba(0, 0, 0, 0.33)
+// hr
+//   width: 25%
+//   background-color: rgba(0, 0, 0, 0.33)
