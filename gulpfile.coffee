@@ -21,10 +21,11 @@ dest =
 
 gulp.task 'coffee', ->
   # Lint
-  console.log 'Linting'
+  console.log '\nLinting coffeescript...\n'
   gulp.src(src.coffee)
     .pipe coffeelint()
     .pipe coffeelint.reporter()
+
   # Browserify
   gulp.src(src.coffee_index)
     .pipe browserify(insertGlobals: true)
