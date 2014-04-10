@@ -27,7 +27,6 @@
     "jshint-stylish": "^0.1.5",
     "gulp-declare": "^0.1.0",
     "gulp-concat": "^2.1.7",
-    "gulp-handlebars": "^1.0.2",
     "browserify": "^3.31.2",
     "gulp-browserify": "^0.4.6",
     "gulp-uglify": "^0.2.1",
@@ -35,7 +34,6 @@
     "gulp-grunt": "^0.4.1",
     "load-grunt-tasks": "^0.4.0",
     "grunt": "^0.4.2",
-    "grunt-contrib-watch": "^0.5.3",
-    "grunt-contrib-handlebars": "^0.6.1"
+    "grunt-contrib-watch": "^0.5.3"
   }
 }

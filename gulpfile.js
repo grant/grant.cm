@@ -2,7 +2,6 @@ var gulp = require('gulp');
 require('gulp-grunt')(gulp);
 var concat = require('gulp-concat');
 var declare = require('gulp-declare');
-var handlebars = require('gulp-handlebars');
 var browserify = require('gulp-browserify');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
@@ -15,12 +14,12 @@ var src = {
   jshome: 'private/js/home.js',
   css: 'public/css/**.css',
   sass: 'private/sass/**.sass',
-  hbs: 'views/partials/cards/**/*.hbs'
+  jade: 'views/partials/cards/**/*.jade'
 };
 
 var dest = {
   css: 'public/css/',
-  hbs: 'private/js/',
+  jade: 'private/js/',
   js: 'public/js/'
 };
 
@@ -38,8 +37,8 @@ gulp.task('js', function () {
     .pipe(gulp.dest(dest.js));
 });
 
-gulp.task('hbs', function () {
-  gulp.run('grunt-handlebars');
+gulp.task('jade', function () {
+  // Nothing for now
 });
 
 gulp.task('css', function () {
@@ -51,7 +50,7 @@ gulp.task('css', function () {
 gulp.task('watch', function () {
   gulp.watch(src.js, ['js']);
   gulp.watch(src.css, ['css']);
-  gulp.watch(src.hbs, ['hbs']);
+  gulp.watch(src.jade, ['jade']);
 });
 
-gulp.task('default', ['css', 'js', 'hbs', 'watch']);
+gulp.task('default', ['css', 'js', 'jade', 'watch']);

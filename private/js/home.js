@@ -1,5 +1,3 @@
-var Templater = require('./Templater');
-
 $(function () {
   // TODO: Put constants somwhere
   var CARD_PADDING = '1.0%';
