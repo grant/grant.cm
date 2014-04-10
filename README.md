@@ -1,7 +1,7 @@
 grant.cm
 ==================
 
-The website [grant.cm](http://grant.cm) (and [granttimmerman.com](http://granttimmerman.com))
+The website [grant.cm](http://grant.cm)
 
 ### How to start server
 ```
@@ -32,6 +32,6 @@ $ gulp
 
 - Make all projects separate pages
 - Make website feel more "full-screen"
-- Use proxima nova
+- Use proxima nova or open sans
 - More minimal, bleed, mobile first.
 - Make pinterest like feed for projects. 3 columns max. 2 for tablet, 1 for mobile.
