@@ -22,14 +22,20 @@ header
       color: $LIGHT_BLACK
       font-weight: 700
       font-size: $FONT_LARGE
-      // font-size: 30px
       letter-spacing: 9px
       text-transform: uppercase
       margin: 12px 0
       left: 4px
-      // padding-bottom: 10px
     .bio
       color: $DARK_RED
       font-size: $FONT_MEDIUM
-    ul
+      margin-bottom: 30px
+    ul li
+      font-size: $FONT_MEDIUM - 4px
+      line-height: 2em
+      letter-spacing: 2px
+      color: $DARK_RED
+      transition: color $transitionSpeed ease
+      &:hover
+        color: $DARK_WHITE
     .arrow
