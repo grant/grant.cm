@@ -1,12 +1,6 @@
-| home
-//- .pageContent
-//-   {{ header }}
-//-   {{ sections/project }}
-//-   {{ sections/github }}
-//-   {{ sections/profile }}
-//-   {{ sections/contact }}
-//-   {{ footer }}
-//- script(src="js/jquery.min.js")
-//- script(src="js/jquery.timeago.js")
-//- script(src="js/home.js")
-//- {{ ga}}
+.pageContent
+  include includes/home/header
+  include includes/footer
+  script(src="js/jquery.min.js")
+  script(src="js/home.js")
+include includes/ga
