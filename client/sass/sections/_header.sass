@@ -17,6 +17,7 @@ header
     margin-left: -$boxWidth/2
     margin-top: -$boxHeight/2
     .name
+      +fadein(0ms)
       +title
       margin: 12px 0
       left: 4px
@@ -24,6 +25,9 @@ header
       color: $DARK_RED
       font-size: $FONT_MEDIUM
       margin-bottom: 30px
+      +fadein(300ms)
+    ul
+      +fadein(600ms)
     ul li
       font-size: $FONT_MEDIUM - 4px
       line-height: 2em

@@ -10,9 +10,9 @@ coffeelint = require 'gulp-coffeelint'
 prefix = require 'gulp-autoprefixer'
 
 src =
-  coffee: ['gulpfile.coffee', 'client/coffee/**.coffee', 'server/**.coffee']
+  coffee: ['gulpfile.coffee', 'client/coffee/**/*.coffee', 'server/**/*.coffee']
   coffee_index: 'client/coffee/index.coffee'
-  css: 'client_build/css/**.css'
+  css: 'client_build/css/**/*.css'
   jade: 'views/partials/cards/**/*.jade'
 
 dest =

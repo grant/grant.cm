@@ -82,6 +82,20 @@ $sideMargin: 1%
 // Transition
 $transitionSpeedFast: 100ms
 $transitionSpeed: 200ms
+$transitionSpeedSlow: 1000ms
+
+// Animations
+=fadein($delay: 0ms)
+  animation-name: fadein
+  animation-duration: $transitionSpeedSlow
+  animation-timing-function: ease-in-out
+  animation-delay: $delay
+
+@keyframes fadein
+  from
+    opacity: 0
+  to
+    opacity: 1
 
 // Default anchor tag
 // a
