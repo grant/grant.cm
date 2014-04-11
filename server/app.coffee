@@ -20,6 +20,7 @@ app.set 'port', process.env.PORT || 3000
 # Jade
 jade = require 'jade'
 app.set 'views', rootDir + 'views'
+app.locals.basedir = app.get 'views'
 app.set 'view engine', 'jade'
 
 # Other
