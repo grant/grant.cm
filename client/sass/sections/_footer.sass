@@ -1,17 +1,22 @@
 @import global
 
 footer
+  $footerTextColor: $LIGHT_GRAY
   background-color: rgb(45, 62, 82)
   height: 50px
-  color: $LIGHT_GRAY
   font-size: $FONT_SMALL
   padding: 15px $cardMargin
+  color: $footerTextColor
   .left
     $linkSeparation: 10px
     li
       display: inline
       &:not(:first-child)
         padding-left: $linkSeparation
+      transition: color $transitionSpeed
+      &:hover
+        color: $WHITE
     li + li:before
+      color: $footerTextColor
       content: "|"
       padding-right: $linkSeparation
