@@ -6,6 +6,7 @@ declare = require 'gulp-declare'
 browserify = require 'gulp-browserify'
 uglify = require 'gulp-uglify'
 watch = require 'gulp-watch'
+coffee = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
 prefix = require 'gulp-autoprefixer'
 
@@ -18,7 +19,7 @@ src =
 dest =
   css: 'client_build/css/'
   jade: 'client/coffee/'
-  coffee: 'client_build/coffee/'
+  coffee: 'client_build/js/'
 
 gulp.task 'coffee', ->
   # Lint
@@ -29,6 +30,7 @@ gulp.task 'coffee', ->
 
   # Browserify
   gulp.src src.coffee_index
+    .pipe coffee()
     .pipe browserify(insertGlobals: true)
     .pipe uglify()
     .pipe gulp.dest dest.coffee
