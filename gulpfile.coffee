@@ -1,6 +1,7 @@
 # Note: Don't try to use gulp-sass. It doesn't work.
 
 gulp = require 'gulp'
+gutil = require 'gulp-util'
 concat = require 'gulp-concat'
 declare = require 'gulp-declare'
 browserify = require 'gulp-browserify'
@@ -30,7 +31,7 @@ gulp.task 'coffee', ->
 
   # Browserify
   gulp.src src.coffee_index
-    .pipe coffee()
+    .pipe coffee().on 'error', gutil.log
     .pipe browserify(insertGlobals: true)
     .pipe uglify()
     .pipe gulp.dest dest.coffee
