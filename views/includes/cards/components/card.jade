@@ -1,4 +1,5 @@
-section
+li.card(id=card.id)
+  img.photo(src='/images/cards/#{card.id}')
   .textArea
-    h3= title
-    p= description
+    h3= card.title
+    p= card.description

@@ -4,7 +4,24 @@
 
 # The home page
 exports.index = (req, res) ->
-  params = css: ['index']
+  params =
+    css: ['index']
+    cards: [
+        id: 'thefourelements'
+        title: 'The Four Elements'
+      ,
+        id: 'cellularwarfare'
+        title: 'Cellular Warfare'
+      ,
+        id: 'vidwall'
+        title: 'Vidwall'
+      ,
+        id: 'glass'
+        title: 'Google Glass OCR'
+      ,
+        id: 'areyouhungrynow'
+        title: 'Are You Hungry Now'
+    ]
   res.render 'index', params
 
 # About page

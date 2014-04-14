@@ -1,0 +1,21 @@
+// CSS for cards
+
+.card
+  width: 300px
+  text-align: center
+  border-radius: 3px
+
+  .photo
+    padding: 40px 0
+
+  // Custom CSS
+  =card($bgcolor)
+    background-color: $bgcolor
+
+  +card(black)
+  &#thefourelements
+    +card(blue)
+  &#cellularwarfare
+  &#vidwall
+  &#glass
+  &#areyouhungrynow
