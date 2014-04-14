@@ -9,6 +9,7 @@ exports.index = (req, res) ->
     cards: [
         id: 'thefourelements'
         title: 'The Four Elements'
+        description: 'awegaweg awegawe gawe gawegaw gaweg'
       ,
         id: 'cellularwarfare'
         title: 'Cellular Warfare'

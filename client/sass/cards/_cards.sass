@@ -3,7 +3,9 @@
 .card
   width: 300px
   text-align: center
-  border-radius: 3px
+  border-radius: 5px
+  overflow: hidden
+  color: $WHITE
 
   .photo
     padding: 40px 0
@@ -11,8 +13,21 @@
   // Custom CSS
   =card($bgcolor)
     background-color: $bgcolor
+    .textArea
+      text-align: left
+      padding: 10px 10px 20px 10px
+      background-color: darken($bgcolor, 5%)
+      .title
+        font-size: $FONT_SMALL
+        font-weight: 700
+        padding-bottom: 10px
+        &:after
+          padding-left: 10px
+          content: '»'
+      .description
+        font-size: $FONT_TINY
 
-  +card(black)
+  +card(red)
   &#thefourelements
     +card(blue)
   &#cellularwarfare
