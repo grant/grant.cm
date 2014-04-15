@@ -36,5 +36,12 @@ header
       transition: color $transitionSpeed ease
       &:hover
         color: $DARK_WHITE
-    .arrow
-      // http://fortawesome.github.io/Font-Awesome/icon/chevron-circle-down/
+  .arrow
+    position: absolute
+    bottom: 10px
+    left: 50%
+    width: 100px
+    margin-left: -50px
+    font-size: 50px
+    color: rgba($WHITE, 0.3)
+    animation: bounce 2s infinite
