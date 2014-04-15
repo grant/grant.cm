@@ -9,6 +9,7 @@
 
   .photo
     padding: 40px 0
+    width: 140px
 
   // Custom CSS
   =card($bgcolor)
@@ -16,7 +17,7 @@
     .textArea
       text-align: left
       padding: 10px 10px 20px 10px
-      background-color: darken($bgcolor, 5%)
+      background-color: darken($bgcolor, 10%)
       .title
         font-size: $FONT_SMALL
         font-weight: 700
@@ -28,9 +29,17 @@
         font-size: $FONT_TINY
 
   +card(red)
+  &#hnplays2048
+    +card(rgb(241, 182, 5))
+  &#milestone
+    +card(rgb(153, 82, 138))
   &#thefourelements
-    +card(blue)
+    +card(rgb(115, 50, 42))
   &#cellularwarfare
+    +card(rgb(65, 109, 234))
   &#vidwall
+    +card(rgb(196, 76, 62))
   &#glass
+    +card(rgb(42, 36, 35))
   &#areyouhungrynow
+    +card(rgb(132, 193, 160))
