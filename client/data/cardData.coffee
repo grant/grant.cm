@@ -27,7 +27,7 @@ module.exports = [
 ,
   id: 'cellularwarfare'
   title: 'Cellular Warfare'
-  img: 'png'
+  img: 'svg'
   description: 'Conquer the cell kingdom and evolve into an almighty cell!'
   url:
     demo: '/cellularwarfare'
@@ -35,7 +35,7 @@ module.exports = [
 ,
   id: 'vidwall'
   title: 'Vidwall'
-  img: 'png'
+  img: 'svg'
   description: 'Watch multiple videos instantly.'
   url:
     demo: '/vidwall'

@@ -36,6 +36,7 @@
     "gulp-grunt": "^0.4.1",
     "load-grunt-tasks": "^0.4.0",
     "gulp-coffeelint": "^0.3.2",
-    "gulp-util": "^2.2.14"
+    "gulp-util": "^2.2.14",
+    "coffeeify": "^0.6.0"
   }
 }
