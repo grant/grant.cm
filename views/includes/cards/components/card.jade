@@ -1,6 +1,6 @@
-li.card(id=card.id)
-  img.photo(src='/images/cards/#{card.id}.#{card.img}')
-  .textArea
-    a(href=card.url.demo)
+a(href=card.url.demo)
+  li.card(id=card.id)
+    img.photo(src='/images/cards/#{card.id}.#{card.img}')
+    .textArea
       h3.title= card.title
-    p.description= card.description
+      p.description= card.description

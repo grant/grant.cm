@@ -6,10 +6,15 @@
   position: relative
   width: 300px
   height: 300px
+  overflow: hidden
+
   text-align: center
   border-radius: 5px
-  overflow: hidden
   color: $WHITE
+  transition: transform $transitionSpeed
+
+  &:hover
+    transform: scale(1.1)
 
   .photo
     position: absolute
@@ -43,8 +48,6 @@
     background-color: $bgcolor
     .textArea
       background-color: darken($bgcolor, 10%)
-      .title:hover
-        color: $bgcolor
 
   +card(red)
   &#hnplays2048
