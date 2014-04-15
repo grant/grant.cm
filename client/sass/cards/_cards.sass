@@ -22,9 +22,12 @@
         font-size: $FONT_SMALL
         font-weight: 700
         padding-bottom: 10px
+        transition: color $transitionSpeed
         &:after
           padding-left: 10px
           content: '»'
+        &:hover
+          color: $bgcolor
       .description
         font-size: $FONT_TINY
 
