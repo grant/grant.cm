@@ -51,7 +51,7 @@ module.exports = [
 ,
   id: 'areyouhungrynow'
   title: 'Are You Hungry Now'
-  img: 'png'
+  img: 'svg'
   description: 'Find people nearby who are hungry and grab lunch together.'
   url:
     demo: '/areyouhungrynow'
