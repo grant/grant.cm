@@ -1,4 +1,9 @@
 $ ->
   $cardLayout = $ '.cardLayout'
-  $cardLayout.find('li').wookmark(container: $cardLayout)
-  # <script type="text/javascript">$('#myContent li').wookmark();</script>
+  $cardLayout.find('li').wookmark(
+    align: 'center'
+    container: $cardLayout
+    autoResize: true
+    itemWidth: 300
+    offset: 30
+  )
