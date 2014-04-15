@@ -19,7 +19,7 @@ module.exports = [
 ,
   id: 'thefourelements'
   title: 'The Four Elements'
-  img: 'png'
+  img: 'svg'
   description: 'Master the four elements by solving marble puzzles.'
   url:
     demo: '/thefourelements'
@@ -44,7 +44,7 @@ module.exports = [
   id: 'glass'
   img: 'svg'
   title: 'Google Glass OCR'
-  description: 'Recognise text via Glass.'
+  description: 'Recognize text via Glass.'
   url:
     demo: 'https://vision-for-glass.appspot.com/'
     github: 'https://github.com/colegleason/glass-ocr'
