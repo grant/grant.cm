@@ -51,6 +51,8 @@ app.get '/500', routes.serverError
 # Github page redirects
 app.redirect '/vidwall', 'http://grant.github.io/vidwall'
 app.redirect '/openacademy', 'http://grant.github.io/open-academy-map'
+app.redirect '/cellularwarfare', 'http://grant.github.io/cellularwarfare'
+app.redirect '/thefourelements', 'http://grant.github.io/thefourelements'
 
 #
 # Errors

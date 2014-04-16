@@ -2,7 +2,7 @@ module.exports = [
   id: 'hnplays2048'
   title: 'HN Plays 2048'
   img: 'png'
-  description: 'Twitch Plays Pokemon version of 2048.'
+  description: 'Twitch Plays version of 2048.'
   notes: '100k+ plays'
   url:
     demo: 'http://hnplays2048.herokuapp.com/'
