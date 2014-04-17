@@ -75,6 +75,6 @@ app.use (err, req, res, next) ->
   res.status err.status || 500
   res.render 'errorCode',
     errorCode: 500
-    errorMessage: 'Something went wrong with the server.'
+    errorMessage: 'Something went wrong<br>with the server.'
 
 # API

@@ -8,8 +8,10 @@ $darkColor: $DARK_RED
 
 body
   background-color: $color
+  +title-font
+  color: $WHITE
 
-$boxWidth: 600px
+$boxWidth: 700px
 $boxHeight: 400px
 .center
   position: absolute
@@ -21,17 +23,32 @@ $boxHeight: 400px
   margin-top: -$boxHeight / 2
 
 .errorMessage
-  color: $WHITE
+  padding-bottom: 30px
+  font-size: $FONT_XXLARGE
 .quoteMark
+  position: absolute
+  left: -70px
+  top: -30px
+  font-size: $FONT_XHUGE
   color: $lightColor
-.errorMessage, .quoteMark
-  +title-font
-  font-size: $FONT_XLARGE
+.errorCode
+  font-size: $FONT_LARGE
+  color: $darkColor
+  padding-bottom: 60px
+
+hr
+  width: 56% // line up with 404 text
+  margin-left: 0
+  border: none
+  border-top: 1px $darkColor solid
+  padding-bottom: 10px
 
 a
   font-style: italic
+  transition: border-bottom-color $transitionSpeed
+  border-bottom: 2px transparent solid
+  padding-bottom: 2px
   &:hover
-    padding-bottom: 3px
     border-bottom: 2px $WHITE solid
 .home
-  color: $WHITE
+  +text-font
