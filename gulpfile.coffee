@@ -32,11 +32,10 @@ gulp.task 'coffee', ->
   # Browserify
   gulp.src src.coffee_index
     .pipe coffee().on 'error', gutil.log
-    .pipe browserify(
+    .pipe browserify
       transform: ['coffeeify']
       extensions: ['.coffee']
       insertGlobals: true
-    )
     .pipe uglify()
     .pipe gulp.dest dest.coffee
 
