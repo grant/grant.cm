@@ -64,4 +64,12 @@ module.exports = [
   url:
     demo: 'http://students.washington.edu/uwsudo/'
     github: 'https://github.com/SudoSoldiers/Sudo-Soldiers-Website'
+,
+  id: 'acadee'
+  title: 'Acadee'
+  img: 'png'
+  description: 'A simple classroom assignment manager.'
+  url:
+    demo: 'https://www.youtube.com/watch?v=HL9exIwXvM0'
+    github: 'https://github.com/grant/Acadee'
 ]
