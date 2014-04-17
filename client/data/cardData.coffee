@@ -56,4 +56,12 @@ module.exports = [
   url:
     demo: '/areyouhungrynow'
     github: 'https://github.com/grant/areyouhungrynow'
+,
+  id: 'sudosoldiers'
+  title: 'Sudo Soldiers'
+  img: 'png'
+  description: 'An organization of UW hackers who teach each other dev skills.'
+  url:
+    demo: 'http://students.washington.edu/uwsudo/'
+    github: 'https://github.com/SudoSoldiers/Sudo-Soldiers-Website'
 ]
