@@ -53,6 +53,7 @@ app.redirect '/vidwall', 'http://grant.github.io/vidwall'
 app.redirect '/openacademy', 'http://grant.github.io/open-academy-map'
 app.redirect '/cellularwarfare', 'http://grant.github.io/cellularwarfare'
 app.redirect '/thefourelements', 'http://grant.github.io/thefourelements'
+app.redirect '/areyouhungrynow', 'https://www.youtube.com/watch?v=U0DQHoN3-MY'
 
 #
 # Errors
