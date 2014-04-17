@@ -1,0 +1,37 @@
+@import global
+@import reset
+
+// Colors
+$lightColor: $LIGHT_RED
+$color: $RED
+$darkColor: $DARK_RED
+
+body
+  background-color: $color
+
+$boxWidth: 600px
+$boxHeight: 400px
+.center
+  position: absolute
+  left: 50%
+  top: 50%
+  width: $boxWidth
+  height: $boxHeight
+  margin-left: -$boxWidth / 2
+  margin-top: -$boxHeight / 2
+
+.errorMessage
+  color: $WHITE
+.quoteMark
+  color: $lightColor
+.errorMessage, .quoteMark
+  +title-font
+  font-size: $FONT_XLARGE
+
+a
+  font-style: italic
+  &:hover
+    padding-bottom: 3px
+    border-bottom: 2px $WHITE solid
+.home
+  color: $WHITE

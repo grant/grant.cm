@@ -24,6 +24,7 @@ $BLACK: rgb(24, 24, 24)
 
 $BROWN: rgb(119, 107, 93)
 
+$LIGHT_RED: rgb(242, 144, 135)
 $RED: rgb(234, 95, 78)
 $DARK_RED: rgb(210, 57, 52)
 $ORANGE: rgb(232, 132, 59)
@@ -67,9 +68,12 @@ $FONT_TINY: 12px
 =text-font
   font-family: 'Open Sans', 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif
 
+=title-font
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif
+
 =title
   color: $LIGHT_BLACK
-  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif
+  +title-font
   font-weight: 700
   font-size: $FONT_LARGE
   letter-spacing: 9px
@@ -115,11 +119,6 @@ $transitionSpeedSlow: 1000ms
 //   transition: color $transitionSpeed
 //   &:hover
 //     color: $WHITE
-
-// Default hr
-// hr
-//   width: 25%
-//   background-color: rgba(0, 0, 0, 0.33)
 
 .right
   float: right

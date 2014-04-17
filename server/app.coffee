@@ -63,7 +63,9 @@ app.redirect '/areyouhungrynow', 'https://www.youtube.com/watch?v=U0DQHoN3-MY'
 app.use (req, res) ->
   res.status 404
   if req.accepts 'html'
-    return res.render '404', url: req.url
+    return res.render 'errorCode',
+      errorCode: 404
+      errorMessage: 'This page<br>does not exist.'
   if req.accepts 'json'
     return res.send error: 'Not found'
   res.type('txt').send 'Not found'
@@ -71,6 +73,8 @@ app.use (req, res) ->
 # 500
 app.use (err, req, res, next) ->
   res.status err.status || 500
-  res.render '500', error: err
+  res.render 'errorCode',
+    errorCode: 500
+    errorMessage: 'Something went wrong with the server.'
 
 # API
