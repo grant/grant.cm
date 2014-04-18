@@ -2,8 +2,13 @@
 // About Section
 //
 
+// Colors
+// $lightColor: $LIGHT_RED
+$color: $BLUE
+$darkColor: $DARK_BLUE
+
 section#about
-  background-color: $BLUE
+  background-color: $color
   color: $WHITE
   > .title
     +title
@@ -15,20 +20,23 @@ section#about
     width: $profileTextWidth
     margin: 0 auto
     font-size: $FONT_MEDIUM
-    padding-bottom: 1%
-    padding-left: 20px
+    padding-bottom: 30px
+    padding-left: 50px
     line-height: 1.5
     em, a
-      color: $DARK_BLUE
+      color: $darkColor
+  .center
+    text-align: center
+    font-size: $FONT_MEDIUM
   .experienceList
-    padding-top: 1%
+    padding-top: 20px
     & > li
       overflow: hidden
       padding: 1%
       border-radius: 10px
       transition: transform $transitionSpeed, background-color $transitionSpeed
       &:hover
-        background-color: $DARK_RED
+        background-color: $darkColor
         transform: translateX(5px)
     .iconArea
       width: 10%
