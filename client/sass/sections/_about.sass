@@ -28,12 +28,13 @@ section#about
 
   $profileColumnWidth: 760px
   .longBio
+    $bioPadding: 30px
     text-indent: 50px
     width: $profileColumnWidth
     margin: 0 auto
     font-size: $FONT_MEDIUM
     line-height: 1.5
-    padding-bottom: 30px
+    padding-bottom: $bioPadding
     padding-left: 15px
     em, a
       color: $lightColor
@@ -42,5 +43,6 @@ section#about
       &:hover
         color: $darkColor
     @media #{$phone}
-      width: $phoneWidth
+      width: 100%
+      padding: $bioPadding
       font-size: $FONT_SMALL

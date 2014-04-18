@@ -1,8 +1,9 @@
 // CSS for cards
 
 .card
+  $cardSpacing: 30px
   display: inline-block
-  margin: 30px
+  margin: $cardSpacing
   position: relative
   width: 300px
   height: 300px
@@ -13,7 +14,11 @@
   color: $WHITE
   transition: transform $transitionSpeed
   @media #{$phone}
-    margin: 5px 0
+    margin: $cardSpacing/2 $cardSpacing
+    width: calc(100% - #{2*$cardSpacing})
+  @media (min-width: 600px)
+    width: 300px
+    margin: $cardSpacing
 
   &:hover
     transform: scale(1.1)

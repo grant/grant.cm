@@ -51,7 +51,7 @@ section#experience
             padding-right: 30px
       @media #{$phone}
         margin: 0 auto
-        width: $phoneWidth
+        width: 100%
 
       $iconAreaSize: 200px
       $iconSize: 0.8
@@ -61,11 +61,14 @@ section#experience
           padding: (1 - $iconSize)/2 * $iconAreaSize
         @media #{$phone}
           width: 100%
+          max-width: 200px
+          margin: 0 auto
       .descriptionArea
         @media #{$notPhone}
           width: $experienceListWidth - $iconAreaSize - 2*$listPadding
         @media #{$phone}
           width: 100%
+          padding-top: 10px
         line-height: 2
         a
           color: $darkColor
@@ -80,7 +83,10 @@ section#experience
           .dateRange
             padding-top: 11px
             @media #{$phone}
+              padding-top: 0
               float: left
+            @media (min-width: 600px)
+              float: right
             float: right
             font-size: $FONT_SMALL
         .description, .descriptionBullets

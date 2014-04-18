@@ -5,7 +5,7 @@ $ ->
   #
   # Load pushState
   #
-  urlSectionName = window.location.pathname.split( '/')[1];
+  urlSectionName = window.location.pathname.split('/')[1];
   $.smoothScroll scrollTarget: '#' + urlSectionName
 
   #
