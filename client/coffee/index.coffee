@@ -19,7 +19,6 @@ $ ->
   # Map from section id to y offset
   section = {}
   do createSectionMap = ->
-    console.log 'hi'
     for d, i in $sections
       section[d.id] = $(d).offset().top
 
