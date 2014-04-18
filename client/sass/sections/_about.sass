@@ -2,12 +2,10 @@
 // About Section
 //
 
-@import mixins/squareTile
-
 // Colors
-// $lightColor: $LIGHT_RED
-$color: $DARK_BLUE
-$darkColor: $BLUE
+$lightColor: $LIGHT_ORANGE
+$color: $ORANGE
+$darkColor: $DARK_ORANGE
 
 section#about
   background-color: $color
@@ -22,46 +20,12 @@ section#about
     width: $profileColumnWidth
     margin: 0 auto
     font-size: $FONT_MEDIUM
+    line-height: 1.5
     padding-bottom: 30px
     padding-left: 50px
-    line-height: 1.5
     em, a
-      color: $darkColor
-  .center
-    +title
-    color: $WHITE
-    text-align: center
-  .experienceList
-    width: 80%
-    margin: 0 auto
-    & > li
-      overflow: hidden
-      border-radius: 10px
-      padding: 20px
-      margin: 20px 0
-      transition: transform $transitionSpeed, background-color $transitionSpeed
+      color: $lightColor
+    a
+      transition: color $transitionSpeed
       &:hover
-        background-color: $darkColor
-        transform: translateX(5px)
-    .iconArea
-      width: 10%
-    .descriptionArea
-      width: 90%
-      padding-left: 2%
-      .titleBar
-        position: relative
-        padding-bottom: 0.5%
-        overflow: hidden
-        .title
-          float: left
-          font-size: $FONT_MEDIUM
-        .dateRange
-          float: right
-          font-size: $FONT_SMALL
-      .description, .descriptionBullets
-        font-size: $FONT_SMALL
-        line-height: 150%
-        list-style: disc
-        list-style-position: inside
-    .iconArea, .descriptionArea
-      float: left
+        color: $darkColor

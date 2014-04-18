@@ -1,0 +1,74 @@
+//
+// About Section
+//
+
+@import mixins/squareTile
+
+// Colors
+$color: $DARK_BLUE
+$darkColor: $BLUE
+
+$experienceListWidth: 1000px
+section#experience
+  background-color: $color
+  color: $WHITE
+  > .title
+    +title
+    color: $WHITE
+  .experienceList
+    width: $experienceListWidth
+    $listPadding: 20px
+    margin: 0 auto 2*$listPadding auto
+    & > li
+      overflow: hidden
+      border-radius: 10px
+      padding: $listPadding
+      margin: 30px 0
+      transition: transform $transitionSpeed, background-color $transitionSpeed
+      .descriptionArea a
+        transition: color $transitionSpeed
+      &:hover
+        background-color: mix($color, $darkColor)
+        .descriptionArea a
+          color: darken($color, 10%)
+      &:nth-child(odd)
+        &:hover
+          transform: translateX(5px)
+        .iconArea
+          float: left
+        .descriptionArea
+          padding-left: 30px
+      &:nth-child(even)
+        &:hover
+          transform: translateX(-5px)
+        .iconArea
+          float: right
+        .descriptionArea
+          padding-right: 30px
+
+      $iconAreaSize: 200px
+      $iconSize: 0.8
+      .iconArea
+        width: $iconAreaSize
+        padding: (1 - $iconSize)/2 * $iconAreaSize
+      .descriptionArea
+        width: $experienceListWidth - $iconAreaSize - 2*$listPadding
+        line-height: 2
+        a
+          color: $darkColor
+        .titleBar
+          position: relative
+          padding-bottom: 0.5%
+          overflow: hidden
+          .title
+            float: left
+            font-size: $FONT_MEDIUM
+          .dateRange
+            float: right
+            font-size: $FONT_SMALL
+        .description, .descriptionBullets
+          font-size: $FONT_SMALL
+          list-style: disc
+          list-style-position: inside
+      .descriptionArea
+        float: left
