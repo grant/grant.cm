@@ -3,19 +3,33 @@ $ ->
   $('a').smoothScroll()
 
   #
+  # Load pushState
+  #
+  urlSectionName = window.location.pathname.split( '/')[1];
+  $.smoothScroll scrollTarget: '#' + urlSectionName
+
+  #
   # Scrolling PushState
   #
 
   # Setup
   lastSectionName = undefined
   $sections = $ 'section'
-  section = {} # Map from section id to y offset
-  for d, i in $sections
-    section[d.id] = $(d).offset().top
+
+  # Map from section id to y offset
+  section = {}
+  do createSectionMap = ->
+    console.log 'hi'
+    for d, i in $sections
+      section[d.id] = $(d).offset().top
+
+  #
+  # Events
+  #
 
   $(window).scroll ->
     # Create a pseudo scrollTop
-    scrollTop = $(window).scrollTop() + $(window).height()/2
+    scrollTop = $(window).scrollTop() + $(window).height()/4
     # Get the minimum section that  is greater than scrollTop
     sectionName = (d for d, i of section).reduce (a,b) ->
       if section[b] < scrollTop && !(section[b] < section[a] < scrollTop)
@@ -34,6 +48,8 @@ $ ->
 
     # Update
     lastSectionName = sectionName
+
+  $(window).resize(() -> createSectionMap())
 
   # Uppercase first letter (helper method)
   ucfirst = (str) ->
