@@ -6,8 +6,8 @@
 
 // Colors
 // $lightColor: $LIGHT_RED
-$color: $BLUE
-$darkColor: $DARK_BLUE
+$color: $DARK_BLUE
+$darkColor: $BLUE
 
 section#about
   background-color: $color
@@ -16,10 +16,10 @@ section#about
     +title
     color: $WHITE
 
-  $profileTextWidth: 800px
+  $profileColumnWidth: 760px
   .longBio
     text-indent: 50px
-    width: $profileTextWidth
+    width: $profileColumnWidth
     margin: 0 auto
     font-size: $FONT_MEDIUM
     padding-bottom: 30px
@@ -28,13 +28,17 @@ section#about
     em, a
       color: $darkColor
   .center
+    +title
+    color: $WHITE
     text-align: center
-    font-size: $FONT_MEDIUM
   .experienceList
-    padding-top: 20px
+    width: 80%
+    margin: 0 auto
     & > li
       overflow: hidden
-      padding: 1%
+      border-radius: 10px
+      padding: 20px
+      margin: 20px 0
       transition: transform $transitionSpeed, background-color $transitionSpeed
       &:hover
         background-color: $darkColor
