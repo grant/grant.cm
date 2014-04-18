@@ -15,44 +15,57 @@ section#experience
   > .title
     +title
     color: $WHITE
+    @media #{$phone}
+      font-size: $FONT_MEDIUM
   .experienceList
-    width: $experienceListWidth
+    @media #{$notPhone}
+      width: $experienceListWidth
     $listPadding: 20px
     margin: 0 auto 2*$listPadding auto
     & > li
       overflow: hidden
       border-radius: 10px
       padding: $listPadding
-      margin: 30px 0
-      transition: transform $transitionSpeed, background-color $transitionSpeed
-      .descriptionArea a
-        transition: color $transitionSpeed
-      &:hover
-        background-color: mix($color, $darkColor)
+      @media #{$notPhone}
+        margin: 30px 0
+        transition: transform $transitionSpeed, background-color $transitionSpeed
         .descriptionArea a
-          color: darken($color, 10%)
-      &:nth-child(odd)
+          transition: color $transitionSpeed
         &:hover
-          transform: translateX(5px)
-        .iconArea
-          float: left
-        .descriptionArea
-          padding-left: 30px
-      &:nth-child(even)
-        &:hover
-          transform: translateX(-5px)
-        .iconArea
-          float: right
-        .descriptionArea
-          padding-right: 30px
+          background-color: mix($color, $darkColor)
+          .descriptionArea a
+            color: darken($color, 10%)
+        &:nth-child(odd)
+          &:hover
+            transform: translateX(5px)
+          .iconArea
+            float: left
+          .descriptionArea
+            padding-left: 30px
+        &:nth-child(even)
+          &:hover
+            transform: translateX(-5px)
+          .iconArea
+            float: right
+          .descriptionArea
+            padding-right: 30px
+      @media #{$phone}
+        margin: 0 auto
+        width: $phoneWidth
 
       $iconAreaSize: 200px
       $iconSize: 0.8
       .iconArea
-        width: $iconAreaSize
-        padding: (1 - $iconSize)/2 * $iconAreaSize
+        @media #{$notPhone}
+          width: $iconAreaSize
+          padding: (1 - $iconSize)/2 * $iconAreaSize
+        @media #{$phone}
+          width: 100%
       .descriptionArea
-        width: $experienceListWidth - $iconAreaSize - 2*$listPadding
+        @media #{$notPhone}
+          width: $experienceListWidth - $iconAreaSize - 2*$listPadding
+        @media #{$phone}
+          width: 100%
         line-height: 2
         a
           color: $darkColor
@@ -66,6 +79,8 @@ section#experience
             font-size: $FONT_MEDIUM
           .dateRange
             padding-top: 11px
+            @media #{$phone}
+              float: left
             float: right
             font-size: $FONT_SMALL
         .description, .descriptionBullets

@@ -5,19 +5,31 @@ footer
   $footerHeight: 200px
   $footerTextColor: $LIGHT_GRAY
   background-color: $BLUE_BLACK
-  height: 100px
   font-size: $FONT_SMALL
-  padding: ($footerHeight - 5px) / 2 $footerHeight / 4
   color: $footerTextColor
-  .left
+  .links
     li
-      display: inline
-      &:not(:first-child)
-        padding-left: $linkSeparation
+      @media #{$notPhone}
+        display: inline
+        &:not(:first-child)
+          padding-left: $linkSeparation
+      padding-top: $linkSeparation
       transition: color $transitionSpeed
       &:hover
         color: $WHITE
+  @media #{$notPhone}
+    height: 100px
+    padding: ($footerHeight - 5px) / 2 $footerHeight / 4
     li + li:before
       color: $footerTextColor
       content: "|"
       padding-right: $linkSeparation
+    .links
+      float: left
+    .message
+      float: right
+  @media #{$phone}
+    text-align: center
+    padding: $linkSeparation 0
+    .message
+      padding: 2*$linkSeparation 0 $linkSeparation 0

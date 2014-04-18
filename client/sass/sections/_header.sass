@@ -8,6 +8,8 @@ header
 
   $boxWidth: 700px
   $boxHeight: 500px
+  // @media #{$phone}
+  //   $boxWidth: $phoneWidth
   .centerBox
     position: absolute
     left: 50%
@@ -21,11 +23,18 @@ header
       +title
       margin: 12px 0
       left: 4px
+      @media #{$phone}
+        font-size: $FONT_MEDIUM
+        line-height: 2
+        padding-bottom: 0
     .bio
       color: $DARK_RED
       font-size: $FONT_MEDIUM
       margin-bottom: 30px
       +fadein(300ms)
+      @media #{$phone}
+        font-size: $FONT_TINY
+        color: $WHITE
     ul
       +fadein(600ms)
     ul li
@@ -36,6 +45,8 @@ header
       transition: color $transitionSpeed ease
       &:hover
         color: $DARK_WHITE
+      @media #{$phone}
+        color: $WHITE
   .arrow
     position: absolute
     bottom: 10px
