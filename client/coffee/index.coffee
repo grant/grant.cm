@@ -25,10 +25,11 @@ $ ->
 
     # Set the pushState
     if sectionName != lastSectionName
-      title = 'Grant Timmerman'
+      title = ''
       if sectionName
-        title +=  ' — ' + ucfirst sectionName
-      url = sectionName
+        title += ucfirst sectionName + ' — '
+      title += 'Grant Timmerman'
+      url = sectionName || '/'
       History.pushState null, title, url
 
     # Update
