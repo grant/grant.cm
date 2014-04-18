@@ -42,11 +42,6 @@ app.listen app.get('port'), ->
 #
 routes = require '../routes'
 app.get '/', routes.index
-app.get '/about', routes.about
-
-# Error routes
-app.get '/404', routes.notFound
-app.get '/500', routes.serverError
 
 # Github page redirects
 app.redirect '/vidwall', 'http://grant.github.io/vidwall'

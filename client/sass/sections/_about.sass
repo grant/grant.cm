@@ -1,0 +1,54 @@
+//
+// About Section
+//
+
+section#about
+  background-color: $BLUE
+  color: $WHITE
+  > .title
+    +title
+    color: $WHITE
+
+  $profileTextWidth: 800px
+  .longBio
+    text-indent: 50px
+    width: $profileTextWidth
+    margin: 0 auto
+    font-size: $FONT_MEDIUM
+    padding-bottom: 1%
+    padding-left: 20px
+    line-height: 1.5
+    em, a
+      color: $DARK_BLUE
+  .experienceList
+    padding-top: 1%
+    & > li
+      overflow: hidden
+      padding: 1%
+      border-radius: 10px
+      transition: transform $transitionSpeed, background-color $transitionSpeed
+      &:hover
+        background-color: $DARK_RED
+        transform: translateX(5px)
+    .iconArea
+      width: 10%
+    .descriptionArea
+      width: 90%
+      padding-left: 2%
+      .titleBar
+        position: relative
+        padding-bottom: 0.5%
+        overflow: hidden
+        .title
+          float: left
+          font-size: $FONT_MEDIUM
+        .dateRange
+          float: right
+          font-size: $FONT_SMALL
+      .description, .descriptionBullets
+        font-size: $FONT_SMALL
+        line-height: 150%
+        list-style: disc
+        list-style-position: inside
+    .iconArea, .descriptionArea
+      float: left
