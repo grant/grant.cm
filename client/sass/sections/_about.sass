@@ -2,6 +2,8 @@
 // About Section
 //
 
+@import mixins/squareTile
+
 // Colors
 // $lightColor: $LIGHT_RED
 $color: $BLUE
@@ -33,7 +35,6 @@ section#about
     & > li
       overflow: hidden
       padding: 1%
-      border-radius: 10px
       transition: transform $transitionSpeed, background-color $transitionSpeed
       &:hover
         background-color: $darkColor
