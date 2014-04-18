@@ -5,7 +5,7 @@ module.exports = [
   description: 'Twitch Plays version of 2048.'
   notes: '100k+ plays'
   url:
-    demo: 'http://hnplays2048.herokuapp.com/'
+    demo: '/hnplays2048'
     github: 'https://github.com/grant/hnplays2048'
 ,
   id: 'milestone'
@@ -14,7 +14,7 @@ module.exports = [
   description: 'Find the path to your dream job.'
   notes: 'Won 1st place AngelHack, Seattle Fall 2013'
   url:
-    demo: 'http://www.milestoneapp.co/'
+    demo: '/milestone'
     github: 'https://github.com/grant/milestone'
 ,
   id: 'sudosoldiers'
@@ -22,7 +22,7 @@ module.exports = [
   img: 'png'
   description: 'An organization of UW hackers who teach each other dev skills.'
   url:
-    demo: 'http://students.washington.edu/uwsudo/'
+    demo: '/sudosoldiers'
     github: 'https://github.com/SudoSoldiers/Sudo-Soldiers-Website'
 ,
   id: 'thefourelements'
@@ -49,12 +49,12 @@ module.exports = [
     demo: '/vidwall'
     github: 'https://github.com/grant/vidwall'
 ,
-  id: 'glass'
+  id: 'glass-ocr'
   img: 'svg'
   title: 'Google Glass OCR'
   description: 'Recognize text via Glass.'
   url:
-    demo: 'https://vision-for-glass.appspot.com/'
+    demo: '/glass-ocr'
     github: 'https://github.com/colegleason/glass-ocr'
 ,
   id: 'areyouhungrynow'
@@ -70,6 +70,6 @@ module.exports = [
   img: 'svg'
   description: 'A simple classroom assignment manager.'
   url:
-    demo: 'https://www.youtube.com/watch?v=HL9exIwXvM0'
+    demo: '/acadee'
     github: 'https://github.com/grant/Acadee'
 ]

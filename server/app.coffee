@@ -54,6 +54,11 @@ app.redirect '/openacademy', 'http://grant.github.io/open-academy-map'
 app.redirect '/cellularwarfare', 'http://grant.github.io/cellularwarfare'
 app.redirect '/thefourelements', 'http://grant.github.io/thefourelements'
 app.redirect '/areyouhungrynow', 'https://www.youtube.com/watch?v=U0DQHoN3-MY'
+app.redirect '/acadee', 'https://www.youtube.com/watch?v=HL9exIwXvM0'
+app.redirect '/glass-ocr', 'https://vision-for-glass.appspot.com/'
+app.redirect '/sudosoldiers', 'http://students.washington.edu/uwsudo/'
+app.redirect '/hnplays2048', 'http://hnplays2048.herokuapp.com/'
+app.redirect '/milestone', 'http://www.milestoneapp.co/'
 
 #
 # Errors
