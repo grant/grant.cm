@@ -8,8 +8,6 @@ header
 
   $boxWidth: 700px
   $boxHeight: 500px
-  // @media #{$phone}
-  //   $boxWidth: $phoneWidth
   .centerBox
     position: absolute
     left: 50%
@@ -18,6 +16,9 @@ header
     height: $boxHeight
     margin-left: -$boxWidth/2
     margin-top: -$boxHeight/2
+    @media #{$phone}
+      width: $phoneWidth
+      margin-left: -$phoneWidth/2
     .name
       +fadein(0ms)
       +title
