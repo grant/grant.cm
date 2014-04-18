@@ -67,7 +67,7 @@ module.exports = [
 ,
   id: 'acadee'
   title: 'Acadee'
-  img: 'png'
+  img: 'svg'
   description: 'A simple classroom assignment manager.'
   url:
     demo: 'https://www.youtube.com/watch?v=HL9exIwXvM0'
