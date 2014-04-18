@@ -5,7 +5,6 @@ module.exports = [
   description: 'Twitch Plays version of 2048.'
   notes: '100k+ plays'
   url:
-    demo: '/hnplays2048'
     github: 'https://github.com/grant/hnplays2048'
 ,
   id: 'milestone'
@@ -14,7 +13,6 @@ module.exports = [
   description: 'Find the path to your dream job.'
   notes: 'Won 1st place AngelHack, Seattle Fall 2013'
   url:
-    demo: '/milestone'
     github: 'https://github.com/grant/milestone'
 ,
   id: 'sudosoldiers'
@@ -22,7 +20,6 @@ module.exports = [
   img: 'png'
   description: 'An organization of UW hackers who teach each other dev skills.'
   url:
-    demo: '/sudosoldiers'
     github: 'https://github.com/SudoSoldiers/Sudo-Soldiers-Website'
 ,
   id: 'thefourelements'
@@ -30,7 +27,6 @@ module.exports = [
   img: 'svg'
   description: 'Master the four elements by solving marble puzzles.'
   url:
-    demo: '/thefourelements'
     github: 'https://github.com/grant/thefourelements'
 ,
   id: 'cellularwarfare'
@@ -38,7 +34,6 @@ module.exports = [
   img: 'svg'
   description: 'Conquer the cell kingdom and evolve into an almighty cell!'
   url:
-    demo: '/cellularwarfare'
     github: 'https://github.com/grant/cellularwarfare'
 ,
   id: 'vidwall'
@@ -46,7 +41,6 @@ module.exports = [
   img: 'svg'
   description: 'Watch multiple videos instantly.'
   url:
-    demo: '/vidwall'
     github: 'https://github.com/grant/vidwall'
 ,
   id: 'glass-ocr'
@@ -54,7 +48,6 @@ module.exports = [
   title: 'Google Glass OCR'
   description: 'Recognize text via Glass.'
   url:
-    demo: '/glass-ocr'
     github: 'https://github.com/colegleason/glass-ocr'
 ,
   id: 'areyouhungrynow'
@@ -62,7 +55,6 @@ module.exports = [
   img: 'svg'
   description: 'Find people nearby who are hungry and grab lunch together.'
   url:
-    demo: '/areyouhungrynow'
     github: 'https://github.com/grant/areyouhungrynow'
 ,
   id: 'acadee'
@@ -70,6 +62,5 @@ module.exports = [
   img: 'svg'
   description: 'A simple classroom assignment manager.'
   url:
-    demo: '/acadee'
     github: 'https://github.com/grant/Acadee'
 ]
