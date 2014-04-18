@@ -9,6 +9,7 @@ uglify = require 'gulp-uglify'
 watch = require 'gulp-watch'
 coffee = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
+plumber = require 'gulp-plumber'
 prefix = require 'gulp-autoprefixer'
 
 src =
@@ -31,6 +32,7 @@ gulp.task 'coffee', ->
 
   # Browserify
   gulp.src src.coffee_index
+    .pipe plumber()
     .pipe coffee().on 'error', gutil.log
     .pipe browserify
       transform: ['coffeeify']
