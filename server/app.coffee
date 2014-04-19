@@ -41,7 +41,10 @@ app.listen app.get('port'), ->
 # Routes
 #
 routes = require '../routes'
-app.get ['/', '/about', '/projects', '/experience'], routes.index
+app.get '/' routes.index
+app.get '/about' routes.index
+app.get '/projects' routes.index
+app.get '/experience' routes.index
 
 # Github page redirects
 app.redirect '/vidwall', 'http://grant.github.io/vidwall'
