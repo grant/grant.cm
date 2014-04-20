@@ -16,11 +16,9 @@ src =
   coffee: ['gulpfile.coffee', 'client/coffee/**/*.coffee', 'server/**/*.coffee']
   coffee_index: 'client/coffee/index.coffee'
   css: 'client_build/css/**/*.css'
-  jade: 'views/partials/cards/**/*.jade'
 
 dest =
   css: 'client_build/css/'
-  jade: 'client/coffee/'
   coffee: 'client_build/js/'
 
 gulp.task 'coffee', ->
@@ -41,9 +39,6 @@ gulp.task 'coffee', ->
     .pipe uglify()
     .pipe gulp.dest dest.coffee
 
-gulp.task 'jade', ->
-  # Nothing for now
-
 gulp.task 'css', ->
   gulp.src src.css
     .pipe prefix()
@@ -52,6 +47,5 @@ gulp.task 'css', ->
 gulp.task 'watch', ->
   gulp.watch src.coffee, ['coffee']
   gulp.watch src.css, ['css']
-  gulp.watch src.jade, ['jade']
 
-gulp.task 'default', ['css', 'coffee', 'jade', 'watch']
+gulp.task 'default', ['css', 'coffee', 'watch']
