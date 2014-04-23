@@ -13,7 +13,8 @@ $ ->
   #
 
   # Setup
-  lastSectionName = undefined
+  lastSectionUrlName = undefined
+  lastSectionViewableName = undefined
   $sections = $ 'section'
 
   # Map from section id to y offset
@@ -28,27 +29,45 @@ $ ->
 
   $(window).scroll ->
     # Create a pseudo scrollTop
-    scrollTop = $(window).scrollTop() + $(window).height()/4
-    # Get the minimum section that  is greater than scrollTop
-    sectionName = (d for d, i of section).reduce (a,b) ->
+    scrollTopUrl = $(window).scrollTop() + $(window).height()/4
+    viewableScrollTop = $(window).scrollTop() + $(window).height()*(3/4)
+
+    # Get the current url section name
+    sectionUrlName = getCurrentSection scrollTopUrl
+    # Get the current viewable section name
+    sectionViewableName = getCurrentSection viewableScrollTop
+
+    # Set the pushState
+    if sectionUrlName != lastSectionUrlName
+      title = ''
+      if sectionUrlName
+        title += ucfirst sectionUrlName + ' — '
+      title += 'Grant Timmerman'
+      url = sectionUrlName || '/'
+      History.pushState null, title, url
+
+    # Set the visible section
+    if sectionViewableName != lastSectionViewableName
+      console.log 'go'
+      $('section#' + sectionViewableName).addClass 'show'
+
+    # Update
+    lastSectionUrlName = sectionUrlName
+    lastSectionViewableName = sectionViewableName
+
+  $(window).resize(() -> createSectionMap())
+
+  #
+  # Helper methods
+  #
+
+  # Get the minimum section that is greater than scrollTop
+  getCurrentSection = (scrollTop) ->
+    return (d for d, i of section).reduce (a,b) ->
       if section[b] < scrollTop && !(section[b] < section[a] < scrollTop)
         return b
       else if section[a] < scrollTop && !(section[a] < section[b] < scrollTop)
         return a
-
-    # Set the pushState
-    if sectionName != lastSectionName
-      title = ''
-      if sectionName
-        title += ucfirst sectionName + ' — '
-      title += 'Grant Timmerman'
-      url = sectionName || '/'
-      History.pushState null, title, url
-
-    # Update
-    lastSectionName = sectionName
-
-  $(window).resize(() -> createSectionMap())
 
   # Uppercase first letter (helper method)
   ucfirst = (str) ->
