@@ -10,12 +10,24 @@ $darkColor: $DARK_ORANGE
 section#about
   background-color: $color
   color: $WHITE
+
+  // Fade in
+  &.show
+    > .title
+      +fadein
+    .profile
+      +fadein(300ms)
+    .longBio
+      +fadein(600ms)
+
   > .title
+    opacity: 0
     +title
     color: $WHITE
 
   $profilePictureWidth: 200px
   .profile
+    opacity: 0
     width: $profilePictureWidth
     display: block
     margin: 0 auto
@@ -29,6 +41,7 @@ section#about
   $profileColumnWidth: 760px
   .longBio
     $bioPadding: 30px
+    opacity: 0
     text-indent: 50px
     width: $profileColumnWidth
     margin: 0 auto
