@@ -7,21 +7,24 @@ section#projects
   background: linear-gradient(#f9f9f9, #f3f3f3)
 
   // Fade in
-  &.show
-    > .title
-      +fadein
-    .cardLayout
-      @for $i from 0 to 30
-        > a:nth-child(#{$i}) .card
-          +fadein($i * 150ms + 200ms)
+  @media #{$notPhone}
+    &.show
+      > .title
+        +fadein
+      .cardLayout
+        @for $i from 0 to 30
+          > a:nth-child(#{$i}) .card
+            +fadein($i * 150ms + 200ms)
 
   > .title
-    opacity: 0
     +title
-  .cardLayout
-    .card
+    @media #{$notPhone}
       opacity: 0
+  .cardLayout
     margin-bottom: 20px
     position: relative
     text-align: center
+    @media #{$notPhone}
+      .card
+        opacity: 0
     @import cards/cards

@@ -14,31 +14,33 @@ section#experience
   color: $WHITE
 
   // Fade in
-  &.show
-    > .title
-      +fadein
-    .experienceList
-      @for $i from 0 to 10
-        > li:nth-child(#{$i})
-          +fadein($i * 250ms + 200ms)
+  @media #{$notPhone}
+    &.show
+      > .title
+        +fadein
+      .experienceList
+        @for $i from 0 to 10
+          > li:nth-child(#{$i})
+            +fadein($i * 250ms + 200ms)
 
   > .title
     +title
-    opacity: 0
     color: $WHITE
     @media #{$phone}
       font-size: $FONT_MEDIUM
+    @media #{$notPhone}
+      opacity: 0
   .experienceList
     @media #{$notPhone}
       width: $experienceListWidth
     $listPadding: 20px
     margin: 0 auto 2*$listPadding auto
     & > li
-      opacity: 0
       overflow: hidden
       border-radius: 10px
       padding: $listPadding
       @media #{$notPhone}
+        opacity: 0
         margin: 30px 0
         transition: transform $transitionSpeed, background-color $transitionSpeed
         .descriptionArea a

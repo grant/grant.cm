@@ -12,22 +12,23 @@ section#about
   color: $WHITE
 
   // Fade in
-  &.show
-    > .title
-      +fadein
-    .profile
-      +fadein(300ms)
-    .longBio
-      +fadein(600ms)
+  @media #{$notPhone}
+    &.show
+      > .title
+        +fadein
+      .profile
+        +fadein(300ms)
+      .longBio
+        +fadein(600ms)
 
   > .title
-    opacity: 0
     +title
     color: $WHITE
+    @media #{$notPhone}
+      opacity: 0
 
   $profilePictureWidth: 200px
   .profile
-    opacity: 0
     width: $profilePictureWidth
     display: block
     margin: 0 auto
@@ -37,11 +38,12 @@ section#about
     padding: 10px
     border: 2px rgba($lightColor, 0.5) dashed
     transform: rotate(-5deg)
+    @media #{$notPhone}
+      opacity: 0
 
   $profileColumnWidth: 760px
   .longBio
     $bioPadding: 30px
-    opacity: 0
     text-indent: 50px
     width: $profileColumnWidth
     margin: 0 auto
@@ -59,3 +61,5 @@ section#about
       width: 100%
       padding: $bioPadding
       font-size: $FONT_SMALL
+    @media #{$notPhone}
+      opacity: 0
