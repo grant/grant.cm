@@ -94,11 +94,12 @@ $transitionSpeed: 200ms
 $transitionSpeedSlow: 1000ms
 
 // Animations
+
 =fadein($delay: 0ms)
-  animation-name: fadein
-  animation-duration: $transitionSpeedSlow
-  animation-timing-function: ease-in-out
-  animation-delay: $delay
+  animation-name: fadein, glideDown
+  animation-duration: $transitionSpeedSlow, $transitionSpeedSlow
+  animation-timing-function: ease-in-out, ease-in-out
+  animation-delay: $delay, $delay
 
 @keyframes fadein
   from
@@ -114,6 +115,11 @@ $transitionSpeedSlow: 1000ms
   60%
     bottom: 15px
 
+@keyframes glideDown
+  from
+    transform: translateY(20px)
+  to
+    transform: translateY(0)
 
 // Media queries and responsive design
 $phone: "not all and (min-width: 1000px)"
