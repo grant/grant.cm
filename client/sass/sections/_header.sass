@@ -21,6 +21,7 @@ header
       margin-left: -$phoneWidth/2
     .name
       +fadein(0ms)
+      opacity: 0
       +title
       margin: 12px 0
       left: 4px
@@ -33,10 +34,12 @@ header
       font-size: $FONT_MEDIUM
       margin-bottom: 30px
       +fadein(300ms)
+      opacity: 0
       @media #{$phone}
         font-size: $FONT_TINY
     ul
       +fadein(600ms)
+      opacity: 0
     ul li
       font-size: $FONT_MEDIUM - 4px
       line-height: 2em
