@@ -1,6 +1,10 @@
 $ ->
   $cardLayout = $ '.cardLayout'
+
+  # Setup scrolling
   $('a').smoothScroll()
+  $('.arrow').click ->
+    $.smoothScroll scrollTarget: '#projects'
 
   #
   # Load pushState
@@ -29,8 +33,9 @@ $ ->
 
   checkScroll = (isInit) ->
     # Create a pseudo scrollTop
-    scrollTopUrl = $(window).scrollTop() + $(window).height()/4
-    viewableScrollTop = $(window).scrollTop() + $(window).height()*(3/4)
+    scrollTop = $(window).scrollTop()
+    scrollTopUrl = scrollTop + $(window).height()/4
+    viewableScrollTop = scrollTop + $(window).height()*(3/4)
 
     # Get the current url section name
     sectionUrlName = getCurrentSection scrollTopUrl
@@ -56,6 +61,10 @@ $ ->
     # Update
     lastSectionUrlName = sectionUrlName
     lastSectionViewableName = sectionViewableName
+
+    # Misc.
+    arrowAlpha = Math.max(Math.min((400 - scrollTop)/400, 1), 0)
+    $('.arrow').css opacity: arrowAlpha
 
   #
   # Helper methods

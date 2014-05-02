@@ -54,7 +54,11 @@ header
     width: 100px
     margin-left: -50px
     font-size: 50px
+    cursor: pointer
     color: rgba($WHITE, 0.3)
     animation: bounce 2s infinite
+    transition: color $transitionSpeed ease
     i
       +fadein(1000ms)
+    &:hover
+      color: rgba($WHITE, 0.8)
