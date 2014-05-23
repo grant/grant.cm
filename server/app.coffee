@@ -27,6 +27,7 @@ app.set 'view engine', 'jade'
 app.use express.favicon client_build + '/images/favicon.ico'
 app.use express.logger('dev')
 app.use express.bodyParser()
+app.use express.compress()
 app.use express.methodOverride()
 app.use express.static client_build
 app.use app.router
