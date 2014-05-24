@@ -58,6 +58,8 @@ app.redirect '/glass-ocr', 'https://vision-for-glass.appspot.com/'
 app.redirect '/sudosoldiers', 'http://students.washington.edu/uwsudo/'
 app.redirect '/hnplays2048', 'http://hnplays2048.herokuapp.com/'
 app.redirect '/milestone', 'http://www.milestoneapp.co/'
+app.redirect '/leappong', 'http://github.com/grant/leappong'
+app.redirect '/harmonic', 'http://github.com/grant/harmonic'
 
 #
 # Errors
