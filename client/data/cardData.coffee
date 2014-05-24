@@ -1,4 +1,20 @@
 module.exports = [
+  id: 'harmonic'
+  title: 'Harmonic'
+  img: 'svg'
+  description: 'A new way of discovering music with your friends.'
+  notes: 'Uses socket.io, express, SoundCloud, Redis, MongoDB and much more.'
+  url:
+    github: 'https://github.com/grant/harmonic'
+,
+  id: 'leappong'
+  title: 'Leap Pong'
+  img: 'svg'
+  description: 'Multiplayer pong game where you use your hands as paddles.'
+  notes: 'Uses socket.io, express, and the Leap Motion\'s JS SDK'
+  url:
+    github: 'https://github.com/grant/leappong'
+,
   id: 'hnplays2048'
   title: 'HN Plays 2048'
   img: 'png'
