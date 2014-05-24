@@ -10,7 +10,7 @@ $ npm start
 
 ### How to development (2 terminal tabs)
 ```
-$ cd sass
+$ cd shell
 $ sh sass.sh
 
 $ gulp
