@@ -15,6 +15,7 @@ prefix = require 'gulp-autoprefixer'
 src =
   coffee: ['gulpfile.coffee', 'client/coffee/**/*.coffee', 'server/**/*.coffee']
   coffee_index: 'client/coffee/index.coffee'
+  stylus: 'client/stylus/**/*.stylus'
   css: 'client_build/css/**/*.css'
 
 dest =
@@ -39,6 +40,9 @@ gulp.task 'coffee', ->
     .pipe uglify()
     .pipe gulp.dest dest.coffee
 
+gulp.task 'stylus', ->
+  # stylus
+
 gulp.task 'css', ->
   gulp.src src.css
     .pipe prefix()
@@ -48,4 +52,4 @@ gulp.task 'watch', ->
   gulp.watch src.coffee, ['coffee']
   gulp.watch src.css, ['css']
 
-gulp.task 'default', ['css', 'coffee', 'watch']
+gulp.task 'default', ['css', 'stylus', 'coffee', 'watch']
