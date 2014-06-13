@@ -1,16 +1,18 @@
 # Note: Don't try to use gulp-sass. It doesn't work.
 
-gulp = require 'gulp'
-gutil = require 'gulp-util'
-concat = require 'gulp-concat'
-declare = require 'gulp-declare'
 browserify = require 'gulp-browserify'
-uglify = require 'gulp-uglify'
-watch = require 'gulp-watch'
 coffee = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
+concat = require 'gulp-concat'
+declare = require 'gulp-declare'
+gulp = require 'gulp'
+gutil = require 'gulp-util'
 plumber = require 'gulp-plumber'
 prefix = require 'gulp-autoprefixer'
+stylus = require 'gulp-stylus'
+uglify = require 'gulp-uglify'
+watch = require 'gulp-watch'
+
 
 src =
   coffee: ['gulpfile.coffee', 'client/coffee/**/*.coffee', 'server/**/*.coffee']
