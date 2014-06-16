@@ -53,5 +53,6 @@ gulp.task 'css', ->
 gulp.task 'watch', ->
   gulp.watch src.coffee, ['coffee']
   gulp.watch src.css, ['css']
+  gulp.watch src.stylus, ['stylus']
 
 gulp.task 'default', ['css', 'stylus', 'coffee', 'watch']
