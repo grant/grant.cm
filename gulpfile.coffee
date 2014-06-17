@@ -43,7 +43,9 @@ gulp.task 'coffee', ->
     .pipe gulp.dest dest.coffee
 
 gulp.task 'stylus', ->
-  # stylus
+  gulp.src src.stylus
+    .pipe stylus()
+    .pipe gulp.dest dest.stylus
 
 gulp.task 'css', ->
   gulp.src src.css
