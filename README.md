@@ -4,17 +4,17 @@ grant.cm
 The website [grant.cm](http://grant.cm)
 
 ### How to start server
-```
+
+```sh
 $ npm start
 ```
 
-### How to development (2 terminal tabs)
-```
-$ cd shell
-$ sh sass.sh
+### How to development
 
+```sh
 $ gulp
 ```
+
 ### Built with
 
 - :coffee: Coffeescript
