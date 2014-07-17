@@ -1,4 +1,11 @@
 module.exports = [
+#   id: 'socket.io'
+#   title: 'socket.io chat'
+#   img: 'png'
+#   description: 'Official chat demo for socket.io'
+#   url:
+#     github: 'https://github.com/Automattic/socket.io/tree/master/examples/chat'
+# ,
 #   id: 'dubhacks'
 #   title: 'Dubhacks'
 #   img: 'png'
