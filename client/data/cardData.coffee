@@ -6,6 +6,13 @@ module.exports = [
 #   url:
 #     github: 'https://github.com/karan/navi'
 # ,
+#   id: 'speekr'
+#   title: 'Speekr'
+#   img: 'svg'
+#   description: 'Perfect your foreign language accent'
+#   url:
+#     github: 'https://github.com/karan/speekr'
+# ,
 #   id: 'socket.io'
 #   title: 'socket.io chat'
 #   img: 'png'
