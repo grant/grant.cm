@@ -1,4 +1,11 @@
 module.exports = [
+#   id: 'navi'
+#   title: 'navi'
+#   img: 'png'
+#   description: 'Learn to code together.'
+#   url:
+#     github: 'https://github.com/karan/navi'
+# ,
 #   id: 'socket.io'
 #   title: 'socket.io chat'
 #   img: 'png'
