@@ -1,30 +1,28 @@
-@import global
-
 header
   background-color: $RED
   height: 100%
   overflow: hidden
   text-align: center
 
-  $boxWidth: 700px
-  $boxHeight: 500px
+  $boxWidth = 700px
+  $boxHeight = 500px
   .centerBox
     position: absolute
     left: 50%
     top: 50%
     width: $boxWidth
     height: $boxHeight
-    margin-left: -$boxWidth/2
-    margin-top: -$boxHeight/2
-    @media #{$phone}
+    margin-left: -($boxWidth/2)
+    margin-top: -($boxHeight/2)
+    @media $phone
       width: $phoneWidth
-      margin-left: -$phoneWidth/2
+      margin-left: -($phoneWidth/2)
     .name
-      +fadein(0ms)
-      +title
+      fadein(0ms)
+      title()
       margin: 12px 0
       left: 4px
-      @media #{$phone}
+      @media $phone
         font-size: $FONT_MEDIUM
         line-height: 2
         padding-bottom: 0
@@ -32,11 +30,11 @@ header
       color: $DARK_RED
       font-size: $FONT_MEDIUM
       margin-bottom: 30px
-      +fadein(300ms)
-      @media #{$phone}
+      fadein(300ms)
+      @media $phone
         font-size: $FONT_TINY
     ul
-      +fadein(600ms)
+      fadein(600ms)
     ul li
       font-size: $FONT_MEDIUM - 4px
       line-height: 2em
@@ -45,7 +43,7 @@ header
       transition: color $transitionSpeed ease
       &:hover
         color: $DARK_WHITE
-      @media #{$phone}
+      @media $phone
         color: $WHITE
   .arrow
     position: absolute
@@ -59,6 +57,6 @@ header
     animation: bounce 2s infinite
     transition: color $transitionSpeed ease
     i
-      +fadein(1000ms)
+      fadein(1000ms)
     &:hover
       color: rgba($WHITE, 0.8)

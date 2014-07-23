@@ -1,27 +1,27 @@
-@import global
-@import reset
+@import "../global"
+@import "../reset"
 
 // Colors
-$lightColor: $LIGHT_RED
-$color: $RED
-$darkColor: $DARK_RED
+$lightColor = $LIGHT_RED
+$color = $RED
+$darkColor = $DARK_RED
 
 body
   background-color: $color
-  +title-font
+  title-font()
   color: $WHITE
 
-$boxWidth: 600px
-$boxHeight: 400px
+$boxWidth = 600px
+$boxHeight = 400px
 .center
   position: absolute
   left: 50%
   top: 50%
   width: $boxWidth
   height: $boxHeight
-  margin-left: -$boxWidth / 2
-  margin-top: -$boxHeight / 2
-  +fadein
+  margin-left: -($boxWidth/2)
+  margin-top: -($boxHeight/2)
+  fadein()
 
 .errorMessage
   padding-bottom: 30px
@@ -52,4 +52,4 @@ a
   &:hover
     border-bottom: 2px $WHITE solid
 .home
-  +text-font
+  text-font()

@@ -1,7 +1,7 @@
 // CSS for cards
 
 .card
-  $cardSpacing: 30px
+  $cardSpacing = 30px
   display: inline-block
   margin: $cardSpacing
   position: relative
@@ -13,9 +13,9 @@
   border-radius: 5px
   color: $WHITE
   transition: transform $transitionSpeed
-  @media #{$phone}
-    margin: $cardSpacing/2 $cardSpacing
-    width: calc(100% - #{2*$cardSpacing})
+  @media $phone
+    margin: ($cardSpacing/2) $cardSpacing
+    width: calc(100% - (2*$cardSpacing))
   @media (min-width: 600px)
     width: 300px
     margin: $cardSpacing
@@ -51,31 +51,33 @@
 
 
   // Custom CSS
-  =card($bgcolor)
+  card($bgcolor)
     background-color: $bgcolor
     .textArea
       background-color: darken($bgcolor, 10%)
 
-  +card(red)
+  card(red)
   &#harmonic
-    +card(rgb(232, 132, 59))
+    card(rgb(232, 132, 59))
   &#leappong
-    +card(rgb(179, 214, 117))
+    card(rgb(179, 214, 117))
   &#hnplays2048
-    +card(rgb(241, 182, 5))
+    card(rgb(241, 182, 5))
   &#milestone
-    +card(rgb(153, 82, 138))
+    card(rgb(153, 82, 138))
   &#thefourelements
-    +card(rgb(115, 50, 42))
+    card(rgb(115, 50, 42))
   &#cellularwarfare
-    +card(rgb(65, 109, 234))
+    card(rgb(65, 109, 234))
   &#vidwall
-    +card(rgb(196, 76, 62))
+    card(rgb(196, 76, 62))
   &#glass-ocr
-    +card(rgb(42, 36, 35))
+    card(rgb(42, 36, 35))
   &#areyouhungrynow
-    +card(rgb(132, 193, 160))
+    card(rgb(132, 193, 160))
   &#sudosoldiers
-    +card($BLACK)
+    card($BLACK)
   &#acadee
-    +card($AQUA)
+    card($AQUA)
+  &#dubhacks
+    card(rgb(57, 39, 91))

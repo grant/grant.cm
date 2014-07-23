@@ -1,15 +1,15 @@
 @import global
 
 footer
-  $linkSeparation: 30px
-  $footerHeight: 200px
-  $footerTextColor: $LIGHT_GRAY
+  $linkSeparation = 30px
+  $footerHeight = 200px
+  $footerTextColor = $LIGHT_GRAY
   background-color: $BLUE_BLACK
   font-size: $FONT_SMALL
   color: $footerTextColor
   .links
     li
-      @media #{$notPhone}
+      @media $notPhone
         display: inline
         &:not(:first-child)
           padding-left: $linkSeparation
@@ -17,9 +17,9 @@ footer
       transition: color $transitionSpeed
       &:hover
         color: $WHITE
-  @media #{$notPhone}
+  @media $notPhone
     height: 100px
-    padding: ($footerHeight - 5px) / 2 $footerHeight / 4
+    padding: (($footerHeight - 5px)/2) ($footerHeight/4)
     li + li:before
       color: $footerTextColor
       content: "|"
@@ -28,7 +28,7 @@ footer
       float: left
     .message
       float: right
-  @media #{$phone}
+  @media $phone
     text-align: center
     padding: $linkSeparation 0
     .message

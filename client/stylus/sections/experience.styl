@@ -2,44 +2,44 @@
 // About Section
 //
 
-@import mixins/squareTile
+@import "../mixins/squareTile"
 
 // Colors
-$color: $DARK_BLUE
-$darkColor: $BLUE
+$color = $DARK_BLUE
+$darkColor = $BLUE
 
-$experienceListWidth: 1000px
+$experienceListWidth = 1000px
 section#experience
   background-color: $color
   color: $WHITE
 
   // Fade in
-  @media #{$notPhone}
+  @media $notPhone
     &.show
       > .title
-        +fadein
+        fadein
       .experienceList
-        @for $i from 0 to 10
-          > li:nth-child(#{$i})
-            +fadein($i * 250ms + 200ms)
+        for $i in (0..10)
+          > li:nth-child({$i})
+            fadein($i * 250ms + 200ms)
 
   > .title
-    +title
+    title
     color: $WHITE
-    @media #{$phone}
+    @media $phone
       font-size: $FONT_MEDIUM
-    @media #{$notPhone}
+    @media $notPhone
       opacity: 0
   .experienceList
-    @media #{$notPhone}
+    @media $notPhone
       width: $experienceListWidth
-    $listPadding: 20px
-    margin: 0 auto 2*$listPadding auto
+    $listPadding = 20px
+    margin 0 auto (2*$listPadding) auto
     & > li
       overflow: hidden
       border-radius: 10px
       padding: $listPadding
-      @media #{$notPhone}
+      @media $notPhone
         opacity: 0
         margin: 30px 0
         transition: transform $transitionSpeed, background-color $transitionSpeed
@@ -63,24 +63,24 @@ section#experience
             float: right
           .descriptionArea
             padding-right: 30px
-      @media #{$phone}
+      @media $phone
         margin: 0 auto
         width: 100%
 
-      $iconAreaSize: 200px
-      $iconSize: 0.8
+      $iconAreaSize = 200px
+      $iconSize = 0.8
       .iconArea
-        @media #{$notPhone}
+        @media $notPhone
           width: $iconAreaSize
-          padding: (1 - $iconSize)/2 * $iconAreaSize
-        @media #{$phone}
+          padding: ((1 - $iconSize)/2) * $iconAreaSize
+        @media $phone
           width: 100%
           max-width: 200px
           margin: 0 auto
       .descriptionArea
-        @media #{$notPhone}
+        @media $notPhone
           width: $experienceListWidth - $iconAreaSize - 2*$listPadding
-        @media #{$phone}
+        @media $phone
           width: 100%
           padding-top: 10px
         line-height: 2
@@ -96,7 +96,7 @@ section#experience
             font-size: $FONT_MEDIUM
           .dateRange
             padding-top: 11px
-            @media #{$phone}
+            @media $phone
               padding-top: 0
               float: left
             @media (min-width: 600px)

@@ -3,31 +3,31 @@
 //
 
 // Colors
-$lightColor: $LIGHT_ORANGE
-$color: $ORANGE
-$darkColor: $DARK_ORANGE
+$lightColor = $LIGHT_ORANGE
+$color = $ORANGE
+$darkColor = $DARK_ORANGE
 
 section#about
   background-color: $color
   color: $WHITE
 
   // Fade in
-  @media #{$notPhone}
+  @media $notPhone
     &.show
       > .title
-        +fadein
+        fadein()
       .profile
-        +fadein(300ms)
+        fadein(300ms)
       .longBio
-        +fadein(600ms)
+        fadein(600ms)
 
   > .title
-    +title
+    title()
     color: $WHITE
-    @media #{$notPhone}
+    @media $notPhone
       opacity: 0
 
-  $profilePictureWidth: 200px
+  $profilePictureWidth = 200px
   .profile
     width: $profilePictureWidth
     display: block
@@ -37,12 +37,12 @@ section#about
     margin-bottom: 20px
     padding: 10px
     border: 2px rgba($lightColor, 0.5) dashed
-    @media #{$notPhone}
+    @media $notPhone
       opacity: 0
 
-  $profileColumnWidth: 760px
+  $profileColumnWidth = 760px
   .longBio
-    $bioPadding: 30px
+    $bioPadding = 30px
     text-indent: 50px
     width: $profileColumnWidth
     margin: 0 auto
@@ -56,9 +56,9 @@ section#about
       transition: color $transitionSpeed
       &:hover
         color: $darkColor
-    @media #{$phone}
+    @media $phone
       width: 100%
       padding: $bioPadding
       font-size: $FONT_SMALL
-    @media #{$notPhone}
+    @media $notPhone
       opacity: 0

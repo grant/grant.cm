@@ -20,14 +20,14 @@ module.exports = [
 #   url:
 #     github: 'https://github.com/Automattic/socket.io/tree/master/examples/chat'
 # ,
-#   id: 'dubhacks'
-#   title: 'Dubhacks'
-#   img: 'png'
-#   description: 'Largest hackathon in the Northwest.'
-#   notes: 'Beautiful website for describing this annual event.'
-#   url:
-#     github: 'https://github.com/dubhacks/dubhacks.github.io'
-# ,
+  id: 'dubhacks'
+  title: 'Dubhacks'
+  img: 'png'
+  description: 'Largest hackathon in the Northwest.'
+  notes: 'Beautiful website for describing this annual event.'
+  url:
+    github: 'https://github.com/dubhacks/dubhacks.github.io'
+,
   id: 'harmonic'
   title: 'Harmonic'
   img: 'svg'

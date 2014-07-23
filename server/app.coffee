@@ -6,6 +6,9 @@ redirect = require 'express-redirect'
 consolidate = require 'consolidate'
 http = require 'http'
 path = require 'path'
+favicon = require 'serve-favicon'
+compression = require 'compression'
+methodOverride = require 'method-override'
 
 # Common directories
 rootDir = __dirname + '/../'
@@ -24,16 +27,10 @@ app.locals.basedir = app.get 'views'
 app.set 'view engine', 'jade'
 
 # Other
-app.use express.favicon client_build + '/images/favicon.ico'
-app.use express.logger('dev')
-app.use express.bodyParser()
-app.use express.compress()
-app.use express.methodOverride()
+app.use favicon client_build + '/images/favicon.ico'
+app.use compression()
+app.use methodOverride()
 app.use express.static client_build
-app.use app.router
-
-# development only
-app.use express.errorHandler() if 'development' is app.get('env')
 
 app.listen app.get('port'), ->
   console.log 'Express server listening on port ' + app.get('port')
@@ -60,6 +57,7 @@ app.redirect '/hnplays2048', 'http://hnplays2048.herokuapp.com/'
 app.redirect '/milestone', 'http://www.milestoneapp.co/'
 app.redirect '/leappong', 'http://github.com/grant/leappong'
 app.redirect '/harmonic', 'http://github.com/grant/harmonic'
+app.redirect '/dubhacks', 'http://dubhacks.co/'
 
 #
 # Errors
