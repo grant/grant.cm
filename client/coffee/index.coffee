@@ -55,7 +55,10 @@ $ ->
 
     # Set the visible section
     if changeURL || changeVisibleState || isInit
-      selector = ['section#' + sectionViewableName, 'section#' + sectionUrlName].join ', '
+      selector = [
+        'section#' + sectionViewableName
+        'section#' + sectionUrlName
+      ].join ', '
       $(selector).addClass 'show'
 
     # Update

@@ -60,6 +60,7 @@ app.redirect '/harmonic', 'http://github.com/grant/harmonic'
 app.redirect '/dubhacks', 'http://dubhacks.co/'
 app.redirect '/socketio', 'http://socket.io/demos/chat/'
 app.redirect '/speekr', 'https://speekr.herokuapp.com'
+app.redirect '/navi', 'http://gonavi.me/'
 
 #
 # Errors

@@ -1,11 +1,11 @@
 module.exports = [
-#   id: 'navi'
-#   title: 'navi'
-#   img: 'png'
-#   description: 'Learn to code together.'
-#   url:
-#     github: 'https://github.com/karan/navi'
-# ,
+  id: 'navi'
+  title: 'navi'
+  img: 'svg'
+  description: 'Learn to code together.'
+  url:
+    github: 'https://github.com/karan/navi'
+,
   id: 'speekr'
   title: 'Speekr'
   img: 'png'
