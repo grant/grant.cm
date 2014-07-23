@@ -58,6 +58,7 @@ app.redirect '/milestone', 'http://www.milestoneapp.co/'
 app.redirect '/leappong', 'http://github.com/grant/leappong'
 app.redirect '/harmonic', 'http://github.com/grant/harmonic'
 app.redirect '/dubhacks', 'http://dubhacks.co/'
+app.redirect '/socketio', 'http://socket.io/demos/chat/'
 
 #
 # Errors
