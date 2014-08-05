@@ -17,14 +17,14 @@ section#experience
   @media $notPhone
     &.show
       > .title
-        fadein
+        fadein()
       .experienceList
         for $i in (0..10)
           > li:nth-child({$i})
             fadein($i * 250ms + 200ms)
 
   > .title
-    title
+    title()
     color: $WHITE
     @media $phone
       font-size: $FONT_MEDIUM
