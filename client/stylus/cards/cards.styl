@@ -14,11 +14,11 @@
   color: $WHITE
   transition: transform $transitionSpeed
   @media $phone
-    margin: ($cardSpacing/2) $cardSpacing
-    width: calc(100% - (2*$cardSpacing))
-  @media (min-width: 600px)
-    width: 300px
-    margin: $cardSpacing
+    margin ($cardSpacing/2) $cardSpacing
+    width "calc(100% - %s)" % (2*$cardSpacing)
+  @media (min-width 600px)
+    width 300px
+    margin $cardSpacing
 
   &:hover
     transform: scale(1.1)
