@@ -1,4 +1,25 @@
 module.exports = [
+#  id: 'babytracker'
+#  title: 'Baby Tracker'
+#  img: 'svg'
+#  description: 'Check up on your baby from afar'
+#  url:
+#    github: 'https://github.com/grant/herder'
+#,
+#  id: 'herder'
+#  title: 'Herder'
+#  img: 'svg'
+#  description: 'Analytics for Uber drivers to maximize their revenue'
+#  url:
+#    github: 'https://github.com/grant/herder'
+#,
+#  id: 'awear'
+#  title: 'Awear'
+#  img: 'svg'
+#  description: 'Contextually aware wearables'
+#  url:
+#    github: 'https://github.com/karan/awear'
+#,
   id: 'navi'
   title: 'navi'
   img: 'svg'
