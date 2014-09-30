@@ -19,6 +19,6 @@ $ gulp
 
 - :coffee: Coffeescript
 - :cloud: Express
-- :lipstick: Sass
+- :lipstick: Stylus
 - :gem: Jade
 - :tropical_fish: Gulp
