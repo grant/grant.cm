@@ -1,4 +1,11 @@
 module.exports = [
+#  id: 'productgrunt'
+#  title: 'Product Grunt'
+#  img: 'png'
+#  description: 'The worst old products, every day'
+#  url:
+#    github: 'https://productgrunt.com'
+#,
 #  id: 'babytracker'
 #  title: 'Baby Tracker'
 #  img: 'svg'
