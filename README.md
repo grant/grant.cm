@@ -9,10 +9,10 @@ The website [grant.cm](http://grant.cm)
 $ npm start
 ```
 
-### How to development
+### How to develop
 
 ```sh
-$ gulp
+$ coffeegulp
 ```
 
 ### Built with
