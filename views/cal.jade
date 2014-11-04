@@ -4,6 +4,9 @@ block css
   link(rel="stylesheet" href='css/pages/cal.css')
 
 block js
+  script(src="js/jquery.min.js")
+  script.
+    $('.cal').html('<iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23ea5f4e&amp;src=granttimmerman%40gmail.com&amp;color=%232952A3&amp;ctz=America%2FLos_Angeles" frameborder="0" scrolling="no"></iframe>');
   include includes/ga
 
 block content
