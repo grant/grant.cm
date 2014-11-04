@@ -44,6 +44,8 @@ app.get '/about', routes.index
 app.get '/projects', routes.index
 app.get '/experience', routes.index
 
+app.get '/cal', routes.cal
+
 # Github page redirects
 app.redirect '/vidwall', 'http://grant.github.io/vidwall'
 app.redirect '/openacademy', 'http://grant.github.io/open-academy-map'
