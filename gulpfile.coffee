@@ -1,5 +1,3 @@
-# Note: Don't try to use gulp-sass. It doesn't work.
-
 browserify = require 'gulp-browserify'
 coffee = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
