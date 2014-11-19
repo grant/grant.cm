@@ -1,7 +1,6 @@
 browserify = require 'gulp-browserify'
 coffee = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
-declare = require 'gulp-declare'
 gulp = require 'gulp'
 gutil = require 'gulp-util'
 plumber = require 'gulp-plumber'
