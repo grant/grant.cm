@@ -13,19 +13,19 @@ module.exports = [
 #  url:
 #    github: 'https://productgrunt.com'
 #,
-#  id: 'babytracker'
-#  title: 'Baby Tracker'
+#  id: 'safebaby'
+#  title: 'SafeBaby'
 #  img: 'svg'
 #  description: 'Check up on your baby from afar'
 #  url:
-#    github: 'https://github.com/grant/herder.co'
+#    github: 'http://challengepost.com/software/safebaby'
 #,
 #  id: 'herder'
 #  title: 'Herder'
 #  img: 'svg'
 #  description: 'Analytics for Uber drivers to maximize their revenue'
 #  url:
-#    github: 'https://github.com/grant/herder'
+#    github: 'https://github.com/grant/herder.co'
 #,
 #  id: 'awear'
 #  title: 'Awear'
