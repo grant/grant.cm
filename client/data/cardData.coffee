@@ -18,7 +18,7 @@ module.exports = [
 #  img: 'svg'
 #  description: 'Check up on your baby from afar'
 #  url:
-#    github: 'https://github.com/grant/herder'
+#    github: 'https://github.com/grant/herder.co'
 #,
 #  id: 'herder'
 #  title: 'Herder'
