@@ -1,63 +1,63 @@
 header
-  background-color: $RED
-  height: 100%
-  overflow: hidden
-  text-align: center
+  background-color $RED
+  height 100%
+  overflow hidden
+  text-align center
 
   $boxWidth = 700px
   $boxHeight = 500px
   .centerBox
-    position: absolute
-    left: 50%
-    top: 50%
-    width: $boxWidth
-    height: $boxHeight
-    margin-left: -($boxWidth/2)
-    margin-top: -($boxHeight/2)
+    position absolute
+    left 50%
+    top 50%
+    width $boxWidth
+    height $boxHeight
+    margin-left ($boxWidth/-2)
+    margin-top ($boxHeight/-2)
     @media $phone
-      width: $phoneWidth
-      margin-left: -($phoneWidth/2)
+      width phoneWidth
+      margin-left (phoneWidth/-2)
     .name
       fadein(0ms)
       title()
       font-size $FONT_XLARGE
-      margin: 12px 0
-      left: 4px
+      margin 12px 0
+      left 4px
       @media $phone
-        font-size: $FONT_MEDIUM
-        line-height: 2
-        padding-bottom: 0
+        font-size $FONT_MEDIUM
+        line-height 2
+        padding-bottom 0
     .bio
-      color: $DARK_RED
-      font-size: $FONT_MEDIUM
-      margin-bottom: 30px
+      color $DARK_RED
+      font-size $FONT_MEDIUM
+      margin-bottom 30px
       fadein(300ms)
       @media $phone
-        font-size: $FONT_TINY
+        font-size $FONT_TINY
     ul
       fadein(600ms)
     ul li
-      font-size: $FONT_MEDIUM
-      line-height: 2em
-      letter-spacing: 2px
-      color: $DARK_RED
-      transition: color $transitionSpeed ease
+      font-size $FONT_MEDIUM
+      line-height 2em
+      letter-spacing 2px
+      color $DARK_RED
+      transition color $transitionSpeed ease
       &:hover
-        color: $DARK_WHITE
+        color $DARK_WHITE
       @media $phone
-        color: $WHITE
+        color $WHITE
   .arrow
-    position: absolute
-    bottom: 10px
-    left: 50%
-    width: 100px
-    margin-left: -50px
-    font-size: 50px
-    cursor: pointer
-    color: rgba($WHITE, 0.3)
-    animation: bounce 2s infinite
-    transition: color $transitionSpeed ease
+    position absolute
+    bottom 10px
+    left 50%
+    width 100px
+    margin-left -50px
+    font-size 50px
+    cursor pointer
+    color rgba($WHITE, 0.3)
+    animation bounce 2s infinite
+    transition color $transitionSpeed ease
     i
       fadein(1000ms)
-    &:hover
-      color: rgba($WHITE, 0.8)
+    &hover
+      color rgba($WHITE, 0.8)
