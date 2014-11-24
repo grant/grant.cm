@@ -5,6 +5,8 @@ $ ->
   $('a').smoothScroll()
   $('.arrow').click ->
     $.smoothScroll scrollTarget: '#projects'
+  $('section > .title').click ->
+    $.smoothScroll(scrollTarget: '#' + $(this).parent().attr('id'))
 
   #
   # Load pushState
