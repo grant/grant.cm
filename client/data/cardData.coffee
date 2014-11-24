@@ -23,7 +23,7 @@ module.exports = [
     demo: 'http://productgrunt.com'
 ,
   id: 'safebaby'
-  title: 'Safe Baby'
+  title: 'SafeBaby'
   img: 'png'
   description: 'Check up on your baby from afar'
   url:
