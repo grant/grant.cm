@@ -3,7 +3,7 @@
 #
 
 # The home page
-module.exports = 
+module.exports =
   index: (req, res) ->
     params =
       css: ['index']

@@ -6,41 +6,42 @@ module.exports = [
 #  url:
 #    github: 'http://grant.github.io/issues'
 #,
-#  id: 'rollen'
-#  title: 'Rollen'
-#  img: 'png'
-#  description: 'Find movies with your friends'
-#  url:
-#    github: 'https://rollen.co'
-#,
-#  id: 'productgrunt'
-#  title: 'Product Grunt'
-#  img: 'png'
-#  description: 'The worst old products, every day'
-#  url:
-#    github: 'https://productgrunt.com'
-#,
-#  id: 'safebaby'
-#  title: 'SafeBaby'
-#  img: 'svg'
-#  description: 'Check up on your baby from afar'
-#  url:
-#    github: 'http://challengepost.com/software/safebaby'
-#,
-#  id: 'herder'
-#  title: 'Herder'
-#  img: 'svg'
-#  description: 'Analytics for Uber drivers to maximize their revenue'
-#  url:
-#    github: 'https://github.com/grant/herder.co'
-#,
-#  id: 'awear'
-#  title: 'Awear'
-#  img: 'svg'
-#  description: 'Contextually aware wearables'
-#  url:
-#    github: 'https://github.com/karan/awear'
-#,
+ id: 'rollen'
+ title: 'Rollen'
+ img: 'png'
+ description: 'Find movies with your friends'
+ url:
+   github: 'https://rollen.co'
+,
+ id: 'productgrunt'
+ title: 'Product Grunt'
+ img: 'png'
+ description: 'The worst old products, every day'
+ url:
+   github: 'https://productgrunt.com'
+,
+ id: 'safebaby'
+ title: 'SafeBaby'
+ img: 'svg'
+ description: 'Check up on your baby from afar'
+ url:
+   github: 'http://challengepost.com/software/safebaby'
+,
+ id: 'herder'
+ title: 'Herder'
+ img: 'svg'
+ description: 'Analytics for Uber drivers to maximize their revenue'
+ url:
+   github: 'https://github.com/grant/herder.co'
+   youtube: 'http://youtu.be/TqmjlwX4RLk'
+,
+ id: 'awear'
+ title: 'Awear'
+ img: 'svg'
+ description: 'Contextually aware wearables'
+ url:
+   github: 'https://github.com/karan/awear'
+,
   id: 'navi'
   title: 'navi'
   img: 'svg'
