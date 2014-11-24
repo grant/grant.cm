@@ -47,22 +47,11 @@ app.get '/experience', routes.index
 app.get '/cal', routes.cal
 
 # Github page redirects
-app.redirect '/vidwall', 'http://grant.github.io/vidwall'
-app.redirect '/openacademy', 'http://grant.github.io/open-academy-map'
-app.redirect '/cellularwarfare', 'http://grant.github.io/cellularwarfare'
-app.redirect '/thefourelements', 'http://grant.github.io/thefourelements'
-app.redirect '/areyouhungrynow', 'https://www.youtube.com/watch?v=U0DQHoN3-MY'
-app.redirect '/acadee', 'https://www.youtube.com/watch?v=HL9exIwXvM0'
-app.redirect '/glass-ocr', 'https://vision-for-glass.appspot.com/'
-app.redirect '/sudosoldiers', 'http://students.washington.edu/uwsudo/'
-app.redirect '/hnplays2048', 'http://hnplays2048.herokuapp.com/'
-app.redirect '/milestone', 'http://www.milestoneapp.co/'
-app.redirect '/leappong', 'http://github.com/grant/leappong'
-app.redirect '/harmonic', 'http://github.com/grant/harmonic'
-app.redirect '/dubhacks', 'http://dubhacks.co/'
-app.redirect '/socketio', 'http://socket.io/demos/chat/'
-app.redirect '/speekr', 'https://speekr.herokuapp.com'
-app.redirect '/navi', 'http://gonavi.me/'
+cardData = require '../client/data/cardData'
+for project in cardData
+  from = "/#{project.id}"
+  to = project.url.demo || project.url.github
+  app.redirect from, to
 
 #
 # Errors
