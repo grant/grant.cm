@@ -22,7 +22,7 @@ module.exports = [
 ,
  id: 'safebaby'
  title: 'SafeBaby'
- img: 'svg'
+ img: 'png'
  description: 'Check up on your baby from afar'
  url:
    github: 'http://challengepost.com/software/safebaby'
@@ -33,7 +33,7 @@ module.exports = [
  description: 'Analytics for Uber drivers to maximize their revenue'
  url:
    github: 'https://github.com/grant/herder.co'
-   youtube: 'http://youtu.be/TqmjlwX4RLk'
+   youtube: 'http://youtu.be/8LZUNBag_Ok'
 ,
  id: 'awear'
  title: 'Awear'

@@ -1,60 +1,60 @@
 // CSS for cards
 
 .card
-  $cardSpacing = 30px
-  display: inline-block
-  margin: $cardSpacing
-  position: relative
-  width: 300px
-  height: 300px
-  overflow: hidden
+  cardSpacing = 30px
+  display inline-block
+  margin cardSpacing
+  position relative
+  width 300px
+  height 300px
+  overflow hidden
 
-  text-align: center
-  border-radius: 5px
-  color: $WHITE
-  transition: transform $transitionSpeed
+  text-align center
+  border-radius 5px
+  color $WHITE
+  transition transform $transitionSpeed
   @media $phone
-    margin ($cardSpacing/2) $cardSpacing
-    width "calc(100% - %s)" % (2*$cardSpacing)
+    margin (cardSpacing * 0.5) cardSpacing
+    width "calc(100% - %s)" % (2*cardSpacing)
   @media (min-width 600px)
     width 300px
-    margin $cardSpacing
+    margin cardSpacing
 
   &:hover
-    transform: scale(1.1)
+    transform scale(1.1)
 
   .photo
-    position: absolute
-    top: 40px
-    left: 0
-    right: 0
-    margin: auto
-    width: 140px
+    position absolute
+    top 40px
+    left 0
+    right 0
+    margin auto
+    width 140px
 
   .textArea
-    position: absolute
-    bottom: 0
-    width: 100%
-    text-align: left
-    padding: 10px 10px 20px 10px
+    position absolute
+    bottom 0
+    width 100%
+    text-align left
+    padding 10px 10px 20px 10px
     .title
-      font-size: $FONT_SMALL
-      font-weight: 700
-      padding-bottom: 10px
-      transition: color $transitionSpeed
+      font-size $FONT_SMALL
+      font-weight 700
+      padding-bottom 10px
+      transition color $transitionSpeed
       &:after
-        padding-left: 10px
-        content: '»'
+        padding-left 10px
+        content '»'
     .description
-      font-size: $FONT_TINY
-      line-height: 1.5
+      font-size $FONT_TINY
+      line-height 1.5
 
 
   // Custom CSS
   card($bgcolor)
-    background-color: $bgcolor
+    background-color $bgcolor
     .textArea
-      background-color: darken($bgcolor, 10%)
+      background-color darken($bgcolor, 10%)
 
   card(red)
   &#harmonic
@@ -88,7 +88,7 @@
   &#navi
     card(rgb(29, 233, 197))
   &#awear
-    card(rgb(25, 25, 29))
+    card(rgb(21, 188, 221))
   &#herder
     card(rgb(255, 80, 87))
   &#safebaby
@@ -97,3 +97,5 @@
     card(rgb(17, 17, 17))
   &#rollen
     card(rgb(69, 16, 27))
+    .photo
+      width 180px
