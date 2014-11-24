@@ -1,26 +1,26 @@
-@import "../global"
-@import "../reset"
+@import '../global'
+@import '../reset'
 
 // Colors
-$lightColor = $LIGHT_RED
-$color = $RED
-$darkColor = $DARK_RED
+lightColor = $LIGHT_RED
+baseColor = $RED
+darkColor = $DARK_RED
 
 body
-  background-color $color
+  background-color baseColor
   title-font()
   color $WHITE
 
-$boxWidth = 600px
-$boxHeight = 400px
+boxWidth = 600px
+boxHeight = 400px
 .center
   position absolute
   left 50%
   top 50%
-  width $boxWidth
-  height $boxHeight
-  margin-left -($boxWidth/2)
-  margin-top -($boxHeight/2)
+  width boxWidth
+  height boxHeight
+  margin-left -(boxWidth/2)
+  margin-top -(boxHeight/2)
   fadein()
 
 .errorMessage
@@ -31,17 +31,17 @@ $boxHeight = 400px
   left -70px
   top -30px
   font-size $FONT_XHUGE
-  color $lightColor
+  color lightColor
 .errorCode
   font-size $FONT_LARGE
-  color $darkColor
+  color darkColor
   padding-bottom 60px
 
 hr
   width 56% // line up with 404 text
   margin-left 0
   border none
-  border-top 1px $darkColor solid
+  border-top 1px darkColor solid
   padding-bottom 10px
 
 a

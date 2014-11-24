@@ -3,8 +3,8 @@
 //
 
 section#projects
-  background-color: $DARK_WHITE
-  background: linear-gradient(#f9f9f9, #f3f3f3)
+  background-color $DARK_WHITE
+  background linear-gradient(#f9f9f9, #f3f3f3)
 
   // Fade in
   @media $notPhone
@@ -19,12 +19,12 @@ section#projects
   > .title
     title()
     @media $notPhone
-      opacity: 0
+      opacity 0
   .cardLayout
-    margin-bottom: 20px
-    position: relative
-    text-align: center
+    margin-bottom 20px
+    position relative
+    text-align center
     @media $notPhone
       .card
-        opacity: 0
+        opacity 0
     @import "../cards/cards"

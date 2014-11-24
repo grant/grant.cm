@@ -3,13 +3,13 @@
 //
 
 // Colors
-$lightColor = $LIGHT_ORANGE
-$color = $ORANGE
-$darkColor = $DARK_ORANGE
+lightColor = $LIGHT_ORANGE
+baseColor = $ORANGE
+darkColor = $DARK_ORANGE
 
 section#about
-  background-color: $color
-  color: $WHITE
+  background-color baseColor
+  color $WHITE
 
   // Fade in
   @media $notPhone
@@ -23,42 +23,42 @@ section#about
 
   > .title
     title()
-    color: $WHITE
+    color $WHITE
     @media $notPhone
-      opacity: 0
+      opacity 0
 
   $profilePictureWidth = 200px
   .profile
-    width: $profilePictureWidth
-    display: block
-    margin: 0 auto
-    text-align: center
-    border-radius: 50%
-    margin-bottom: 20px
-    padding: 10px
-    border: 2px rgba($lightColor, 0.5) dashed
+    width $profilePictureWidth
+    display block
+    margin 0 auto
+    text-align center
+    border-radius 50%
+    margin-bottom 20px
+    padding 10px
+    border 2px rgba(lightColor, 0.5) dashed
     @media $notPhone
-      opacity: 0
+      opacity 0
 
   $profileColumnWidth = 760px
   .longBio
     $bioPadding = 30px
-    text-indent: 50px
-    width: $profileColumnWidth
-    margin: 0 auto
-    font-size: $FONT_MEDIUM
-    line-height: 1.5
-    padding-bottom: $bioPadding
-    padding-left: 15px
+    text-indent 50px
+    width $profileColumnWidth
+    margin 0 auto
+    font-size $FONT_MEDIUM
+    line-height 1.5
+    padding-bottom $bioPadding
+    padding-left 15px
     em, a
-      color: $lightColor
+      color lightColor
     a
-      transition: color $transitionSpeed
+      transition color $transitionSpeed
       &:hover
-        color: $darkColor
+        color darkColor
     @media $phone
-      width: 100%
-      padding: $bioPadding
-      font-size: $FONT_SMALL
+      width 100%
+      padding $bioPadding
+      font-size $FONT_SMALL
     @media $notPhone
-      opacity: 0
+      opacity 0

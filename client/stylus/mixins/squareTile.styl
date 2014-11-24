@@ -1,41 +1,32 @@
 // How to make a percentage-based square tile
 // http://stackoverflow.com/questions/5445491/height-equal-to-dynamic-width-css-fluid-layout
 .squareTile
-  $borderRadius = 5%
-  position: relative
-  width: 100%
-  border-radius: $borderRadius
-  overflow: hidden
+  borderRadius = 5%
+  position relative
+  width 100%
+  border-radius borderRadius
+  overflow hidden
   &:before
-    content: ""
-    display: block
-    padding-top: 100%
+    content ""
+    display block
+    padding-top 100%
   .content
-    position: absolute
-    top: 0
-    left: 0
-    bottom: 0
-    right: 0
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    right 0
     // Curved edges
-    border-radius: $borderRadius
-    overflow: hidden
+    border-radius borderRadius
+    overflow hidden
   .svg
-    width: 100%
-    height: 100%
-  // TODO: Move this somewhere else
+    width 100%
+    height 100%
+  // TODO Move this somewhere else
   &.nor1
-    background-color: rgb(73, 78, 84)
-    padding: .1%
+    background-color rgb(73, 78, 84)
+    padding .1%
     img
-      width: 90%
-      margin-top: 25%
-      margin-left: 5%
-  &.github
-    background: linear-gradient(#f9f9f9, #f3f3f3)
-    .svg
-      padding: 20%
-  &.email
-    background: $ORANGE
-    .png
-      padding-top: 25px
-      width: 60%
+      width 90%
+      margin-top 25%
+      margin-left 5%
