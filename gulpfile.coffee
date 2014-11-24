@@ -14,13 +14,12 @@ minify = require 'gulp-minify-css'
 src =
   coffee: ['gulpfile.coffee', 'client/coffee/**/*.coffee', 'server/**/*.coffee']
   coffee_index: 'client/coffee/index.coffee'
-  stylus: 'client/stylus/pages/*.styl'
-  css: 'client_build/css/**/*.css'
+  stylus: 'client/stylus/**/*.styl'
+  stylus_index: 'client/stylus/pages/*.styl'
 
 dest =
-  css: 'client_build/css/'
+  stylus: 'client_build/css/pages/'
   coffee: 'client_build/js/'
-  stylus: 'client_build/css/pages'
 
 gulp.task 'coffee', ->
   # Lint
@@ -41,19 +40,14 @@ gulp.task 'coffee', ->
     .pipe gulp.dest dest.coffee
 
 gulp.task 'stylus', ->
-  gulp.src src.stylus
+  gulp.src src.stylus_index
     .pipe stylus()
-    .pipe gulp.dest dest.stylus
-
-gulp.task 'css', ->
-  gulp.src src.css
     .pipe prefix()
     .pipe minify()
-    .pipe gulp.dest dest.css
+    .pipe gulp.dest dest.stylus
 
 gulp.task 'watch', ->
   gulp.watch src.coffee, ['coffee']
-  gulp.watch src.css, ['css']
   gulp.watch src.stylus, ['stylus']
 
-gulp.task 'default', ['stylus', 'css', 'coffee', 'watch']
+gulp.task 'default', ['stylus', 'coffee', 'watch']
