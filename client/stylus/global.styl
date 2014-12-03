@@ -8,33 +8,33 @@
 
 // Main Colors
 //
-// $DARK_BLUE: rgb(45, 62, 82)
-// $BLUE_BLACK: rgb(45, 62, 82)
+// DARK_BLUE: rgb(45, 62, 82)
+// BLUE_BLACK: rgb(45, 62, 82)
 
-$WHITE = rgb(255, 255, 255)
-$DARK_WHITE = rgb(235, 235, 235)
-$LIGHT_GRAY = rgb(190, 190, 190)
-$GRAY = rgb(119, 119, 119)
-$DARK_GRAY = rgb(65, 64, 61)
-$LIGHT_BLACK = rgb(34, 34, 34)
-$BLACK = rgb(24, 24, 24)
+WHITE = rgb(255, 255, 255)
+DARK_WHITE = rgb(235, 235, 235)
+LIGHT_GRAY = rgb(190, 190, 190)
+GRAY = rgb(119, 119, 119)
+DARK_GRAY = rgb(65, 64, 61)
+LIGHT_BLACK = rgb(34, 34, 34)
+BLACK = rgb(24, 24, 24)
 
-$BROWN = rgb(119, 107, 93)
+BROWN = rgb(119, 107, 93)
 
-$LIGHT_RED = rgb(242, 144, 135)
-$RED = rgb(234, 95, 78)
-$DARK_RED = rgb(210, 57, 52)
-$LIGHT_ORANGE = lighten(rgb(232, 132, 59), 40%)
-$ORANGE = rgb(232, 132, 59)
-$DARK_ORANGE = rgb(172, 82, 39)
-$YELLOW = rgb(255, 236, 132)
-$GREEN = rgb(138, 192, 158)
-$DARK_GREEN = rgb(116, 141, 120)
-$AQUA = rgb(100, 200, 200)
-$BLUE = rgb(145, 207, 215)
-$DARK_BLUE = rgb(73, 161, 167)
-$BLUE_BLACK = rgb(45, 62, 82)
-$PURPLE = rgb(183, 143, 216)
+LIGHT_RED = rgb(242, 144, 135)
+RED = rgb(234, 95, 78)
+DARK_RED = rgb(210, 57, 52)
+LIGHT_ORANGE = lighten(rgb(232, 132, 59), 40%)
+ORANGE = rgb(232, 132, 59)
+DARK_ORANGE = rgb(172, 82, 39)
+YELLOW = rgb(255, 236, 132)
+GREEN = rgb(138, 192, 158)
+DARK_GREEN = rgb(116, 141, 120)
+AQUA = rgb(100, 200, 200)
+BLUE = rgb(145, 207, 215)
+DARK_BLUE = rgb(73, 161, 167)
+BLUE_BLACK = rgb(45, 62, 82)
+PURPLE = rgb(183, 143, 216)
 
 // Font
 font-light()
@@ -45,14 +45,14 @@ font-dark()
   color #666666
 
 // Font size
-$FONT_XHUGE = 130px
-$FONT_HUGE = 100px
-$FONT_XXLARGE = 80px
-$FONT_XLARGE = 50px
-$FONT_LARGE = 40px
-$FONT_MEDIUM = 26px
-$FONT_SMALL = 16px
-$FONT_TINY = 12px
+FONT_XHUGE = 130px
+FONT_HUGE = 100px
+FONT_XXLARGE = 80px
+FONT_XLARGE = 50px
+FONT_LARGE = 40px
+FONT_MEDIUM = 26px
+FONT_SMALL = 16px
+FONT_TINY = 12px
 
 // Font family
 @font-face
@@ -71,31 +71,26 @@ text-font()
 title-font()
   font-family "Montserrat", "Helvetica Neue", Arial, sans-serif
 title()
-  color $LIGHT_BLACK
+  color LIGHT_BLACK
   title-font()
   font-weight 700
-  font-size $FONT_LARGE
+  font-size FONT_LARGE
   letter-spacing 9px
   text-transform uppercase
   text-align center
   padding 40px 0
 
-// Other
-$cardMargin = 1%
-$sectionMargin = 2%
-$sideMargin = 1%
-
 // Transition
-$transitionSpeedFast = 100ms
-$transitionSpeed = 200ms
-$transitionSpeedSlow = 1000ms
+transitionSpeedFast = 100ms
+transitionSpeed = 200ms
+transitionSpeedSlow = 1000ms
 
 // Animations
-fadein($delay = 0ms)
+fadein(delay = 0ms)
   animation-name fadein, glideDown
-  animation-duration $transitionSpeedSlow, $transitionSpeedSlow
+  animation-duration transitionSpeedSlow, transitionSpeedSlow
   animation-timing-function ease-in-out, ease-in-out
-  animation-delay $delay, $delay
+  animation-delay delay, delay
   animation-fill-mode forwards, none
 
 @keyframes fadein
@@ -117,15 +112,15 @@ fadein($delay = 0ms)
     transform translateY(0)
 
 // Media queries and responsive design
-$phone = "not all and (min-width: 1000px)"
-$notPhone = "all and (min-width: 1000px)"
+phone = "not all and (min-width: 1000px)"
+notPhone = "all and (min-width: 1000px)"
 
-// $phone: "all and (max-width: 600px)"
+// phone: "all and (max-width: 600px)"
 // $mobile: "all and (min-width: 1000px)"
 // $notMobile: "not all and (min-width: 1000px)"
-// $notPhone: "all and (min-width: 600px)"
+// notPhone: "all and (min-width: 600px)"
 
-// $notPhone: "all and (min-width : 1024px)"
+// notPhone: "all and (min-width : 1024px)"
 // $tablet: "all and (min-width: 321px) and (max-width: 1024px)"
 // $wideScreen: "all and (min-width: 1024px)"
 

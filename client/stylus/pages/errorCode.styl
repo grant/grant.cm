@@ -2,14 +2,14 @@
 @import '../reset'
 
 // Colors
-lightColor = $LIGHT_RED
-baseColor = $RED
-darkColor = $DARK_RED
+lightColor = LIGHT_RED
+baseColor = RED
+darkColor = DARK_RED
 
 body
   background-color baseColor
   title-font()
-  color $WHITE
+  color WHITE
 
 boxWidth = 600px
 boxHeight = 400px
@@ -25,15 +25,15 @@ boxHeight = 400px
 
 .errorMessage
   padding-bottom 30px
-  font-size $FONT_XXLARGE
+  font-size FONT_XXLARGE
 .quoteMark
   position absolute
   left -70px
   top -30px
-  font-size $FONT_XHUGE
+  font-size FONT_XHUGE
   color lightColor
 .errorCode
-  font-size $FONT_LARGE
+  font-size FONT_LARGE
   color darkColor
   padding-bottom 60px
 
@@ -46,10 +46,10 @@ hr
 
 a
   font-style italic
-  transition border-bottom-color $transitionSpeed
+  transition border-bottom-color transitionSpeed
   border-bottom 2px transparent solid
   padding-bottom 2px
   &hover
-    border-bottom 2px $WHITE solid
+    border-bottom 2px WHITE solid
 .home
   text-font()

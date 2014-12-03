@@ -3,16 +3,16 @@
 //
 
 // Colors
-lightColor = $LIGHT_ORANGE
-baseColor = $ORANGE
-darkColor = $DARK_ORANGE
+lightColor = LIGHT_ORANGE
+baseColor = ORANGE
+darkColor = DARK_ORANGE
 
 section#about
   background-color baseColor
-  color $WHITE
+  color WHITE
 
   // Fade in
-  @media $notPhone
+  @media notPhone
     &.show
       > .title
         fadein()
@@ -23,8 +23,8 @@ section#about
 
   > .title
     title()
-    color $WHITE
-    @media $notPhone
+    color WHITE
+    @media notPhone
       opacity 0
 
   $profilePictureWidth = 200px
@@ -37,7 +37,7 @@ section#about
     margin-bottom 20px
     padding 10px
     border 2px rgba(lightColor, 0.5) dashed
-    @media $notPhone
+    @media notPhone
       opacity 0
 
   $profileColumnWidth = 760px
@@ -46,19 +46,19 @@ section#about
     text-indent 50px
     width $profileColumnWidth
     margin 0 auto
-    font-size $FONT_MEDIUM
+    font-size FONT_MEDIUM
     line-height 1.5
     padding-bottom $bioPadding
     padding-left 15px
     em, a
       color lightColor
     a
-      transition color $transitionSpeed
+      transition color transitionSpeed
       &:hover
         color darkColor
-    @media $phone
+    @media phone
       width 100%
       padding $bioPadding
-      font-size $FONT_SMALL
-    @media $notPhone
+      font-size FONT_SMALL
+    @media notPhone
       opacity 0
