@@ -1,8 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Selected_Items" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" width="400px" height="400px" viewBox="0 0 400 400" enable-background="new 0 0 400 400" xml:space="preserve">
-<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="232.5,181.75 232.5,105 288.7,105 288.7,312 232.5,312 
-	232.5,227.6 167.5,227.6 167.5,312 111.25,312 111.25,105 167.5,105 167.5,181.75 "/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M232.5 181.75V105h56.2v207h-56.2v-84.4h-65V312h-56.25V105h56.25v76.75z"/></svg>
