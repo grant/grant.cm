@@ -1,3 +1,5 @@
+require './jquery'
+
 $ ->
   $cardLayout = $ '.cardLayout'
 
@@ -53,7 +55,8 @@ $ ->
         title += ucfirst sectionUrlName + ' — '
       title += 'Grant Timmerman'
       url = sectionUrlName || '/'
-      History.pushState null, title, url
+      $(document).prop 'title', title
+      history.pushState null, title, url
 
     # Set the visible section
     if changeURL || changeVisibleState || isInit

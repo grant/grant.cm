@@ -15,6 +15,15 @@ $ npm start
 $ coffeegulp
 ```
 
+### Gulp tasks
+
+- `gulp`: Builds and watches for changed files
+- `gulp build`: Compiles and builds the generated files
+- `gulp watch`: Watches files
+- `gulp coffee`: Lints coffeescript and browserifies client coffeescript
+- `gulp stylus`: Compiles stylus
+- `gulp image`: Minifies images
+
 ### Built with
 
 - :coffee: Coffeescript

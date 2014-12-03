@@ -1,6 +1,7 @@
 .DS_STORE
 .sass-cache
 node_modules
+client_build
 *.log
 .c9
 .idea

@@ -10,12 +10,11 @@ pngquant = require 'imagemin-pngquant'
 prefix = require 'gulp-autoprefixer'
 stylus = require 'gulp-stylus'
 uglify = require 'gulp-uglify'
-watch = require 'gulp-watch'
 
 
 src =
   coffee: ['gulpfile.coffee', 'client/coffee/**/*.coffee', 'server/**/*.coffee']
-  coffee_index: 'client/coffee/index.coffee'
+  coffee_index: ['client/coffee/index.coffee', 'client/coffee/cal.coffee']
   image: 'client/images/**/*'
   stylus: 'client/stylus/**/*.styl'
   stylus_index: 'client/stylus/pages/*.styl'
@@ -24,6 +23,8 @@ dest =
   coffee: 'client_build/js/'
   image: 'client_build/images/'
   stylus: 'client_build/css/pages/'
+
+gulp.task 'build', ['coffee', 'image', 'stylus']
 
 gulp.task 'coffee', ->
   # Lint
@@ -63,4 +64,4 @@ gulp.task 'watch', ->
   gulp.watch src.image, ['image']
   gulp.watch src.stylus, ['stylus']
 
-gulp.task 'default', ['coffee', 'image', 'stylus', 'watch']
+gulp.task 'default', ['build', 'watch']
