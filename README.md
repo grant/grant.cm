@@ -1,5 +1,4 @@
-grant.cm
-==================
+# grant.cm
 
 The website [grant.cm](http://grant.cm)
 
