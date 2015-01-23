@@ -1,4 +1,8 @@
 module.exports = [
+#  id: 'snappo'
+#,
+#  id: 'hawk'
+#,
 #  id: 'githubissues'
 #  title: 'Github Issues'
 #  img: 'png'
