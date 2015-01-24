@@ -11,7 +11,7 @@ $ npm start
 ### How to develop
 
 ```sh
-$ coffeegulp
+$ gulp
 ```
 
 ### Gulp tasks
