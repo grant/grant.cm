@@ -3,13 +3,13 @@ module.exports = [
 #,
 #  id: 'hawk'
 #,
-#  id: 'githubissues'
-#  title: 'Github Issues'
-#  img: 'png'
-#  description: 'A redesign of Github Issues'
-#  url:
-#    github: 'http://grant.github.io/issues'
-#,
+ id: 'issues'
+ title: 'Github Issues'
+ img: 'png'
+ description: 'A redesign of Github Issues'
+ url:
+   github: 'http://grant.github.io/issues'
+,
   id: 'rollen'
   title: 'Rollen'
   img: 'png'
