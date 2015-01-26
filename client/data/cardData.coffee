@@ -1,8 +1,12 @@
 module.exports = [
-#  id: 'snappo'
-#,
-#  id: 'hawk'
-#,
+  id: 'snappo'
+  title: 'Snappo'
+  img: 'png'
+  description: 'Snappo is a location-based social media app for taking selfies.'
+  url:
+    demo: 'http://challengepost.com/software/snappo'
+    github: 'https://github.com/grant/snappo'
+,
   id: 'hawk'
   title: 'Hawk'
   img: 'svg'
