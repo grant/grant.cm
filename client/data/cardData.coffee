@@ -3,12 +3,20 @@ module.exports = [
 #,
 #  id: 'hawk'
 #,
- id: 'issues'
- title: 'Github Issues'
- img: 'png'
- description: 'A redesign of Github Issues'
- url:
-   github: 'http://grant.github.io/issues'
+  id: 'hawk'
+  title: 'Hawk'
+  img: 'svg'
+  description: 'A parental monitoring app that allows you to easily check-in on your teen driver.'
+  url:
+    demo: 'http://challengepost.com/software/hawk-zi0fw'
+    github: 'https://github.com/grant/hawk'
+,
+  id: 'issues'
+  title: 'Github Issues'
+  img: 'png'
+  description: 'A redesign of Github Issues'
+  url:
+    github: 'http://grant.github.io/issues'
 ,
   id: 'rollen'
   title: 'Rollen'
