@@ -1,4 +1,12 @@
 module.exports = [
+#   id: 'capture'
+#   title: 'Capture'
+#   img: 'svg'
+#   description: 'Capture is an iOS app that allows you to generate websites from hand-drawn mocks.'
+#   url:
+#     demo: 'http://treehackswinter2015.challengepost.com/submissions/33360-capture'
+#     github: 'https://github.com/grant/capture'
+# ,
   id: 'snappo'
   title: 'Snappo'
   img: 'png'
