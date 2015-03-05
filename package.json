@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "0.12.0",
-    "npm": "1.4.12"
+    "npm": "2.7.0"
   },
   "description": "The home page for Grant Timmerman -- grant.cm",
   "homepage": "http://www.grant.cm/",
