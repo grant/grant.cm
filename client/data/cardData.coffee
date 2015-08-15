@@ -1,4 +1,11 @@
 module.exports = [
+#   id: 'dubhacksii'
+#   title: 'DubHacks II'
+#   img: 'svg'
+#   description: 'DubHacks round 2.'
+#   url:
+#     github: 'https://github.com/dubhacks/15f'
+# ,
 #   id: 'capture'
 #   title: 'Capture'
 #   img: 'svg'
