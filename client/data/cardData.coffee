@@ -1,4 +1,12 @@
 module.exports = [
+  id: 'algodb'
+  title: 'AlgoDB'
+  img: 'svg'
+  description: 'A search engine for algorithms.'
+  url:
+    demo: 'https://medium.com/@granttimmerman/algodb-a-search-engine-for-algorithms-ff56dee0617d#.ih0caqob7'
+    github: 'https://github.com/xkxx/throwtable'
+,
   id: 'dubhacks15f'
   title: 'DubHacks 2015'
   img: 'svg'
