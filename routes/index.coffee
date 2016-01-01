@@ -11,3 +11,5 @@ module.exports =
     res.render 'index', params
   cal: (req, res) ->
     res.render 'cal'
+  resume: (req, res) ->
+    res.render 'resume'

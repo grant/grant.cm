@@ -1,0 +1,11 @@
+extends layout
+
+block css
+  link(rel="stylesheet" href='/css/pages/resume.css')
+
+block js
+  include includes/ga
+
+block content
+  .pageContent
+    iframe(src='//grant.github.io/resume/Grant_Timmerman_Resume.pdf')

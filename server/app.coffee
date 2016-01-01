@@ -45,6 +45,7 @@ app.get '/projects', routes.index
 app.get '/experience', routes.index
 
 app.get '/cal', routes.cal
+app.get '/resume', routes.resume
 
 # Github page redirects
 cardData = require '../client/data/cardData'
