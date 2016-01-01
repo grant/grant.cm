@@ -1,12 +1,12 @@
 module.exports = [
-#   id: '15f.dubhacks'
-#   title: 'DubHacks Fall 2015'
-#   img: 'svg'
-#   description: 'The second annual DubHack hackathon.'
-#   url:
-#     demo: 'http://15f.dubhacks.co/'
-#     github: 'https://github.com/dubhacks/15f'
-# ,
+  id: 'dubhacks15f'
+  title: 'DubHacks 2015'
+  img: 'svg'
+  description: 'Directed the second annual DubHack hackathon.'
+  url:
+    demo: 'http://15f.dubhacks.co/'
+    github: 'https://github.com/dubhacks/15f'
+,
 #   id: 'capture'
 #   title: 'Capture'
 #   img: 'svg'
@@ -34,7 +34,7 @@ module.exports = [
   id: 'issues'
   title: 'Github Issues'
   img: 'png'
-  description: 'A redesign of Github Issues'
+  description: 'A mobile redesign of Github Issues'
   url:
     github: 'http://grant.github.io/issues'
 ,
@@ -103,14 +103,14 @@ module.exports = [
     github: 'https://github.com/Automattic/socket.io/tree/master/examples/chat'
     demo: 'http://socket.io/demos/chat/'
 ,
-  id: 'dubhacks'
-  title: 'Dubhacks'
+  id: 'dubhacks14f'
+  title: 'Dubhacks 2014'
   img: 'png'
-  description: 'Largest hackathon in the Northwest.'
+  description: 'Founded the largest hackathon in the Pacific Northwest.'
   notes: 'Beautiful website for describing this annual event.'
   url:
-    github: 'https://github.com/dubhacks/dubhacks.github.io'
-    demo: 'http://dubhacks.co/'
+    github: 'https://github.com/dubhacks/14f'
+    demo: 'http://14f.dubhacks.co/'
 ,
   id: 'harmonic'
   title: 'Harmonic'
