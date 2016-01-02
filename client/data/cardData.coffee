@@ -7,6 +7,22 @@ module.exports = [
     demo: 'https://medium.com/@granttimmerman/algodb-a-search-engine-for-algorithms-ff56dee0617d#.ih0caqob7'
     github: 'https://github.com/xkxx/throwtable'
 ,
+  id: 'eagleeye'
+  title: 'Eagle Eye'
+  img: 'svg'
+  description: 'Keep an eye on the flights of friends and family.'
+  url:
+    demo: 'http://devpost.com/software/eagle-eye'
+    github: 'https://github.com/grant/eagleeye'
+,
+  id: 'harbor'
+  title: 'Harbor'
+  img: 'png'
+  description: 'A College Party Safety Kit'
+  url:
+    demo: 'http://devpost.com/software/harbor-7hbfag'
+    github: 'https://github.com/grant/harbor'
+,
   id: 'dubhacks15f'
   title: 'DubHacks 2015'
   img: 'svg'
@@ -15,14 +31,22 @@ module.exports = [
     demo: 'http://15f.dubhacks.co/'
     github: 'https://github.com/dubhacks/15f'
 ,
-#   id: 'capture'
-#   title: 'Capture'
-#   img: 'svg'
-#   description: 'Capture is an iOS app that allows you to generate websites from hand-drawn mocks.'
-#   url:
-#     demo: 'http://treehackswinter2015.challengepost.com/submissions/33360-capture'
-#     github: 'https://github.com/grant/capture'
-# ,
+  id: 'nestvacationtracker'
+  title: 'Nest Vacation Tracker'
+  img: 'svg'
+  description: 'Save money by automattically turning off Nest when on vacation.'
+  url:
+    demo: 'http://devpost.com/software/nest-vacation-saver'
+    github: 'https://github.com/yarabarla/Nest-Vacation-Tracker'
+,
+  id: 'capture'
+  title: 'Capture'
+  img: 'svg'
+  description: 'Capture is an iOS app that allows you to generate websites from hand-drawn mocks.'
+  url:
+    demo: 'http://treehackswinter2015.challengepost.com/submissions/33360-capture'
+    github: 'https://github.com/grant/capture'
+,
   id: 'snappo'
   title: 'Snappo'
   img: 'png'
