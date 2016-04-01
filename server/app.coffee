@@ -30,7 +30,7 @@ app.set 'view engine', 'jade'
 app.use favicon client_build + '/images/favicon.ico'
 app.use compression()
 app.use methodOverride()
-app.use express.static client_build
+app.use express.static(client_build, maxAge: 86400000)
 
 app.listen app.get('port'), ->
   console.log 'Express server listening on port ' + app.get('port')
