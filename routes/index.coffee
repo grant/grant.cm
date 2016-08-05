@@ -13,3 +13,5 @@ module.exports =
     res.render 'cal'
   resume: (req, res) ->
     res.render 'resume'
+  jokes: (req, res) ->
+    res.render 'jokes'
