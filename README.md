@@ -6,6 +6,7 @@ The website [grant.cm](http://grant.cm)
 
 ```sh
 npm start
+open http://localhost:3000
 ```
 
 ### How to develop
