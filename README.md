@@ -5,13 +5,19 @@ The website [grant.cm](http://grant.cm)
 ### How to start server
 
 ```sh
-$ npm start
+npm start
 ```
 
 ### How to develop
 
 ```sh
-$ gulp
+gulp
+```
+
+### How to deploy
+
+```sh
+git push heroku master
 ```
 
 ### Gulp tasks
