@@ -1,3 +1,4 @@
+module.exports = `
 https://keybase.io/grant
 --------------------------------------------------------------------
 
@@ -49,3 +50,4 @@ And finally, I am proving ownership of this host by posting or
 appending to this document.
 
 View my publicly-auditable identity here: https://keybase.io/grant
+`;
