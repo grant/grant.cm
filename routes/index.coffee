@@ -15,5 +15,7 @@ module.exports =
     res.render 'resume'
   jokes: (req, res) ->
     res.render 'jokes'
+  dinner: (req, res) ->
+    res.render 'dinner'
   keybase: (req, res) ->
     res.send require './keybase'
