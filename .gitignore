@@ -4,4 +4,3 @@ client_build
 *.log
 .c9
 .idea
-*.lock
