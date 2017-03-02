@@ -18,6 +18,7 @@ gulp
 ### How to deploy
 
 ```sh
+heroku git:remote -a granttimmerman
 git push heroku master
 ```
 
