@@ -2,7 +2,7 @@
 
 footer
   linkSeparation = 15px
-  footerHeight = 200px
+  footerHeight = 30px
   footerTextColor = LIGHT_GRAY
   background-color BLUE_BLACK
   font-size FONT_SMALL
@@ -13,13 +13,12 @@ footer
         display inline
         &:not(:first-child)
           padding-left linkSeparation
-      padding-top linkSeparation
       transition color transitionSpeed
       &:hover
         color WHITE
   @media notPhone
-    height 100px
-    padding ((footerHeight - 5px)/2) (footerHeight/4)
+    height footerHeight * 2
+    padding footerHeight
     li + li:before
       color footerTextColor
       content "|"
@@ -29,7 +28,9 @@ footer
     .message
       float right
   @media phone
+    padding-top 15px
     text-align center
-    padding linkSeparation 0
+    li
+      padding-bottom 5px
     .message
-      padding 2*linkSeparation 0 linkSeparation 0
+      padding linkSeparation 0 linkSeparation 0

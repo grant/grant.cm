@@ -1,16 +1,8 @@
-//
-// Global styles
-//
-
-//
-// Colors
-//
-
-// Main Colors
-//
-// DARK_BLUE: rgb(45, 62, 82)
-// BLUE_BLACK: rgb(45, 62, 82)
-
+// # Global styles
+// ## Colors
+// ### Main Colors
+// - DARK_BLUE: rgb(45, 62, 82)
+// - BLUE_BLACK: rgb(45, 62, 82)
 WHITE = rgb(255, 255, 255)
 DARK_WHITE = rgb(235, 235, 235)
 LIGHT_GRAY = rgb(190, 190, 190)
@@ -18,9 +10,7 @@ GRAY = rgb(119, 119, 119)
 DARK_GRAY = rgb(65, 64, 61)
 LIGHT_BLACK = rgb(34, 34, 34)
 BLACK = rgb(24, 24, 24)
-
 BROWN = rgb(119, 107, 93)
-
 LIGHT_RED = rgb(242, 144, 135)
 RED = rgb(234, 95, 78)
 DARK_RED = rgb(210, 57, 52)
@@ -36,7 +26,7 @@ DARK_BLUE = rgb(73, 161, 167)
 BLUE_BLACK = rgb(45, 62, 82)
 PURPLE = rgb(183, 143, 216)
 
-// Font
+// ## Font
 font-light()
   font-weight 100
   color #cccccc
@@ -44,7 +34,7 @@ font-dark()
   font-weight 100
   color #666666
 
-// Font size
+// ## Font size
 FONT_XHUGE = 130px
 FONT_HUGE = 100px
 FONT_XXLARGE = 80px
@@ -52,9 +42,10 @@ FONT_XLARGE = 50px
 FONT_LARGE = 40px
 FONT_MEDIUM = 26px
 FONT_SMALL = 16px
-FONT_TINY = 12px
+FONT_XSMALL = 12px
+FONT_XXSMALL = 8px
 
-// Font family
+// ## Font family
 @font-face
   font-family "Montserrat"
   font-style normal
@@ -78,7 +69,7 @@ title()
   letter-spacing 9px
   text-transform uppercase
   text-align center
-  padding 40px 0
+  padding 20px 0 10px 0
 subtitle()
   color LIGHT_GRAY
   title-font()
@@ -87,12 +78,12 @@ subtitle()
   font-size FONT_SMALL
   padding 10px 0
 
-// Transition
+// ## Transition
 transitionSpeedFast = 100ms
 transitionSpeed = 200ms
 transitionSpeedSlow = 1000ms
 
-// Animations
+// ## Animations
 fadein(delay = 0ms)
   animation-name fadein, glideDown
   animation-duration transitionSpeedSlow, transitionSpeedSlow
@@ -118,7 +109,7 @@ fadein(delay = 0ms)
   to
     transform translateY(0)
 
-// Media queries and responsive design
+// ## Media queries and responsive design
 phone = "not all and (min-width: 1000px)"
 notPhone = "all and (min-width: 1000px)"
 

@@ -1,7 +1,3 @@
-//
-// About Section
-//
-
 @import '../mixins/squareTile'
 
 // Colors
@@ -22,7 +18,6 @@ section#experience
         for $i in (0..10)
           > li:nth-child({$i})
             fadein($i * 250ms + 200ms)
-
   > .title
     title()
     color WHITE
@@ -33,18 +28,21 @@ section#experience
   .experienceList
     @media notPhone
       width experienceListWidth
-    listPadding = 20px
-    margin 0 auto (2*listPadding) auto
+    listPadding = 5px
+    margin 0 auto
+    padding-bottom 20px
     & > li
       overflow hidden
       border-radius 10px
       padding listPadding
       @media notPhone
         opacity 0
-        margin 30px 0
         transition transform transitionSpeed, background-color transitionSpeed
+        descriptionAreaPadding = 10px
         .descriptionArea a
           transition color transitionSpeed
+          padding 0 descriptionAreaPadding
+          line-height 20px
         &:hover
           background-color mix(baseColor, darkColor)
           .descriptionArea a
@@ -54,20 +52,16 @@ section#experience
             transform translateX(5px)
           .iconArea
             float left
-          .descriptionArea
-            padding-left 30px
         &:nth-child(even)
           &:hover
             transform translateX(-5px)
           .iconArea
             float right
-          .descriptionArea
-            padding-right 30px
       @media phone
         margin 0 auto
         width 100%
 
-      iconAreaSize = 200px
+      iconAreaSize = 100px
       iconSize = 0.8
       .iconArea
         @media notPhone
@@ -75,7 +69,7 @@ section#experience
           padding ((1 - iconSize)/2) * iconAreaSize
         @media phone
           width 100%
-          max-width 200px
+          max-width 50px
           margin 0 auto
       .descriptionArea
         @media notPhone
@@ -93,18 +87,19 @@ section#experience
           .title
             font-weight 700
             float left
-            font-size FONT_MEDIUM
+            @media notPhone
+              font-size FONT_MEDIUM
+            @media phone
+              font-size FONT_SMALL
           .dateRange
             padding-top 11px
             @media phone
               padding-top 0
-              float left
-            @media (min-width 600px)
-              float right
             float right
             font-size FONT_SMALL
         .description, .descriptionBullets
           font-size FONT_SMALL
+          line-height initial
           list-style disc
           list-style-position inside
         .languages

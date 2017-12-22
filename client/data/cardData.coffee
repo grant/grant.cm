@@ -76,7 +76,6 @@ module.exports = [
   description: 'Find movies with your friends'
   url:
     github: 'https://github.com/grant/rollen'
-    demo: 'http://rollen.co'
 ,
   id: 'productgrunt'
   title: 'Product Grunt'
@@ -84,7 +83,6 @@ module.exports = [
   description: 'The worst old products, every day'
   url:
     github: 'https://github.com/grant/productgrunt'
-    demo: 'http://productgrunt.com'
 ,
   id: 'safebaby'
   title: 'SafeBaby'
@@ -100,7 +98,6 @@ module.exports = [
   description: 'Analytics for Uber drivers to maximize their revenue'
   url:
     github: 'https://github.com/grant/herder.co'
-    demo: 'http://herder.co/'
     youtube: 'http://youtu.be/8LZUNBag_Ok'
 ,
   id: 'awear'
@@ -117,7 +114,6 @@ module.exports = [
   description: 'Learn to code together.'
   url:
     github: 'https://github.com/karan/navi'
-    demo: 'http://gonavi.me/'
 ,
   id: 'speekr'
   title: 'Speekr'
@@ -151,7 +147,6 @@ module.exports = [
   notes: 'Uses socket.io, express, SoundCloud, Redis, MongoDB and much more.'
   url:
     github: 'https://github.com/grant/harmonic'
-    demo: 'http://goharmonic.com/'
 ,
   id: 'leappong'
   title: 'Leap Pong'
@@ -168,7 +163,6 @@ module.exports = [
   notes: '100k+ plays'
   url:
     github: 'https://github.com/grant/hnplays2048'
-    demo: 'http://hnplays2048.herokuapp.com/'
 ,
   id: 'milestone'
   title: 'Milestone'
@@ -177,7 +171,6 @@ module.exports = [
   notes: 'Won 1st place AngelHack, Seattle Fall 2013'
   url:
     github: 'https://github.com/grant/milestone'
-    demo: 'http://www.milestoneapp.co/'
 ,
   id: 'sudosoldiers'
   title: 'Sudo Soldiers'
