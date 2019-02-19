@@ -16,6 +16,7 @@
     "browserify": "^3.46.1",
     "coffee-script": "^1.7.1",
     "coffeeify": "^0.6.0",
+    "coffeescript": "^2.3.2",
     "compression": "^1.0.9",
     "consolidate": ">= 0.9.1",
     "express": "^5.0.0-alpha.1",
