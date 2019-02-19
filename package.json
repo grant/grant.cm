@@ -2,8 +2,8 @@
   "name": "grant.cm",
   "version": "1.0.0",
   "engines": {
-    "node": "4.0",
-    "npm": "2.7.0"
+    "node": "11.8.0",
+    "npm": "6.5.0"
   },
   "description": "The home page for Grant Timmerman - grant.cm",
   "homepage": "http://www.grant.cm/",
