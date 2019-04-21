@@ -18,7 +18,6 @@ header
       width phoneWidth
       margin-left (phoneWidth/-2)
     .name
-      fadein(0ms)
       title()
       font-size FONT_XLARGE
       margin 12px 0
@@ -31,13 +30,10 @@ header
       color DARK_RED
       font-size FONT_MEDIUM
       margin-bottom 30px
-      fadein(300ms)
       .bullet
         padding 0 10px
       @media phone
         font-size FONT_SMALL
-    ul
-      fadein(600ms)
     ul li
       font-size FONT_MEDIUM
       line-height 2em
@@ -59,7 +55,5 @@ header
     color rgba(WHITE, 0.3)
     animation bounce 2s infinite
     transition color transitionSpeed ease
-    i
-      fadein(1000ms)
     &hover
       color rgba(WHITE, 0.8)

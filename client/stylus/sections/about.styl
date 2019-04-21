@@ -7,21 +7,9 @@ section#about
   background-color baseColor
   color WHITE
 
-  // Fade in
-  @media notPhone
-    &.show
-      > .title
-        fadein()
-      .profile
-        fadein(300ms)
-      .longBio
-        fadein(600ms)
-
   > .title
     title()
     color WHITE
-    @media notPhone
-      opacity 0
 
   $profilePictureWidth = 200px
   .profile
@@ -33,8 +21,6 @@ section#about
     margin-bottom 20px
     padding 10px
     border 2px rgba(lightColor, 0.5) dashed
-    @media notPhone
-      opacity 0
 
   $profileColumnWidth = 760px
   .longBio
@@ -56,5 +42,3 @@ section#about
       width 100%
       padding $bioPadding
       font-size FONT_SMALL
-    @media notPhone
-      opacity 0

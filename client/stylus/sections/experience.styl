@@ -9,22 +9,11 @@ section#experience
   background-color baseColor
   color WHITE
 
-  // Fade in
-  @media notPhone
-    &.show
-      > .title
-        fadein()
-      .experienceList
-        for $i in (0..10)
-          > li:nth-child({$i})
-            fadein($i * 250ms + 200ms)
   > .title
     title()
     color WHITE
     @media phone
       font-size FONT_MEDIUM
-    @media notPhone
-      opacity 0
   .experienceList
     @media notPhone
       width experienceListWidth
@@ -36,7 +25,6 @@ section#experience
       border-radius 10px
       padding listPadding
       @media notPhone
-        opacity 0
         transition transform transitionSpeed, background-color transitionSpeed
         descriptionAreaPadding = 10px
         .descriptionArea a

@@ -2,29 +2,16 @@ section#projects
   background-color DARK_WHITE
   background linear-gradient(#f9f9f9, #f3f3f3)
 
-  // Fade in
-  @media notPhone
-    &.show
-      > .title
-        fadein()
-      .cardLayout
-        for $i in (0..30)
-          > a:nth-child({$i}) .card
-            fadein($i * 150ms + 200ms)
   > .title
     title()
     padding-bottom 0
     &.sub
       subtitle()
-    @media notPhone
-      opacity 0
   .cardLayout
     margin-bottom 20px
     position relative
     text-align center
-    @media notPhone
-      .card
-        opacity 0
+
 .card
   cardSpacing = 10px
   display inline-block
