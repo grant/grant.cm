@@ -45,6 +45,7 @@ app.get '/projects', routes.index
 app.get '/experience', routes.index
 
 app.get '/cal', routes.cal
+app.get '/google', routes.google
 app.get '/resume', routes.resume
 app.get '/jokes', routes.jokes
 app.get '/dinner', routes.dinner
