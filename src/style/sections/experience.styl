@@ -32,13 +32,10 @@ section#experience
         transition transform transitionSpeed, background-color transitionSpeed
         descriptionAreaPadding = 10px
         .descriptionArea a
-          transition color transitionSpeed
           padding 0 descriptionAreaPadding
           line-height 20px
         &:hover
-          background-color mix(baseColor, darkColor)
-          .descriptionArea a
-            color darken(baseColor, 10%)
+          background-color mix(baseColor, darkColor, 80%)
         &:nth-child(odd)
           &:hover
             transform translateX(5px)
@@ -71,7 +68,7 @@ section#experience
           padding-top 10px
         line-height 2
         a
-          color darkColor
+          color lighten(darkColor, 50%)
         .titleBar
           position relative
           padding-bottom 0.5%
@@ -95,6 +92,6 @@ section#experience
           list-style disc
           list-style-position inside
         .languages
-          color LIGHT_GRAY
+          color DARK_WHITE
       .descriptionArea
         float left
