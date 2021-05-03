@@ -1,0 +1,10 @@
+extends layout
+
+//- A page with an iframe to dinner.
+//- http://localhost:8080/dinner
+block css
+  link(rel="stylesheet" href='/css/dinner.css')
+block js
+  include includes/ga
+block content
+  iframe(src='//grant.github.io/dinner')

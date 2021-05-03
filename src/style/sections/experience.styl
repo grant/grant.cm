@@ -1,0 +1,100 @@
+@import '../mixins/squareTile'
+
+// Colors
+baseColor = DARK_BLUE
+darkColor = BLUE
+
+experienceListWidth = 1000px
+section#experience
+  background linear-gradient(90deg, darken(baseColor, 10%), lighten(baseColor, 10%))
+  color WHITE
+
+  > .title
+    title()
+    color WHITE
+    @media phone
+      font-size FONT_MEDIUM
+  > .description
+    text-align center
+    margin 0 auto
+    color LIGHT_BLUE
+  .experienceList
+    @media notPhone
+      width experienceListWidth
+    listPadding = 5px
+    margin 0 auto
+    padding-bottom 20px
+    & > li
+      overflow hidden
+      border-radius 10px
+      padding listPadding
+      @media notPhone
+        transition transform transitionSpeed, background-color transitionSpeed
+        descriptionAreaPadding = 10px
+        .descriptionArea a
+          transition color transitionSpeed
+          padding 0 descriptionAreaPadding
+          line-height 20px
+        &:hover
+          background-color mix(baseColor, darkColor)
+          .descriptionArea a
+            color darken(baseColor, 10%)
+        &:nth-child(odd)
+          &:hover
+            transform translateX(5px)
+          .iconArea
+            float left
+        &:nth-child(even)
+          &:hover
+            transform translateX(-5px)
+          .iconArea
+            float right
+      @media phone
+        margin 0 auto
+        width 100%
+
+      iconAreaSize = 100px
+      iconSize = 0.8
+      .iconArea
+        @media notPhone
+          width iconAreaSize
+          padding ((1 - iconSize)/2) * iconAreaSize
+        @media phone
+          width 100%
+          max-width 50px
+          margin 0 auto
+      .descriptionArea
+        @media notPhone
+          width experienceListWidth - iconAreaSize - 2*listPadding
+        @media phone
+          width 100%
+          padding-top 10px
+        line-height 2
+        a
+          color darkColor
+        .titleBar
+          position relative
+          padding-bottom 0.5%
+          overflow hidden
+          .title
+            font-weight 700
+            float left
+            @media notPhone
+              font-size FONT_MEDIUM
+            @media phone
+              font-size FONT_SMALL
+          .dateRange
+            padding-top 11px
+            @media phone
+              padding-top 0
+            float right
+            font-size FONT_SMALL
+        .description, .descriptionBullets
+          font-size FONT_SMALL
+          line-height initial
+          list-style disc
+          list-style-position inside
+        .languages
+          color LIGHT_GRAY
+      .descriptionArea
+        float left

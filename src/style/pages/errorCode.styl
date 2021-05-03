@@ -1,0 +1,54 @@
+@import '../global'
+@import '../reset'
+
+// Colors
+lightColor = LIGHT_RED
+baseColor = RED
+darkColor = DARK_RED
+
+body
+  background-color baseColor
+  title-font()
+  color WHITE
+
+boxWidth = 600px
+boxHeight = 400px
+.center
+  position absolute
+  left 50%
+  top 50%
+  width boxWidth
+  height boxHeight
+  margin-left -(boxWidth/2)
+  margin-top -(boxHeight/2)
+
+.errorMessage
+  padding-bottom 30px
+  font-size FONT_XXLARGE
+.quoteMark
+  position absolute
+  left -70px
+  top -30px
+  font-size FONT_XHUGE
+  color lightColor
+.errorCode
+  font-size FONT_LARGE
+  color darkColor
+  padding-bottom 60px
+
+hr
+  width 56% // line up with 404 text
+  margin-left 0
+  border none
+  border-top 1px darkColor solid
+  padding-bottom 10px
+
+a
+  font-style italic
+  transition border-bottom-color transitionSpeed
+  border-bottom 2px transparent solid
+  padding-bottom 2px
+  &:hover
+    border-bottom 2px #fff solid
+.home
+  text-font()

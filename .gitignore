@@ -1,6 +1,11 @@
+# Generic
 .DS_STORE
-node_modules
-client_build
 *.log
-.c9
 .idea
+
+# Node
+node_modules
+build/
+
+# CSS
+static/css/

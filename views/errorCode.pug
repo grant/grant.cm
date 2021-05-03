@@ -1,0 +1,16 @@
+extends layout
+
+//- A page for all errors
+//- http://localhost:8080/error
+block css
+  link(rel="stylesheet" href='/css/errorCode.css')
+block js
+  include includes/ga
+block content
+  .center
+    span.quoteMark &ldquo;
+    h1.errorMessage !{errorMessage}
+    h3.errorCode= errorCode
+    hr
+    h3.home
+      a(href="/") Go home
