@@ -1,0 +1,19 @@
+{
+  "name": "grantcm-tools",
+  "description": "Tools and various scripts.",
+  "scripts": {
+    "updateMediumData": "node ./build/src/updateMediumData",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "watch": "tsc --watch",
+    "fix": "gts fix"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "gts": "^3.1.0"
+  }
+}
