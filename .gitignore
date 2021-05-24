@@ -9,3 +9,9 @@ build/
 
 # CSS
 static/css/
+
+
+*.js
+*.map
+
+static/css

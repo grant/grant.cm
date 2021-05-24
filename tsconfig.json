@@ -1,11 +1,20 @@
 {
-  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "outDir": "build"
+    "outDir": "./public",
+    "target": "es5",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
+  "typeAcquisition": {
+    "enable": true
   },
   "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "./src/**/*.css"
   ]
 }
