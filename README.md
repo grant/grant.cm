@@ -48,33 +48,54 @@ This website is hosted on Cloud Run.
 
 The CloudFlare DNS records will look like (with DOMAIN being `grant.cm`):
 
-```
-A – DOMAIN from Cloud Run – generated IPv4
-A – DOMAIN from Cloud Run – generated IPv4
-A – DOMAIN from Cloud Run – generated IPv4
-A – DOMAIN from Cloud Run – generated IPv4
-AAAA – DOMAIN from Cloud Run – generated IPv6
-AAAA – DOMAIN from Cloud Run – generated IPv6
-AAAA – DOMAIN from Cloud Run – generated IPv6
-AAAA – DOMAIN from Cloud Run – generated IPv6
-CNAME – www – DOMAIN (redirect www.DOMAIN to DOMAIN)
-TXT – DOMAIN – google-site-verification=ZkBjUhfP1hRIEVOXKhEJz3xaQnRPx_8NUxxy9mFX9x0
-```
+| Type | Name | Content |
+| --- | --- | --- |
+| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>`
+| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>`
+| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>`
+| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>`
+| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>`
+| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>`
+| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>`
+| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>`
+| CNAME | www | `<DOMAIN>` 
+| TXT | `<DOMAIN>` | google-site-verification=ZkBjUhfP1hRIEVOXKhEJz3xaQnRPx_8NUxxy9mFX9x0
 
-All of these should **Not be Proxied**.
+The `www` redirect `www.DOMAIN` to `DOMAIN`
+
+##### Example
+
+| Type | Name | Content |
+| --- | --- | --- |
+| A | grant.cm | 123.12.1.123 |
+| A | grant.cm | 123.12.1.123 |
+| A | grant.cm | 123.12.1.123 |
+| A | grant.cm | 123.12.1.123 |
+| AAAA | grant.cm | 1000:4660:4804:36::15 |
+| AAAA | grant.cm | 1000:4660:4804:36::15 |
+| AAAA | grant.cm | 1000:4660:4804:36::15 |
+| AAAA | grant.cm | 1000:4660:4804:36::15 |
+| CNAME | www | grant.cm |
+| TXT | grant.cm | google-site-verification=ZkBjUhfP1hRIEVOXKhEJz3xaQnRPx_8NUxxy9mFX9x0 |
+
+All of these should be **DNS only** (*Not* **Proxied**).
 
 ### Domain mappings
 
-Create the domain mapping:
+To link the Cloud Run service to the domain registrar, create the domain mapping:
 
-```
-gcloud beta run domain-mappings create --service grantcm --domain grant.cm
+```sh
+gcloud beta run domain-mappings create \
+--service grantcm \
+--domain grant.cm
 ```
 
 Describe the mapping to verify it works:
 
-```
-gcloud beta run domain-mappings describe --domain grant.cm
+```sh
+gcloud beta run domain-mappings describe \
+--domain grant.cm
+# Prints DNS records that should be the same as above
 ```
 
-It may take up to 24 hours for it to work. If the Run domain mapping is spinning, try deleting it and creating it again.
+> Note: It may take up to 24 hours for it to work. If the Run domain mapping is spinning, try deleting it and creating it again.
