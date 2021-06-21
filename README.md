@@ -2,12 +2,23 @@
 
 The website [grant.cm](http://grant.cm)
 
+Built with:
+- Node
+- Typescript
+- React / Next.js
+- SCSS
+
+Deployed with:
+- Google Cloud Buildpacks
+- Cloud Run
+
 ### Quickstart
 
 ```sh
-npm run compile
-npm start
-open http://localhost:3000
+cd frontend
+npm i
+npm run dev
+open http://localhost:8080
 ```
 
 ### Scripts
@@ -16,19 +27,19 @@ Develop the site with these scripts:
 
 #### Develop
 
-- `npm run compile`: Compiles the TypeScript
-- `npm run watch`: Watches and compiles TypeScript
-- `npm run swatch`: Watches and compiles CSS
+- `npm run dev`: Dev mode. Compiles JSX, TypeScript, SCSS.
 - `npm start`: Start the website
 
 #### Lint / Test
 
 - `npm run lint`: Lints this repository
 - `npm run fix`: Fixes all lint issues
+- `npm run clean`: Cleans any built files
 
-#### Deploy
+#### Build & Deploy
 
-- `npm run deploy`: Deploys the website
+- `npm run build`: Builds the website for production.
+- `npm run deploy`: Deploys the website to Google Cloud
 
 #### DNS
 

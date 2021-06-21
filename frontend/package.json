@@ -1,0 +1,30 @@
+{
+  "name": "grant.cm",
+  "version": "1.0.0",
+  "description": "The home page for grant.cm",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p ${PORT:-8080}",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "fix": "gts fix",
+    "deploy": "./deploy.sh"
+  },
+  "dependencies": {
+    "date-fns": "^2.11.1",
+    "gray-matter": "^4.0.2",
+    "next": "^10.0.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "remark": "^12.0.0",
+    "remark-html": "^12.0.0",
+    "sass": "^1.35.1"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "@types/react": "^17.0.11",
+    "gts": "^3.1.0",
+    "typescript": "^4.3.4"
+  }
+}

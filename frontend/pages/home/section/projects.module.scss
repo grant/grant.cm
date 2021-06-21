@@ -1,0 +1,146 @@
+section#projects {
+	background-color: DARK_WHITE;
+	background: linear-gradient(#f9f9f9, #f3f3f3);
+	& > .title {
+		padding-bottom: 0;
+	}
+	.cardLayout {
+		margin-bottom: 20px;
+		position: relative;
+		text-align: center;
+	}
+}
+.card {
+	display: inline-block;
+	margin: 10px;
+	position: relative;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	text-align: center;
+	border-radius: 5px;
+	color: WHITE;
+	transition: transform transitionSpeed;
+	.photo {
+		position: absolute;
+		top: 10px;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 40px;
+	}
+	.textArea {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		text-align: left;
+		padding: 3px 3px 6px 3px;
+		.title {
+			font-size: FONT_XSMALL;
+			font-weight: 700;
+			padding-bottom: 0px;
+			transition: color transitionSpeed;
+			&:after {
+				padding-left: 10px;
+				content: '»';
+			}
+		}
+		.description {
+			font-size: FONT_XXSMALL;
+			line-height: 1.3;
+		}
+	}
+}
+// @media {
+// 	phone {
+// 		.card {
+//     margin: 5px 10px;
+// 		width: calc(100% - 20px);
+// 	}
+// }
+// {
+// 	@media {
+// 		(min-width {
+// 			&: {
+// 				600px) {
+// 					.card {
+//     width: 100px;
+// 					margin: 10px;
+// 				}
+// 			}
+// 		}
+// 	}
+// 	.card {
+// 		&:hover {
+// 			transform: scale(1.4);
+// 		}
+// 	}
+// }
+
+  // &#eagleeye, &#dubhacks15f, &#rollen
+  //   .photo
+  //     @media notphone
+  //       width 50%
+  //     @media phone
+  //       width 15%
+  // &#eagleeye
+  //   card(rgb(166, 53, 51))
+  // &#algodb
+  //   card(rgb(132, 193, 160))
+  // &#nestvacationtracker
+  //   card(rgb(52, 152, 219))
+  // &#capture
+  //   card(rgb(46, 204, 113))
+  // &#harbor
+  //   card(rgb(241, 196, 15))
+  // &#harmonic
+  //   card(rgb(232, 132, 59))
+  // &#leappong
+  //   card(rgb(179, 214, 117))
+  // &#hnplays2048
+  //   card(rgb(241, 182, 5))
+  // &#milestone
+  //   card(rgb(153, 82, 138))
+  // &#thefourelements
+  //   card(rgb(115, 50, 42))
+  // &#cellularwarfare
+  //   card(rgb(65, 109, 234))
+  // &#vidwall
+  //   card(rgb(196, 76, 62))
+  // &#glass-ocr
+  //   card(rgb(42, 36, 35))
+  // &#areyouhungrynow
+  //   card(rgb(132, 193, 160))
+  // &#sudosoldiers
+  //   card(BLACK)
+  // &#acadee
+  //   card(AQUA)
+  // &#dubhacks14f
+  //   card(rgb(57, 39, 91))
+  // &#dubhacks15f
+  //   card(rgb(237, 27, 120))
+  // &#socketio
+  //   card(rgb(223, 112, 101))
+  // &#speekr
+  //   card(rgb(3, 169, 244))
+  // &#navi
+  //   card(rgb(29, 233, 197))
+  // &#awear
+  //   card(rgb(21, 188, 221))
+  // &#herder
+  //   card(rgb(255, 80, 87))
+  // &#safebaby
+  //   card(rgb(254, 209, 86))
+  // &#productgrunt
+  //   card(rgb(17, 17, 17))
+  // &#rollen
+  //   card(rgb(69, 16, 27))
+  //   // .photo
+  //   //   width 50%
+  // &#issues
+  //   card(rgb(236, 240, 243))
+  //   color DARK_GRAY
+  // &#hawk
+  //   card(rgb(246, 166, 90))
+  // &#snappo
+  //   card(rgb(144, 143, 179))

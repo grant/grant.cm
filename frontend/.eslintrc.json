@@ -1,0 +1,13 @@
+{
+  "extends": "./node_modules/gts/",
+  "rules": {
+    "node/no-extraneous-import": [
+      "error",
+      {
+        "allowModules": [
+          "classnames"
+        ]
+      }
+    ]
+  }
+}

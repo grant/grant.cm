@@ -1,0 +1,53 @@
+@import '../styles/global.scss';
+
+.fullPage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: $COLOR_RED;
+  color: $COLOR_WHITE;
+}
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 600px;
+  height: 400px;
+  margin-left: -300px;
+  margin-top: -200px;
+}
+.errorMessage {
+  line-height: 100%;
+  padding-bottom: 30px;
+  font-size: $FONT_XXLARGE;
+}
+.quoteMark {
+  position: absolute;
+  left: -70px;
+  top: -50px;
+  font-size: $FONT_XHUGE;
+  color: $COLOR_LIGHT_RED;
+}
+.errorCode {
+  font-size: $FONT_LARGE;
+  color: $COLOR_DARK_RED;
+  padding-bottom: 60px;
+}
+.lineBreak {
+  width: 56%;
+  margin-left: 0;
+  border: none;
+  border-top: 1px $COLOR_DARK_RED solid;
+  padding-bottom: 10px;
+}
+.errorLink {
+  color: inherit;
+  font-style: italic;
+  transition: border-bottom-color $TRANSITION_SPEED;
+  border-bottom: 2px transparent solid;
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+.errorLink:hover {
+  border-bottom: 2px #fff solid;
+}

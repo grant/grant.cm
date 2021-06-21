@@ -1,0 +1,103 @@
+@import '../../../styles/global.scss';
+
+// Colors
+$baseColor: $COLOR_DARK_BLUE;
+$darkColor: $COLOR_BLUE;
+
+$experienceListWidth: 1000px;
+
+.section {
+  background: linear-gradient(90deg, darken($baseColor, 10%), lighten($baseColor, 10%));
+  overflow-x: hidden;
+  color: $COLOR_WHITE;
+
+  > .title {
+    @include text-title();
+    color: $COLOR_WHITE;
+  }
+
+  .sectionDescription {
+    text-align: center;
+    color: $COLOR_LIGHT_BLUE;
+  }
+
+  .descriptionArea {
+    margin-bottom: 10px;
+  }
+
+  .description {
+    margin: 10px auto 0px auto;
+    color: $COLOR_LIGHT_BLUE;
+
+    a {
+      text-decoration: underline;
+
+      transition: color $TRANSITION_SPEED;
+
+      &:hover {
+        color: $COLOR_WHITE;
+      }
+    }
+  }
+
+  .white {
+    background-color: white;
+  }
+
+  .experienceList {
+    $listPadding: 5px;
+    margin: 0 auto;
+    padding: 10px 10px;
+    max-width: 1000px;
+
+    .svg {
+      border-radius: 50%;
+    }
+
+    .imageArea {
+      text-align: center;
+    }
+
+    .experience {
+      padding: 20px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+    }
+
+    .clear {
+      clear: both;
+    }
+    .title {
+      float: left;
+    }
+    .dateRange {
+      float: right;
+    }
+
+    .language {
+      display: inline-block;
+      &:not(:first-child) {
+        margin: 0 5px;
+      }
+      margin: 5px 0;
+      padding: 0 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .languages {
+      padding-top: 5px;
+    }
+
+    .roleBullets {
+      padding: 10px 0;
+      font-size: $FONT_SMALL;
+      line-height: initial;
+      list-style: disc;
+      list-style-position: inside;
+    }
+  }
+}

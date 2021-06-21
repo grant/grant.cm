@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# SERVICE=grantcm-staging;
+SERVICE=grantcm;
+
+# Build the app
+npm run build;
+
+# Deploys the web app to Cloud Run
+gcloud config set project grantcm
+gcloud beta run deploy $SERVICE \
+--source . \
+--allow-unauthenticated;
