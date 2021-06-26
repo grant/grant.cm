@@ -11,7 +11,7 @@ export default function SectionAbout() {
       <h2 className={styles.title}>About</h2>
       <img
         className={styles.profile}
-        src="/images/profileRot.jpg"
+        src="/images/profile.jpg"
         alt="Grant Timmerman"
       />
       <p className={styles.longBio}>
