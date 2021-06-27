@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Layout, {siteTitle} from '../components/layout';
-import {GetStaticProps} from 'next';
 import SectionHeader from './home/section/header';
 import SectionAbout from './home/section/about';
 import SectionProjects from './home/section/projects';

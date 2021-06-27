@@ -150,6 +150,12 @@ $darkColor: $COLOR_DARK_ORANGE;
       width: 50%;
     }
   }
+  &.algorythem {
+    @include card(rgb(242, 99, 61));
+    img {
+      height: 100%;
+    }
+  }
   &.eagleeye {
     @include card(rgb(166, 53, 51));
   }

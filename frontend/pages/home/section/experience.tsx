@@ -379,7 +379,12 @@ export default function SectionExperience() {
                       )}
                       <div className={styles.languages}>
                         {role.languages.map(l => (
-                          <div key={styles.language} className={styles.language}>{l}</div>
+                          <div
+                            key={styles.language}
+                            className={styles.language}
+                          >
+                            {l}
+                          </div>
                         ))}
                       </div>
                     </div>

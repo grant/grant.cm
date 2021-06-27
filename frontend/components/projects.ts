@@ -1,4 +1,23 @@
-export const projects = [
+/**
+ * Metadata about a project.
+ */
+export interface Project {
+  id: string; // The unique id.
+  title: string; // The user-facing title.
+  img: 'svg' | 'png'; // The image extension.
+  description: string; // The short description.
+  notes?: string; // Notes about this project.
+  url: {
+    demo?: string; // A URL with a demo.
+    github?: string; // A URL with the GitHub source.
+    youtube?: string; // A URL with a video demo on YouTube.
+  };
+}
+
+/**
+ * The list of projects.
+ */
+export const projects: Project[] = [
   {
     id: 'algodb',
     title: 'AlgoDB',
@@ -91,6 +110,16 @@ export const projects = [
     url: {
       demo: 'http://grant.github.io/issues',
       github: 'https://github.com/grant/issues',
+    },
+  },
+  {
+    id: 'algorythem',
+    title: 'Algo Rythem',
+    img: 'svg',
+    description: 'Algorithmic Music Composition with Artificial Neural Nets',
+    url: {
+      demo: 'https://medium.com/@granttimmerman/algo-rhythm-music-composition-using-neural-networks-f89897ff2df7',
+      github: 'https://github.com/grant/algo-rhythm',
     },
   },
   {
