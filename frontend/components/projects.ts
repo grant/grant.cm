@@ -137,6 +137,7 @@ export const projects: Project[] = [
     img: 'png',
     description: 'The worst old products, every day',
     url: {
+      demo: 'https://www.producthunt.com/posts/product-grunt',
       github: 'https://github.com/grant/productgrunt',
     },
   },
