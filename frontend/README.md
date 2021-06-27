@@ -70,6 +70,7 @@ gcloud iam service-accounts keys create creds.json \
 # Copy SA to clipboard
 cat creds.json | pbcopy
 
+gh secret set GCP_PROJECT_ID -b $PROJECT
 gh secret set GCP_SA_KEY < creds.json
 rm creds.json
 ```
