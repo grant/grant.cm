@@ -17,7 +17,7 @@ export default function Home() {
       <SectionAbout key="about" />
       <SectionExperience key="experience" />
       {/* TODO: Talks */}
-      {/* <SectionProjects key="projects" /> */}
+      <SectionProjects key="projects" />
       <SectionFooter key="footer" />
     </Layout>
   );

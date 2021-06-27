@@ -89,7 +89,8 @@ export const projects = [
     img: 'png',
     description: 'A mobile redesign of Github Issues',
     url: {
-      github: 'http://grant.github.io/issues',
+      demo: 'http://grant.github.io/issues',
+      github: 'https://github.com/grant/issues',
     },
   },
   {
@@ -209,6 +210,7 @@ export const projects = [
     notes: '100k+ plays',
     url: {
       github: 'https://github.com/grant/hnplays2048',
+      demo: 'http://hnplays2048.herokuapp.com/',
     },
   },
   {
@@ -290,6 +292,16 @@ export const projects = [
     url: {
       github: 'https://github.com/grant/Acadee',
       demo: 'https://www.youtube.com/watch?v=HL9exIwXvM0',
+    },
+  },
+  {
+    id: 'godiagram',
+    title: 'Go Diagram',
+    img: 'png',
+    description: 'A UML diagram editor for Golang projects.',
+    url: {
+      github: 'https://github.com/grant/go-diagram',
+      demo: 'https://drive.google.com/file/d/0B4riRkl944ZqcnQzR0x1c0QxVDA/view?usp=sharing',
     },
   },
 ];

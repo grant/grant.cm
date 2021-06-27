@@ -1,35 +1,44 @@
 import styles from './projects.module.scss';
 import sectionStyles from './sections.module.scss';
 import classNames from 'classnames/bind';
+import {projects} from '../../../components/projects';
 
 export default function Projects() {
   return (
     <section
       id="projects"
       className={classNames(styles.projects, sectionStyles.section)}>
-      <h2 className={styles.title}>Projects</h2>
+      <h2 className={styles.title}>Side Projects</h2>
       <p className={styles.sectionDescription}>
-        <em>I shipped it</em>
+        <em>Hackathon and side projects I've shipped</em>
       </p>
-      {/* <div className={styles.centerBox}>
-        <h1 className={styles.name}>Grant Timmerman</h1>
-        <h3 className={styles.bio}>Google Developer Platform Engineer</h3>
-        <ul>
-          {[
-            {link: '#about', title: 'About'},
-            {link: '#experience', title: 'Experience'},
-          ].map(l => (
-            <li key={l.title}>
-              <a className={styles.link} href={l.link}>
-                {l.title}
-              </a>
-            </li>
-          ))}
+      {<div className={styles.centerBox}>
+        <ul className={styles.projectsList}>
+          {projects.map(renderProject)}
         </ul>
-      </div>
-      <div className={styles.arrow}>
-        <i className="fa fa-angle-down"></i>
-      </div> */}
+      </div>}
     </section>
+  );
+}
+
+/**
+ * Renders a single project
+ */
+function renderProject(project) {
+  const imgURL = `/images/cards/${project.id}.${project.img}`;
+  return (
+    <li key={project.id} className={classNames(styles.card, styles[project.id])}>
+      <a href={project.url.github}>
+        <img className={styles.cardImage} src={imgURL} />
+        <div className={styles.textArea}>
+          <h3 className={styles.title}>{project.title}</h3>
+          <p className={styles.description}>{project.description}</p>
+          <div className={styles.urls}>
+            {project.url.github ? <a className={styles.url} href={project.url.github}>GITHUB</a> : ''}
+            {project.url.demo ? <a className={styles.url} href={project.url.demo}>DEMO</a> : ''}
+          </div>
+        </div>
+      </a>
+    </li>
   );
 }
