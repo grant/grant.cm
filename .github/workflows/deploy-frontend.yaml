@@ -28,5 +28,6 @@ jobs:
       with:
         source: frontend
         service: grantcm-staging
+        credentials: ${{ secrets.GCP_SA_KEY }}
     - name: Output Service URL
       run: curl "${{ steps.deploy.outputs.url }}"
