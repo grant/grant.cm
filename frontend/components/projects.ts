@@ -280,7 +280,7 @@ export const projects = [
     img: 'svg',
     description: 'Find people nearby who are hungry and grab lunch together.',
     url: {
-      github: 'https://github.com/grant/areyouhungrynow',
+      github: 'https://github.com/charleswli/areyouhungrynow',
       demo: 'https://www.youtube.com/watch?v=U0DQHoN3-MY',
     },
   },
