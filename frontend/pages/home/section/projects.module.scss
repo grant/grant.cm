@@ -107,6 +107,26 @@ $darkColor: $COLOR_DARK_ORANGE;
     }
   }
 
+  @media (max-width: 800px) {
+    width: 100px;
+    height: 100px;
+
+    .textArea {
+      height: 30%;
+      .title {
+        font-size: $FONT_XXSMALL;
+      }
+
+      .description {
+        display: none !important;
+      }
+    }
+
+    .urls {
+      display: none;
+    }
+  }
+
   @mixin card($color) {
     background-color: $color;
     font-weight: 700;
