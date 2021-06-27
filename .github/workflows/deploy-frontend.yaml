@@ -1,0 +1,33 @@
+on:
+  push:
+    branches:
+    - master
+name: deploy
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - name: cd to frontend
+      run: cd frontend
+    - name: Install dependencies
+      run: npm install
+    - name: Build site
+      run: npm run build
+    - name: Setup gcloud
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        export_default_credentials: true
+    - name: Deploy to Cloud Run
+      uses: google-github-actions/deploy-cloudrun@main
+      with:
+        source: .
+        service: grantcm-staging
+    - name: Output Service URL
+      run: curl "${{ steps.deploy.outputs.url }}"

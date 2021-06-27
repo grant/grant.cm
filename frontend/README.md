@@ -1,11 +1,58 @@
 # grant.cm
 
-## Based on
+The frontend for grant.cm.
 
-https://github.com/vercel/next-learn-starter/tree/master/typescript-final
+## Quickstart
 
-## Develop
+To develop the frontend HTML/CSS/JS, use the `dev` script:
 
 ```
 npm run dev
 ```
+
+Then go to `localhost:3000`.
+
+## Scripts
+
+- `dev`: Starts development mode.
+- `build`: Creates a static build.
+- `start`: Starts the server with a static build.
+- `lint`: Runs a linter.
+- `clean`: Cleans output.
+- `fix`: Tries to fix lint issues.
+- `deploy`: Manually deploys to Cloud Run.
+
+### Setup a service account
+
+To automatically deploy with GitHub Actions, set up with this script:
+
+```sh
+# Create SA
+PROJECT=grantcm
+SA_ID=grantcm-sa
+gcloud iam service-accounts create $SA_ID \
+--display-name="deploy-grantcm"
+
+# Add roles
+gcloud projects add-iam-policy-binding $PROJECT \
+--member="serviceAccount:$SA_ID@$PROJECT.iam.gserviceaccount.com" \
+--role="roles/run.admin"
+gcloud projects add-iam-policy-binding $PROJECT \
+--member="serviceAccount:$SA_ID@$PROJECT.iam.gserviceaccount.com" \
+--role="roles/iam.serviceAccountUser"
+gcloud projects add-iam-policy-binding $PROJECT \
+--member="serviceAccount:$SA_ID@$PROJECT.iam.gserviceaccount.com" \
+--role="roles/storage.admin"
+
+# Create and download credentials for the service account
+gcloud iam service-accounts keys create creds.json \
+--iam-account $SA_ID@$PROJECT.iam.gserviceaccount.com
+
+# Copy SA to clipboard
+cat creds.json | pbcopy
+
+gh secret set GCP_SA_KEY < creds.json
+rm creds.json
+```
+
+Then future pushes to the default branch will cause a deploy.
