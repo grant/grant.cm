@@ -1,9 +1,25 @@
-section#projects {
-	background-color: DARK_WHITE;
-	background: linear-gradient(#f9f9f9, #f3f3f3);
-	& > .title {
-		padding-bottom: 0;
-	}
+@import '../../../styles/global.scss';
+
+// Colors
+$lightColor: $COLOR_LIGHT_ORANGE;
+$baseColor: $COLOR_DARK_WHITE;
+$darkColor: $COLOR_DARK_ORANGE;
+
+.projects {
+	background: linear-gradient(90deg, darken($baseColor, 10%), lighten($baseColor, 10%));
+  overflow-x: hidden;
+  color: $COLOR_WHITE;
+
+  > .title {
+    @include text-title();
+    // color: $COLOR_WHITE;
+  }
+
+  .sectionDescription {
+    text-align: center;
+    color: $COLOR_DARK_GRAY;
+  }
+
 	.cardLayout {
 		margin-bottom: 20px;
 		position: relative;

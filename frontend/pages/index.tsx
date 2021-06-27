@@ -3,6 +3,7 @@ import Layout, {siteTitle} from '../components/layout';
 import {GetStaticProps} from 'next';
 import SectionHeader from './home/section/header';
 import SectionAbout from './home/section/about';
+import SectionProjects from './home/section/projects';
 import SectionExperience from './home/section/experience';
 import SectionFooter from './home/section/footer';
 
@@ -15,8 +16,8 @@ export default function Home() {
       <SectionHeader key="header" />
       <SectionAbout key="about" />
       <SectionExperience key="experience" />
-      {/* Talks */}
-      {/* Projects */}
+      {/* TODO: Talks */}
+      {/* <SectionProjects key="projects" /> */}
       <SectionFooter key="footer" />
     </Layout>
   );

@@ -59,20 +59,30 @@ This website is hosted on Cloud Run.
 
 The CloudFlare DNS records will look like (with DOMAIN being `grant.cm`):
 
-| Type | Name | Content |
-| --- | --- | --- |
-| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>`
-| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>`
-| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>`
-| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>`
-| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>`
-| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>`
-| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>`
-| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>`
-| CNAME | www | `<DOMAIN>` 
-| TXT | `<DOMAIN>` | google-site-verification=ZkBjUhfP1hRIEVOXKhEJz3xaQnRPx_8NUxxy9mFX9x0
+| Type | Name | Content | Proxy Status |
+| --- | --- | --- | --- |
+| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>` | DNS Only |
+| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>` | DNS Only |
+| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>` | DNS Only |
+| A | `<DOMAIN>` | `<generated IPv4 (DOMAIN from Cloud Run)>` | DNS Only |
+| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>` | DNS Only |
+| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>` | DNS Only |
+| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>` | DNS Only |
+| AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>` | DNS Only |
+| CNAME | www | `<DOMAIN>`  | Proxied |
+| TXT | `<DOMAIN>` | google-site-verification=ZkBjUhfP1hRIEVOXKhEJz3xaQnRPx_8NUxxy9mFX9x0 | DNS Only |
 
-The `www` redirect `www.DOMAIN` to `DOMAIN`
+The `www` subdomain redirects `www.DOMAIN` to `DOMAIN` with a proxy.
+
+##### Subdomains
+
+To add a subdomain, create a new Cloud Run service
+
+| Type | Name | Content | Proxy Status |
+| --- | --- | --- | --- |
+| CNAME | staging | ghs.googlehosted.com | DNS only
+
+In the Cloud Run UI, Add mapping for your subdomain.
 
 ##### Example
 
