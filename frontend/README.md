@@ -24,16 +24,21 @@ Then go to `localhost:3000`.
 
 ### Setup a service account
 
-To automatically deploy with GitHub Actions, set up with this script:
+To automatically deploy with GitHub Actions, set up a service account and IAM with this script:
 
 ```sh
-# Create SA
+# Configuration
 PROJECT=grantcm
+
+# Create SA
+PROJECT_NUMBER=$(gcloud projects list \
+  --filter="project_id:$PROJECT" \
+  --format='value(project_number)')
 SA_ID=grantcm-sa
 gcloud iam service-accounts create $SA_ID \
 --display-name="deploy-grantcm"
 
-# Add roles
+# Add roles to SA
 gcloud projects add-iam-policy-binding $PROJECT \
 --member="serviceAccount:$SA_ID@$PROJECT.iam.gserviceaccount.com" \
 --role="roles/run.admin"
@@ -46,6 +51,17 @@ gcloud projects add-iam-policy-binding $PROJECT \
 gcloud projects add-iam-policy-binding $PROJECT \
 --member="serviceAccount:$SA_ID@$PROJECT.iam.gserviceaccount.com" \
 --role="roles/artifactregistry.reader"
+
+# Add roles to Cloud Build
+## Grant the Cloud Run Admin role to the Cloud Build service account
+gcloud projects add-iam-policy-binding $PROJECT \
+  --member "serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com" \
+  --role roles/run.admin
+## Grant the IAM Service Account User role to the Cloud Build service account on the Cloud Run runtime service account
+gcloud iam service-accounts add-iam-policy-binding \
+  $PROJECT_NUMBER-compute@developer.gserviceaccount.com \
+  --member="serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com" \
+  --role="roles/iam.serviceAccountUser"
 
 # Create and download credentials for the service account
 gcloud iam service-accounts keys create creds.json \
