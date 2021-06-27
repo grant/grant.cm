@@ -2,6 +2,10 @@
   "name": "grant.cm",
   "version": "1.0.0",
   "description": "The home page for grant.cm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grant/grant.cm"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -43,6 +43,9 @@ gcloud projects add-iam-policy-binding $PROJECT \
 gcloud projects add-iam-policy-binding $PROJECT \
 --member="serviceAccount:$SA_ID@$PROJECT.iam.gserviceaccount.com" \
 --role="roles/storage.admin"
+gcloud projects add-iam-policy-binding $PROJECT \
+--member="serviceAccount:$SA_ID@$PROJECT.iam.gserviceaccount.com" \
+--role="roles/artifactregistry.reader"
 
 # Create and download credentials for the service account
 gcloud iam service-accounts keys create creds.json \
