@@ -76,3 +76,13 @@ rm creds.json
 ```
 
 Then future pushes to the default branch will cause a deploy.
+
+
+TEST:
+
+```
+gcloud run services add-iam-policy-binding grantcm-staging --member "serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com" --role "roles/run.admin"
+gcloud iam service-accounts add-iam-policy-binding "$SA_ID@$PROJECT.iam.gserviceaccount.com" \
+  --member "serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com" \
+  --role roles/iam.serviceAccountUser
+```
