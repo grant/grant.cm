@@ -13,15 +13,24 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14
+    - name: Build app
+      run: |
+        cd frontend
+        npm install
     - uses: google-github-actions/setup-gcloud@master
       with:
-        project_id: ${{ secrets.GCP_PROJECT_ID }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         export_default_credentials: true
     - name: Setup gcloud and deploy
-      run: |
-        gcloud config set project "$GCP_PROJECT_ID"
-        gcloud components install beta --quiet
-        cd frontend
-        npm install
-        ./deploy.sh
+      uses: google-github-actions/deploy-cloudrun
+      with:
+        credentials: ${{ secrets.GCP_SA_KEY }}
+        service: grantcm-staging
+        source: frontend
+        flags: "--allow-unauthenticated"
+      # run: |
+      #   gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
+      #   gcloud components install beta --quiet
+      #   cd frontend
+      #   npm install
+      #   ./deploy.sh
