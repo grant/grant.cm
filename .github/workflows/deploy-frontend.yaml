@@ -28,7 +28,6 @@ jobs:
         service: grantcm-staging
         source: frontend
         flags: "--allow-unauthenticated"
-
       # run: |
       #   gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
       #   gcloud components install beta --quiet
