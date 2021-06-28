@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+    - master
+name: deploy frontend
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - name: Build app
+      run: |
+        cd frontend
+        npm install
+        npm run build
