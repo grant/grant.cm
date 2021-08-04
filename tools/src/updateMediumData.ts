@@ -63,5 +63,4 @@ const mediumUsername = 'granttimmerman';
     };
     return postData;
   });
-  console.log(filteredPostData);
 })();

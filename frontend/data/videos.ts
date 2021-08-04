@@ -7,7 +7,7 @@ export interface Video {
   date?: string; // The date the video was uploaded.
 }
 
-export const Videos: Video[] = [{
+export const VIDEOS: Video[] = [{
   url: 'https://www.youtube.com/watch?v=r8rVm4-RJJM',
   title: 'Cloud, Dart, and full-stack Flutter | Q&A',
   date: '2021-05-19',
@@ -29,7 +29,7 @@ export const Videos: Video[] = [{
   date: '2020-10-15',
 }, {
   url: 'https://www.youtube.com/watch?v=EjMs36ucRA4',
-  title: '2019.06.13 SeattleJS Go Serverless with Google Cloud Functions by Grant Timmerman',
+  title: 'SeattleJS Go Serverless with Google Cloud Functions',
   date: '2019-06-13',
 }, {
   url: 'https://www.youtube.com/watch?v=fEbAALVwyEU',
@@ -37,11 +37,11 @@ export const Videos: Video[] = [{
   date: '2019-04-11',
 }, {
   url: 'https://www.youtube.com/watch?v=dpYHPzQF1qI',
-  title: 'Grant Timmerman - All About Apps Script',
+  title: 'All About Apps Script',
   date: '2019-02-02',
 }, {
   url: 'https://www.youtube.com/watch?v=qFN8ULYt7Bk',
-  title: 'Automate G Suite with APIs and Apps Script - Grant Timmerman',
+  title: 'Automate G Suite with APIs and Apps Script',
   date: '2018-10-30',
 }, {
   url: 'https://www.youtube.com/watch?v=ReeTGi600QI',
@@ -54,7 +54,7 @@ export const Videos: Video[] = [{
 }, {
   url: 'https://www.youtube.com/watch?v=iVVZfPbNCtI',
   title: 'React.js: The Frontend Framework of the Future',
-  date: '2015-14-17',
+  date: '2015-04-17',
 }, {
   url: 'https://www.youtube.com/watch?v=weZUOS8QuLw',
   title: 'Hacking like a Hipster - Grunt, Gulp and Heroku',

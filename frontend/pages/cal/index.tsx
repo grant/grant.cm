@@ -1,4 +1,4 @@
-import styles from './cal.module.scss';
+import styles from './index.module.scss';
 
 // A page with my Google Calendar.
 // http://localhost:8080/cal
