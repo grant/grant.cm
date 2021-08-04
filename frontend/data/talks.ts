@@ -22,7 +22,7 @@ export interface Talk {
 
 enum CITIES {
   VIRTUAL = 'VIRTUAL',
-  SAN_FRANCISCO = "SAN_FRANCISCO",
+  SAN_FRANCISCO = 'SAN_FRANCISCO',
   KANSAS_CITY = 'KANSAS_CITY',
   MANILA = 'MANILA',
   SYDNEY = 'SYDNEY',
@@ -51,7 +51,7 @@ enum CITIES {
   DC = 'DC',
 }
 
-const LOCATION: { [key in CITIES]: Location } = {
+const LOCATION: {[key in CITIES]: Location} = {
   VIRTUAL: {
     name: 'Virtual',
   },
@@ -81,27 +81,27 @@ const LOCATION: { [key in CITIES]: Location } = {
   },
   CALI: {
     name: 'Cali, Colombia',
-    coordinate: [3.4516, -76.5320]
+    coordinate: [3.4516, -76.532],
   },
   MEDELLIN: {
     name: 'Medellin, Colombia',
-    coordinate: [6.2476, -75.5658]
+    coordinate: [6.2476, -75.5658],
   },
   LIMA: {
     name: 'Lima, Peru',
-    coordinate: [12.0464, -77.0428]
+    coordinate: [12.0464, -77.0428],
   },
   CUSCO: {
     name: 'Cusco, Peru',
-    coordinate: [6.2476, -75.5658]
+    coordinate: [6.2476, -75.5658],
   },
   BUENOS_AIRES: {
     name: 'Buenos Aires, Argentina',
-    coordinate: [34.6037, -58.3816]
+    coordinate: [34.6037, -58.3816],
   },
   SANTIAGO_CHILE: {
     name: 'Santiago, Chile',
-    coordinate: [33.4489, -70.6693]
+    coordinate: [33.4489, -70.6693],
   },
   SEATTLE: {
     name: 'Seattle',
@@ -109,59 +109,59 @@ const LOCATION: { [key in CITIES]: Location } = {
   },
   SUNNYVALE: {
     name: 'Sunnyvale',
-    coordinate: [37.3688, -122.0363  ],
+    coordinate: [37.3688, -122.0363],
   },
   MOUNTAIN_VIEW: {
     name: 'Mountain View',
-    coordinate: [37.3861, -122.0839    ],
+    coordinate: [37.3861, -122.0839],
   },
   ORLANDO: {
     name: 'Orlando',
-    coordinate: [28.5383, -81.3792    ],
+    coordinate: [28.5383, -81.3792],
   },
   LONDON: {
     name: 'London',
-    coordinate: [51.5074, -0.1278    ],
+    coordinate: [51.5074, -0.1278],
   },
   LOS_ANGELES: {
     name: 'Los Angeles',
-    coordinate: [34.0522, -118.2437    ],
+    coordinate: [34.0522, -118.2437],
   },
   DUBLIN: {
     name: 'Dublin',
-    coordinate: [53.3498, -6.2603    ],
+    coordinate: [53.3498, -6.2603],
   },
   STOCKHOLM: {
     name: 'Stockholm',
-    coordinate: [59.3293, 18.0686    ],
+    coordinate: [59.3293, 18.0686],
   },
   AUSTIN: {
     name: 'Austin',
-    coordinate: [30.2672, -97.7431    ],
+    coordinate: [30.2672, -97.7431],
   },
   VANCOUVER: {
     name: 'Vancouver',
-    coordinate: [49.2827, -123.1207    ],
+    coordinate: [49.2827, -123.1207],
   },
   FRESNO: {
     name: 'Fresno',
-    coordinate: [36.7378, -119.7871    ],
+    coordinate: [36.7378, -119.7871],
   },
   NEW_YORK: {
     name: 'New York',
-    coordinate: [40.7128, -74.0060    ],
+    coordinate: [40.7128, -74.006],
   },
   FREMONT: {
     name: 'Fremont',
-    coordinate: [37.5485, -121.9886    ],
+    coordinate: [37.5485, -121.9886],
   },
   TAMPA_FLORIDA: {
     name: 'Tampa',
-    coordinate: [],
+    coordinate: [27.9506, -82.4572],
   },
   DC: {
     name: 'D.C.',
-    coordinate: [],
+    coordinate: [38.9072, -77.0369],
   },
 };
 
