@@ -8,6 +8,10 @@ export interface Video {
 }
 
 export const VIDEOS: Video[] = [{
+  url: 'https://www.youtube.com/watch?v=X7-OcaGv5Yg',
+  title: 'Debugging Cloud Functions',
+  date: '2021-08-05',
+}, {
   url: 'https://www.youtube.com/watch?v=r8rVm4-RJJM',
   title: 'Cloud, Dart, and full-stack Flutter | Q&A',
   date: '2021-05-19',

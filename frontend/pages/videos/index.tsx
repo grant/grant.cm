@@ -19,6 +19,11 @@ export default function Videos() {
 
   return (
     <div>
+      <style jsx global>{`
+  body {
+    background: #222;
+  }
+`}</style>
       <Head key="head">
         <title>Grant Timmerman's Videos</title>
       </Head>
