@@ -2,7 +2,7 @@
  * Gets the youtube video id from a url
  */
 export const getVideoID = (url: string) => {
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch?v=|&v=)([^#&?]*).*/;
   const match = url.match(regExp);
   return match && match[2].length === 11 ? match[2] : '';
 };
@@ -17,4 +17,4 @@ export const getVideoThumbnailURL = (videoId: string) => {
 
   // Image without black bars
   return `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
-}
+};
