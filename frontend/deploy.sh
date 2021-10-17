@@ -3,8 +3,14 @@
 # Config
 gcloud config set account granttimmerman@gmail.com
 
-# SERVICE=grantcm-staging;
-SERVICE=grantcm;
+SERVICE=""
+if [[ "${RUN_ENV}" == "PROD" ]]; then
+  SERVICE="grantcm"
+else
+  # Default to staging
+  SERVICE="grantcm-staging"
+fi
+echo "Deploying to project: ${SERVICE}"
 
 # Build the app
 npm run build;

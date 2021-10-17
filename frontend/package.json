@@ -13,7 +13,8 @@
     "lint": "gts lint",
     "clean": "gts clean",
     "fix": "gts fix",
-    "deploy": "./deploy.sh"
+    "deploy": "RUN_ENV=PROD ./deploy.sh",
+    "stage": "./deploy.sh"
   },
   "dependencies": {
     "date-fns": "^2.11.1",
