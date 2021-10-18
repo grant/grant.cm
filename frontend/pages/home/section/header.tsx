@@ -13,7 +13,7 @@ export default function SectionHeader() {
             {link: '#about', title: 'About'},
             {link: '#experience', title: 'Experience'},
             {link: '#projects', title: 'Projects'},
-            {break: true},
+            {break: true, title: 'Break'},
             {link: '/videos', title: 'Videos'},
           ].map(l =>
             l.break ? ( <li key={l.title}><hr /></li> ) : (
