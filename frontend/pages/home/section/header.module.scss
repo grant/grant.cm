@@ -66,4 +66,11 @@
       }
     }
   }
+
+  hr {
+    width: 5%;
+    height: 2px;
+    background: rgba($color: $COLOR_WHITE, $alpha: 0.3);
+    border: 0;
+  }
 }

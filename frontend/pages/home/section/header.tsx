@@ -13,14 +13,17 @@ export default function SectionHeader() {
             {link: '#about', title: 'About'},
             {link: '#experience', title: 'Experience'},
             {link: '#projects', title: 'Projects'},
+            {break: true},
             {link: '/videos', title: 'Videos'},
-          ].map(l => (
-            <li key={l.title}>
-              <a className={styles.link} href={l.link}>
-                {l.title}
-              </a>
-            </li>
-          ))}
+          ].map(l =>
+            l.break ? ( <li key={l.title}><hr /></li> ) : (
+              <li key={l.title}>
+                <a className={styles.link} href={l.link}>
+                  {l.title}
+                </a>
+              </li>
+            )
+          )}
         </ul>
       </div>
       <div className={styles.arrow}>
