@@ -16,7 +16,11 @@ export default function SectionHeader() {
             {break: true, title: 'Break'},
             {link: '/videos', title: 'Videos'},
           ].map(l =>
-            l.break ? ( <li key={l.title}><hr /></li> ) : (
+            l.break ? (
+              <li key={l.title}>
+                <hr />
+              </li>
+            ) : (
               <li key={l.title}>
                 <a className={styles.link} href={l.link}>
                   {l.title}

@@ -2,8 +2,8 @@
  * Gets the youtube video id from a url
  */
 export const getVideoID = (url: string) => {
-  // eslint-disable-next-line no-useless-escape
   const regExp =
+    // eslint-disable-next-line no-useless-escape
     /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
   const match = url.match(regExp);
   return match && match[2].length === 11 ? match[2] : '';
