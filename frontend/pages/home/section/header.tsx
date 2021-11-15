@@ -7,7 +7,7 @@ export default function SectionHeader() {
     <section className={classNames(styles.header, sectionStyles.section)}>
       <div className={styles.centerBox}>
         <h1 className={styles.name}>Grant Timmerman</h1>
-        <h3 className={styles.bio}>Google Developer Platform Engineer</h3>
+        <h3 className={styles.bio}>Software Engineer, Google Cloud</h3>
         <ul>
           {[
             {link: '#about', title: 'About'},

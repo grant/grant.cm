@@ -15,7 +15,7 @@ export default function SectionAbout() {
         alt="Grant Timmerman"
       />
       <p className={styles.longBio}>
-        <em>Hello there!</em> I'm Grant Timmerman, a platform engineer and open
+        <em>Hello there!</em> I'm Grant Timmerman, a software engineer and open
         source enthusiast. I love building delightful developer experiences.
         <br />
       </p>
