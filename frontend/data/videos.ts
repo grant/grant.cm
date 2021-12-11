@@ -9,6 +9,11 @@ export interface Video {
 
 export const VIDEOS: Video[] = [
   {
+    url: 'https://www.youtube.com/watch?v=g6i-mb_3iWM',
+    title: 'Websockets with Cloud Run',
+    date: '2021-09-09'
+  },
+  {
     url: 'https://www.youtube.com/watch?v=X7-OcaGv5Yg',
     title: 'Debugging Cloud Functions',
     date: '2021-08-05',
