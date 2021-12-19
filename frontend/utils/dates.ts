@@ -21,7 +21,7 @@ export function prettyDate(date) {
     (day_diff === 1 && 'Yesterday') ||
     (day_diff < 31 && day_diff + ' days ago') ||
     (day_diff < 100 && Math.ceil(day_diff / 7) + ' weeks ago') ||
-    (day_diff < 400 && 'about a year ago') ||
+    (day_diff < 700 && Math.ceil(day_diff / 30) + ' months ago') ||
     Math.ceil(day_diff / 365) + ' years ago'
   );
 }
