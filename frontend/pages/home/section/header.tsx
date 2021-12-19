@@ -15,6 +15,7 @@ export default function SectionHeader() {
             {link: '#projects', title: 'Projects'},
             {break: true, title: 'Break'},
             {link: '/videos', title: 'Videos'},
+            {link: 'https://medium.com/@granttimmerman', title: 'Blogposts'},
           ].map(l =>
             l.break ? (
               <li key={l.title}>
