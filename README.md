@@ -69,8 +69,8 @@ The CloudFlare DNS records will look like (with DOMAIN being `grant.cm`):
 | AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>` | DNS Only |
 | AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>` | DNS Only |
 | AAAA | `<DOMAIN>` | `<generated IPv6 (DOMAIN from Cloud Run)>` | DNS Only |
-| CNAME | www | `<DOMAIN>`  | Proxied |
-| TXT | `<DOMAIN>` | google-site-verification=ZkBjUhfP1hRIEVOXKhEJz3xaQnRPx_8NUxxy9mFX9x0 | DNS Only |
+| CNAME | `www` | `<DOMAIN>`  | Proxied |
+| TXT | `<DOMAIN>` | `google-site-verification=ZkBjUhfP1hRIEVOXKhEJz3xaQnRPx_8NUxxy9mFX9x0` | DNS Only |
 
 The `www` subdomain redirects `www.DOMAIN` to `DOMAIN` with a proxy.
 
@@ -80,7 +80,7 @@ To add a subdomain, create a new Cloud Run service
 
 | Type | Name | Content | Proxy Status |
 | --- | --- | --- | --- |
-| CNAME | staging | ghs.googlehosted.com | DNS only
+| CNAME | `staging` | `ghs.googlehosted.com` | DNS only
 
 In the Cloud Run UI, Add mapping for your subdomain.
 
@@ -88,16 +88,16 @@ In the Cloud Run UI, Add mapping for your subdomain.
 
 | Type | Name | Content |
 | --- | --- | --- |
-| A | grant.cm | 123.12.1.123 |
-| A | grant.cm | 123.12.1.123 |
-| A | grant.cm | 123.12.1.123 |
-| A | grant.cm | 123.12.1.123 |
-| AAAA | grant.cm | 1000:4660:4804:36::15 |
-| AAAA | grant.cm | 1000:4660:4804:36::15 |
-| AAAA | grant.cm | 1000:4660:4804:36::15 |
-| AAAA | grant.cm | 1000:4660:4804:36::15 |
-| CNAME | www | grant.cm |
-| TXT | grant.cm | google-site-verification=ZkBjUhfP1hRIEVOXKhEJz3xaQnRPx_8NUxxy9mFX9x0 |
+| A | `grant.cm` | `123.12.1.123` |
+| A | `grant.cm` | `123.12.1.123` |
+| A | `grant.cm` | `123.12.1.123` |
+| A | `grant.cm` | `123.12.1.123` |
+| AAAA | `grant.cm` | `1000:4660:4804:36::15` |
+| AAAA | `grant.cm` | `1000:4660:4804:36::15` |
+| AAAA | `grant.cm` | `1000:4660:4804:36::15` |
+| AAAA | `grant.cm` | `1000:4660:4804:36::15` |
+| CNAME | `www` | `grant.cm` |
+| TXT | `grant.cm` | `google-site-verification=ZkBjUhfP1hRIEVOXKhEJz3xaQnRPx_8NUxxy9mFX9x0` |
 
 All of these should be **DNS only** (*Not* **Proxied**).
 
@@ -108,6 +108,7 @@ To link the Cloud Run service to the domain registrar, create the domain mapping
 ```sh
 gcloud beta run domain-mappings create \
 --service grantcm \
+--region us-central1 \
 --domain grant.cm
 ```
 
@@ -115,6 +116,7 @@ Describe the mapping to verify it works:
 
 ```sh
 gcloud beta run domain-mappings describe \
+--region us-central1 \
 --domain grant.cm
 # Prints DNS records that should be the same as above
 ```
