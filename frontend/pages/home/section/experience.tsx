@@ -33,8 +33,31 @@ const experiences: Experience[] = [
     id: 'google',
     roles: [
       {
-        title: 'Engineer, Google Cloud, Serverless',
-        dateRange: '2019-present',
+        title: 'Software Engineer, Google Cloud, Serverless',
+        dateRange: '2021-present',
+        summary: (
+          <span>
+            Builds the core runtimes for Google Cloud's serverless computing
+            platform.
+          </span>
+        ),
+        bullets: [
+          <span>
+            Builds serverless runtimes for Google Cloud, App Engine and Cloud Functions.
+          </span>,
+          <span>
+            Creates new features for the Function Frameworks.
+          </span>,
+        ],
+        languages: [
+          'Java',
+          'Ruby',
+          'Go',
+        ],
+      },
+      {
+        title: 'Developer Programs Engineer, Google Cloud, Serverless',
+        dateRange: '2019-2021',
         summary: (
           <span>
             Builds developer products for Google Cloud's serverless computing
@@ -76,7 +99,7 @@ const experiences: Experience[] = [
         ],
       },
       {
-        title: 'Engineer, Google Workspace (G Suite)',
+        title: 'Developer Programs Engineer, Google Workspace (G Suite)',
         dateRange: '2017-2019',
         summary: (
           <span>
