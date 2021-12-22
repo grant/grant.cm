@@ -10,5 +10,5 @@ export const press: Press = [
   'https://cloud.google.com/blog/products/application-development/introducing-slides-api-codelab',
   // Slides: t.co/Uy4Ga81GpX
   'https://www.meetup.com/gdg-silicon-valley/events/244582419/',
-  'https://cloud.google.com/blog/products/application-development/three-new-tools-to-help-improve-your',  
+  'https://cloud.google.com/blog/products/application-development/three-new-tools-to-help-improve-your',
 ];

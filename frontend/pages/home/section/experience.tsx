@@ -43,17 +43,12 @@ const experiences: Experience[] = [
         ),
         bullets: [
           <span>
-            Builds serverless runtimes for Google Cloud, App Engine and Cloud Functions.
+            Builds serverless runtimes for Google Cloud, App Engine and Cloud
+            Functions.
           </span>,
-          <span>
-            Creates new features for the Function Frameworks.
-          </span>,
+          <span>Creates new features for the Function Frameworks.</span>,
         ],
-        languages: [
-          'Java',
-          'Ruby',
-          'Go',
-        ],
+        languages: ['Java', 'Ruby', 'Go'],
       },
       {
         title: 'Developer Programs Engineer, Google Cloud, Serverless',
