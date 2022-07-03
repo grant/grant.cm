@@ -37,10 +37,10 @@ const experiences: Experience[] = [
         dateRange: '2022-present',
         summary: (
           <span>
-            Building the observable data viz platform.
+            Building the observable data viz platform. Lots of JavaScript!
           </span>
         ),
-        languages: ['TypeScript', 'JavaScript'],
+        languages: ['Node', 'TypeScript', 'JavaScript'],
       },
     ],
   },
@@ -64,7 +64,7 @@ const experiences: Experience[] = [
           </span>,
           <span>Creates new features for the Function Frameworks.</span>,
         ],
-        languages: ['Java', 'Ruby', 'Go'],
+        languages: ['Java', 'Ruby', 'Go', 'Node'],
       },
       {
         title: 'Developer Programs Engineer, Google Cloud, Serverless',
