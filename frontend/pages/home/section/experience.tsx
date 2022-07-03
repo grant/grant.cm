@@ -29,12 +29,28 @@ interface Experience {
  */
 const experiences: Experience[] = [
   {
+    company: 'Observable',
+    id: 'observable',
+    roles: [
+      {
+        title: 'Software Engineer, Observable',
+        dateRange: '2022-present',
+        summary: (
+          <span>
+            Building the observable data viz platform.
+          </span>
+        ),
+        languages: ['TypeScript', 'JavaScript'],
+      },
+    ],
+  },
+  {
     company: 'Google',
     id: 'google',
     roles: [
       {
         title: 'Software Engineer, Google Cloud, Serverless',
-        dateRange: '2021-present',
+        dateRange: '2021-2022',
         summary: (
           <span>
             Builds the core runtimes for Google Cloud's serverless computing
@@ -362,7 +378,7 @@ export default function SectionExperience() {
                   height="100%"
                   className={[
                     styles.svg,
-                    experience.id === 'google' || experience.id === 'nor1'
+                    experience.id === 'google' || experience.id === 'nor1' || experience.id === 'observable'
                       ? styles.white
                       : '',
                   ].join(' ')}
