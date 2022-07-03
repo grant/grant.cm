@@ -29,11 +29,6 @@ export const VIDEOS: Video[] = [
     date: '2021-05-19',
   },
   {
-    url: 'https://www.youtube.com/watch?v=yGQe0-5D7e4',
-    title: 'CloudEvents with Google Cloud',
-    date: '2020-09-15',
-  },
-  {
     url: 'https://www.youtube.com/watch?v=qQiqo1zZJmI',
     title: 'Functions Framework',
     date: '2020-11-10',
@@ -42,6 +37,11 @@ export const VIDEOS: Video[] = [
     url: 'https://www.youtube.com/watch?v=zRjOSxTpC3A',
     title: 'Cloud Functions vs. Cloud Run',
     date: '2020-10-15',
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=yGQe0-5D7e4',
+    title: 'CloudEvents with Google Cloud',
+    date: '2020-09-15',
   },
   {
     url: 'https://www.youtube.com/watch?v=EjMs36ucRA4',
