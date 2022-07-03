@@ -378,7 +378,10 @@ export default function SectionExperience() {
                   height="100%"
                   className={[
                     styles.svg,
-                    experience.id === 'google' || experience.id === 'nor1' || experience.id === 'observable'
+                    // White styles
+                    experience.id === 'google' ||
+                    experience.id === 'nor1' ||
+                    experience.id === 'observable'
                       ? styles.white
                       : '',
                   ].join(' ')}
