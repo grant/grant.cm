@@ -33,7 +33,7 @@ const experiences: Experience[] = [
     id: 'observable',
     roles: [
       {
-        title: 'Software Engineer, Observable',
+        title: 'Software Engineer',
         dateRange: '2022-present',
         summary: (
           <span>
