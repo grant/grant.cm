@@ -32,29 +32,27 @@ function renderProject(project) {
       key={project.id}
       className={classNames(styles.card, styles[project.id])}
     >
-      <a href={project.url.github}>
-        <img className={styles.cardImage} src={imgURL} />
-        <div className={styles.textArea}>
-          <h3 className={styles.title}>{project.title}</h3>
-          <p className={styles.description}>{project.description}</p>
-          <div className={styles.urls}>
-            {project.url.github ? (
-              <a className={styles.url} href={project.url.github}>
-                GITHUB
-              </a>
-            ) : (
-              ''
-            )}
-            {project.url.demo ? (
-              <a className={styles.url} href={project.url.demo}>
-                DEMO
-              </a>
-            ) : (
-              ''
-            )}
-          </div>
+      <img className={styles.cardImage} src={imgURL} />
+      <div className={styles.textArea}>
+        <h3 className={styles.title}>{project.title}</h3>
+        <p className={styles.description}>{project.description}</p>
+        <div className={styles.urls}>
+          {project.url.github ? (
+            <a className={styles.url} href={project.url.github}>
+              GITHUB
+            </a>
+          ) : (
+            ''
+          )}
+          {project.url.demo ? (
+            <a className={styles.url} href={project.url.demo}>
+              DEMO
+            </a>
+          ) : (
+            ''
+          )}
         </div>
-      </a>
+      </div>
     </li>
   );
 }
