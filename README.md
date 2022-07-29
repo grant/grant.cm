@@ -2,13 +2,17 @@
 
 The website [grant.cm](http://grant.cm)
 
-Built with:
+### Stack
+
+Languages:
+
 - Node
 - Typescript
 - React / Next.js
 - SCSS
 
-Deployed with:
+Platform:
+
 - Google Cloud Buildpacks
 - Cloud Run
 
