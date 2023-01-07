@@ -15,6 +15,6 @@
   },
   "devDependencies": {
     "@types/node": "^15.12.4",
-    "gts": "^3.1.0"
+    "gts": "^3.1.1"
   }
 }
