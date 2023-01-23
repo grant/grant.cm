@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './experience.module.scss';
 import sectionStyles from './sections.module.scss';
-import classNames from 'classnames/bind';
+import classNames from 'classnames';
 
 /**
  * A single role within an experience.

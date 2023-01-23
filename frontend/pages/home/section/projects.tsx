@@ -1,6 +1,6 @@
 import styles from './projects.module.scss';
 import sectionStyles from './sections.module.scss';
-import classNames from 'classnames/bind';
+import classNames from 'classnames';
 import {projects} from '../../../data/projects';
 
 export default function Projects() {

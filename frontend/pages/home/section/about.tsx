@@ -1,6 +1,6 @@
 import styles from './about.module.scss';
 import sectionStyles from './sections.module.scss';
-import classNames from 'classnames/bind';
+import classNames from 'classnames';
 
 export default function SectionAbout() {
   return (
