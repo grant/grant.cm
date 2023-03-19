@@ -37,10 +37,10 @@ const experiences: Experience[] = [
         dateRange: '2022-present',
         summary: (
           <span>
-            Building the observable data viz platform. Lots of JavaScript!
+            Building the observable data viz platform. Lots of TypeScript!
           </span>
         ),
-        languages: ['Node', 'TypeScript', 'JavaScript'],
+        languages: ['Node', 'TypeScript', 'JavaScript', 'Postgres', 'Heroku'],
       },
     ],
   },
