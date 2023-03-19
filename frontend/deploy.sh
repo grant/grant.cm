@@ -23,7 +23,7 @@ if [[ $buildStatus -eq 0 ]]; then
   echo "!!! Build successful !!!"
 
   # Deploys the web app to Cloud Run
-  gcloud beta run deploy $SERVICE \
+  gcloud run deploy $SERVICE \
   --project grantcm \
   --region us-central1 \
   --source . \
