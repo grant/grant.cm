@@ -23,12 +23,14 @@ jobs:
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
       - name: Build
+        working-directory: frontend
         run: |
           cd frontend
           npm install
           npm run build
       - name: Deploy to Cloud Run
         id: deploy
+        working-directory: frontend
         uses: google-github-actions/deploy-cloudrun@v0
         with:
           service: ${{ env.SERVICE }}
