@@ -10,6 +10,7 @@ env:
   REGION: us-central1
 jobs:
   deploy:
+    # needs: build
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -32,6 +33,4 @@ jobs:
       - name: Deploy to Cloud Run
         run: |
           cd frontend
-          # Disable update check to avoid prompt
-          gcloud config set component_manager/disable_update_check true
           npm run deploy

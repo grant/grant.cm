@@ -5,6 +5,8 @@ gcloud config set account granttimmerman@gmail.com
 
 SERVICE=""
 if [[ "${RUN_ENV}" == "PROD" ]]; then
+  # Disable update check to avoid prompt
+  gcloud config set component_manager/disable_update_check true
   SERVICE="grantcm"
 else
   # Default to staging
