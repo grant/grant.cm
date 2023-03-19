@@ -22,9 +22,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - uses: 'google-github-actions/setup-gcloud@v1'
+      - id: auth
+        uses: 'google-github-actions/auth@v1'
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
       - name: Build
         run: |
           cd frontend
