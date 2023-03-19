@@ -1,6 +1,6 @@
+name: build
 on:
   push:
-name: build
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -1,6 +1,6 @@
+name: lint
 on:
   push:
-name: lint
 jobs:
   lint:
     runs-on: ubuntu-latest
