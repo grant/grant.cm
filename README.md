@@ -159,6 +159,10 @@ gcloud iam service-accounts add-iam-policy-binding $SA \
   --member=serviceAccount:$SA \
   --role roles/iam.serviceAccountUser \
   --project=$PROJECT
+
+gcloud projects add-iam-policy-binding grantcm \
+--member "serviceAccount:grantcm-sa@grantcm.iam.gserviceaccount.com" \
+--role "roles/owner"
 ```
 
 If all worked well, every time you push to `master`, the website will be deployed to Cloud Run.
