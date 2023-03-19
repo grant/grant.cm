@@ -29,13 +29,7 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
         with:
-          service_account: grantcm-sa@grantcm.iam.gserviceaccount.com
-      # - name: 'Authenticating to GCP with secret'
-      #   run: |
-      #     echo ${{secrets.GCP_CREDENTIALS}} > .env.json
-      #     gcloud auth activate-service-account --project=grantcm --key-file=.env.json
-      #   env:
-      #     DEV_ENV_FILE : ${{secrets.GCP_CREDENTIALS}}
+          service_account: ${{ steps.auth.outputs.service_account }}
       - name: Deploy to Cloud Run
         run: |
           cd frontend
