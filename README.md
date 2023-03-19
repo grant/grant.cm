@@ -122,3 +122,43 @@ gcloud beta run domain-mappings describe \
 ```
 
 > Note: It may take up to 24 hours for it to work. If the Run domain mapping is spinning, try deleting it and creating it again.
+
+### GitHub Actions Deploy on Push
+
+You can deploy the website with GitHub Actions.
+
+Here are the rough details:
+
+Create a Service Account with roles:
+- Cloud Build Service Agent
+- Cloud Run Service Agent
+- Compute Engine Service Agent
+- Editor
+- Service Account User
+- Viewer
+
+Download the Service Account key as a JSON file.
+
+Add the file contents as a repo secret called `GCP_CREDENTIALS`. This is used by our deploy workflow, `.github/workflows/deployToRun.yaml`.
+
+Note the Service Account details. Here are mine:
+- PROJECT=grantcm
+- REGION=us-central1
+- CLOUD_RUN_SERVICE_NAME=grantcm
+- SA=grantcm-sa@grantcm.iam.gserviceaccount.com
+
+You'll need to add some permissions to the Service Account to not get errors. See https://stackoverflow.com/q/62783869:
+
+```
+gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE_NAME \
+  --member=serviceAccount:$SA \
+  --role=roles/run.admin \
+  --project=$PROJECT
+
+gcloud iam service-accounts add-iam-policy-binding $SA \
+  --member=serviceAccount:$SA \
+  --role roles/iam.serviceAccountUser \
+  --project=$PROJECT
+```
+
+If all worked well, every time you push to `master`, the website will be deployed to Cloud Run.
