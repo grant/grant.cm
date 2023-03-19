@@ -28,11 +28,6 @@ jobs:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
-      - name: Build
-        run: |
-          cd frontend
-          npm install
-          npm run build
       - name: Deploy to Cloud Run
         run: |
           cd frontend
