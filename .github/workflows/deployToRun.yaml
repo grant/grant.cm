@@ -4,13 +4,9 @@ on:
     branches:
       - 'master'
   workflow_dispatch:
-env:
-  PROJECT_ID: grantcm
-  SERVICE: grantcm
-  REGION: us-central1
 jobs:
   deploy:
-    # needs: build
+    needs: build
     permissions:
       contents: 'read'
       id-token: 'write'

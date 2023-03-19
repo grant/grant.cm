@@ -12,6 +12,9 @@ Deployed with:
 - Google Cloud Buildpacks
 - Cloud Run
 
+Automated with:
+- GitHub Actions CD
+
 ### Quickstart
 
 ```sh
@@ -38,12 +41,14 @@ Develop the site with these scripts:
 
 #### Build & Deploy
 
+> Note: The site is deployed with GitHub Actions. See the `deployToRun` workflow.
+
 - `npm run build`: Builds the website for production.
 - `npm run deploy`: Deploys the website to Google Cloud
 
 #### DNS
 
-This website is hosted on Cloud Run.
+This website is hosted on Cloud Run, Cloudflare CDN, and Namecheap domain registrar.
 
 - Host: Cloud Run w/ Custom Domains
   - https://console.cloud.google.com/run?project=grantcm
@@ -106,7 +111,7 @@ All of these should be **DNS only** (*Not* **Proxied**).
 To link the Cloud Run service to the domain registrar, create the domain mapping:
 
 ```sh
-gcloud beta run domain-mappings create \
+gcloud run domain-mappings create \
 --service grantcm \
 --region us-central1 \
 --domain grant.cm
@@ -115,7 +120,7 @@ gcloud beta run domain-mappings create \
 Describe the mapping to verify it works:
 
 ```sh
-gcloud beta run domain-mappings describe \
+gcloud run domain-mappings describe \
 --region us-central1 \
 --domain grant.cm
 # Prints DNS records that should be the same as above
