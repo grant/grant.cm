@@ -15,9 +15,13 @@ jobs:
       id-token: 'write'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v3
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - uses: 'google-github-actions/setup-gcloud@v1'
         with:
           service_account_email: ${{ secrets.GCP_EMAIL }}
           service_account_key: ${{ secrets.GCP_CREDENTIALS }}
