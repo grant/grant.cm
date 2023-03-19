@@ -23,9 +23,7 @@ jobs:
           node-version: 14
       - uses: 'google-github-actions/setup-gcloud@v1'
         with:
-          service_account_email: ${{ secrets.GCP_EMAIL }}
-          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
-          export_default_credentials: true
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
       - name: Build
         run: |
           cd frontend
