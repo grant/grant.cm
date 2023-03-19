@@ -18,7 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Google Auth
-        id: auth
         uses: 'google-github-actions/auth@v0'
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
@@ -29,7 +28,6 @@ jobs:
           npm install
           npm run build
       - name: Deploy to Cloud Run
-        id: deploy
         working-directory: frontend
         uses: google-github-actions/deploy-cloudrun@v0
         with:
