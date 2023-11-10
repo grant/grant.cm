@@ -10,7 +10,7 @@
     "fix": "gts fix"
   },
   "dependencies": {
-    "axios": "^0.21.2",
+    "axios": "^1.6.0",
     "typescript": "^4.2.4"
   },
   "devDependencies": {
