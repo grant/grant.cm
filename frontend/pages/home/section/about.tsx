@@ -16,7 +16,8 @@ export default function SectionAbout() {
       />
       <p className={styles.longBio}>
         <em>Hello there!</em> I'm Grant Timmerman, a software engineer and open
-        source enthusiast. I love building delightful developer experiences.
+        source enthusiast. I love building delightful developer and user
+        experiences.
         <br />
       </p>
     </section>

@@ -29,15 +29,37 @@ interface Experience {
  */
 const experiences: Experience[] = [
   {
+    company: 'Additive.AI',
+    id: 'additive',
+    roles: [
+      {
+        title: 'Member of Technical Staff',
+        dateRange: '2023-present',
+        summary: <span>Building superpower tools for accountants.</span>,
+        languages: [
+          'TypeScript',
+          'React',
+          'Tailwind',
+          'Playwright',
+          'Node',
+          'Python',
+          'Django',
+          'Postgres',
+          'AWS',
+        ],
+      },
+    ],
+  },
+  {
     company: 'Observable',
     id: 'observable',
     roles: [
       {
         title: 'Senior Software Engineer',
-        dateRange: '2022-present',
+        dateRange: '2022-2023',
         summary: (
           <span>
-            Building the <a href="https://observablehq.com">observablehq.com</a>{' '}
+            Built the <a href="https://observablehq.com">observablehq.com</a>{' '}
             data viz platform. Lots of TypeScript!
           </span>
         ),
@@ -54,17 +76,17 @@ const experiences: Experience[] = [
         dateRange: '2021-2022',
         summary: (
           <span>
-            Builds the core runtimes for Google Cloud's serverless computing
+            Built the core runtimes for Google Cloud's serverless computing
             platform.
           </span>
         ),
         bullets: [
           <span>
-            Builds serverless runtimes for Google Cloud, App Engine and Cloud
+            Built serverless runtimes for Google Cloud, App Engine and Cloud
             Functions.
           </span>,
           <span>Created java17 and ruby30 runtimes.</span>,
-          <span>Creates new features for the Function Frameworks.</span>,
+          <span>Created new features for the Function Frameworks.</span>,
         ],
         languages: ['Java', 'Ruby', 'Go', 'Node'],
       },
@@ -73,13 +95,13 @@ const experiences: Experience[] = [
         dateRange: '2019-2021',
         summary: (
           <span>
-            Builds developer products for Google Cloud's serverless computing
+            Built developer products for Google Cloud's serverless computing
             platform.
           </span>
         ),
         bullets: [
           <span>
-            Leads and builds <strong>Google Cloud Functions</strong> computing
+            Led and built <strong>Google Cloud Functions</strong> computing
             strategy though the Functions Framework. Built 7 open source
             function runtimes in collaboration with language experts:{' '}
             <a href="https://git.io/gcfff">git.io/gcfff</a>
@@ -116,7 +138,7 @@ const experiences: Experience[] = [
         dateRange: '2017-2019',
         summary: (
           <span>
-            Designed and build{' '}
+            Designed and built{' '}
             <strong>G Suite's open source developer presence.</strong>
           </span>
         ),
