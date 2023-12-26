@@ -28,5 +28,5 @@ jobs:
       - name: Deploy to Cloud Run
         run: |
           cd frontend
-          npm install
+          npm ci
           npm run deploy

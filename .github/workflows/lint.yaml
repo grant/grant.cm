@@ -14,5 +14,5 @@ jobs:
     - name: Build app
       run: |
         cd frontend
-        npm install
+        npm ci
         npm run lint
