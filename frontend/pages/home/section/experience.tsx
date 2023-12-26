@@ -376,8 +376,9 @@ export default function SectionExperience() {
             >
               <div className={styles.imageArea}>
                 <Image
-                  width="100%"
-                  height="100%"
+                  layout="responsive"
+                  width={100}
+                  height={100}
                   className={[
                     styles.svg,
                     // White styles
