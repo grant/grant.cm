@@ -398,7 +398,6 @@ export default function SectionExperience() {
             >
               <div className={styles.imageArea}>
                 <Image
-                  layout="responsive"
                   width={100}
                   height={100}
                   className={[
@@ -412,6 +411,11 @@ export default function SectionExperience() {
                   ].join(' ')}
                   src={`/images/icons/${experience.id}.svg`}
                   alt={experience.company}
+                  sizes="100vw"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                  }}
                 />
               </div>
               {/* For each role... */}
