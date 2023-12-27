@@ -1,5 +1,8 @@
+// TODO: Delete SCSS
 import '../styles/reset.scss';
 import '../styles/global.scss';
+
+import '../styles/globals.css';
 import {AppProps} from 'next/app';
 
 /**
