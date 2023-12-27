@@ -18,7 +18,10 @@ export default function SectionAbout() {
         }
         style={{width: '200px'}}
       />
-      <p className={styles.longBio}>
+      <p
+        className={`${styles.longBio}
+        text-indent-50 max-w-screen-md mx-auto text-center text-medium leading-10 pb-12 pl-15`}
+      >
         <em>Hello there!</em> I'm Grant Timmerman, a software engineer and open
         source enthusiast. I love building delightful developer and user
         experiences.

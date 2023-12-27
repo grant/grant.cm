@@ -18,7 +18,7 @@ export default function SectionHeader() {
             {link: 'https://medium.com/@granttimmerman', title: 'Blogposts'},
           ].map(l =>
             l.break ? (
-              <li key={l.title}>
+              <li key={l.title} className="flex justify-center py-5">
                 <hr />
               </li>
             ) : (

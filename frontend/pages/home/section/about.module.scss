@@ -24,13 +24,7 @@ $darkColor: $COLOR_DARK_ORANGE;
 }
 .longBio {
   color: $COLOR_WHITE;
-  text-indent: 50px;
-  max-width: 760px;
-  margin: 0 auto;
-  font-size: $FONT_MEDIUM;
-  line-height: 1.5;
-  padding-bottom: 20px;
-  padding-left: 15px;
+
 
   em, a {
     color: $COLOR_LIGHT_ORANGE;

@@ -63,6 +63,23 @@ const experiences: Experience[] = [
             data viz platform. Lots of TypeScript!
           </span>
         ),
+        bullets: [
+          <span>
+            Built social identity (the ability to follow accounts and see a
+            timeline of user activity)
+          </span>,
+          <span>
+            Improved the core editing experience via a new menu and set of
+            recommendations
+          </span>,
+          <span>
+            Enabled Private embeds: The ability to securely share a single
+            visualization on other sites
+          </span>,
+          <span>
+            Worked on dashboards. Dozens of enhancements and bug fixes.
+          </span>,
+        ],
         languages: ['Node', 'TypeScript', 'JavaScript', 'Postgres', 'Heroku'],
       },
     ],
