@@ -35,9 +35,10 @@ module.exports = {
         dark: 'rgb(160, 47, 42)',
       },
       orange: {
-        light: lighten('orange', 0.2),
+        lightest: '#f3bd96',
+        light: '#eda169',
         DEFAULT: 'rgb(232, 132, 59)',
-        dark: 'rgb(172, 82, 39)',
+        dark: '#d76919',
       },
       yellow: {
         DEFAULT: 'rgb(255, 236, 132)',
