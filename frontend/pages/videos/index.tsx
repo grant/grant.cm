@@ -28,21 +28,37 @@ export default function Videos() {
       </Head>
       <div className={styles.pageContent}>
         <h1 className={styles.title}>Grant Timmerman's Videos</h1>
-        <div className={styles.videoList}>
+        <div
+          className={`${styles.videoList} grid justify-items-center min-h-screen`}
+        >
           {videoData.map(video => {
             return (
               <div className={styles.videoBlock} key={video.url}>
                 <a href={video.url}>
-                  <span className={styles.videoArrow}>▶</span>
+                  <span
+                    className={`${styles.videoArrow} opacity-0 absolute pointer-events-none text-9xl`}
+                    style={{
+                      paddingTop: '20px',
+                      paddingLeft: '150px',
+                      fontSize: '100px',
+                      color: 'rgba(239, 239, 239, 0.95)',
+                    }}
+                  >
+                    ▶
+                  </span>
                   <img
                     src={video.thumbnail}
                     className={styles.videoThumbnail}
                     alt={video.title}
                   />
-                  <div className={styles.videoTitle}>{video.title}</div>
-                  <div className={styles.videoDate}>
-                    {prettyDate(video.date)}
+                  <div
+                    style={{
+                      maxWidth: '300px',
+                    }}
+                  >
+                    {video.title}
                   </div>
+                  <div className="text-gray">{prettyDate(video.date)}</div>
                 </a>
               </div>
             );
