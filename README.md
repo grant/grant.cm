@@ -5,8 +5,9 @@ The website [grant.cm](http://grant.cm)
 Built with:
 - Node
 - Typescript
-- React / Next.js
-- SCSS
+- React
+- Next.js
+- Tailwind
 
 Deployed with:
 - Google Cloud Buildpacks
