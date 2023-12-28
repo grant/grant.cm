@@ -39,7 +39,7 @@ export default function Videos() {
                     className={`${styles.videoArrow} opacity-0 absolute pointer-events-none text-9xl`}
                     style={{
                       paddingTop: '20px',
-                      paddingLeft: '150px',
+                      paddingLeft: '120px',
                       fontSize: '100px',
                       color: 'rgba(239, 239, 239, 0.95)',
                     }}
