@@ -34,18 +34,25 @@ const experiences: Experience[] = [
     roles: [
       {
         title: 'Member of Technical Staff',
-        dateRange: '2023-present',
-        summary: <span>Building superpower tools for accountants.</span>,
+        dateRange: 'Fall 2023 - Spring 2024',
+        summary: <span>Built superpower tools for accountants.</span>,
+        bullets: [
+          <span>Created frontend web experience from scratch</span>,
+          <span>Built PDF generation pipeline</span>,
+          <span>
+            Enhanced Excel workpaper with checkfigures, error messages, and
+            other features
+          </span>,
+        ],
         languages: [
           'TypeScript',
           'React',
-          'Tailwind',
-          'Playwright',
-          'Node',
           'Python',
+          'PyMuPDF',
           'Django',
           'Postgres',
-          'AWS',
+          'Docker',
+          'GCP',
         ],
       },
     ],
@@ -56,7 +63,7 @@ const experiences: Experience[] = [
     roles: [
       {
         title: 'Senior Software Engineer',
-        dateRange: '2022-2023',
+        dateRange: 'Summer 2022 - Fall 2023',
         summary: (
           <span>
             Built the <a href="https://observablehq.com">observablehq.com</a>{' '}
