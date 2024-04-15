@@ -17,27 +17,27 @@
     "stage": "./deploy.sh"
   },
   "dependencies": {
-    "classnames": "^2.4.0",
+    "classnames": "^2.5.1",
     "color": "^4.2.3",
-    "date-fns": "^3.0.6",
+    "date-fns": "^3.6.0",
     "gray-matter": "^4.0.3",
-    "next": "^14.0.4",
+    "next": "^14.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "sass": "^1.69.5",
+    "sass": "^1.75.0",
     "styled-jsx": "^5.1.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
-    "@types/node": "^20.10.5",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
-    "autoprefixer": "^10.4.16",
-    "gts": "^5.2.0",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.4.0",
-    "typescript": "^5.3.3"
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.78",
+    "@types/react-dom": "^18.2.25",
+    "autoprefixer": "^10.4.19",
+    "gts": "^5.3.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
   }
 }
