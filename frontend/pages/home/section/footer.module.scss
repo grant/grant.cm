@@ -3,13 +3,14 @@
 .footer {
   $linkSeparation: 15px;
   $footerHeight: 30px;
+  $footerWidth: 20px;
   $footerTextColor: $COLOR_LIGHT_GRAY;
 
   display: block;
   background-color: $COLOR_BLUE_BLACK;
   color: $footerTextColor;
   font-size: $FONT_SMALL;
-  padding: $footerHeight;
+  padding: $footerHeight $footerWidth $footerHeight + 20 $footerWidth;
 
   .links {
     // Not phone
