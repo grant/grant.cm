@@ -29,19 +29,48 @@ interface Experience {
  */
 const experiences: Experience[] = [
   {
+    company: 'Stealth',
+    id: 'stealth',
+    roles: [
+      {
+        title: 'Developer Experience Engineer',
+        dateRange: '2024-',
+        summary: <span>Tech lead for developer console and experience.</span>,
+        bullets: [
+          <span>
+            Led technical project design and build for developer console,
+            collaborating with CTO, CEO and other engineers.
+          </span>,
+          <span>
+            Led overall technical strategy for developer outreach such as
+            developer documentation, API design, and overall developer
+            experience.
+          </span>,
+        ],
+        languages: ['TypeScript', 'React', 'Rust', 'Docker', 'Postgres', 'Cue'],
+      },
+    ],
+  },
+  {
     company: 'Additive.AI',
     id: 'additive',
     roles: [
       {
         title: 'Member of Technical Staff',
-        dateRange: 'Fall 2023 - Spring 2024',
-        summary: <span>Built superpower tools for accountants.</span>,
-        bullets: [
-          <span>Created frontend web experience from scratch</span>,
-          <span>Built PDF generation pipeline</span>,
+        dateRange: '2023-2024',
+        summary: (
           <span>
-            Enhanced Excel workpaper with checkfigures, error messages, and
-            other features
+            Built the web console for additive.ai – an AI accounting startup.
+          </span>
+        ),
+        bullets: [
+          <span>
+            Designed and built the frontend web experience for app.additive.ai
+          </span>,
+          <span>Built PDF generation pipeline for tax documents</span>,
+          <span>
+            Enhanced Excel workpaper with features such as checkfigures, error
+            messages, and a summary page
           </span>,
         ],
         languages: [
@@ -63,7 +92,7 @@ const experiences: Experience[] = [
     roles: [
       {
         title: 'Senior Software Engineer',
-        dateRange: 'Summer 2022 - Fall 2023',
+        dateRange: '2022-2023',
         summary: (
           <span>
             Built the <a href="https://observablehq.com">observablehq.com</a>{' '}
