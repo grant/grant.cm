@@ -14,8 +14,23 @@ export default function Consulting() {
 
       <section className={classNames(styles.header, sectionStyles.section)}>
         <div className={styles.centerBox}>
-          <h1 className={styles.name}>Grant Timmerman</h1>
-          <h3 className={styles.bio}>Full-Stack Software Engineer</h3>
+          <h1 className={styles.name}>Timmerman Consulting, LLC</h1>
+
+          <div
+            style={{
+              textAlign: 'center',
+              maxWidth: '440px',
+              margin: 'auto',
+              padding: '20px',
+              color: '#333',
+            }}
+          >
+            <p>
+              Timmerman Consulting, LLC specializes in designing and developing
+              custom software solutions and websites tailored to meet the unique
+              needs of businesses and individuals.
+            </p>
+          </div>
 
           <p
             style={{
