@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import Head from 'next/head';
-import Layout from '../components/layout';
-import styles from './home/section/header.module.scss';
-import SectionFooter from './home/section/footer';
-import sectionStyles from './home/section/sections.module.scss';
+import Layout from '../../components/layout';
+import styles from '../home/section/header.module.scss';
+import SectionFooter from '../home/section/footer';
+import sectionStyles from '../home/section/sections.module.scss';
 
 export default function Consulting() {
   return (
