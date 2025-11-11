@@ -19,9 +19,9 @@ Automated with:
 ### Quickstart
 
 ```sh
-cd frontend
-npm i
-npm run dev
+brew install just
+just install
+just dev
 open http://localhost:8080
 ```
 
@@ -31,21 +31,20 @@ Develop the site with these scripts:
 
 #### Develop
 
-- `npm run dev`: Dev mode. Compiles JSX, TypeScript, SCSS.
-- `npm start`: Start the website
+- `just dev`: Dev mode. Compiles JSX, TypeScript, SCSS.
 
 #### Lint / Test
 
-- `npm run lint`: Lints this repository
-- `npm run fix`: Fixes all lint issues
-- `npm run clean`: Cleans any built files
+- `just lint`: Lints this repository
+- `just fix`: Fixes all lint issues
+- `just clean`: Cleans any built files
 
 #### Build & Deploy
 
 > Note: The site is deployed with GitHub Actions. See the `deployToRun` workflow.
 
-- `npm run build`: Builds the website for production.
-- `npm run deploy`: Deploys the website to Google Cloud
+- `just build`: Builds the website for production.
+- `just deploy`: Deploys the website to Google Cloud
 
 #### DNS
 
