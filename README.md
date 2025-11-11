@@ -24,7 +24,7 @@ open http://localhost:8080
 **Develop:** `just dev` | **Lint:** `just lint` | **Fix:** `just fix` | **Clean:** `just clean`
 **Build:** `just build` | **Deploy:** `just deploy`
 
-> Note: The site is deployed with GitHub Actions. See the `deployToRun` workflow.
+> Note: The site is deployed with GitHub Actions. See the `deploy` workflow.
 
 ## DNS
 
@@ -126,7 +126,7 @@ Create a Service Account with roles:
 
 Download the Service Account key as a JSON file.
 
-Add the file contents as a repo secret called `GCP_CREDENTIALS`. This is used by our deploy workflow, `.github/workflows/deployToRun.yaml`.
+Add the file contents as a repo secret called `GCP_CREDENTIALS`. This is used by our deploy workflow, `.github/workflows/deploy.yaml`.
 
 Note the Service Account details. Here are mine:
 - PROJECT=grantcm
@@ -152,4 +152,4 @@ gcloud projects add-iam-policy-binding grantcm \
 --role "roles/owner"
 ```
 
-If all worked well, every time you push to `master`, the website will be deployed to Cloud Run.
+If all worked well, every time you push to `main`, the website will be deployed to Cloud Run.

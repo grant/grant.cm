@@ -1,10 +1,7 @@
 name: deploy
 on:
-  workflow_run:
-    workflows: ["build"]
-    branches: [master]
-    types:
-      - completed
+  push:
+    branches: [main]
   workflow_dispatch:
 jobs:
   deploy:
@@ -31,3 +28,4 @@ jobs:
           cd frontend
           npm ci
           npm run deploy
+
