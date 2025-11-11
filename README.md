@@ -1,22 +1,16 @@
+<div align="center">
+  <img src="https://private-user-images.githubusercontent.com/744973/512959628-3203ef66-8dc8-4ecf-ba1f-b4ba4f358580.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjI4OTk3NDEsIm5iZiI6MTc2Mjg5OTQ0MSwicGF0aCI6Ii83NDQ5NzMvNTEyOTU5NjI4LTMyMDNlZjY2LThkYzgtNGVjZi1iYTFmLWI0YmE0ZjM1ODU4MC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMTExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTExMVQyMjE3MjFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03YTZmOWZhMTFmMjQ3ZGUxNzQ3NDg1MjViYzkxMGE5YWNmOTlmZTBiM2ZhNDQ5ZDg4MzQ2YjhiNzEyM2VmYWNlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.fijjn7DG5zRVBuipBojA3KA9Gmvyvhe2DRyLAQtcrm8" alt="grant.cm" width="100%">
+</div>
+
 # grant.cm
 
-The website [grant.cm](http://grant.cm)
+> The website [grant.cm](http://grant.cm)
 
-Built with:
-- Node
-- Typescript
-- React
-- Next.js
-- Tailwind
+**Built with:** Node | TypeScript | React | Next.js | Tailwind
+**Deployed with:** Google Cloud Buildpacks | Cloud Run
+**Automated with:** GitHub Actions CD
 
-Deployed with:
-- Google Cloud Buildpacks
-- Cloud Run
-
-Automated with:
-- GitHub Actions CD
-
-### Quickstart
+## Quickstart
 
 ```sh
 brew install just
@@ -25,28 +19,16 @@ just dev
 open http://localhost:8080
 ```
 
-### Scripts
+## Scripts
 
-Develop the site with these scripts:
-
-#### Develop
-
-- `just dev`: Dev mode. Compiles JSX, TypeScript, SCSS.
-
-#### Lint / Test
-
-- `just lint`: Lints this repository
-- `just fix`: Fixes all lint issues
-- `just clean`: Cleans any built files
-
-#### Build & Deploy
+**Develop:** `just dev` | **Lint:** `just lint` | **Fix:** `just fix` | **Clean:** `just clean`
+**Build:** `just build` | **Deploy:** `just deploy`
 
 > Note: The site is deployed with GitHub Actions. See the `deployToRun` workflow.
 
-- `just build`: Builds the website for production.
-- `just deploy`: Deploys the website to Google Cloud
+## DNS
 
-#### DNS
+**Host:** Cloud Run w/ Custom Domains | **CDN:** Cloudflare CDN | **Registrar:** Namecheap
 
 This website is hosted on Cloud Run, Cloudflare CDN, and Namecheap domain registrar.
 
@@ -79,7 +61,7 @@ The CloudFlare DNS records will look like (with DOMAIN being `grant.cm`):
 
 The `www` subdomain redirects `www.DOMAIN` to `DOMAIN` with a proxy.
 
-##### Subdomains
+### Subdomains
 
 To add a subdomain, create a new Cloud Run service
 
@@ -89,7 +71,7 @@ To add a subdomain, create a new Cloud Run service
 
 In the Cloud Run UI, Add mapping for your subdomain.
 
-##### Example
+### Example
 
 | Type | Name | Content |
 | --- | --- | --- |
@@ -106,7 +88,7 @@ In the Cloud Run UI, Add mapping for your subdomain.
 
 All of these should be **DNS only** (*Not* **Proxied**).
 
-### Domain mappings
+#### Domain mappings
 
 To link the Cloud Run service to the domain registrar, create the domain mapping:
 
@@ -154,7 +136,7 @@ Note the Service Account details. Here are mine:
 
 You'll need to add some permissions to the Service Account to not get errors. See https://stackoverflow.com/q/62783869:
 
-```
+```sh
 gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE_NAME \
   --member=serviceAccount:$SA \
   --role=roles/run.admin \
