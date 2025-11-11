@@ -1,4 +1,3 @@
-import styles from './index.module.scss';
 import Head from 'next/head';
 import {VIDEOS} from '../../data/videos';
 import {prettyDate} from '../../utils/dates';
@@ -26,17 +25,20 @@ export default function Videos() {
       <Head key="head">
         <title>Grant Timmerman's Videos</title>
       </Head>
-      <div className={styles.pageContent}>
-        <h1 className={styles.title}>Grant Timmerman's Videos</h1>
-        <div
-          className={`${styles.videoList} grid justify-items-center min-h-screen`}
-        >
+      <div className="bg-black-light text-white min-h-full">
+        <h1 className="text-center max-[1080px]:text-medium">
+          Grant Timmerman's Videos
+        </h1>
+        <div className="grid justify-items-center min-h-screen max-[1080px]:grid-cols-1 min-[1080px]:grid-cols-3">
           {videoData.map(video => {
             return (
-              <div className={styles.videoBlock} key={video.url}>
+              <div
+                className="block px-[10px] my-5 max-w-[320px] group"
+                key={video.url}
+              >
                 <a href={video.url}>
                   <span
-                    className={`${styles.videoArrow} opacity-0 absolute pointer-events-none text-9xl`}
+                    className="opacity-[0.3] absolute pointer-events-none text-9xl group-hover:opacity-100"
                     style={{
                       paddingTop: '20px',
                       paddingLeft: '120px',
@@ -48,7 +50,7 @@ export default function Videos() {
                   </span>
                   <img
                     src={video.thumbnail}
-                    className={styles.videoThumbnail}
+                    className="w-full"
                     alt={video.title}
                   />
                   <div

@@ -1,15 +1,10 @@
 import {PageTitle} from '../../../components/pageTitle';
-import sectionStyles from './sections.module.scss';
-import classNames from 'classnames';
 
 export default function SectionAbout() {
   return (
     <section
       id="about"
-      className={classNames(
-        sectionStyles.section,
-        'bg-gradient-to-r from-orange-dark to-orange-light'
-      )}
+      className="[box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] overflow-hidden [&>_.title]:cursor-pointer bg-gradient-to-r from-orange-dark to-orange-light"
     >
       <PageTitle title="About" />
       <img

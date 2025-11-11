@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+  <title>Anon logo</title>
+  <!-- White circle background -->
+  <circle cx="50" cy="50" r="50" fill="white"/>
+  <!-- Logo path (centered) - only the geometric logo, no text -->
+  <g transform="translate(20, 27) scale(1.5)">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M25.54.636 39.905 15 25.54 29.364l-5.588-5.588-5.588 5.588L0 15 14.364.636l5.588 5.588L25.54.636ZM3.342 15l11.02 11.02v.004l3.918-3.918-7.104-7.104 7.104-7.105-3.917-3.917L3.343 15Zm22.04 0-5.431-5.432L14.518 15l5.433 5.432L25.383 15Zm3.341-.002.002.002v-.003l-.002.001Zm-7.102-7.102 7.103 7.102-7.103 7.103 3.918 3.918 11.02-11.02-11.02-11.021-3.918 3.918Z"
+      fill="#2C3E50"/>
+  </g>
+</svg>

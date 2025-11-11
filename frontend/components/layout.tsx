@@ -1,11 +1,10 @@
 import Head from 'next/head';
-import styles from './layout.module.scss';
 
 export const siteTitle = 'Grant Timmerman';
 
 export default function Layout({children}: {children: React.ReactNode}) {
   return (
-    <div className={styles.container}>
+    <div className="w-full h-full">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta

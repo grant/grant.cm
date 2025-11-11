@@ -1,7 +1,4 @@
 import Image from 'next/image';
-import styles from './experience.module.scss';
-import sectionStyles from './sections.module.scss';
-import classNames from 'classnames';
 
 /**
  * A single role within an experience.
@@ -29,25 +26,25 @@ interface Experience {
  */
 const experiences: Experience[] = [
   {
-    company: 'Stealth',
-    id: 'stealth',
+    company: 'Anon.com',
+    id: 'anon',
     roles: [
       {
-        title: 'Developer Experience Engineer',
-        dateRange: '2024-',
-        summary: <span>Tech lead for developer console and experience.</span>,
+        title: 'Staff Full-Stack Engineer; Interim Manager',
+        dateRange: 'Mar 2024 – Nov 2025',
+        summary: (
+          <span>
+            Product lead & full-stack engineer for Anon's dashboard and AI web
+            automation workflows.
+          </span>
+        ),
         bullets: [
           <span>
-            Led technical project design and build for developer console,
-            collaborating with CTO, CEO and other engineers.
-          </span>,
-          <span>
-            Led overall technical strategy for developer outreach such as
-            developer documentation, API design, and overall developer
-            experience.
+            Built API, UI, and docs for the AI developer platform with 3
+            engineers.
           </span>,
         ],
-        languages: ['TypeScript', 'React', 'Rust', 'Docker', 'Postgres', 'Cue'],
+        languages: ['TypeScript', 'React', 'Postgres', 'GCP'],
       },
     ],
   },
@@ -435,33 +432,31 @@ export default function SectionExperience() {
   return (
     <section
       id="experience"
-      className={classNames(styles.section, sectionStyles.section)}
+      className="bg-gradient-to-r from-[rgb(58,130,137)] to-[rgb(173,223,230)] overflow-x-hidden text-white [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer"
     >
-      <h2 className={styles.title}>Experience</h2>
-      <p className={styles.sectionDescription}>
+      <h2 className="font-montserrat text-black-light font-bold text-large tracking-[9px] uppercase text-center py-5 px-0 pb-[10px] text-white">
+        Experience
+      </h2>
+      <p className="text-center text-blue-light">
         <em>Where I've worked</em>
       </p>
-      <div className={styles.experienceList}>
+      <div className="mx-auto py-[10px] px-[10px] max-w-[1000px]">
         {experiences.map((experience: Experience) => {
           const experienceKey = experience.id + experience.roles[0].dateRange;
+          const isWhite =
+            experience.id === 'google' ||
+            experience.id === 'nor1' ||
+            experience.id === 'observable';
           return (
             <div
               key={experienceKey}
-              className={classNames(experience.id, styles.experience)}
+              className={`${experience.id} p-5 rounded-[5px] hover:bg-white/5`}
             >
-              <div className={styles.imageArea}>
+              <div className="text-center w-[100px] h-[100px] mx-auto">
                 <Image
                   width={100}
                   height={100}
-                  className={[
-                    styles.svg,
-                    // White styles
-                    experience.id === 'google' ||
-                    experience.id === 'nor1' ||
-                    experience.id === 'observable'
-                      ? styles.white
-                      : '',
-                  ].join(' ')}
+                  className={`rounded-full ${isWhite ? 'bg-white' : ''}`}
                   src={`/images/icons/${experience.id}.svg`}
                   alt={experience.company}
                   sizes="100vw"
@@ -480,27 +475,29 @@ export default function SectionExperience() {
                 return (
                   <div
                     key={experienceKey + role.dateRange}
-                    className={styles.descriptionArea}
+                    className="my-[10px]"
                   >
-                    <div className={styles.titleBar}>
-                      <h5 className={styles.title}>
+                    <div>
+                      <h5 className="float-left">
                         {experience.company} - {role.title}
                       </h5>
-                      <h6 className={styles.dateRange}>{role.dateRange}</h6>
-                      <div className={styles.clear}></div>
+                      <h6 className="float-right">{role.dateRange}</h6>
+                      <div className="clear-both"></div>
                     </div>
-                    <div className={styles.description}>
+                    <div className="mx-auto mt-[10px] text-blue-light">
                       {role.summary}
                       {role.bullets ? (
-                        <ul className={styles.roleBullets}>{bullets}</ul>
+                        <ul className="py-[10px] text-small leading-normal list-disc list-inside">
+                          {bullets}
+                        </ul>
                       ) : (
                         ''
                       )}
-                      <div className={styles.languages}>
-                        {role.languages.map(l => (
+                      <div className="pt-[5px]">
+                        {role.languages.map((l, idx) => (
                           <div
-                            key={styles.language}
-                            className={styles.language}
+                            key={idx}
+                            className="inline-block my-[5px] mx-[5px] px-[5px] bg-white/10 rounded-[3px] [&:not(:first-child)]:ml-[5px]"
                           >
                             {l}
                           </div>

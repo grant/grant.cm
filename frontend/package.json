@@ -26,7 +26,6 @@
     "react-dom": "^18.2.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "sass": "^1.75.0",
     "styled-jsx": "^5.1.2"
   },
   "devDependencies": {
