@@ -1,8 +1,6 @@
 const Color = require('color');
 // eslint-disable-next-line no-unused-vars
 const alpha = (clr, val) => Color(clr).alpha(val).rgb().string();
-const lighten = (clr, val) => Color(clr).lighten(val).rgb().string();
-const darken = (clr, val) => Color(clr).darken(val).rgb().string();
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

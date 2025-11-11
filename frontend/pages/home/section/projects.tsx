@@ -83,10 +83,7 @@ function renderProject(project: any) {
         </p>
         <div className="bottom-0 max-[800px]:hidden">
           {project.url.github ? (
-            <a
-              className="text-small block underline"
-              href={project.url.github}
-            >
+            <a className="text-small block underline" href={project.url.github}>
               GITHUB
             </a>
           ) : (
