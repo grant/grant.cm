@@ -3,6 +3,7 @@ default:
 
 install:
   cd frontend && npm i
+  cd tools && npm i
 
 dev:
   cd frontend && npm run dev
