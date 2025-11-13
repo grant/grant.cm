@@ -107,6 +107,9 @@ SERVICE_URL=$(gcloud run services describe $SERVICE_NAME \
 gcloud iam service-accounts create resume-sync-scheduler \
   --display-name="Resume Sync Scheduler Service Account"
 
+# Wait a moment for the service account to propagate (if you get an error, wait a few seconds and retry)
+sleep 2
+
 # Grant the scheduler service account permission to invoke Cloud Run
 gcloud run services add-iam-policy-binding $SERVICE_NAME \
   --region $REGION \
@@ -125,7 +128,18 @@ gcloud scheduler jobs create http $SCHEDULER_NAME \
 
 ### Manual Trigger
 
-You can manually trigger the sync by invoking the Cloud Run service:
+You can manually trigger the sync in two ways:
+
+**Option 1: Trigger via Cloud Scheduler (Recommended)**
+
+```bash
+PROJECT_ID=$(gcloud config get-value project)
+gcloud scheduler jobs run resume-sync-daily \
+  --location us-central1 \
+  --project $PROJECT_ID
+```
+
+**Option 2: Directly invoke the Cloud Run service:**
 
 ```bash
 PROJECT_ID=$(gcloud config get-value project)
