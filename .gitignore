@@ -7,5 +7,9 @@
 node_modules
 build/
 
+# Service account keys
+*-key.json
+*service-account*.json
+
 # Keep VS Code settings
 !.vscode

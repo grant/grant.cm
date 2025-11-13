@@ -1,0 +1,26 @@
+{
+  "name": "grantcm-scripts",
+  "description": "Scripts and various utilities.",
+  "scripts": {
+    "start": "tsx src/server.ts",
+    "updateMediumData": "tsx src/updateMediumData.ts",
+    "sync-resume": "tsx src/syncGoogleDocResume.ts",
+    "deploy": "./deploy.sh",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "watch": "tsc --watch",
+    "fix": "gts fix"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^7.0.0",
+    "axios": "^1.12.0",
+    "googleapis": "^144.0.0",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "gts": "^3.1.0",
+    "tsx": "^4.7.0"
+  }
+}

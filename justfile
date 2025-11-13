@@ -3,7 +3,7 @@ default:
 
 install:
   cd frontend && npm i
-  cd tools && npm i
+  cd scripts && npm i
 
 dev:
   cd frontend && npm run dev
@@ -21,3 +21,6 @@ stage:
   cd frontend && npm run stage
 deploy:
   cd frontend && npm run deploy
+
+scripts *SCRIPT:
+  cd scripts && npm run {{SCRIPT}}
