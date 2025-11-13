@@ -22,13 +22,13 @@ Syncs a Google Doc resume to Google Cloud Storage as a PDF.
    gcloud services enable drive.googleapis.com storage.googleapis.com
    ```
 
-2. **Create a Service Account (Recommended):**
+2. **Create a Service Account:**
 
    ```bash
    # Get your project ID
    PROJECT_ID=$(gcloud config get-value project)
    
-   # Create service account
+   # Create service account (used for both local development and Cloud Run)
    gcloud iam service-accounts create resume-sync \
      --display-name="Resume Sync Service Account"
    
@@ -37,7 +37,13 @@ Syncs a Google Doc resume to Google Cloud Storage as a PDF.
      --member="serviceAccount:resume-sync@$PROJECT_ID.iam.gserviceaccount.com" \
      --role="roles/storage.objectAdmin"
    
-   # Create and download key
+   # Grant GitHub Actions service account permission to act as this service account
+   # (Required for Cloud Run deployment)
+   gcloud iam service-accounts add-iam-policy-binding resume-sync@$PROJECT_ID.iam.gserviceaccount.com \
+     --member="serviceAccount:grantcm-sa@$PROJECT_ID.iam.gserviceaccount.com" \
+     --role="roles/iam.serviceAccountUser"
+
+   # Create and download key for local development
    gcloud iam service-accounts keys create ~/resume-sync-key.json \
      --iam-account=resume-sync@$PROJECT_ID.iam.gserviceaccount.com
    ```
@@ -74,39 +80,13 @@ Syncs a Google Doc resume to Google Cloud Storage as a PDF.
 
 Deploy the script as a private Cloud Run service that can be triggered by Cloud Scheduler.
 
-### Cloud Run Prerequisites
-
-1. **Create a service account for Cloud Run** (different from the resume-sync account):
-
-   ```bash
-   PROJECT_ID=$(gcloud config get-value project)
-   
-   # Create service account for Cloud Run
-   gcloud iam service-accounts create resume-sync-cloud-run \
-     --display-name="Resume Sync Cloud Run Service Account"
-   
-   # Grant Drive and Storage permissions
-   gcloud projects add-iam-policy-binding $PROJECT_ID \
-     --member="serviceAccount:resume-sync-cloud-run@$PROJECT_ID.iam.gserviceaccount.com" \
-     --role="roles/storage.objectAdmin"
-   
-   # Note: Drive access is granted by sharing the document with this service account
-   ```
-
-2. **Share the Google Doc with the Cloud Run service account:**
-
-   ```bash
-   # Get the service account email
-   echo "resume-sync-cloud-run@$PROJECT_ID.iam.gserviceaccount.com"
-   ```
-
-   Then share the document (https://docs.google.com/document/d/1dCjS-eKJHf3cN0TzwsNiEjXVhKNUPAWat6mG1o53lwM) with this email address.
+**Note:** The same service account (`resume-sync`) created in step 2 above is used for both local development and Cloud Run. Make sure you've completed the setup steps above, including sharing the Google Doc with the service account.
 
 ### Deploy to Cloud Run
 
 The scripts service is automatically deployed to Cloud Run via GitHub Actions when you push to the `main` branch (see `.github/workflows/deploy.yaml`).
 
-The service is deployed as a private Cloud Run service (no public access) using the `resume-sync-cloud-run` service account.
+The service is deployed as a private Cloud Run service (no public access) using the `resume-sync` service account.
 
 ### Set Up Cloud Scheduler
 
