@@ -2,9 +2,9 @@
 
 > The website [grant.cm](http://grant.cm)
 
-**Built with:** Node | TypeScript | React | Next.js | Tailwind
-**Deployed with:** Google Cloud Buildpacks | Cloud Run
-**Automated with:** GitHub Actions CD
+- **Built with:** Node | TypeScript | React | Next.js | Tailwind
+- **Deployed with:** Google Cloud Buildpacks | Cloud Run
+- **Automated with:** GitHub Actions CD
 
 ## Quickstart
 
@@ -17,14 +17,20 @@ open http://localhost:8080
 
 ## Scripts
 
-**Develop:** `just dev` | **Lint:** `just lint` | **Fix:** `just fix` | **Clean:** `just clean`
-**Build:** `just build` | **Deploy:** `just deploy`
+- **Develop:** `just dev`
+- **Lint:** `just lint`
+- **Fix:** `just fix`
+- **Clean:** `just clean`
+- **Build:** `just build`
+- **Deploy:** `just deploy`
 
 > Note: The site is deployed with GitHub Actions. See the `deploy` workflow.
 
 ## DNS
 
-**Host:** Cloud Run w/ Custom Domains | **CDN:** Cloudflare CDN | **Registrar:** Namecheap
+- **Host:** Cloud Run w/ Custom Domains
+- **CDN:** Cloudflare CDN
+- **Registrar:** Namecheap
 
 This website is hosted on Cloud Run, Cloudflare CDN, and Namecheap domain registrar.
 
