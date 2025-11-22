@@ -10,7 +10,7 @@ COPY package.json pnpm-lock.yaml ./
 COPY tsconfig.json ./
 
 # Install all dependencies (including tsx)
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --prod=false
 
 # Copy source files
 COPY src/ ./src/
