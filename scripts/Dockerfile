@@ -2,12 +2,15 @@ FROM node:20-slim
 
 WORKDIR /app
 
+# Install pnpm
+RUN npm install -g pnpm
+
 # Copy package files
-COPY package*.json ./
+COPY package.json pnpm-lock.yaml ./
 COPY tsconfig.json ./
 
 # Install all dependencies (including tsx)
-RUN npm ci
+RUN pnpm install --frozen-lockfile
 
 # Copy source files
 COPY src/ ./src/
@@ -16,5 +19,5 @@ COPY src/ ./src/
 EXPOSE 8080
 
 # Run the server
-CMD ["npm", "start"]
+CMD ["pnpm", "start"]
 
