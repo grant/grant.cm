@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 
 /**
@@ -6,8 +7,8 @@ import Image from 'next/image';
 interface ExperienceRole {
   title: string; // The role at the company, like "Engineer"
   dateRange: string; // The date range, like "2013-2015"
-  summary?: JSX.Element; // An optional summary of the experience.
-  bullets?: JSX.Element[]; // An optional list of bullets describing the  element with a description of the experience
+  summary?: React.ReactNode; // An optional summary of the experience.
+  bullets?: React.ReactNode[]; // An optional list of bullets describing the  element with a description of the experience
   languages: string[]; // The programming languages used.
 }
 

@@ -32,7 +32,7 @@ export default function SectionHeader() {
                   {l.title}
                 </a>
               </li>
-            )
+            ),
           )}
         </ul>
       </div>

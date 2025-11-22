@@ -2,25 +2,25 @@ default:
   @just --list
 
 install:
-  cd frontend && npm i
-  cd scripts && npm i
+  cd frontend && pnpm i
+  cd scripts && pnpm i
 
 dev:
-  cd frontend && npm run dev
+  cd frontend && pnpm run dev
 lint:
-  cd frontend && npm run lint
+  cd frontend && pnpm run lint
 fix:
-  cd frontend && npm run fix
+  cd frontend && pnpm run fix
 
 clean:
-  cd frontend && npm run clean
+  cd frontend && pnpm run clean
 build:
-  cd frontend && npm run build
+  cd frontend && pnpm run build
 
 stage:
-  cd frontend && npm run stage
+  cd frontend && pnpm run stage
 deploy:
-  cd frontend && npm run deploy
+  cd frontend && pnpm run deploy
 
 scripts *SCRIPT:
-  cd scripts && npm run {{SCRIPT}}
+  cd scripts && pnpm run {{SCRIPT}}

@@ -16,10 +16,10 @@
     "@google-cloud/storage": "^7.0.0",
     "axios": "^1.12.0",
     "googleapis": "^144.0.0",
-    "typescript": "^4.2.4"
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@types/node": "^15.12.4",
+    "@types/node": "^20.0.0",
     "gts": "^6.0.2",
     "tsx": "^4.7.0"
   }

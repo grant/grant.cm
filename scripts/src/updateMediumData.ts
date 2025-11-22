@@ -1,6 +1,6 @@
 /**
  * Updates the static blogpost data from Medium.com
- * 
+ *
  * Uses the public, undocumented API to get data. Stores in JSON files.
  * https://medium.com/@granttimmerman?format=json
  */
@@ -37,19 +37,21 @@ const MEDIUM_ARTICLES = [
   'https://medium.com/google-cloud/google-cloud-functions-framework-9fbd899c201c',
   'https://medium.com/@granttimmerman/10-apps-script-talks-fall-18-tour-63a6c5481b07',
   'https://medium.com/@granttimmerman/my-5-most-favorite-g-suite-announcements-at-next-18-1d9738cbd576',
-]
+];
 
 const mediumUsername = 'granttimmerman';
 
 (async () => {
   // Get Medium API data
-  const res = await axios.get(`https://medium.com/@${mediumUsername}?format=json`);
+  const res = await axios.get(
+    `https://medium.com/@${mediumUsername}?format=json`,
+  );
   const data = res.data;
 
   // Parse JSON
   const prefix = '])}while(1);</x>';
   const parsedData = JSON.parse(data.slice(prefix.length));
-  
+
   // Medium posts
   const posts = parsedData.payload.references.Post;
   const filteredPostData = Object.values(posts).map((p: any) => {
@@ -59,7 +61,7 @@ const mediumUsername = 'granttimmerman';
       createdAt: p.createdAt,
       contentPreview: p.content.subtitle,
       url: `https://medium.com/@${mediumUsername}/${p.uniqueSlug}`,
-      imageURL: `https://miro.medium.com/max/2000/${p.virtuals.previewImage.imageId}`
+      imageURL: `https://miro.medium.com/max/2000/${p.virtuals.previewImage.imageId}`,
     };
     return postData;
   });

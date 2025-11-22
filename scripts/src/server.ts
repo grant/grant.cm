@@ -48,6 +48,6 @@ const server = createServer(handleRequest);
 
 server.listen(PORT, () => {
   console.log(`🚀 Server listening on port ${PORT}`);
-  console.log(`📡 Health check: GET /health`);
-  console.log(`🔄 Sync endpoint: POST /sync-resume`);
+  console.log("📡 Health check: GET /health");
+  console.log("🔄 Sync endpoint: POST /sync-resume");
 });
