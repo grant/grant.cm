@@ -12,10 +12,16 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
       - id: auth
         uses: 'google-github-actions/auth@v1'
         with:
@@ -26,10 +32,10 @@ jobs:
       - name: Deploy Frontend to Cloud Run
         run: |
           cd frontend
-          npm ci
-          npm run deploy
+          pnpm install --frozen-lockfile
+          pnpm run deploy
       - name: Deploy Scripts to Cloud Run
         run: |
           cd scripts
-          npm ci
-          npm run deploy
+          pnpm install --frozen-lockfile
+          pnpm run deploy
