@@ -2,8 +2,8 @@ FROM node:20-slim
 
 WORKDIR /app
 
-# Install pnpm (specific version to match lockfile)
-RUN npm install -g pnpm@9.15.9
+# Enable Corepack to use packageManager field from package.json
+RUN corepack enable
 
 # Copy package files
 COPY package.json pnpm-lock.yaml ./
