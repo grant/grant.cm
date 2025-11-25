@@ -2,8 +2,8 @@ FROM node:20-slim
 
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm
+# Install pnpm (specific version to match lockfile)
+RUN npm install -g pnpm@9.15.9
 
 # Copy package files
 COPY package.json pnpm-lock.yaml ./

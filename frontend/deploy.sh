@@ -15,7 +15,7 @@ fi
 echo "Deploying to project: ${SERVICE}"
 
 # Build the app
-npm run build;
+pnpm run build;
 
 buildStatus=$?
 
