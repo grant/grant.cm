@@ -31,7 +31,7 @@ const cardColors: Record<string, string> = {
   issues: 'rgb(236, 240, 243)',
   hawk: 'rgb(246, 166, 90)',
   snappo: 'rgb(144, 143, 179)',
-  slides2gif: 'rgb(72, 61, 139)',
+  slides2gif: 'rgb(249, 171, 0)',
 };
 
 export default function Projects() {
@@ -67,7 +67,7 @@ function renderProject(project: any) {
   return (
     <li
       key={project.id}
-      className="inline-block m-[10px] relative w-[200px] h-[200px] overflow-hidden text-center rounded-[5px] text-white transition-transform duration-normal hover:scale-110 max-[800px]:w-[100px] max-[800px]:h-[100px]"
+      className="group inline-block m-[10px] relative w-[200px] h-[200px] overflow-hidden text-center rounded-[5px] text-white transition-transform duration-normal hover:scale-110 max-[800px]:w-[100px] max-[800px]:h-[100px]"
       style={{backgroundColor: bgColor, fontWeight: 700, fontSize: '40px'}}
     >
       <img
@@ -75,11 +75,11 @@ function renderProject(project: any) {
         src={imgURL}
         alt={project.title}
       />
-      <div className="h-[15%] absolute bottom-0 left-0 right-0 p-[3px] pb-[6px] bg-gray/40 hover:h-full hover:pt-5 hover:bg-gray/85 max-[800px]:h-[30%]">
-        <h3 className="text-xsmall font-bold text-center uppercase pb-[10px] hover:pb-[30px] max-[800px]:text-xxsmall">
+      <div className="h-[15%] absolute bottom-0 left-0 right-0 p-[3px] pb-[6px] bg-gray/40 transition-all duration-normal group-hover:h-full group-hover:pt-5 group-hover:bg-gray/85 max-[800px]:h-[30%]">
+        <h3 className="text-xsmall font-bold text-center uppercase pb-[10px] group-hover:pb-[30px] max-[800px]:text-xxsmall">
           {project.title}
         </h3>
-        <p className="hidden text-xsmall leading-[1.3] pb-5 hover:block max-[800px]:!hidden">
+        <p className="hidden text-xsmall leading-[1.3] pb-5 group-hover:block max-[800px]:!hidden">
           {project.description}
         </p>
         <div className="bottom-0 max-[800px]:hidden">

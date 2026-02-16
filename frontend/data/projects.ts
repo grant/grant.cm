@@ -341,6 +341,7 @@ export const projects: Project[] = [
     description: 'Convert presentation slides to animated GIFs.',
     url: {
       demo: 'https://slides2gif.com',
+      github: 'https://github.com/grant/slides2gif',
     },
   },
 ];
