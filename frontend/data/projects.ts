@@ -334,4 +334,13 @@ export const projects: Project[] = [
       demo: 'https://drive.google.com/file/d/0B4riRkl944ZqcnQzR0x1c0QxVDA/view?usp=sharing',
     },
   },
+  {
+    id: 'slides2gif',
+    title: 'Slides2Gif',
+    img: 'svg',
+    description: 'Convert presentation slides to animated GIFs.',
+    url: {
+      demo: 'https://slides2gif.com',
+    },
+  },
 ];

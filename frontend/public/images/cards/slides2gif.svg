@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" fill="transparent"/>
+  <text x="100" y="110" font-family="system-ui, sans-serif" font-size="48" font-weight="700" fill="white" text-anchor="middle">S2G</text>
+</svg>

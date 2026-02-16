@@ -31,6 +31,7 @@ const cardColors: Record<string, string> = {
   issues: 'rgb(236, 240, 243)',
   hawk: 'rgb(246, 166, 90)',
   snappo: 'rgb(144, 143, 179)',
+  slides2gif: 'rgb(72, 61, 139)',
 };
 
 export default function Projects() {
