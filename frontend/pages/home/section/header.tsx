@@ -1,6 +1,6 @@
 export default function SectionHeader() {
   return (
-    <section className="bg-gradient-to-r from-[rgb(200,60,50)] to-[rgb(255,160,140)] h-full overflow-hidden text-center [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer">
+    <section className="relative bg-gradient-to-r from-[rgb(200,60,50)] to-[rgb(255,160,140)] h-full overflow-hidden text-center [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer">
       <div className="absolute left-1/2 top-1/2 w-[1400px] h-[700px] -ml-[700px] -mt-[300px]">
         <h1 className="font-montserrat text-black-light font-bold text-[80px] tracking-[9px] uppercase text-center py-5 px-0 pb-[10px] leading-none m-3 ml-1">
           Grant
