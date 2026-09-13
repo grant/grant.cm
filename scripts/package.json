@@ -13,10 +13,12 @@
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
+    "test": "tsx --test test/**/*.test.ts",
     "watch": "tsc --watch",
     "fix": "gts fix"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1131.0",
     "@google-cloud/storage": "^8.1.0",
     "axios": "^1.20.0",
     "googleapis": "^180.0.0",
