@@ -19,6 +19,25 @@ export interface Project {
  */
 export const projects: Project[] = [
   {
+    id: 'ts2gas',
+    title: 'ts2gas',
+    img: 'svg',
+    description: 'Transpile TypeScript to Google Apps Script.',
+    url: {
+      demo: 'https://www.npmjs.com/package/ts2gas',
+      github: 'https://github.com/grant/ts2gas',
+    },
+  },
+  {
+    id: 'new-computer-checklist',
+    title: 'Computer Checklist',
+    img: 'svg',
+    description: 'A checklist and scripts for setting up a new computer.',
+    url: {
+      github: 'https://github.com/grant/new-computer-checklist',
+    },
+  },
+  {
     id: 'algodb',
     title: 'AlgoDB',
     img: 'svg',

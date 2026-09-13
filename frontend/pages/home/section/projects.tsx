@@ -1,6 +1,8 @@
 import {Project, projects} from '../../../data/projects';
 
 const cardColors: Record<string, string> = {
+  ts2gas: 'rgb(49, 120, 198)',
+  'new-computer-checklist': 'rgb(31, 41, 55)',
   algorythem: 'rgb(242, 99, 61)',
   eagleeye: 'rgb(166, 53, 51)',
   algodb: 'rgb(132, 193, 160)',
