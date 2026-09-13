@@ -27,6 +27,23 @@ interface Experience {
  */
 const experiences: Experience[] = [
   {
+    company: 'Cartesia',
+    id: 'cartesia',
+    roles: [
+      {
+        title: 'Software Engineer',
+        dateRange: 'Mar 2026 – Present',
+        summary: (
+          <span>
+            Building real-time voice AI at{' '}
+            <a href="https://cartesia.ai">Cartesia</a>.
+          </span>
+        ),
+        languages: ['TypeScript', 'React'],
+      },
+    ],
+  },
+  {
     company: 'Anon.com',
     id: 'anon',
     roles: [
