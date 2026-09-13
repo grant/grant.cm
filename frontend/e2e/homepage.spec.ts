@@ -66,3 +66,20 @@ test('uses accessible homepage foreground colors', async ({page}) => {
   expect(experienceBackground).toContain('rgb(36, 87, 92)');
   expect(experienceBackground).toContain('rgb(52, 119, 126)');
 });
+
+test('publishes branded favicon and social metadata', async ({page}) => {
+  await page.goto('/');
+
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute(
+    'href',
+    '/favicon.svg',
+  );
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    'content',
+    'https://grant.cm/og.png',
+  );
+  await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+    'content',
+    'summary_large_image',
+  );
+});
