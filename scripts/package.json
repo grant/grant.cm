@@ -14,14 +14,14 @@
     "fix": "gts fix"
   },
   "dependencies": {
-    "@google-cloud/storage": "^7.0.0",
-    "axios": "^1.15.0",
+    "@google-cloud/storage": "^7.22.0",
+    "axios": "^1.20.0",
     "googleapis": "^144.0.0",
-    "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
+    "@types/node": "^20.19.43",
     "gts": "^6.0.2"
   }
 }

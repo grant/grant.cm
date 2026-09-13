@@ -12,6 +12,10 @@
 /.next/
 /out/
 
+# next dev auto-generated agent instruction files
+/AGENTS.md
+/CLAUDE.md
+
 # production
 /build
 
