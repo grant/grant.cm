@@ -131,7 +131,7 @@
   }
   :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
     border-radius: 3px;
-    outline: 3px solid var(--color-primary);
+    outline: 3px solid theme(colors.primary.DEFAULT);
     outline-offset: 3px;
   }
 }
