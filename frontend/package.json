@@ -20,6 +20,8 @@
     "deploy": "RUN_ENV=PROD ./deploy.sh",
     "stage": "./deploy.sh",
     "test": "vitest run",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots",
     "test:watch": "vitest"
   },
   "dependencies": {
@@ -35,6 +37,7 @@
     "styled-jsx": "^5.1.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@testing-library/dom": "^10.4.1",
