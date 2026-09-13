@@ -1,26 +1,30 @@
 import Head from 'next/head';
+import Script from 'next/script';
 
 export const siteTitle = 'Grant Timmerman';
+export const siteDescription =
+  'Grant Timmerman is a full-stack software engineer and open source ' +
+  'enthusiast building real-time voice AI at Cartesia.';
+const siteUrl = 'https://grant.cm';
+const siteImage = `${siteUrl}/images/profile.png`;
 
 export default function Layout({children}: {children: React.ReactNode}) {
   return (
     <div className="w-full h-full">
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <GoogleAnalytics />
+        <meta name="description" content={siteDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:title" content={siteTitle} />
+        <meta property="og:description" content={siteDescription} />
+        <meta property="og:image" content={siteImage} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={siteTitle} />
+        <meta name="twitter:description" content={siteDescription} />
+        <meta name="twitter:image" content={siteImage} />
       </Head>
+      <GoogleAnalytics />
       {/* <header className={styles.header}>
         {home ? (
           <>
@@ -70,26 +74,26 @@ export default function Layout({children}: {children: React.ReactNode}) {
 }
 
 function GoogleAnalytics() {
+  // Set NEXT_PUBLIC_GA_ID to your GA4 Measurement ID (e.g. "G-XXXXXXXXXX")
+  // to enable analytics. Analytics are disabled when it is not set.
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  if (!gaId) {
+    return null;
+  }
   return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-      (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-      ga('create', 'UA-20018787-2', 'grant.cm');
-      ga('send', 'pageview');
-    `,
-      }}
-    ></script>
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${gaId}');
+        `}
+      </Script>
+    </>
   );
 }
