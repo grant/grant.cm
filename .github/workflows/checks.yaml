@@ -1,0 +1,46 @@
+name: checks
+on:
+  push:
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
+      - name: Typecheck frontend
+        run: |
+          cd frontend
+          pnpm install --frozen-lockfile
+          pnpm exec tsc --noEmit
+      - name: Typecheck scripts
+        run: |
+          cd scripts
+          pnpm install --frozen-lockfile
+          pnpm run compile
+
+  scripts-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
+      - name: Lint scripts
+        run: |
+          cd scripts
+          pnpm install --frozen-lockfile
+          pnpm run lint
