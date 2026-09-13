@@ -4,7 +4,7 @@ import SecondaryShell from '../../components/secondaryShell';
 // http://localhost:8080/cal
 export default function Cal() {
   return (
-    <SecondaryShell title="Calendar" fullBleed>
+    <SecondaryShell title="Calendar" accent="teal" fullBleed>
       <iframe
         title="Grant Timmerman's Calendar"
         className="h-full min-h-[calc(100vh-158px)] w-full border-0"

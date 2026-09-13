@@ -4,7 +4,7 @@ import SecondaryShell from '../components/secondaryShell';
 // http://localhost:8080/dinner
 export default function Dinner() {
   return (
-    <SecondaryShell title="Dinner" fullBleed>
+    <SecondaryShell title="Dinner" accent="orange" fullBleed>
       <iframe
         title="Dinner"
         className="h-full min-h-[calc(100vh-158px)] w-full border-0"
