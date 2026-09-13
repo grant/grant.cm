@@ -47,7 +47,7 @@ export default function Projects() {
         <em>Hackathon and side projects I've shipped</em>
       </p>
       <div className="pb-5">
-        <ul className="mx-auto grid max-w-[1100px] grid-cols-[repeat(auto-fit,96px)] justify-center gap-3 px-3 pt-4">
+        <ul className="mx-auto grid max-w-[1100px] grid-cols-[repeat(auto-fit,96px)] justify-center gap-4 px-3 pt-4">
           {projects.map(renderProject)}
         </ul>
       </div>
