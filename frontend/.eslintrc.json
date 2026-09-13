@@ -1,6 +1,12 @@
 {
   "extends": "./node_modules/gts/",
-  "rules": {
-
-  }
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "vitest.setup.ts"],
+      "rules": {
+        "n/no-unpublished-import": "off"
+      }
+    }
+  ]
 }
