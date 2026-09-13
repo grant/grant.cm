@@ -36,15 +36,26 @@ Notes:
 
 ## CI
 
-`.github/workflows/` runs lint and build against `frontend/` only. The
-`scripts/` package is not covered by CI and currently has pre-existing lint
-errors; don't treat those as introduced by unrelated changes.
+`.github/workflows/` runs on push:
+
+- `lint` / `build` — frontend lint (`gts lint`) and Next.js build.
+- `checks` — typecheck (frontend `tsc --noEmit`, scripts `tsc`) and `scripts` lint.
+- `test` — the frontend Vitest suite.
+- `deploy` — deploys the changed package(s) to Cloud Run on push to `main`.
 
 ## Generated files
 
 - `next dev` auto-generates `frontend/AGENTS.md` and `frontend/CLAUDE.md` in the
   frontend directory. These are gitignored — do not edit or commit them. This
   root `AGENTS.md` is the canonical guidance file.
+
+## Dependency upgrades
+
+- Batch routine dependency/version bumps into a single PR rather than one per
+  package — it's faster to review and land.
+- Split into separate PRs only for high-risk migrations (e.g. major framework
+  upgrades like Tailwind) or upgrades that must be validated/landed
+  independently or that are entangled/blocked.
 
 ## Testing preferences
 
