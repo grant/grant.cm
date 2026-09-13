@@ -1,7 +1,3 @@
-const Color = require('color');
-// eslint-disable-next-line no-unused-vars
-const alpha = (clr, val) => Color(clr).alpha(val).rgb().string();
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -28,16 +24,20 @@ module.exports = {
         brown: {
           DEFAULT: 'rgb(119, 107, 93)',
         },
-        red: {
+        primary: {
           light: 'rgb(242, 144, 135)',
           DEFAULT: 'rgb(234, 95, 78)',
           dark: 'rgb(160, 47, 42)',
+          start: 'rgb(200, 60, 50)',
+          end: 'rgb(255, 160, 140)',
         },
         orange: {
           lightest: '#f3bd96',
           light: '#eda169',
           DEFAULT: 'rgb(232, 132, 59)',
           dark: '#d76919',
+          projectStart: 'rgb(208, 119, 53)',
+          projectEnd: 'rgb(255, 145, 65)',
         },
         yellow: {
           DEFAULT: 'rgb(255, 236, 132)',
@@ -48,13 +48,23 @@ module.exports = {
         aqua: {
           DEFAULT: 'rgb(100, 200, 200)',
         },
-        blue: {
+        secondary: {
           DEFAULT: 'rgb(145, 207, 215)',
           light: 'rgb(173, 223, 230)',
           dark: 'rgb(73, 161, 167)',
+          start: 'rgb(58, 130, 137)',
         },
-        blueBlack: {
+        navy: {
           DEFAULT: 'rgb(45, 62, 82)',
+        },
+        paper: {
+          DEFAULT: 'rgb(247, 244, 239)',
+        },
+        ink: {
+          DEFAULT: 'rgb(31, 41, 51)',
+        },
+        muted: {
+          DEFAULT: 'rgb(216, 210, 200)',
         },
         purple: {
           DEFAULT: 'rgb(183, 143, 216)',
