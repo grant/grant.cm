@@ -33,9 +33,13 @@ test('shows compact earlier experience and all projects', async ({page}) => {
 
 test('shows a visible keyboard focus indicator', async ({page}) => {
   await page.goto('/');
-  await page.keyboard.press('Tab');
 
   const focusedElement = page.locator(':focus-visible');
+  for (let attempt = 0; attempt < 3; attempt++) {
+    await page.keyboard.press('Tab');
+    if ((await focusedElement.count()) > 0) break;
+  }
+
   await expect(focusedElement).toHaveCSS('outline-style', 'solid');
   await expect(focusedElement).toHaveCSS('outline-width', '3px');
   await expect(focusedElement).toHaveCSS('outline-color', 'rgb(234, 95, 78)');
