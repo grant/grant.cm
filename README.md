@@ -33,8 +33,8 @@ open http://localhost:8080
 
 > Note: The site is deployed with GitHub Actions. See the `deploy` workflow.
 
-See [`docs/issue-assets.md`](docs/issue-assets.md) for Cloudflare R2 setup and
-the Cursor Cloud Agent screenshot workflow.
+See [`docs/issue-assets.md`](docs/issue-assets.md) for Google Cloud Storage
+setup and the Cursor Cloud Agent screenshot workflow.
 
 ## DNS
 

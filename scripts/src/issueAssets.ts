@@ -1,10 +1,4 @@
-import {
-  DeleteObjectCommand,
-  HeadBucketCommand,
-  HeadObjectCommand,
-  PutObjectCommand,
-  S3Client,
-} from '@aws-sdk/client-s3';
+import {Storage} from '@google-cloud/storage';
 import {createHash, randomUUID} from 'node:crypto';
 import {readFile, stat} from 'node:fs/promises';
 import path from 'node:path';
@@ -13,12 +7,14 @@ export const DEFAULT_BUCKET = 'grantcm-issue-assets';
 export const DEFAULT_PUBLIC_URL = 'https://assets.grantcm.com';
 export const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
 
-export interface R2Config {
-  accountId: string;
-  accessKeyId: string;
-  secretAccessKey: string;
+export interface GcsConfig {
   bucket: string;
   publicUrl: string;
+  projectId?: string;
+  credentials?: {
+    client_email: string;
+    private_key: string;
+  };
 }
 
 export interface ImageType {
@@ -26,49 +22,85 @@ export interface ImageType {
   contentType: 'image/png' | 'image/jpeg' | 'image/gif' | 'image/webp';
 }
 
-export function loadR2Config(
+interface GcsFile {
+  save(
+    bytes: Uint8Array,
+    options: {
+      resumable: boolean;
+      validation: 'crc32c';
+      preconditionOpts: {ifGenerationMatch: number};
+      metadata: {contentType: string; cacheControl: string};
+    },
+  ): Promise<unknown>;
+  exists(): Promise<[boolean]>;
+  delete(options?: {ignoreNotFound?: boolean}): Promise<unknown>;
+}
+
+interface GcsBucket {
+  getMetadata(): Promise<unknown>;
+  file(key: string): GcsFile;
+}
+
+export interface GcsStorage {
+  bucket(name: string): GcsBucket;
+}
+
+export function loadGcsConfig(
   environment: NodeJS.ProcessEnv = process.env,
-): R2Config {
-  const required = [
-    'R2_ACCOUNT_ID',
-    'R2_ACCESS_KEY_ID',
-    'R2_SECRET_ACCESS_KEY',
-  ] as const;
-  const missing = required.filter(name => !environment[name]);
-  if (missing.length > 0) {
+): GcsConfig {
+  const publicUrl =
+    environment.GCS_PUBLIC_URL?.replace(/\/+$/, '') ?? DEFAULT_PUBLIC_URL;
+  let parsedUrl: URL;
+  try {
+    parsedUrl = new URL(publicUrl);
+  } catch {
+    throw new Error('GCS_PUBLIC_URL must be a valid absolute URL.');
+  }
+  if (parsedUrl.protocol !== 'https:') {
+    throw new Error('GCS_PUBLIC_URL must use HTTPS.');
+  }
+
+  const encodedCredentials = environment.GCP_CREDENTIALS;
+  if (!encodedCredentials) {
+    return {
+      bucket: environment.GCS_BUCKET ?? DEFAULT_BUCKET,
+      publicUrl,
+      projectId: environment.GOOGLE_CLOUD_PROJECT,
+    };
+  }
+
+  let credentials: Record<string, unknown>;
+  try {
+    credentials = JSON.parse(encodedCredentials) as Record<string, unknown>;
+  } catch {
+    throw new Error('GCP_CREDENTIALS must contain valid service-account JSON.');
+  }
+  const clientEmail = credentials.client_email;
+  const privateKey = credentials.private_key;
+  const projectId = credentials.project_id;
+  if (
+    typeof clientEmail !== 'string' ||
+    typeof privateKey !== 'string' ||
+    typeof projectId !== 'string'
+  ) {
     throw new Error(
-      `Missing required environment variable${missing.length === 1 ? '' : 's'}: ${missing.join(
-        ', ',
-      )}. Configure them as Cursor Cloud Agent environment secrets.`,
+      'GCP_CREDENTIALS must contain client_email, private_key, and project_id.',
     );
   }
 
-  const publicUrl =
-    environment.R2_PUBLIC_URL?.replace(/\/+$/, '') ?? DEFAULT_PUBLIC_URL;
-  try {
-    new URL(publicUrl);
-  } catch {
-    throw new Error('R2_PUBLIC_URL must be a valid absolute URL.');
-  }
-
   return {
-    accountId: environment.R2_ACCOUNT_ID!,
-    accessKeyId: environment.R2_ACCESS_KEY_ID!,
-    secretAccessKey: environment.R2_SECRET_ACCESS_KEY!,
-    bucket: environment.R2_BUCKET ?? DEFAULT_BUCKET,
+    bucket: environment.GCS_BUCKET ?? DEFAULT_BUCKET,
     publicUrl,
+    projectId,
+    credentials: {client_email: clientEmail, private_key: privateKey},
   };
 }
 
-export function createR2Client(config: R2Config): S3Client {
-  return new S3Client({
-    region: 'auto',
-    endpoint: `https://${config.accountId}.r2.cloudflarestorage.com`,
-    credentials: {
-      accessKeyId: config.accessKeyId,
-      secretAccessKey: config.secretAccessKey,
-    },
-  });
+export function createGcsStorage(config: GcsConfig): GcsStorage {
+  return new Storage({
+    projectId: config.projectId,
+    credentials: config.credentials,
+  }) as GcsStorage;
 }
 
 export function detectImageType(bytes: Uint8Array): ImageType | undefined {
@@ -130,8 +162,8 @@ export function createObjectKey(
 
 export class IssueAssetService {
   constructor(
-    private readonly client: S3Client,
-    private readonly config: R2Config,
+    private readonly storage: GcsStorage,
+    private readonly config: GcsConfig,
   ) {}
 
   async uploadFile(filename: string, namespace: string): Promise<string> {
@@ -156,6 +188,11 @@ export class IssueAssetService {
     }
 
     const bytes = await readFile(filename);
+    if (bytes.length > MAX_IMAGE_BYTES) {
+      throw new Error(
+        `Image is ${formatMiB(bytes.length)}, exceeding the 10 MiB limit.`,
+      );
+    }
     const imageType = detectImageType(bytes);
     if (!imageType) {
       throw new Error(
@@ -165,18 +202,22 @@ export class IssueAssetService {
     const key = createObjectKey(namespace, filename, bytes, imageType);
 
     try {
-      await this.client.send(
-        new PutObjectCommand({
-          Bucket: this.config.bucket,
-          Key: key,
-          Body: bytes,
-          ContentType: imageType.contentType,
-          CacheControl: 'public, max-age=31536000, immutable',
-          IfNoneMatch: '*',
-        }),
-      );
+      await this.storage
+        .bucket(this.config.bucket)
+        .file(key)
+        .save(bytes, {
+          resumable: false,
+          validation: 'crc32c',
+          preconditionOpts: {ifGenerationMatch: 0},
+          metadata: {
+            contentType: imageType.contentType,
+            cacheControl: 'public, max-age=7776000, immutable',
+          },
+        });
     } catch (error) {
-      throw new Error(`R2 upload failed: ${describeError(error)}`);
+      throw new Error(
+        `GCS upload failed: ${describeError(error, this.config)}`,
+      );
     }
 
     return `${this.config.publicUrl}/${key
@@ -191,31 +232,26 @@ export class IssueAssetService {
       '89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4890000000d49444154789c6360000002000154a24f5d0000000049454e44ae426082',
       'hex',
     );
+    const bucket = this.storage.bucket(this.config.bucket);
+    const file = bucket.file(key);
     try {
-      await this.client.send(
-        new HeadBucketCommand({Bucket: this.config.bucket}),
-      );
-      await this.client.send(
-        new PutObjectCommand({
-          Bucket: this.config.bucket,
-          Key: key,
-          Body: pixel,
-          ContentType: 'image/png',
-          CacheControl: 'no-store',
-          IfNoneMatch: '*',
-        }),
-      );
+      await bucket.getMetadata();
+      await file.save(pixel, {
+        resumable: false,
+        validation: 'crc32c',
+        preconditionOpts: {ifGenerationMatch: 0},
+        metadata: {contentType: 'image/png', cacheControl: 'no-store'},
+      });
       try {
-        await this.client.send(
-          new HeadObjectCommand({Bucket: this.config.bucket, Key: key}),
-        );
+        const [exists] = await file.exists();
+        if (!exists) throw new Error('Health-check object was not found.');
       } finally {
-        await this.client.send(
-          new DeleteObjectCommand({Bucket: this.config.bucket, Key: key}),
-        );
+        await file.delete({ignoreNotFound: true});
       }
     } catch (error) {
-      throw new Error(`R2 health check failed: ${describeError(error)}`);
+      throw new Error(
+        `GCS health check failed: ${describeError(error, this.config)}`,
+      );
     }
   }
 }
@@ -228,7 +264,15 @@ function formatMiB(bytes: number): string {
   return `${(bytes / 1024 / 1024).toFixed(1)} MiB`;
 }
 
-function describeError(error: unknown): string {
-  if (error instanceof Error) return `${error.name}: ${error.message}`;
-  return 'Unknown R2 error';
+function describeError(error: unknown, config: GcsConfig): string {
+  if (!(error instanceof Error)) return 'Unknown GCS error';
+  let message = `${error.name}: ${error.message}`;
+  const secrets = [
+    config.projectId,
+    config.credentials?.client_email,
+    config.credentials?.private_key,
+  ].filter((value): value is string => Boolean(value));
+  for (const secret of secrets)
+    message = message.replaceAll(secret, '[redacted]');
+  return message;
 }

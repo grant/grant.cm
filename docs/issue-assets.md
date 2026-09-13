@@ -1,54 +1,66 @@
 # Screenshot issue assets
 
 `upload-screenshot` stores agent-generated screenshots in the
-`grantcm-issue-assets` Cloudflare R2 bucket. It returns a public URL under
-`https://assets.grantcm.com` for embedding in GitHub Issues and pull requests.
-Generated assets do not belong in Git or Git LFS.
+`grantcm-issue-assets` Google Cloud Storage bucket. It returns a public URL
+under `https://assets.grantcm.com` for embedding in GitHub Issues and pull
+requests. Generated assets do not belong in Git or Git LFS.
 
-## One-time Cloudflare setup
+## One-time Google Cloud setup
 
-1. Create an R2 bucket named `grantcm-issue-assets`.
-2. In the bucket settings, attach the custom domain
-   `assets.grantcm.com`.
-3. Create an R2 API token with **Object Read & Write** access restricted to
-   this bucket. The health check uploads, reads, and deletes a temporary
-   object, so all three object operations are required.
-4. Add an object lifecycle rule for the `issues/` prefix that expires objects
-   after 90 days.
-5. If screenshots will be fetched directly by browser JavaScript, add this
-   CORS policy. GitHub's image proxy and ordinary `<img>` rendering do not
-   require it.
+1. Create a GCS bucket named `grantcm-issue-assets` in the `grantcm` project.
+   Uniform bucket-level access is recommended.
+2. Create a dedicated service account for Cloud Agent uploads.
+3. Grant that account `roles/storage.objectAdmin` on this bucket only. The
+   health check uploads, reads, and deletes a temporary object.
+4. Grant `allUsers` `roles/storage.objectViewer` on the bucket so GitHub can
+   display screenshots. Do not grant public write access.
+5. Route `assets.grantcm.com` to the public bucket using the existing
+   Cloudflare/DNS setup and HTTPS configuration.
+6. Add this lifecycle configuration so objects under `issues/` expire after
+   90 days:
 
    ```json
-   [
-     {
-       "AllowedOrigins": ["*"],
-       "AllowedMethods": ["GET", "HEAD"],
-       "AllowedHeaders": ["*"],
-       "ExposeHeaders": ["ETag"],
-       "MaxAgeSeconds": 86400
-     }
-   ]
+   {
+     "rule": [
+       {
+         "action": {"type": "Delete"},
+         "condition": {"age": 90, "matchesPrefix": ["issues/"]}
+       }
+     ]
+   }
    ```
 
-Keep public access on the custom domain. Do not expose the R2 S3 API endpoint
-or upload credentials to browsers.
+   Apply it with:
 
-## Cursor Cloud Agent secrets
+   ```bash
+   gcloud storage buckets update gs://grantcm-issue-assets \
+     --lifecycle-file=path/to/lifecycle.json
+   ```
 
-In the Cursor dashboard, open the Cloud Agent environment used for this
-repository and add these environment secrets:
+7. Browser JavaScript does not upload assets. If it must directly fetch object
+   responses, configure public `GET`/`HEAD` CORS separately. GitHub's image
+   proxy and ordinary `<img>` rendering do not require CORS.
 
-- `R2_ACCOUNT_ID`
-- `R2_ACCESS_KEY_ID`
-- `R2_SECRET_ACCESS_KEY`
+## Cursor Cloud Agent authentication
 
-Do not put them in `.cursor/environment.json`, `.env` files, shell scripts,
-GitHub Issues, or pull requests. New or restarted Cloud Agents receive the
-configured secrets.
+The CLI follows Google Application Default Credentials:
+
+1. `GCP_CREDENTIALS` containing service-account JSON, when configured as a
+   Cursor Cloud Agent environment secret.
+2. `GOOGLE_APPLICATION_CREDENTIALS` pointing to an injected credential file.
+3. Ambient ADC, such as an attached Google service account.
+
+For this repository's personal Cloud Agent environment, open its environment
+settings in the Cursor dashboard and add `GCP_CREDENTIALS` as a secret. The
+similarly named GitHub Actions secret is separate and is not automatically
+available to Cursor agents.
+
+Never put credentials in `.cursor/environment.json`, committed `.env` files,
+shell scripts, GitHub Issues, or pull requests. New or restarted Cloud Agents
+receive newly configured secrets.
 
 The CLI defaults to the `grantcm-issue-assets` bucket and
-`https://assets.grantcm.com`. `R2_BUCKET` and `R2_PUBLIC_URL` can override
+`https://assets.grantcm.com`. `GCS_BUCKET` and `GCS_PUBLIC_URL` can override
 those non-secret values when testing another environment.
 
 ## Verify access
@@ -59,14 +71,13 @@ From the repository root:
 ./upload-screenshot health
 ```
 
-The command verifies bucket access, uploads and reads a temporary PNG under
-`issues/health/`, deletes it, and prints `ok`. Errors identify missing
-variables, invalid configuration, or the failed R2 operation without printing
-credentials.
+The command verifies bucket metadata access, uploads and reads a temporary PNG
+under `issues/health/`, deletes it, and prints `ok`. Errors identify invalid
+configuration or the failed GCS operation while redacting credential values.
 
 ## Cursor Cloud Agent workflow
 
-1. Capture a screenshot to an external path such as
+1. Capture a screenshot outside the repository, such as
    `/opt/cursor/artifacts/homepage.png`.
 2. Upload it and capture only the immutable public URL:
 
@@ -102,8 +113,7 @@ keys use this shape:
 issues/<issue-or-run-id>/<uuid>-<content-hash>-<safe-name>.<type>
 ```
 
-UUIDs prevent collisions, the content hash aids identification, and R2
-receives an `If-None-Match: *` precondition so an existing object cannot be
-overwritten. Uploaded objects use a one-year immutable browser cache because
-every URL is unique; the bucket lifecycle policy can still remove objects
-after 90 days.
+UUIDs prevent collisions, the content hash aids identification, and the GCS
+generation precondition prevents overwriting an existing object. Uploaded
+objects use an immutable 90-day browser cache aligned with the recommended
+bucket lifecycle.

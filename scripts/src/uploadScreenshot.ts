@@ -1,4 +1,8 @@
-import {createR2Client, IssueAssetService, loadR2Config} from './issueAssets';
+import {
+  createGcsStorage,
+  IssueAssetService,
+  loadGcsConfig,
+} from './issueAssets';
 
 interface UploadArguments {
   command: 'upload';
@@ -66,8 +70,8 @@ export async function run(
 ): Promise<number> {
   try {
     const parsed = parseArguments(args);
-    const config = loadR2Config();
-    const service = new IssueAssetService(createR2Client(config), config);
+    const config = loadGcsConfig();
+    const service = new IssueAssetService(createGcsStorage(config), config);
     if (parsed.command === 'health') {
       await service.healthCheck();
       output.log('ok');

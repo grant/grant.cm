@@ -34,9 +34,9 @@ Notes:
   production port, not `dev`).
 - `scripts/` needs Google Cloud credentials (`GOOGLE_APPLICATION_CREDENTIALS`)
   to run against real services. These are not required for frontend development.
-- Screenshot assets belong in Cloudflare R2, never in Git or Git LFS. Follow
-  `docs/issue-assets.md`; R2 credentials must come from Cursor Cloud Agent
-  environment secrets.
+- Screenshot assets belong in Google Cloud Storage, never in Git or Git LFS.
+  Follow `docs/issue-assets.md`; GCP credentials must come from Cursor Cloud
+  Agent environment secrets or Application Default Credentials.
 
 ## CI
 
