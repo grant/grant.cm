@@ -45,7 +45,7 @@ export default function Projects() {
       <h2 className="font-montserrat text-black-light font-bold text-large tracking-[9px] uppercase text-center py-5 px-0 pb-[10px]">
         Side Projects
       </h2>
-      <p className="text-center text-gray-dark">
+      <p className="text-center text-black">
         <em>Hackathon and side projects I've shipped</em>
       </p>
       <div className="pb-5">

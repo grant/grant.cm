@@ -44,3 +44,25 @@ test('shows a visible keyboard focus indicator', async ({page}) => {
   await expect(focusedElement).toHaveCSS('outline-width', '3px');
   await expect(focusedElement).toHaveCSS('outline-color', 'rgb(234, 95, 78)');
 });
+
+test('uses accessible homepage foreground colors', async ({page}) => {
+  await page.goto('/');
+
+  await expect(page.locator('#about > p')).toHaveCSS(
+    'color',
+    'rgb(34, 34, 34)',
+  );
+  await expect(page.locator('#experience > p')).toHaveCSS(
+    'color',
+    'rgb(255, 255, 255)',
+  );
+  await expect(page.locator('#projects > p')).toHaveCSS(
+    'color',
+    'rgb(24, 24, 24)',
+  );
+  const experienceBackground = await page
+    .locator('#experience')
+    .evaluate(element => getComputedStyle(element).backgroundImage);
+  expect(experienceBackground).toContain('rgb(36, 87, 92)');
+  expect(experienceBackground).toContain('rgb(52, 119, 126)');
+});
