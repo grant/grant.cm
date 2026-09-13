@@ -273,6 +273,6 @@ function describeError(error: unknown, config: GcsConfig): string {
     config.credentials?.private_key,
   ].filter((value): value is string => Boolean(value));
   for (const secret of secrets)
-    message = message.replaceAll(secret, '[redacted]');
+    message = message.split(secret).join('[redacted]');
   return message;
 }
