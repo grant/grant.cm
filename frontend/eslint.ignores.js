@@ -1,0 +1,1 @@
+module.exports = ['build/', '.next/', 'next-env.d.ts'];
