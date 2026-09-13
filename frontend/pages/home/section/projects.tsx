@@ -34,9 +34,6 @@ const cardColors: Record<string, string> = {
   slides2gif: 'rgb(249, 171, 0)',
 };
 
-const featuredProjects = projects.slice(0, 7);
-const archivedProjects = projects.slice(featuredProjects.length);
-
 export default function Projects() {
   return (
     <section
@@ -50,18 +47,9 @@ export default function Projects() {
         <em>Hackathon and side projects I've shipped</em>
       </p>
       <div className="pb-5">
-        <ul className="text-center">{featuredProjects.map(renderProject)}</ul>
-        <details className="group mt-3">
-          <summary className="mx-auto mb-4 w-fit cursor-pointer list-none rounded-full border border-white/40 bg-black/10 px-5 py-2 text-small font-bold hover:bg-black/20">
-            <span className="group-open:hidden">
-              Show {archivedProjects.length} more projects
-            </span>
-            <span className="hidden group-open:inline">
-              Hide archived projects
-            </span>
-          </summary>
-          <ul className="text-center">{archivedProjects.map(renderProject)}</ul>
-        </details>
+        <ul className="mx-auto grid max-w-[1100px] grid-cols-[repeat(auto-fit,96px)] justify-center gap-2 px-3 pt-4">
+          {projects.map(renderProject)}
+        </ul>
       </div>
     </section>
   );
@@ -81,7 +69,7 @@ function renderProject(project: Project) {
   return (
     <li
       key={project.id}
-      className="group relative m-[6px] inline-block h-[160px] w-[160px] overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105 max-[800px]:h-[92px] max-[800px]:w-[92px]"
+      className="group relative h-24 w-24 overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105"
       style={{backgroundColor: bgColor, fontWeight: 700, fontSize: '40px'}}
     >
       <img
@@ -89,23 +77,23 @@ function renderProject(project: Project) {
         src={imgURL}
         alt={project.title}
       />
-      <div className="h-[15%] absolute bottom-0 left-0 right-0 p-[3px] pb-[6px] bg-gray/40 transition-all duration-normal group-hover:h-full group-hover:pt-5 group-hover:bg-gray/85 max-[800px]:h-[30%]">
-        <h3 className="text-xsmall font-bold text-center uppercase pb-[10px] group-hover:pb-[30px] max-[800px]:text-xxsmall">
+      <div className="absolute bottom-0 left-0 right-0 h-[24%] bg-gray/40 p-1 transition-all duration-normal group-hover:h-full group-hover:bg-gray/85 group-hover:pt-3">
+        <h3 className="text-center text-xxsmall font-bold uppercase group-hover:pb-2">
           {project.title}
         </h3>
-        <p className="hidden text-xsmall leading-[1.3] pb-5 group-hover:block max-[800px]:!hidden">
-          {project.description}
-        </p>
-        <div className="bottom-0 max-[800px]:hidden">
+        <div className="hidden group-hover:block max-[800px]:!hidden">
           {project.url.github ? (
-            <a className="text-small block underline" href={project.url.github}>
+            <a
+              className="block text-xxsmall underline"
+              href={project.url.github}
+            >
               GITHUB
             </a>
           ) : (
             ''
           )}
           {project.url.demo ? (
-            <a className="text-small block underline" href={project.url.demo}>
+            <a className="block text-xxsmall underline" href={project.url.demo}>
               DEMO
             </a>
           ) : (
