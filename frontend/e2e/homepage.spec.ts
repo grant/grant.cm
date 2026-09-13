@@ -11,6 +11,58 @@ test('homepage matches its visual baseline', async ({page}) => {
   });
 });
 
+test.describe('mobile homepage', () => {
+  test.use({viewport: {width: 390, height: 844}});
+
+  test('keeps headings and copy readable at 390px', async ({page}) => {
+    await page.goto('/');
+    await page.evaluate(() => document.fonts.ready);
+
+    for (const selector of ['h1', 'h1 + h3']) {
+      const textRects = await page.locator(selector).evaluate(element => {
+        const range = document.createRange();
+        range.selectNodeContents(element);
+        return [...range.getClientRects()]
+          .filter(rect => rect.width > 0)
+          .map(({left, right}) => ({left, right}));
+      });
+      for (const rect of textRects) {
+        expect(rect.left).toBeGreaterThanOrEqual(0);
+        expect(rect.right).toBeLessThanOrEqual(390);
+      }
+    }
+
+    const aboutCopy = page.locator('#about > p');
+    await expect(aboutCopy).toHaveCSS('color', 'rgb(255, 255, 255)');
+    const aboutPadding = await aboutCopy.evaluate(element => {
+      const style = getComputedStyle(element);
+      return {left: style.paddingLeft, right: style.paddingRight};
+    });
+    expect(aboutPadding.left).toBe(aboutPadding.right);
+
+    const projectHeadingLines = await page
+      .getByRole('heading', {name: 'Side Projects'})
+      .evaluate(element => {
+        const range = document.createRange();
+        range.selectNodeContents(element);
+        return [...range.getClientRects()].filter(rect => rect.width > 0)
+          .length;
+      });
+    expect(projectHeadingLines).toBe(1);
+
+    const documentWidth = await page.evaluate(
+      () => document.documentElement.scrollWidth,
+    );
+    expect(documentWidth).toBe(390);
+
+    await expect(page).toHaveScreenshot('homepage-mobile.png', {
+      animations: 'disabled',
+      fullPage: true,
+      maxDiffPixels: 1_000,
+    });
+  });
+});
+
 test('shows compact earlier experience and all projects', async ({page}) => {
   await page.goto('/');
 
@@ -50,7 +102,7 @@ test('uses accessible homepage foreground colors', async ({page}) => {
 
   await expect(page.locator('#about > p')).toHaveCSS(
     'color',
-    'rgb(34, 34, 34)',
+    'rgb(255, 255, 255)',
   );
   await expect(page.locator('#experience > p')).toHaveCSS(
     'color',
