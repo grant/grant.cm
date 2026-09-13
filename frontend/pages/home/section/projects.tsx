@@ -47,7 +47,7 @@ export default function Projects() {
         <em>Hackathon and side projects I've shipped</em>
       </p>
       <div className="pb-5">
-        <ul className="mx-auto grid max-w-[1100px] grid-cols-[repeat(auto-fit,96px)] justify-center gap-2 px-3 pt-4">
+        <ul className="mx-auto grid max-w-[1100px] grid-cols-[repeat(auto-fit,96px)] justify-center gap-3 px-3 pt-4">
           {projects.map(renderProject)}
         </ul>
       </div>
@@ -69,38 +69,25 @@ function renderProject(project: Project) {
   return (
     <li
       key={project.id}
-      className="group relative h-24 w-24 overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105"
+      className="relative h-24 w-24 overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105"
       style={{backgroundColor: bgColor, fontWeight: 700, fontSize: '40px'}}
     >
-      <img
-        className={`w-full ${isSpecialImage ? 'pt-[10px]' : ''}`}
-        src={imgURL}
-        alt={project.title}
-      />
-      <div className="absolute bottom-0 left-0 right-0 h-[24%] bg-gray/40 p-1 transition-all duration-normal group-hover:h-full group-hover:bg-gray/85 group-hover:pt-3">
-        <h3 className="text-center text-xxsmall font-bold uppercase group-hover:pb-2">
-          {project.title}
-        </h3>
-        <div className="hidden group-hover:block max-[800px]:!hidden">
-          {project.url.github ? (
-            <a
-              className="block text-xxsmall underline"
-              href={project.url.github}
-            >
-              GITHUB
-            </a>
-          ) : (
-            ''
-          )}
-          {project.url.demo ? (
-            <a className="block text-xxsmall underline" href={project.url.demo}>
-              DEMO
-            </a>
-          ) : (
-            ''
-          )}
+      <a
+        className="group relative block h-full w-full"
+        href={project.url.github}
+        aria-label={`${project.title} on GitHub`}
+      >
+        <img
+          className={`w-full ${isSpecialImage ? 'pt-[10px]' : ''}`}
+          src={imgURL}
+          alt=""
+        />
+        <div className="absolute bottom-0 left-0 right-0 h-[24%] bg-gray/40 p-1 transition-all duration-normal group-hover:h-full group-hover:bg-gray/85 group-hover:pt-8">
+          <h3 className="text-center text-xxsmall font-bold uppercase">
+            {project.title}
+          </h3>
         </div>
-      </div>
+      </a>
     </li>
   );
 }
