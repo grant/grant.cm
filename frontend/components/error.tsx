@@ -1,3 +1,5 @@
+import SecondaryShell from './secondaryShell';
+
 export default function Error({
   errorMessage,
   errorCode,
@@ -6,25 +8,16 @@ export default function Error({
   errorCode: string;
 }) {
   return (
-    <div className="block w-full h-full bg-primary text-white">
-      <div className="absolute left-1/2 top-1/2 w-[600px] h-[400px] -ml-[300px] -mt-[200px]">
-        <span className="absolute -left-[70px] -top-[50px] text-xhuge text-primary-light">
-          &ldquo;
-        </span>
-        <h1 className="leading-[100%] pb-[30px] text-xxlarge">
-          {errorMessage}
-        </h1>
-        <h3 className="text-large text-primary-dark pb-[60px]">{errorCode}</h3>
-        <hr className="w-[56%] ml-0 border-0 border-t border-primary-dark pb-[10px]" />
-        <h3>
-          <a
-            className="text-inherit italic transition-[border-bottom-color] duration-normal border-b-2 border-transparent pb-[2px] no-underline hover:border-b-2 hover:border-white"
-            href="/"
-          >
-            Go home
-          </a>
-        </h3>
+    <SecondaryShell title={`${errorCode} error`}>
+      <div className="max-w-2xl rounded-xl border border-muted bg-white p-10 shadow-sm">
+        <p className="mb-3 text-large font-bold text-primary-dark">
+          {errorCode}
+        </p>
+        <h2 className="mb-8 text-xlarge font-bold">{errorMessage}</h2>
+        <a className="font-bold text-primary-dark underline" href="/">
+          Go home
+        </a>
       </div>
-    </div>
+    </SecondaryShell>
   );
 }
