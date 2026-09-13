@@ -1,8 +1,8 @@
 export default function SectionFooter() {
   const links = [
-    {href: 'http://www.github.com/grant', label: 'GitHub'},
-    {href: 'http://www.linkedin.com/in/granttimmerman', label: 'LinkedIn'},
-    {href: 'http://www.twitter.com/granttimmerman', label: 'Twitter'},
+    {href: 'https://www.github.com/grant', label: 'GitHub'},
+    {href: 'https://www.linkedin.com/in/granttimmerman', label: 'LinkedIn'},
+    {href: 'https://www.twitter.com/granttimmerman', label: 'Twitter'},
     {href: 'https://medium.com/@granttimmerman', label: 'Medium'},
     {
       href: 'mailto:granttimmerman@gmail.com?subject=Hello%20Grant!&amp;body=Hey%20Grant,%20',
@@ -26,7 +26,7 @@ export default function SectionFooter() {
               )}
               <a
                 href={link.href}
-                className="text-gray-light transition-colors duration-normal hover:text-white"
+                className="inline-flex min-h-11 items-center px-2 text-gray-light transition-colors duration-normal hover:text-white"
               >
                 {link.label}
               </a>

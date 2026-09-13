@@ -8,11 +8,15 @@ describe('SectionFooter', () => {
 
     expect(screen.getByText('GitHub')).toHaveAttribute(
       'href',
-      'http://www.github.com/grant',
+      'https://www.github.com/grant',
     );
     expect(screen.getByText('LinkedIn')).toHaveAttribute(
       'href',
-      'http://www.linkedin.com/in/granttimmerman',
+      'https://www.linkedin.com/in/granttimmerman',
+    );
+    expect(screen.getByText('Twitter')).toHaveAttribute(
+      'href',
+      'https://www.twitter.com/granttimmerman',
     );
     expect(screen.getByText('Contact')).toHaveAttribute(
       'href',

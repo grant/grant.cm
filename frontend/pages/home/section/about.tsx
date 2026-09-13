@@ -15,6 +15,7 @@ export default function SectionAbout() {
         height={200}
         className="block mx-auto mb-5 text-center rounded-full mb-20px p-2 border-2 border-orange-lightest/50 border-dashed"
       />
+      {/* Centered white copy is an intentional part of the homepage design. */}
       <p className="mx-auto max-w-screen-md px-5 pb-12 text-center text-small text-white sm:text-medium">
         <em className="font-bold">Hello there!</em> I'm Grant Timmerman, a
         software engineer and open source enthusiast. I love building delightful

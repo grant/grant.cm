@@ -26,7 +26,7 @@ export default function SectionHeader() {
             ) : (
               <li key={l.title}>
                 <a
-                  className="text-medium leading-[2em] tracking-[2px] text-primary-dark transition-colors duration-normal ease hover:text-white font-bold"
+                  className="inline-flex min-h-11 items-center justify-center px-2 text-medium font-bold leading-none tracking-[2px] text-primary-dark transition-colors duration-normal ease hover:text-white"
                   href={l.link}
                 >
                   {l.title}
