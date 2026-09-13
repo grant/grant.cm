@@ -1,6 +1,5 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+@config '../tailwind.config.js';
 
 /* Reset.css */
 /* https://meyerweb.com/eric/tools/css/reset/ */

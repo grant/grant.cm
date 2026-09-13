@@ -13,7 +13,7 @@ export default function SectionAbout() {
         alt="Grant Timmerman"
         width={200}
         height={200}
-        className="block mx-auto mb-5 text-center rounded-full mb-20px p-2 border-2 border-orange-lightest border-opacity-50 border-dashed"
+        className="block mx-auto mb-5 text-center rounded-full mb-20px p-2 border-2 border-orange-lightest/50 border-dashed"
       />
       <p
         className={`
