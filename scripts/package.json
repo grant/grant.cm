@@ -19,7 +19,7 @@
   "dependencies": {
     "@google-cloud/storage": "^7.22.0",
     "axios": "^1.20.0",
-    "googleapis": "^144.0.0",
+    "googleapis": "^180.0.0",
     "tsx": "^4.23.13",
     "typescript": "^5.9.3"
   },
