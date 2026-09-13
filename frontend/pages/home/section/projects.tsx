@@ -1,4 +1,4 @@
-import {projects} from '../../../data/projects';
+import {Project, projects} from '../../../data/projects';
 
 const cardColors: Record<string, string> = {
   algorythem: 'rgb(242, 99, 61)',
@@ -56,7 +56,7 @@ export default function Projects() {
 /**
  * Renders a single project
  */
-function renderProject(project: any) {
+function renderProject(project: Project) {
   const imgURL = `/images/cards/${project.id}.${project.img}`;
   const bgColor = cardColors[project.id] || 'transparent';
   const isSpecialImage =
