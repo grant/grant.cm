@@ -446,8 +446,12 @@ const experiences: Experience[] = [
   },
 ];
 
-const recentExperiences = experiences.filter(experience => !experience.wasStudent);
-const studentExperiences = experiences.filter(experience => experience.wasStudent);
+const recentExperiences = experiences.filter(
+  experience => !experience.wasStudent,
+);
+const studentExperiences = experiences.filter(
+  experience => experience.wasStudent,
+);
 
 export default function SectionExperience() {
   return (
@@ -512,7 +516,10 @@ function renderExperience(experience: Experience) {
           ));
 
           return (
-            <div key={experienceKey + role.dateRange} className="mb-4 last:mb-0">
+            <div
+              key={experienceKey + role.dateRange}
+              className="mb-4 last:mb-0"
+            >
               <div>
                 <h5 className="float-left">
                   {experience.company} - {role.title}

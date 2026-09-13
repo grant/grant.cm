@@ -34,7 +34,7 @@ const cardColors: Record<string, string> = {
   slides2gif: 'rgb(249, 171, 0)',
 };
 
-const featuredProjects = projects.slice(0, 8);
+const featuredProjects = projects.slice(0, 7);
 const archivedProjects = projects.slice(featuredProjects.length);
 
 export default function Projects() {
