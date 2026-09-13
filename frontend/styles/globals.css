@@ -129,6 +129,11 @@
     border-collapse: collapse;
     border-spacing: 0;
   }
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    border-radius: 3px;
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+  }
 }
 
 /* --- */
@@ -198,7 +203,6 @@ button {
   -webkit-appearance: none;
   background: transparent;
   border: 0;
-  outline: 0;
 }
 a {
   text-decoration: none;
