@@ -38,19 +38,25 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
       - name: Authenticate to Google Cloud
         uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v2'
-      # The app is built by Cloud Build buildpacks during deploy, so no local
-      # Node/pnpm install or build is needed here.
       - name: Deploy Frontend to Cloud Run
-        run: ./deploy.sh
-        env:
-          RUN_ENV: PROD
-        working-directory: frontend
+        run: |
+          cd frontend
+          pnpm install --frozen-lockfile
+          pnpm run deploy
 
   deploy-scripts:
     needs: changes
