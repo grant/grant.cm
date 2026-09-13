@@ -24,6 +24,9 @@ test('shows compact earlier experience and all projects', async ({page}) => {
     page.getByText('Google · Software Engineer Intern'),
   ).toBeVisible();
   await expect(
-    page.getByRole('link', {name: 'Github Issues on GitHub'}),
-  ).toHaveAttribute('href', 'https://github.com/grant/issues');
+    page.getByRole('link', {name: 'ts2gas on GitHub'}),
+  ).toHaveAttribute('href', 'https://github.com/grant/ts2gas');
+  await expect(
+    page.getByRole('link', {name: 'Computer Checklist on GitHub'}),
+  ).toHaveAttribute('href', 'https://github.com/grant/new-computer-checklist');
 });
