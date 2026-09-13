@@ -1,6 +1,13 @@
 import {expect, test} from '@playwright/test';
 
-const routes = ['/consulting', '/videos', '/cal', '/resume', '/dinner', '/missing'];
+const routes = [
+  '/consulting',
+  '/videos',
+  '/cal',
+  '/resume',
+  '/dinner',
+  '/missing',
+];
 
 for (const route of routes) {
   test(`${route} uses the secondary page shell`, async ({page}) => {
