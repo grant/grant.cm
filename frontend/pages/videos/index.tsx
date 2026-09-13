@@ -10,7 +10,7 @@ export default function Videos() {
   const videoData = VIDEOS.map(video => {
     return {
       ...video,
-      date: new Date(video.date.replace(/\./g, '-')),
+      date: video.date ? new Date(video.date.replace(/\./g, '-')) : undefined,
       thumbnail: getVideoThumbnailURL(getVideoID(video.url)),
     };
   });
@@ -60,7 +60,9 @@ export default function Videos() {
                   >
                     {video.title}
                   </div>
-                  <div className="text-gray">{prettyDate(video.date)}</div>
+                  <div className="text-gray">
+                    {video.date ? prettyDate(video.date) : null}
+                  </div>
                 </a>
               </div>
             );

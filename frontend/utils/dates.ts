@@ -7,7 +7,7 @@
 
 // Takes an ISO time and returns a string representing how
 // long ago the date represents.
-export function prettyDate(date) {
+export function prettyDate(date: Date) {
   const diff = (new Date().getTime() - date.getTime()) / 1000;
   const day_diff = Math.floor(diff / 86400);
 
