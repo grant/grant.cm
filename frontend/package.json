@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "The home page for grant.cm",
   "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/grant/grant.cm"
