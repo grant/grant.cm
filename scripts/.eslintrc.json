@@ -1,8 +1,0 @@
-{
-  "extends": "./node_modules/gts/",
-  "settings": {
-    "node": {
-      "version": ">=20"
-    }
-  }
-}

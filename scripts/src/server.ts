@@ -5,12 +5,12 @@
  * Designed to be deployed as a private Cloud Run service.
  */
 
-import {createServer} from 'http';
+import {createServer, IncomingMessage, ServerResponse} from 'http';
 import {syncGoogleDocResume} from './syncGoogleDocResume';
 
 const PORT = process.env.PORT || 8080;
 
-async function handleRequest(req: any, res: any) {
+async function handleRequest(req: IncomingMessage, res: ServerResponse) {
   const path = req.url || '/';
 
   if (req.method === 'GET' && path === '/health') {
@@ -31,10 +31,15 @@ async function handleRequest(req: any, res: any) {
           message: 'Resume synced successfully',
         }),
       );
-    } catch (error: any) {
+    } catch (error) {
       console.error('❌ Error syncing resume:', error);
       res.writeHead(500, {'Content-Type': 'application/json'});
-      res.end(JSON.stringify({success: false, error: error.message}));
+      res.end(
+        JSON.stringify({
+          success: false,
+          error: error instanceof Error ? error.message : String(error),
+        }),
+      );
     }
     return;
   }

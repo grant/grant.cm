@@ -55,7 +55,7 @@ export async function syncGoogleDocResume() {
       email = about.data.user?.emailAddress || 'unknown';
       console.log(`🔐 Authenticated as: ${email}`);
     }
-  } catch (err) {
+  } catch {
     console.log('🔐 Authenticated (could not retrieve email)');
   }
   console.log(`📄 Accessing document: ${DOCUMENT_ID}`);
@@ -117,7 +117,7 @@ if (require.main === module) {
         try {
           const keyData = require(process.env.GOOGLE_APPLICATION_CREDENTIALS);
           console.error(`   Service account email: ${keyData.client_email}`);
-        } catch (e) {
+        } catch {
           // Ignore if we can't read the key file
         }
       } else {
