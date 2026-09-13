@@ -9,7 +9,7 @@ export interface Project {
   notes?: string; // Notes about this project.
   url: {
     demo?: string; // A URL with a demo.
-    github?: string; // A URL with the GitHub source.
+    github: string; // The GitHub source linked from the project tile.
     youtube?: string; // A URL with a video demo on YouTube.
   };
 }

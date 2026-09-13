@@ -18,9 +18,12 @@ test('shows compact earlier experience and all projects', async ({page}) => {
     page.getByRole('heading', {name: 'Earlier experience'}),
   ).toBeVisible();
   await expect(
+    page.getByRole('region', {name: 'Earlier experience'}).locator('img'),
+  ).toHaveCount(7);
+  await expect(
     page.getByText('Google · Software Engineer Intern'),
   ).toBeVisible();
   await expect(
-    page.getByRole('heading', {name: 'Github Issues'}),
-  ).toBeVisible();
+    page.getByRole('link', {name: 'Github Issues on GitHub'}),
+  ).toHaveAttribute('href', 'https://github.com/grant/issues');
 });

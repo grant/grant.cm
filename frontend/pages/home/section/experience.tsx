@@ -460,6 +460,7 @@ const recentExperiences = experiences.filter(
 const studentExperiences = experiences.filter(
   experience => experience.wasStudent,
 );
+const whiteIconBackgrounds = new Set(['google', 'nor1', 'observable']);
 
 export default function SectionExperience() {
   return (
@@ -488,10 +489,26 @@ export default function SectionExperience() {
           <ul className="grid grid-cols-3 gap-x-6 gap-y-3 text-small max-[700px]:grid-cols-2 max-[500px]:grid-cols-1">
             {studentExperiences.flatMap(experience =>
               experience.roles.map(role => (
-                <li key={experience.id + role.dateRange}>
-                  <strong>{experience.company}</strong> · {role.title}
-                  <span className="block text-blue-light">
-                    {role.shortSummary} · {role.dateRange}
+                <li
+                  key={experience.id + role.dateRange}
+                  className="flex items-center gap-2"
+                >
+                  <Image
+                    width={28}
+                    height={28}
+                    className={`h-7 w-7 shrink-0 rounded-full ${
+                      whiteIconBackgrounds.has(experience.id) ? 'bg-white' : ''
+                    }`}
+                    src={`/images/icons/${experience.id}.svg`}
+                    alt=""
+                    aria-hidden="true"
+                    sizes="28px"
+                  />
+                  <span>
+                    <strong>{experience.company}</strong> · {role.title}
+                    <span className="block text-blue-light">
+                      {role.shortSummary} · {role.dateRange}
+                    </span>
                   </span>
                 </li>
               )),
@@ -505,10 +522,7 @@ export default function SectionExperience() {
 
 function renderExperience(experience: Experience) {
   const experienceKey = experience.id + experience.roles[0].dateRange;
-  const isWhite =
-    experience.id === 'google' ||
-    experience.id === 'nor1' ||
-    experience.id === 'observable';
+  const isWhite = whiteIconBackgrounds.has(experience.id);
 
   return (
     <article
