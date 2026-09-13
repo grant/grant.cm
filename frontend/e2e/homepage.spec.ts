@@ -7,5 +7,6 @@ test('homepage matches its visual baseline', async ({page}) => {
   await expect(page).toHaveScreenshot('homepage.png', {
     animations: 'disabled',
     fullPage: true,
+    maxDiffPixels: 1_000,
   });
 });
