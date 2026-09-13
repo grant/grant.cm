@@ -1,0 +1,33 @@
+---
+description: Project overview and conventions for grant.cm
+alwaysApply: true
+---
+
+# grant.cm
+
+Monorepo with two independent pnpm packages, orchestrated from the root `justfile`:
+
+- `frontend/` — the Next.js (Pages Router) website. The main app.
+- `scripts/` — Google Cloud utilities (Medium data sync, Google Doc → PDF resume sync). Deploy/automation tooling, not part of the website.
+
+## Toolchain
+
+- Node.js (see `.nvmrc`), pnpm `9.15.9` (pinned via `packageManager`), and `just` (task runner).
+
+## Commands (run from repo root)
+
+- Install: `just install`
+- Dev server: `just dev` → http://localhost:3000
+- Lint: `just lint` (autofix: `just fix`)
+- Build: `just build`
+- Run a scripts package script: `just scripts <script>`
+
+## Conventions
+
+- The dev server runs on port 3000; the production `start` script uses 8080.
+- TypeScript throughout; code style is enforced by `gts` (Google TypeScript Style).
+- `scripts/` needs Google Cloud credentials (`GOOGLE_APPLICATION_CREDENTIALS`) to run against real services; not required for frontend development.
+- Deploys: pushing to `main` deploys to Cloud Run via GitHub Actions (`.github/workflows/deploy.yaml`).
+- `next dev` auto-generates `frontend/AGENTS.md` and `frontend/CLAUDE.md`; these are gitignored — do not edit or commit them.
+
+See the root `AGENTS.md` for the canonical, longer-form guidance.
