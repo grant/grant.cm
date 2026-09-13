@@ -11,18 +11,13 @@ test('homepage matches its visual baseline', async ({page}) => {
   });
 });
 
-test('expands earlier experience while all projects remain visible', async ({
-  page,
-}) => {
+test('shows compact earlier experience and all projects', async ({page}) => {
   await page.goto('/');
 
-  const internship = page.getByRole('heading', {
-    name: 'Google - Software Engineer Intern',
-  });
-  await expect(internship).toBeHidden();
-  await page.getByText('Show earlier experience & internships').click();
-  await expect(internship).toBeVisible();
-
+  await expect(
+    page.getByRole('heading', {name: 'Earlier experience'}),
+  ).toBeVisible();
+  await expect(page.getByText('Google · Software Engineer Intern')).toBeVisible();
   await expect(
     page.getByRole('heading', {name: 'Github Issues'}),
   ).toBeVisible();

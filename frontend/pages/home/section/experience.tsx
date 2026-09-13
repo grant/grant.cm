@@ -467,17 +467,29 @@ export default function SectionExperience() {
       </p>
       <div className="mx-auto py-[10px] px-[10px] max-w-[1000px]">
         {recentExperiences.map(renderExperience)}
-        <details className="group mt-2">
-          <summary className="mx-auto mb-4 w-fit cursor-pointer list-none rounded-full border border-white/30 bg-white/10 px-5 py-2 text-small font-bold hover:bg-white/20">
-            <span className="group-open:hidden">
-              Show earlier experience & internships
-            </span>
-            <span className="hidden group-open:inline">
-              Hide earlier experience & internships
-            </span>
-          </summary>
-          {studentExperiences.map(renderExperience)}
-        </details>
+        <section
+          aria-labelledby="earlier-experience"
+          className="mt-3 border-t border-white/20 px-4 py-5"
+        >
+          <h3
+            id="earlier-experience"
+            className="mb-3 text-center text-small font-bold uppercase tracking-[2px]"
+          >
+            Earlier experience
+          </h3>
+          <ul className="grid grid-cols-3 gap-x-6 gap-y-3 text-small max-[700px]:grid-cols-2 max-[500px]:grid-cols-1">
+            {studentExperiences.flatMap(experience =>
+              experience.roles.map(role => (
+                <li key={experience.id + role.dateRange}>
+                  <strong>{experience.company}</strong> · {role.title}
+                  <span className="block text-blue-light">
+                    {role.dateRange}
+                  </span>
+                </li>
+              )),
+            )}
+          </ul>
+        </section>
       </div>
     </section>
   );
