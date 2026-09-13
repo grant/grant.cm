@@ -17,7 +17,9 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   await expect(
     page.getByRole('heading', {name: 'Earlier experience'}),
   ).toBeVisible();
-  await expect(page.getByText('Google · Software Engineer Intern')).toBeVisible();
+  await expect(
+    page.getByText('Google · Software Engineer Intern'),
+  ).toBeVisible();
   await expect(
     page.getByRole('heading', {name: 'Github Issues'}),
   ).toBeVisible();
