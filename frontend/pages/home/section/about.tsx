@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {PageTitle} from '../../../components/pageTitle';
 
 export default function SectionAbout() {
@@ -7,13 +8,12 @@ export default function SectionAbout() {
       className="[box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] overflow-hidden [&>_.title]:cursor-pointer bg-gradient-to-r from-orange-dark to-orange-light"
     >
       <PageTitle title="About" />
-      <img
+      <Image
         src="/images/profile.png"
         alt="Grant Timmerman"
-        className={
-          'block mx-auto mb-5 text-center rounded-full mb-20px p-2 border-2 border-orange-lightest border-opacity-50 border-dashed'
-        }
-        style={{width: '200px'}}
+        width={200}
+        height={200}
+        className="block mx-auto mb-5 text-center rounded-full mb-20px p-2 border-2 border-orange-lightest border-opacity-50 border-dashed"
       />
       <p
         className={`
