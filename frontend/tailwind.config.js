@@ -53,6 +53,8 @@ module.exports = {
           light: 'rgb(173, 223, 230)',
           dark: 'rgb(73, 161, 167)',
           start: 'rgb(58, 130, 137)',
+          surfaceStart: 'rgb(36, 87, 92)',
+          surfaceEnd: 'rgb(52, 119, 126)',
         },
         navy: {
           DEFAULT: 'rgb(45, 62, 82)',

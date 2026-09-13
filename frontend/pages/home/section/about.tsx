@@ -17,9 +17,9 @@ export default function SectionAbout() {
       />
       <p
         className={`
-          sm:text-medium text-white text-indent-50 max-w-screen-md mx-auto text-center text-small  pb-12 pl-15`}
+          sm:text-medium text-black-light text-indent-50 max-w-screen-md mx-auto text-center text-small  pb-12 pl-15`}
       >
-        <em className="text-orange-lightest">Hello there!</em> I'm Grant
+        <em className="font-bold text-black">Hello there!</em> I'm Grant
         Timmerman, a software engineer and open source enthusiast. I love
         building delightful developer and user experiences.
         <br />
