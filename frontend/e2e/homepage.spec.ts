@@ -55,6 +55,16 @@ test.describe('mobile homepage', () => {
     );
     expect(documentWidth).toBe(390);
 
+    const navigationLinks = page
+      .locator('section')
+      .first()
+      .locator('a')
+      .or(page.locator('footer a'));
+    for (const link of await navigationLinks.all()) {
+      const box = await link.boundingBox();
+      expect(box?.height).toBeGreaterThanOrEqual(44);
+    }
+
     await expect(page).toHaveScreenshot('homepage-mobile.png', {
       animations: 'disabled',
       fullPage: true,
@@ -134,4 +144,11 @@ test('publishes branded favicon and social metadata', async ({page}) => {
     'content',
     'summary_large_image',
   );
+
+  for (const label of ['GitHub', 'LinkedIn', 'Twitter']) {
+    await expect(page.getByRole('link', {name: label})).toHaveAttribute(
+      'href',
+      /^https:\/\//,
+    );
+  }
 });
