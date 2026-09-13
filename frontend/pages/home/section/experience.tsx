@@ -7,6 +7,7 @@ import Image from 'next/image';
 interface ExperienceRole {
   title: string; // The role at the company, like "Engineer"
   dateRange: string; // The date range, like "2013-2015"
+  shortSummary?: string; // A compact summary for the earlier-experience grid.
   summary?: React.ReactNode; // An optional summary of the experience.
   bullets?: React.ReactNode[]; // An optional list of bullets describing the  element with a description of the experience
   languages: string[]; // The programming languages used.
@@ -261,6 +262,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer Intern',
         dateRange: 'Summer 2015',
+        shortSummary: 'Android app validation',
         summary: (
           <span>
             Designed and developed an Android device validator that dramatically
@@ -282,6 +284,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer Intern',
         dateRange: 'Winter 2015',
+        shortSummary: 'Fraud tooling and visualization',
         summary: (
           <span>
             Built historical Sift scores visualization, feature gating/pricing
@@ -301,6 +304,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer Intern',
         dateRange: 'Summer 2014',
+        shortSummary: 'Globalized skills search',
         summary: (
           <span>
             Built the server-side infrastructure for internationalizing skills
@@ -330,6 +334,7 @@ const experiences: Experience[] = [
       {
         title: 'Open Academy - Socket.IO',
         dateRange: "Jan–June '14",
+        shortSummary: 'Socket.IO example app',
         summary: (
           <span>
             Hand-picked to contribute to Facebook’s open-sourced projects as a
@@ -359,6 +364,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer Intern',
         dateRange: 'Summer 2013',
+        shortSummary: 'Dashboard transparency and API',
         summary: (
           <span>
             Designed and implemented two flagship features for Tableau’s big
@@ -398,6 +404,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer Intern',
         dateRange: 'Summer 2012',
+        shortSummary: 'Hotel inventory applications',
         summary: (
           <span>
             Built comprehensive web applications doing both front-end and
@@ -428,6 +435,7 @@ const experiences: Experience[] = [
       {
         title: 'Game Developer',
         dateRange: '2008-2011',
+        shortSummary: 'Indie Flash games',
         summary: (
           <span>
             Developed indie Flash games such as{' '}
@@ -483,7 +491,7 @@ export default function SectionExperience() {
                 <li key={experience.id + role.dateRange}>
                   <strong>{experience.company}</strong> · {role.title}
                   <span className="block text-blue-light">
-                    {role.dateRange}
+                    {role.shortSummary} · {role.dateRange}
                   </span>
                 </li>
               )),
