@@ -1,4 +1,4 @@
-import Layout from '../../components/layout';
+import SecondaryShell from '../../components/secondaryShell';
 import {useEffect} from 'react';
 
 export default function Consulting({minutes}: {minutes: string}) {
@@ -19,17 +19,20 @@ export default function Consulting({minutes}: {minutes: string}) {
     const availableDurations = Object.keys(stripeLinks).join(', ');
 
     return (
-      <Layout>
-        <div className="flex justify-center items-center h-screen text-lg text-gray-600">
+      <SecondaryShell title="Consulting">
+        <div className="rounded-lg border border-muted bg-white p-6 text-lg text-gray-dark">
           Invalid consultation duration. Please choose {availableDurations}{' '}
           minutes.
         </div>
-      </Layout>
+      </SecondaryShell>
     );
   }
 
-  // Return empty div while redirecting
-  return <div></div>;
+  return (
+    <SecondaryShell title="Redirecting to checkout">
+      <p className="text-gray-dark">Opening secure checkout…</p>
+    </SecondaryShell>
+  );
 }
 
 // Add getServerSideProps to get the minutes parameter

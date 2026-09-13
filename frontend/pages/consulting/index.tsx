@@ -1,6 +1,4 @@
-import Head from 'next/head';
-import Layout from '../../components/layout';
-import SectionFooter from '../home/section/footer';
+import SecondaryShell from '../../components/secondaryShell';
 
 export default function Consulting() {
   const consultingOptions = [
@@ -26,48 +24,35 @@ export default function Consulting() {
   ];
 
   return (
-    <Layout>
-      <Head key="head">
-        <title>Timmerman Consulting, LLC</title>
-      </Head>
-
-      <section className="bg-gradient-to-r from-primary-dark to-primary-light h-full overflow-hidden text-center [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer">
-        <div className="absolute left-1/2 top-1/2 w-[700px] h-[500px] -ml-[350px] -mt-[250px] md:w-[350px] md:-ml-[175px]">
-          <h1 className="font-montserrat text-black-light font-bold text-xxlarge tracking-[9px] uppercase text-center py-5 px-0 pb-[10px] leading-none m-3 ml-1 md:text-large md:leading-none md:pb-0">
-            Timmerman Consulting, LLC
-          </h1>
-
-          <div className="text-center max-w-lg mx-auto p-5 text-gray-800">
-            <p>
-              Timmerman Consulting, LLC specializes in designing and developing
-              custom software solutions and websites tailored to meet the unique
-              needs of businesses and individuals.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {consultingOptions.map(option => (
-              <a
-                key={option.duration}
-                href={`/consulting/${option.duration}`}
-                className="p-4 rounded-lg shadow-sm hover:shadow-md transition bg-white/10 border-6 border-gray-800"
-              >
-                <h3 className="font-bold text-lg">{option.title}</h3>
-                <p className="">{option.description}</p>
-              </a>
-            ))}
-          </div>
-
-          <p className="text-center max-w-lg mx-auto p-5 text-gray-800">
-            If you are interested in consulting services, please contact{' '}
-            <span style={{fontFamily: 'monospace', fontWeight: 'bold'}}>
-              granttimmerman at gmail
-            </span>
-            .
-          </p>
+    <SecondaryShell title="Timmerman Consulting, LLC">
+      <div className="max-w-3xl">
+        <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-dark">
+          I help businesses and individuals design and develop thoughtful
+          software products, developer platforms, and websites.
+        </p>
+        <div className="grid grid-cols-3 gap-4 max-[800px]:grid-cols-1">
+          {consultingOptions.map(option => (
+            <a
+              key={option.duration}
+              href={`/consulting/${option.duration}`}
+              className="rounded-lg border border-muted bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <h2 className="mb-2 text-lg font-bold">{option.title}</h2>
+              <p className="text-small text-gray-dark">{option.description}</p>
+            </a>
+          ))}
         </div>
-      </section>
-      <SectionFooter key="footer" />
-    </Layout>
+        <p className="mt-8 text-gray-dark">
+          Questions? Email{' '}
+          <a
+            className="font-bold text-primary-dark underline"
+            href="mailto:granttimmerman@gmail.com"
+          >
+            granttimmerman@gmail.com
+          </a>
+          .
+        </p>
+      </div>
+    </SecondaryShell>
   );
 }
