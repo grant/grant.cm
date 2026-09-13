@@ -3,15 +3,41 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+
 jobs:
-  deploy:
+  # Detect which package changed so we only redeploy what actually changed.
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      frontend: ${{ steps.filter.outputs.frontend }}
+      scripts: ${{ steps.filter.outputs.scripts }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Detect changed paths
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            frontend:
+              - 'frontend/**'
+            scripts:
+              - 'scripts/**'
+
+  deploy-frontend:
+    needs: changes
+    # Deploy on any manual run, or when frontend files changed.
+    if: ${{ github.event_name == 'workflow_dispatch' || needs.changes.outputs.frontend == 'true' }}
+    concurrency:
+      group: deploy-frontend-${{ github.ref }}
+      cancel-in-progress: true
     permissions:
       contents: 'read'
       id-token: 'write'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: pnpm/action-setup@v4
       - name: Setup Node
@@ -20,11 +46,10 @@ jobs:
           node-version: 20
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
-      - id: auth
-        uses: 'google-github-actions/auth@v1'
+      - name: Authenticate to Google Cloud
+        uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
-          service_account: ${{ steps.auth.outputs.service_account }}
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v2'
       - name: Deploy Frontend to Cloud Run
@@ -32,8 +57,29 @@ jobs:
           cd frontend
           pnpm install --frozen-lockfile
           pnpm run deploy
+
+  deploy-scripts:
+    needs: changes
+    # Deploy on any manual run, or when scripts files changed.
+    if: ${{ github.event_name == 'workflow_dispatch' || needs.changes.outputs.scripts == 'true' }}
+    concurrency:
+      group: deploy-scripts-${{ github.ref }}
+      cancel-in-progress: true
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Authenticate to Google Cloud
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v2'
+      # The scripts service builds from its Dockerfile in Cloud Build, so no
+      # local Node/pnpm install is needed here.
       - name: Deploy Scripts to Cloud Run
-        run: |
-          cd scripts
-          pnpm install --frozen-lockfile
-          pnpm run deploy
+        run: ./deploy.sh
+        working-directory: scripts
