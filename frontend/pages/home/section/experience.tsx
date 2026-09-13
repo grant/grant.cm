@@ -7,6 +7,7 @@ import Image from 'next/image';
 interface ExperienceRole {
   title: string; // The role at the company, like "Engineer"
   dateRange: string; // The date range, like "2013-2015"
+  shortSummary?: string; // A compact summary for the earlier-experience grid.
   summary?: React.ReactNode; // An optional summary of the experience.
   bullets?: React.ReactNode[]; // An optional list of bullets describing the  element with a description of the experience
   languages: string[]; // The programming languages used.
@@ -261,6 +262,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer Intern',
         dateRange: 'Summer 2015',
+        shortSummary: 'Android app validation',
         summary: (
           <span>
             Designed and developed an Android device validator that dramatically
@@ -282,6 +284,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer Intern',
         dateRange: 'Winter 2015',
+        shortSummary: 'Fraud tooling and visualization',
         summary: (
           <span>
             Built historical Sift scores visualization, feature gating/pricing
@@ -301,6 +304,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer Intern',
         dateRange: 'Summer 2014',
+        shortSummary: 'Globalized skills search',
         summary: (
           <span>
             Built the server-side infrastructure for internationalizing skills
@@ -330,6 +334,7 @@ const experiences: Experience[] = [
       {
         title: 'Open Academy - Socket.IO',
         dateRange: "Jan–June '14",
+        shortSummary: 'Socket.IO example app',
         summary: (
           <span>
             Hand-picked to contribute to Facebook’s open-sourced projects as a
@@ -359,6 +364,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer Intern',
         dateRange: 'Summer 2013',
+        shortSummary: 'Dashboard transparency and API',
         summary: (
           <span>
             Designed and implemented two flagship features for Tableau’s big
@@ -398,6 +404,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer Intern',
         dateRange: 'Summer 2012',
+        shortSummary: 'Hotel inventory applications',
         summary: (
           <span>
             Built comprehensive web applications doing both front-end and
@@ -428,6 +435,7 @@ const experiences: Experience[] = [
       {
         title: 'Game Developer',
         dateRange: '2008-2011',
+        shortSummary: 'Indie Flash games',
         summary: (
           <span>
             Developed indie Flash games such as{' '}
@@ -446,6 +454,13 @@ const experiences: Experience[] = [
   },
 ];
 
+const recentExperiences = experiences.filter(
+  experience => !experience.wasStudent,
+);
+const studentExperiences = experiences.filter(
+  experience => experience.wasStudent,
+);
+
 export default function SectionExperience() {
   return (
     <section
@@ -459,76 +474,103 @@ export default function SectionExperience() {
         <em>Where I've worked</em>
       </p>
       <div className="mx-auto py-[10px] px-[10px] max-w-[1000px]">
-        {experiences.map((experience: Experience) => {
-          const experienceKey = experience.id + experience.roles[0].dateRange;
-          const isWhite =
-            experience.id === 'google' ||
-            experience.id === 'nor1' ||
-            experience.id === 'observable';
+        {recentExperiences.map(renderExperience)}
+        <section
+          aria-labelledby="earlier-experience"
+          className="mt-3 border-t border-white/20 px-4 py-5"
+        >
+          <h3
+            id="earlier-experience"
+            className="mb-3 text-center text-small font-bold uppercase tracking-[2px]"
+          >
+            Earlier experience
+          </h3>
+          <ul className="grid grid-cols-3 gap-x-6 gap-y-3 text-small max-[700px]:grid-cols-2 max-[500px]:grid-cols-1">
+            {studentExperiences.flatMap(experience =>
+              experience.roles.map(role => (
+                <li key={experience.id + role.dateRange}>
+                  <strong>{experience.company}</strong> · {role.title}
+                  <span className="block text-blue-light">
+                    {role.shortSummary} · {role.dateRange}
+                  </span>
+                </li>
+              )),
+            )}
+          </ul>
+        </section>
+      </div>
+    </section>
+  );
+}
+
+function renderExperience(experience: Experience) {
+  const experienceKey = experience.id + experience.roles[0].dateRange;
+  const isWhite =
+    experience.id === 'google' ||
+    experience.id === 'nor1' ||
+    experience.id === 'observable';
+
+  return (
+    <article
+      key={experienceKey}
+      className={`${experience.id} grid grid-cols-[64px_1fr] items-start gap-4 rounded-[5px] p-4 hover:bg-white/5 max-[600px]:grid-cols-1`}
+    >
+      <div className="mx-auto h-16 w-16 text-center">
+        <Image
+          width={64}
+          height={64}
+          className={`rounded-full ${isWhite ? 'bg-white' : ''}`}
+          src={`/images/icons/${experience.id}.svg`}
+          alt={experience.company}
+          sizes="64px"
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+        />
+      </div>
+      <div>
+        {experience.roles.map(role => {
+          const bullets = role.bullets?.map((bullet, index) => (
+            <li key={index}>{bullet}</li>
+          ));
+
           return (
             <div
-              key={experienceKey}
-              className={`${experience.id} p-5 rounded-[5px] hover:bg-white/5`}
+              key={experienceKey + role.dateRange}
+              className="mb-4 last:mb-0"
             >
-              <div className="text-center w-[100px] h-[100px] mx-auto">
-                <Image
-                  width={100}
-                  height={100}
-                  className={`rounded-full ${isWhite ? 'bg-white' : ''}`}
-                  src={`/images/icons/${experience.id}.svg`}
-                  alt={experience.company}
-                  sizes="100vw"
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                  }}
-                />
+              <div>
+                <h5 className="float-left">
+                  {experience.company} - {role.title}
+                </h5>
+                <h6 className="float-right">{role.dateRange}</h6>
+                <div className="clear-both"></div>
               </div>
-              {/* For each role... */}
-              {experience.roles.map(role => {
-                const bullets = role.bullets?.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ));
-
-                return (
-                  <div
-                    key={experienceKey + role.dateRange}
-                    className="my-[10px]"
-                  >
-                    <div>
-                      <h5 className="float-left">
-                        {experience.company} - {role.title}
-                      </h5>
-                      <h6 className="float-right">{role.dateRange}</h6>
-                      <div className="clear-both"></div>
+              <div className="mx-auto mt-2 text-blue-light">
+                {role.summary}
+                {role.bullets ? (
+                  <ul className="py-2 text-small leading-normal list-disc list-inside">
+                    {bullets}
+                  </ul>
+                ) : (
+                  ''
+                )}
+                <div className="pt-1 text-small">
+                  {role.languages.map(language => (
+                    <div
+                      key={language}
+                      className="mx-1 my-1 inline-block rounded-[3px] bg-white/10 px-1"
+                    >
+                      {language}
                     </div>
-                    <div className="mx-auto mt-[10px] text-blue-light">
-                      {role.summary}
-                      {role.bullets ? (
-                        <ul className="py-[10px] text-small leading-normal list-disc list-inside">
-                          {bullets}
-                        </ul>
-                      ) : (
-                        ''
-                      )}
-                      <div className="pt-[5px]">
-                        {role.languages.map((l, idx) => (
-                          <div
-                            key={idx}
-                            className="inline-block my-[5px] mx-[5px] px-[5px] bg-white/10 rounded-[3px] [&:not(:first-child)]:ml-[5px]"
-                          >
-                            {l}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+                  ))}
+                </div>
+              </div>
             </div>
           );
         })}
       </div>
-    </section>
+    </article>
   );
 }
