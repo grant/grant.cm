@@ -491,7 +491,7 @@ export default function SectionExperience() {
               experience.roles.map(role => (
                 <li
                   key={experience.id + role.dateRange}
-                  className="flex items-center gap-2"
+                  className="flex items-start gap-2"
                 >
                   <Image
                     width={28}
