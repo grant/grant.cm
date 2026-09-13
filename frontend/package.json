@@ -18,7 +18,9 @@
     "clean": "gts clean",
     "fix": "gts fix",
     "deploy": "RUN_ENV=PROD ./deploy.sh",
-    "stage": "./deploy.sh"
+    "stage": "./deploy.sh",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "classnames": "^2.5.1",
@@ -34,13 +36,19 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
     "@types/node": "^24.13.4",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
     "autoprefixer": "^10.6.0",
     "gts": "^6.0.2",
+    "jsdom": "^30.0.1",
     "postcss": "^8.5.28",
     "tailwindcss": "^3.4.19",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
   }
 }
