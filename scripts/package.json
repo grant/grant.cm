@@ -2,6 +2,9 @@
   "name": "grantcm-scripts",
   "description": "Scripts and various utilities.",
   "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "tsx src/server.ts",
     "updateMediumData": "tsx src/updateMediumData.ts",
