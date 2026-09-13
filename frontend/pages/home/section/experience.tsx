@@ -466,12 +466,12 @@ export default function SectionExperience() {
   return (
     <section
       id="experience"
-      className="bg-gradient-to-r from-[rgb(58,130,137)] to-[rgb(173,223,230)] overflow-x-hidden text-white [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer"
+      className="bg-gradient-to-r from-secondary-start to-secondary-light overflow-x-hidden text-white [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer"
     >
       <h2 className="font-montserrat text-black-light font-bold text-large tracking-[9px] uppercase text-center py-5 px-0 pb-[10px] text-white">
         Experience
       </h2>
-      <p className="text-center text-blue-light">
+      <p className="text-center text-secondary-light">
         <em>Where I've worked</em>
       </p>
       <div className="mx-auto py-[10px] px-[10px] max-w-[1000px]">
@@ -506,7 +506,7 @@ export default function SectionExperience() {
                   />
                   <span>
                     <strong>{experience.company}</strong> · {role.title}
-                    <span className="block text-blue-light">
+                    <span className="block text-secondary-light">
                       {role.shortSummary} · {role.dateRange}
                     </span>
                   </span>
@@ -561,7 +561,7 @@ function renderExperience(experience: Experience) {
                 <h6 className="float-right">{role.dateRange}</h6>
                 <div className="clear-both"></div>
               </div>
-              <div className="mx-auto mt-2 text-blue-light">
+              <div className="mx-auto mt-2 text-secondary-light">
                 {role.summary}
                 {role.bullets ? (
                   <ul className="py-2 text-small leading-normal list-disc list-inside">

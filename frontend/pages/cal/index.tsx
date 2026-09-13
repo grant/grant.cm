@@ -2,7 +2,7 @@
 // http://localhost:8080/cal
 export default function Cal() {
   return (
-    <div className="bg-red overflow-hidden w-full h-full">
+    <div className="bg-primary overflow-hidden w-full h-full">
       <div className="w-full h-full">
         <h1 className="w-full p-5 text-[20px] font-['Montserrat','Helvetica_Neue',Arial,sans-serif] text-center absolute pointer-events-none text-white whitespace-nowrap">
           Grant Timmerman's Calendar

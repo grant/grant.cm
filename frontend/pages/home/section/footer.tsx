@@ -11,7 +11,7 @@ export default function SectionFooter() {
   ];
 
   return (
-    <footer className="block bg-[rgb(45,62,82)] text-gray-light text-small py-[30px] px-5 pb-[50px] md:pb-[30px]">
+    <footer className="block bg-navy text-gray-light text-small py-[30px] px-5 pb-[50px] md:pb-[30px]">
       <nav>
         <ul className="md:float-left">
           {links.map((link, index) => (

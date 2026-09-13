@@ -31,7 +31,7 @@ export default function Consulting() {
         <title>Timmerman Consulting, LLC</title>
       </Head>
 
-      <section className="bg-gradient-to-r from-[rgb(160,47,42)] to-[rgb(242,144,135)] h-full overflow-hidden text-center [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer">
+      <section className="bg-gradient-to-r from-primary-dark to-primary-light h-full overflow-hidden text-center [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer">
         <div className="absolute left-1/2 top-1/2 w-[700px] h-[500px] -ml-[350px] -mt-[250px] md:w-[350px] md:-ml-[175px]">
           <h1 className="font-montserrat text-black-light font-bold text-xxlarge tracking-[9px] uppercase text-center py-5 px-0 pb-[10px] leading-none m-3 ml-1 md:text-large md:leading-none md:pb-0">
             Timmerman Consulting, LLC

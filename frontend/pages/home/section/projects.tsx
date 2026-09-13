@@ -40,7 +40,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="bg-gradient-to-r from-[rgb(208,119,53)] to-[rgb(255,145,65)] overflow-x-hidden text-white [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer"
+      className="bg-gradient-to-r from-orange-projectStart to-orange-projectEnd overflow-x-hidden text-white [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer"
     >
       <h2 className="font-montserrat text-black-light font-bold text-large tracking-[9px] uppercase text-center py-5 px-0 pb-[10px]">
         Side Projects
