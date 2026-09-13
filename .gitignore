@@ -6,6 +6,8 @@
 # Node
 node_modules
 build/
+playwright-report/
+test-results/
 
 # Service account keys
 *-key.json
