@@ -50,7 +50,7 @@ export default function Consulting() {
               <a
                 key={option.duration}
                 href={`/consulting/${option.duration}`}
-                className="p-4 rounded-lg shadow hover:shadow-md transition bg-white bg-opacity-10 border-6 border-gray-800"
+                className="p-4 rounded-lg shadow-sm hover:shadow-md transition bg-white/10 border-6 border-gray-800"
               >
                 <h3 className="font-bold text-lg">{option.title}</h3>
                 <p className="">{option.description}</p>
