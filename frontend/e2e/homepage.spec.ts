@@ -146,9 +146,8 @@ test('publishes branded favicon and social metadata', async ({page}) => {
   );
 
   for (const label of ['GitHub', 'LinkedIn', 'Twitter']) {
-    await expect(page.getByRole('link', {name: label})).toHaveAttribute(
-      'href',
-      /^https:\/\//,
-    );
+    await expect(
+      page.locator('footer').getByRole('link', {name: label, exact: true}),
+    ).toHaveAttribute('href', /^https:\/\//);
   }
 });
