@@ -42,7 +42,7 @@ export default function Projects() {
       id="projects"
       className="bg-gradient-to-r from-orange-projectStart to-orange-projectEnd overflow-x-hidden text-white [box-shadow:inset_0_-20px_20px_-20px_rgba(0,0,0,0.35)] [&>_.title]:cursor-pointer"
     >
-      <h2 className="font-montserrat text-black-light font-bold text-large tracking-[9px] uppercase text-center py-5 px-0 pb-[10px]">
+      <h2 className="px-0 py-5 pb-[10px] text-center font-montserrat text-[32px] font-bold uppercase tracking-[5px] text-black-light sm:text-large sm:tracking-[9px]">
         Side Projects
       </h2>
       <p className="text-center text-black">
