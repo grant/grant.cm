@@ -9,21 +9,33 @@ const navigation = [
   {href: '/cal', label: 'Calendar'},
 ];
 
+const accentClasses = {
+  coral: 'border-t-primary',
+  teal: 'border-t-secondary-dark',
+  orange: 'border-t-orange',
+  navy: 'border-t-navy',
+};
+
 export default function SecondaryShell({
   title,
   children,
   fullBleed = false,
+  accent = 'coral',
 }: {
   title: string;
   children: React.ReactNode;
   fullBleed?: boolean;
+  accent?: keyof typeof accentClasses;
 }) {
   return (
     <Layout>
       <Head>
         <title>{title} | Grant Timmerman</title>
       </Head>
-      <div className="flex min-h-screen flex-col bg-paper text-ink">
+      <div
+        data-accent={accent}
+        className={`flex min-h-screen flex-col border-t-4 bg-paper text-ink ${accentClasses[accent]}`}
+      >
         <header className="border-b border-muted bg-white">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4 max-[700px]:items-start">
             <Link

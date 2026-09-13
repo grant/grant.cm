@@ -16,7 +16,7 @@ export default function Videos() {
   });
 
   return (
-    <SecondaryShell title="Videos">
+    <SecondaryShell title="Videos" accent="teal">
       <div className="grid grid-cols-3 gap-8 max-[1080px]:grid-cols-2 max-[700px]:grid-cols-1">
         {videoData.map(video => (
           <a

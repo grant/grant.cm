@@ -4,7 +4,7 @@ import SecondaryShell from '../components/secondaryShell';
 // http://localhost:8080/resume
 export default function Resume() {
   return (
-    <SecondaryShell title="Resume" fullBleed>
+    <SecondaryShell title="Resume" accent="navy" fullBleed>
       <iframe
         title="Grant Timmerman's Resume"
         className="h-full min-h-[calc(100vh-158px)] w-full border-0"
