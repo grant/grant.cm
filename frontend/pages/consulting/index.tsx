@@ -35,10 +35,10 @@ export default function Consulting() {
             <a
               key={option.duration}
               href={`/consulting/${option.duration}`}
-              className="rounded-lg border border-muted bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              className="rounded-lg border border-primary-dark bg-primary p-5 text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-md"
             >
               <h2 className="mb-2 text-lg font-bold">{option.title}</h2>
-              <p className="text-small text-gray-dark">{option.description}</p>
+              <p className="text-small text-white/85">{option.description}</p>
             </a>
           ))}
         </div>

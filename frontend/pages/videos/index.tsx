@@ -36,7 +36,7 @@ export default function Videos() {
             </div>
             <div className="p-4">
               <h2 className="font-bold">{video.title}</h2>
-              <p className="mt-1 text-small text-gray">
+              <p className="mt-1 text-small text-secondary-dark">
                 {video.date ? prettyDate(video.date) : null}
               </p>
             </div>
