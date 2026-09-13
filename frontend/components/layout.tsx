@@ -6,23 +6,27 @@ export const siteDescription =
   'Grant Timmerman is a full-stack software engineer and open source ' +
   'enthusiast building real-time voice AI at Cartesia.';
 const siteUrl = 'https://grant.cm';
-const siteImage = `${siteUrl}/images/profile.png`;
+const siteImage = `${siteUrl}/og.png`;
 
 export default function Layout({children}: {children: React.ReactNode}) {
   return (
     <div className="w-full h-full">
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="description" content={siteDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={siteUrl} />
         <meta property="og:title" content={siteTitle} />
         <meta property="og:description" content={siteDescription} />
         <meta property="og:image" content={siteImage} />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Grant Timmerman" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={siteTitle} />
         <meta name="twitter:description" content={siteDescription} />
         <meta name="twitter:image" content={siteImage} />
+        <meta name="twitter:image:alt" content="Grant Timmerman" />
       </Head>
       <GoogleAnalytics />
       {/* <header className={styles.header}>
