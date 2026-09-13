@@ -142,7 +142,10 @@ void describe('IssueAssetService', () => {
       'HeadObjectCommand',
       'DeleteObjectCommand',
     ]);
-    assert.match(client.inputs[1].Key, /^issues\/health\/.+-health\.png$/);
+    assert.match(
+      String(client.inputs[1].Key),
+      /^issues\/health\/.+-health\.png$/,
+    );
     assert.equal(client.inputs[1].Key, client.inputs[3].Key);
   });
 });

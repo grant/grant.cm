@@ -93,6 +93,8 @@ export async function run(
 
 class HelpRequested extends Error {}
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  process.exitCode = await run(process.argv.slice(2));
+if (require.main === module) {
+  void run(process.argv.slice(2)).then(exitCode => {
+    process.exitCode = exitCode;
+  });
 }
