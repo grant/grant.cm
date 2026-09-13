@@ -1,5 +1,11 @@
 # grant.cm
 
+[![build](https://github.com/grant/grant.cm/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/grant/grant.cm/actions/workflows/build.yaml)
+[![checks](https://github.com/grant/grant.cm/actions/workflows/checks.yaml/badge.svg?branch=main)](https://github.com/grant/grant.cm/actions/workflows/checks.yaml)
+[![deploy](https://github.com/grant/grant.cm/actions/workflows/deploy.yaml/badge.svg?branch=main)](https://github.com/grant/grant.cm/actions/workflows/deploy.yaml)
+[![lint](https://github.com/grant/grant.cm/actions/workflows/lint.yaml/badge.svg?branch=main)](https://github.com/grant/grant.cm/actions/workflows/lint.yaml)
+[![test](https://github.com/grant/grant.cm/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/grant/grant.cm/actions/workflows/test.yaml)
+
 > The website [grant.cm](http://grant.cm)
 
 - **Built with:** Node | TypeScript | React | Next.js | Tailwind
