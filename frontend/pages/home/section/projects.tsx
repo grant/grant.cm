@@ -34,6 +34,9 @@ const cardColors: Record<string, string> = {
   slides2gif: 'rgb(249, 171, 0)',
 };
 
+const featuredProjects = projects.slice(0, 8);
+const archivedProjects = projects.slice(featuredProjects.length);
+
 export default function Projects() {
   return (
     <section
@@ -46,8 +49,19 @@ export default function Projects() {
       <p className="text-center text-gray-dark">
         <em>Hackathon and side projects I've shipped</em>
       </p>
-      <div>
-        <ul className="text-center">{projects.map(renderProject)}</ul>
+      <div className="pb-5">
+        <ul className="text-center">{featuredProjects.map(renderProject)}</ul>
+        <details className="group mt-3">
+          <summary className="mx-auto mb-4 w-fit cursor-pointer list-none rounded-full border border-white/40 bg-black/10 px-5 py-2 text-small font-bold hover:bg-black/20">
+            <span className="group-open:hidden">
+              Show {archivedProjects.length} more projects
+            </span>
+            <span className="hidden group-open:inline">
+              Hide archived projects
+            </span>
+          </summary>
+          <ul className="text-center">{archivedProjects.map(renderProject)}</ul>
+        </details>
       </div>
     </section>
   );
@@ -67,7 +81,7 @@ function renderProject(project: Project) {
   return (
     <li
       key={project.id}
-      className="group inline-block m-[10px] relative w-[200px] h-[200px] overflow-hidden text-center rounded-[5px] text-white transition-transform duration-normal hover:scale-110 max-[800px]:w-[100px] max-[800px]:h-[100px]"
+      className="group relative m-[6px] inline-block h-[160px] w-[160px] overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105 max-[800px]:h-[92px] max-[800px]:w-[92px]"
       style={{backgroundColor: bgColor, fontWeight: 700, fontSize: '40px'}}
     >
       <img

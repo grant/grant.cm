@@ -446,6 +446,9 @@ const experiences: Experience[] = [
   },
 ];
 
+const recentExperiences = experiences.filter(experience => !experience.wasStudent);
+const studentExperiences = experiences.filter(experience => experience.wasStudent);
+
 export default function SectionExperience() {
   return (
     <section
@@ -459,76 +462,88 @@ export default function SectionExperience() {
         <em>Where I've worked</em>
       </p>
       <div className="mx-auto py-[10px] px-[10px] max-w-[1000px]">
-        {experiences.map((experience: Experience) => {
-          const experienceKey = experience.id + experience.roles[0].dateRange;
-          const isWhite =
-            experience.id === 'google' ||
-            experience.id === 'nor1' ||
-            experience.id === 'observable';
-          return (
-            <div
-              key={experienceKey}
-              className={`${experience.id} p-5 rounded-[5px] hover:bg-white/5`}
-            >
-              <div className="text-center w-[100px] h-[100px] mx-auto">
-                <Image
-                  width={100}
-                  height={100}
-                  className={`rounded-full ${isWhite ? 'bg-white' : ''}`}
-                  src={`/images/icons/${experience.id}.svg`}
-                  alt={experience.company}
-                  sizes="100vw"
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                  }}
-                />
-              </div>
-              {/* For each role... */}
-              {experience.roles.map(role => {
-                const bullets = role.bullets?.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ));
+        {recentExperiences.map(renderExperience)}
+        <details className="group mt-2">
+          <summary className="mx-auto mb-4 w-fit cursor-pointer list-none rounded-full border border-white/30 bg-white/10 px-5 py-2 text-small font-bold hover:bg-white/20">
+            <span className="group-open:hidden">
+              Show earlier experience & internships
+            </span>
+            <span className="hidden group-open:inline">
+              Hide earlier experience & internships
+            </span>
+          </summary>
+          {studentExperiences.map(renderExperience)}
+        </details>
+      </div>
+    </section>
+  );
+}
 
-                return (
-                  <div
-                    key={experienceKey + role.dateRange}
-                    className="my-[10px]"
-                  >
-                    <div>
-                      <h5 className="float-left">
-                        {experience.company} - {role.title}
-                      </h5>
-                      <h6 className="float-right">{role.dateRange}</h6>
-                      <div className="clear-both"></div>
+function renderExperience(experience: Experience) {
+  const experienceKey = experience.id + experience.roles[0].dateRange;
+  const isWhite =
+    experience.id === 'google' ||
+    experience.id === 'nor1' ||
+    experience.id === 'observable';
+
+  return (
+    <article
+      key={experienceKey}
+      className={`${experience.id} grid grid-cols-[64px_1fr] items-start gap-4 rounded-[5px] p-4 hover:bg-white/5 max-[600px]:grid-cols-1`}
+    >
+      <div className="mx-auto h-16 w-16 text-center">
+        <Image
+          width={64}
+          height={64}
+          className={`rounded-full ${isWhite ? 'bg-white' : ''}`}
+          src={`/images/icons/${experience.id}.svg`}
+          alt={experience.company}
+          sizes="64px"
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+        />
+      </div>
+      <div>
+        {experience.roles.map(role => {
+          const bullets = role.bullets?.map((bullet, index) => (
+            <li key={index}>{bullet}</li>
+          ));
+
+          return (
+            <div key={experienceKey + role.dateRange} className="mb-4 last:mb-0">
+              <div>
+                <h5 className="float-left">
+                  {experience.company} - {role.title}
+                </h5>
+                <h6 className="float-right">{role.dateRange}</h6>
+                <div className="clear-both"></div>
+              </div>
+              <div className="mx-auto mt-2 text-blue-light">
+                {role.summary}
+                {role.bullets ? (
+                  <ul className="py-2 text-small leading-normal list-disc list-inside">
+                    {bullets}
+                  </ul>
+                ) : (
+                  ''
+                )}
+                <div className="pt-1 text-small">
+                  {role.languages.map(language => (
+                    <div
+                      key={language}
+                      className="mx-1 my-1 inline-block rounded-[3px] bg-white/10 px-1"
+                    >
+                      {language}
                     </div>
-                    <div className="mx-auto mt-[10px] text-blue-light">
-                      {role.summary}
-                      {role.bullets ? (
-                        <ul className="py-[10px] text-small leading-normal list-disc list-inside">
-                          {bullets}
-                        </ul>
-                      ) : (
-                        ''
-                      )}
-                      <div className="pt-[5px]">
-                        {role.languages.map((l, idx) => (
-                          <div
-                            key={idx}
-                            className="inline-block my-[5px] mx-[5px] px-[5px] bg-white/10 rounded-[3px] [&:not(:first-child)]:ml-[5px]"
-                          >
-                            {l}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+                  ))}
+                </div>
+              </div>
             </div>
           );
         })}
       </div>
-    </section>
+    </article>
   );
 }
