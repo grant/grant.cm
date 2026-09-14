@@ -29,8 +29,12 @@ open http://localhost:8080
 - **Clean:** `just clean`
 - **Build:** `just build`
 - **Deploy:** `just deploy`
+- **Upload issue screenshot:** `just upload-screenshot <image> --issue <id>`
 
 > Note: The site is deployed with GitHub Actions. See the `deploy` workflow.
+
+See [`docs/issue-assets.md`](docs/issue-assets.md) for Google Cloud Storage
+setup and the Cursor Cloud Agent screenshot workflow.
 
 ## DNS
 

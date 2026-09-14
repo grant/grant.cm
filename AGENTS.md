@@ -25,6 +25,8 @@ Run from the repo root:
 - Lint: `just lint` (fix: `just fix`)
 - Production build: `just build`
 - Run a scripts package script: `just scripts <script>` (e.g. `just scripts sync-resume`)
+- Upload a screenshot for an issue:
+  `just upload-screenshot <image> --issue <id>`
 
 Notes:
 
@@ -33,6 +35,9 @@ Notes:
   production port, not `dev`).
 - `scripts/` needs Google Cloud credentials (`GOOGLE_APPLICATION_CREDENTIALS`)
   to run against real services. These are not required for frontend development.
+- Screenshot assets belong in Google Cloud Storage, never in Git or Git LFS.
+  Follow `docs/issue-assets.md`; GCP credentials must come from Cursor Cloud
+  Agent environment secrets or Application Default Credentials.
 
 ## CI
 

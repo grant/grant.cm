@@ -24,3 +24,6 @@ deploy:
 
 scripts *SCRIPT:
   cd scripts && pnpm run {{SCRIPT}}
+
+upload-screenshot *ARGS:
+  ./upload-screenshot {{ARGS}}
