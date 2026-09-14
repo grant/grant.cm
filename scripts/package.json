@@ -3,7 +3,7 @@
   "description": "Scripts and various utilities.",
   "packageManager": "pnpm@9.15.9",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
     "start": "tsx src/server.ts",
@@ -13,7 +13,7 @@
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
-    "test": "tsx --test",
+    "test": "tsx --test 'test/**/*.test.ts'",
     "watch": "tsc --watch",
     "fix": "gts fix"
   },
