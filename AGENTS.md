@@ -25,7 +25,8 @@ Run from the repo root:
 - Lint: `just lint` (fix: `just fix`)
 - Production build: `just build`
 - Run a scripts package script: `just scripts <script>` (e.g. `just scripts sync-resume`)
-- Upload a screenshot for an issue: `./upload-screenshot <image> --issue <id>`
+- Upload a screenshot for an issue:
+  `just upload-screenshot <image> --issue <id>`
 
 Notes:
 

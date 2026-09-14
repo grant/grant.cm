@@ -29,7 +29,7 @@ open http://localhost:8080
 - **Clean:** `just clean`
 - **Build:** `just build`
 - **Deploy:** `just deploy`
-- **Upload issue screenshot:** `./upload-screenshot <image> --issue <id>`
+- **Upload issue screenshot:** `just upload-screenshot <image> --issue <id>`
 
 > Note: The site is deployed with GitHub Actions. See the `deploy` workflow.
 

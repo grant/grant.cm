@@ -68,7 +68,7 @@ those non-secret values when testing another environment.
 From the repository root:
 
 ```bash
-./upload-screenshot health
+just upload-screenshot health
 ```
 
 The command verifies bucket metadata access, uploads and reads a temporary PNG
@@ -83,7 +83,7 @@ configuration or the failed GCS operation while redacting credential values.
 
    ```bash
    SCREENSHOT_URL="$(
-     ./upload-screenshot /opt/cursor/artifacts/homepage.png \
+     just upload-screenshot /opt/cursor/artifacts/homepage.png \
        --issue 210 \
        --url-only
    )"
@@ -102,7 +102,7 @@ Never paste credentials, encode the image as base64, or commit the image.
 ## Upload behavior
 
 ```bash
-./upload-screenshot ./screenshot.png --issue 123
+just upload-screenshot ./screenshot.png --issue 123
 ```
 
 Accepted content types are PNG, JPEG, GIF, and WebP. Validation uses file
