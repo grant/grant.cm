@@ -7,6 +7,25 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+      - name: Detect visual-test changes
+        id: visual-changes
+        uses: dorny/paths-filter@v4
+        with:
+          filters: |
+            required:
+              - '.github/workflows/test.yaml'
+              - 'frontend/components/**'
+              - 'frontend/data/**'
+              - 'frontend/e2e/**'
+              - 'frontend/pages/**'
+              - 'frontend/public/**'
+              - 'frontend/styles/**'
+              - 'frontend/next.config.*'
+              - 'frontend/package.json'
+              - 'frontend/playwright.config.ts'
+              - 'frontend/pnpm-lock.yaml'
+              - 'frontend/postcss.config.*'
+              - 'frontend/tailwind.config.*'
       - name: Install pnpm
         uses: pnpm/action-setup@v6
       - name: Setup Node
@@ -21,11 +40,13 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm test
       - name: Install Chromium
+        if: steps.visual-changes.outputs.required == 'true'
         run: cd frontend && pnpm exec playwright install --with-deps chromium
-      - name: Test homepage visual baseline
+      - name: Test visual baselines
+        if: steps.visual-changes.outputs.required == 'true'
         run: cd frontend && pnpm test:visual
       - name: Upload visual diff
-        if: failure()
+        if: failure() && steps.visual-changes.outputs.required == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: homepage-visual-diff
