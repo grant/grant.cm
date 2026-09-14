@@ -55,22 +55,26 @@ The CLI follows Google Application Default Credentials:
 2. `GOOGLE_APPLICATION_CREDENTIALS` pointing to an injected credential file.
 3. Ambient ADC, such as an attached Google service account.
 
-For this repository's personal Cloud Agent environment, open its environment
-settings in the Cursor dashboard and add `GCP_CREDENTIALS` as a secret. The
-similarly named GitHub Actions secret is separate and is not automatically
-available to Cursor agents.
+Add `GCP_CREDENTIALS` only to the personal Cursor Cloud Agent environments
+where this user-level command should work. The similarly named GitHub Actions
+secret is separate and is not automatically available to Cursor agents.
 
 Never put credentials in `.cursor/environment.json`, committed `.env` files,
 shell scripts, GitHub Issues, or pull requests. New or restarted Cloud Agents
 receive newly configured secrets.
+
+## Personal scope
+
+The uploader does not inspect, collect, or restrict the current Git repository.
+The bucket and object namespace are generic across this user's projects.
+Access remains personal because only environments carrying the bucket-scoped
+credential can upload.
 
 The CLI defaults to the `grantcm-issue-assets` bucket and
 `https://assets.grantcm.com`. `GCS_BUCKET` and `GCS_PUBLIC_URL` can override
 those non-secret values when testing another environment.
 
 ## Verify access
-
-From the repository root:
 
 ```bash
 just upload-screenshot health
