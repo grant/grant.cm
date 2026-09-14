@@ -26,6 +26,9 @@ Options:
   --url-only    Print only the resulting public URL.
   --help        Show this help.`;
 
+/**
+ * Parses one upload or health-check command invocation.
+ */
 export function parseArguments(args: string[]): CliArguments {
   if (args.includes('--help') || args.includes('-h')) {
     throw new HelpRequested();
@@ -48,8 +51,11 @@ export function parseArguments(args: string[]): CliArguments {
   for (let index = 1; index < args.length; index++) {
     const argument = args[index];
     if (argument === '--issue') {
-      issue = args[++index];
-      if (!issue) throw new Error('--issue requires a value.');
+      const value = args[++index];
+      if (!value || value.startsWith('-')) {
+        throw new Error('--issue requires a value.');
+      }
+      issue = value;
     } else if (argument === '--url-only') {
       urlOnly = true;
     } else {
@@ -58,12 +64,15 @@ export function parseArguments(args: string[]): CliArguments {
   }
   if (!issue) {
     throw new Error(
-      'Missing --issue <issue-or-run-id>; this controls the R2 object path.',
+      'Missing --issue <issue-or-run-id>; this controls the GCS object path.',
     );
   }
   return {command: 'upload', filename, issue, urlOnly};
 }
 
+/**
+ * Runs the CLI and returns its process exit code.
+ */
 export async function run(
   args: string[],
   output: Pick<Console, 'log' | 'error'> = console,

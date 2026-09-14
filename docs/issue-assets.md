@@ -10,8 +10,13 @@ requests. Generated assets do not belong in Git or Git LFS.
 1. Create a GCS bucket named `grantcm-issue-assets` in the `grantcm` project.
    Uniform bucket-level access is recommended.
 2. Create a dedicated service account for Cloud Agent uploads.
-3. Grant that account `roles/storage.objectAdmin` on this bucket only. The
-   health check uploads, reads, and deletes a temporary object.
+3. Create a custom project role containing only `storage.buckets.get`,
+   `storage.objects.create`, `storage.objects.get`, and
+   `storage.objects.delete`, then grant that role to the service account on
+   this bucket only. The bucket permission is required by the health check;
+   the object permissions cover upload, verification, and cleanup. An
+   object-prefix IAM condition is optional, but it must not restrict
+   `storage.buckets.get`.
 4. Grant `allUsers` `roles/storage.objectViewer` on the bucket so GitHub can
    display screenshots. Do not grant public write access.
 5. Route `assets.grantcm.com` to the public bucket using the existing

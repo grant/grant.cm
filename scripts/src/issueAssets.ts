@@ -45,6 +45,9 @@ export interface GcsStorage {
   bucket(name: string): GcsBucket;
 }
 
+/**
+ * Loads public bucket settings and optional service-account credentials.
+ */
 export function loadGcsConfig(
   environment: NodeJS.ProcessEnv = process.env,
 ): GcsConfig {
@@ -71,7 +74,15 @@ export function loadGcsConfig(
 
   let credentials: Record<string, unknown>;
   try {
-    credentials = JSON.parse(encodedCredentials) as Record<string, unknown>;
+    const parsedCredentials: unknown = JSON.parse(encodedCredentials);
+    if (
+      parsedCredentials === null ||
+      typeof parsedCredentials !== 'object' ||
+      Array.isArray(parsedCredentials)
+    ) {
+      throw new Error('invalid shape');
+    }
+    credentials = parsedCredentials as Record<string, unknown>;
   } catch {
     throw new Error('GCP_CREDENTIALS must contain valid service-account JSON.');
   }
@@ -96,6 +107,9 @@ export function loadGcsConfig(
   };
 }
 
+/**
+ * Creates an authenticated GCS client using explicit credentials or ADC.
+ */
 export function createGcsStorage(config: GcsConfig): GcsStorage {
   return new Storage({
     projectId: config.projectId,
@@ -103,6 +117,9 @@ export function createGcsStorage(config: GcsConfig): GcsStorage {
   }) as GcsStorage;
 }
 
+/**
+ * Detects an allowed image type from its magic bytes.
+ */
 export function detectImageType(bytes: Uint8Array): ImageType | undefined {
   if (
     bytes.length >= 8 &&
@@ -132,6 +149,9 @@ export function detectImageType(bytes: Uint8Array): ImageType | undefined {
   return undefined;
 }
 
+/**
+ * Validates an issue or run ID before using it in an object key.
+ */
 export function validateNamespace(value: string): string {
   if (!/^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/.test(value)) {
     throw new Error(
@@ -141,6 +161,9 @@ export function validateNamespace(value: string): string {
   return value;
 }
 
+/**
+ * Builds a collision-resistant, immutable object key for an image.
+ */
 export function createObjectKey(
   namespace: string,
   filename: string,
@@ -166,6 +189,9 @@ export class IssueAssetService {
     private readonly config: GcsConfig,
   ) {}
 
+  /**
+   * Validates and uploads an image, returning its public immutable URL.
+   */
   async uploadFile(filename: string, namespace: string): Promise<string> {
     let fileStats;
     try {
@@ -226,6 +252,9 @@ export class IssueAssetService {
       .join('/')}`;
   }
 
+  /**
+   * Verifies bucket access and the full object create/read/delete path.
+   */
   async healthCheck(): Promise<void> {
     const key = `issues/health/${randomUUID()}-health.png`;
     const pixel = Buffer.from(
@@ -256,14 +285,23 @@ export class IssueAssetService {
   }
 }
 
+/**
+ * Checks whether bytes begin with an exact binary signature.
+ */
 function matches(bytes: Uint8Array, signature: number[]): boolean {
   return signature.every((value, index) => bytes[index] === value);
 }
 
+/**
+ * Formats a byte count for actionable file-size errors.
+ */
 function formatMiB(bytes: number): string {
   return `${(bytes / 1024 / 1024).toFixed(1)} MiB`;
 }
 
+/**
+ * Formats a provider error while redacting credential-derived values.
+ */
 function describeError(error: unknown, config: GcsConfig): string {
   if (!(error instanceof Error)) return 'Unknown GCS error';
   let message = `${error.name}: ${error.message}`;

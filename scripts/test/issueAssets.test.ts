@@ -87,6 +87,14 @@ void describe('configuration', () => {
       /valid service-account JSON/,
     );
     assert.throws(
+      () => loadGcsConfig({GCP_CREDENTIALS: 'null'}),
+      /valid service-account JSON/,
+    );
+    assert.throws(
+      () => loadGcsConfig({GCP_CREDENTIALS: '[]'}),
+      /valid service-account JSON/,
+    );
+    assert.throws(
       () => loadGcsConfig({GCS_PUBLIC_URL: 'http://assets.grantcm.com'}),
       /must use HTTPS/,
     );
@@ -194,6 +202,10 @@ void describe('CLI arguments', () => {
 
   void it('requires an issue or run ID for uploads', () => {
     assert.throws(() => parseArguments(['capture.png']), /Missing --issue/);
+    assert.throws(
+      () => parseArguments(['capture.png', '--issue', '--url-only']),
+      /--issue requires a value/,
+    );
   });
 });
 
