@@ -20,6 +20,7 @@ jobs:
               - 'frontend/pages/**'
               - 'frontend/public/**'
               - 'frontend/styles/**'
+              - 'frontend/utils/**'
               - 'frontend/next.config.*'
               - 'frontend/package.json'
               - 'frontend/playwright.config.ts'
