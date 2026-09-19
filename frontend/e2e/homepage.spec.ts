@@ -125,10 +125,16 @@ test('shows compact earlier experience and all projects', async ({page}) => {
 });
 
 test('experience logos spin and stack rapid clicks', async ({page}) => {
+  await page.emulateMedia({reducedMotion: 'no-preference'});
   await page.goto('/');
 
   const recentLogo = page.getByRole('button', {name: 'Spin Cartesia logo'});
   const recentCoin = recentLogo.locator('[data-spin-coin]');
+  await expect(recentCoin).toHaveCSS('transition-duration', '0.45s');
+  await expect(recentCoin).toHaveCSS(
+    'transition-timing-function',
+    'cubic-bezier(0.16, 1, 0.3, 1)',
+  );
   await recentLogo.click();
   await expect(recentCoin).toHaveCSS('transform', /matrix3d/);
   await expect(recentCoin).toHaveAttribute(
@@ -154,6 +160,23 @@ test('experience logos spin and stack rapid clicks', async ({page}) => {
     images.map(image => image.getAttribute('src')),
   );
   expect(new Set(faceSources).size).toBe(1);
+});
+
+test.describe('touch experience logos', () => {
+  test.use({hasTouch: true, viewport: {width: 390, height: 844}});
+
+  test('spin on tap', async ({page}) => {
+    await page.goto('/');
+
+    const earlierLogo = page
+      .getByRole('region', {name: 'Earlier experience'})
+      .getByRole('button', {name: 'Spin Google logo'});
+    await earlierLogo.tap();
+    await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
+      'style',
+      'transform: rotateY(180deg);',
+    );
+  });
 });
 
 test('marks video and blog links as opening in a new tab', async ({page}) => {

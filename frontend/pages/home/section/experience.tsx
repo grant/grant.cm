@@ -526,7 +526,7 @@ function SpinningExperienceLogo({
       type="button"
       aria-label={`Spin ${company} logo`}
       className={`flex shrink-0 appearance-none items-center justify-center border-0 bg-transparent p-0 ${
-        isSmall ? 'h-11 w-11' : 'mx-auto h-16 w-16'
+        isSmall ? 'h-[44px] w-[44px]' : 'mx-auto h-16 w-16'
       }`}
       onClick={() => setRotation(degrees => degrees + 180)}
     >
