@@ -85,6 +85,15 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   await expect(
     page.getByText('Google · Software Engineer Intern'),
   ).toBeVisible();
+  const earlierExperienceDetail = page.getByText(
+    'Android app validation · Summer 2015',
+    {exact: true},
+  );
+  await expect(earlierExperienceDetail).toHaveCSS('display', 'block');
+  await expect(earlierExperienceDetail).toHaveCSS(
+    'color',
+    'rgba(255, 255, 255, 0.8)',
+  );
   await expect(
     page.getByRole('link', {name: 'ts2gas on GitHub'}),
   ).toHaveAttribute('href', 'https://github.com/grant/ts2gas');

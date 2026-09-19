@@ -504,9 +504,11 @@ export default function SectionExperience() {
                     aria-hidden="true"
                     sizes="28px"
                   />
-                  <span>
-                    <strong>{experience.company}</strong> · {role.title}
-                    <span className="block text-white">
+                  <span className="min-w-0">
+                    <span className="block leading-snug">
+                      <strong>{experience.company}</strong> · {role.title}
+                    </span>
+                    <span className="mt-1 block leading-snug text-white/80">
                       {role.shortSummary} · {role.dateRange}
                     </span>
                   </span>
