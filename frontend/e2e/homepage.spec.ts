@@ -99,6 +99,17 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   ).toHaveAttribute('href', 'https://github.com/grant/new-computer-checklist');
 });
 
+test('marks video and blog links as opening in a new tab', async ({page}) => {
+  await page.goto('/');
+
+  for (const name of ['Videos', 'Blogposts']) {
+    const link = page.getByRole('link', {name, exact: true});
+    await expect(link).toHaveAttribute('target', '_blank');
+    await expect(link).toHaveAttribute('rel', 'noreferrer');
+    await expect(link.locator('svg')).toHaveCount(1);
+  }
+});
+
 test('shows a visible keyboard focus indicator', async ({page}) => {
   await page.goto('/');
 

@@ -16,8 +16,12 @@ export default function SectionHeader() {
             {link: '#experience', title: 'Experience'},
             {link: '#projects', title: 'Projects'},
             {break: true, title: 'Break'},
-            {link: '/videos', title: 'Videos'},
-            {link: 'https://medium.com/@granttimmerman', title: 'Blogposts'},
+            {link: '/videos', title: 'Videos', newTab: true},
+            {
+              link: 'https://medium.com/@granttimmerman',
+              title: 'Blogposts',
+              newTab: true,
+            },
           ].map(l =>
             l.break ? (
               <li key={l.title} className="flex justify-center py-5">
@@ -28,8 +32,22 @@ export default function SectionHeader() {
                 <a
                   className="inline-flex min-h-11 items-center justify-center px-2 text-medium font-bold leading-none tracking-[2px] text-primary-dark transition-colors duration-normal ease hover:text-white"
                   href={l.link}
+                  target={l.newTab ? '_blank' : undefined}
+                  rel={l.newTab ? 'noreferrer' : undefined}
                 >
                   {l.title}
+                  {l.newTab && (
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 16 16"
+                      className="ml-1 h-3.5 w-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                    >
+                      <path d="M6 3H3v10h10v-3M9 3h4v4M13 3 7 9" />
+                    </svg>
+                  )}
                 </a>
               </li>
             ),
