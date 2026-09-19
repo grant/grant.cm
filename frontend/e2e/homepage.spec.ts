@@ -90,10 +90,7 @@ test('shows compact earlier experience and all projects', async ({page}) => {
     {exact: true},
   );
   await expect(earlierExperienceDetail).toHaveCSS('display', 'block');
-  await expect(earlierExperienceDetail).toHaveCSS(
-    'color',
-    'rgba(255, 255, 255, 0.8)',
-  );
+  await expect(earlierExperienceDetail).toHaveClass(/text-white\/80/);
   await expect(
     page.getByRole('link', {name: 'ts2gas on GitHub'}),
   ).toHaveAttribute('href', 'https://github.com/grant/ts2gas');
