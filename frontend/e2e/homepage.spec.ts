@@ -103,7 +103,9 @@ test('shows compact earlier experience and all projects', async ({page}) => {
     page.getByRole('heading', {name: 'Earlier experience'}),
   ).toBeVisible();
   await expect(
-    page.getByRole('region', {name: 'Earlier experience'}).locator('img'),
+    page
+      .getByRole('region', {name: 'Earlier experience'})
+      .getByRole('button', {name: /^Spin .+ logo$/}),
   ).toHaveCount(7);
   await expect(
     page.getByText('Google · Software Engineer Intern'),
@@ -120,6 +122,61 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   await expect(
     page.getByRole('link', {name: 'Computer Checklist on GitHub'}),
   ).toHaveAttribute('href', 'https://github.com/grant/new-computer-checklist');
+});
+
+test('experience logos spin and stack rapid clicks', async ({page}) => {
+  await page.emulateMedia({reducedMotion: 'no-preference'});
+  await page.goto('/');
+
+  const recentLogo = page.getByRole('button', {name: 'Spin Cartesia logo'});
+  const recentCoin = recentLogo.locator('[data-spin-coin]');
+  await expect(recentCoin).toHaveCSS('transition-duration', '0.45s');
+  await expect(recentCoin).toHaveCSS(
+    'transition-timing-function',
+    'cubic-bezier(0.16, 1, 0.3, 1)',
+  );
+  await recentLogo.click();
+  await expect(recentCoin).toHaveCSS('transform', /matrix3d/);
+  await expect(recentCoin).toHaveAttribute(
+    'style',
+    'transform: rotateY(180deg);',
+  );
+
+  const earlierLogo = page
+    .getByRole('region', {name: 'Earlier experience'})
+    .getByRole('button', {name: 'Spin Google logo'});
+  for (let click = 0; click < 4; click++) {
+    await earlierLogo.click();
+  }
+  await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
+    'style',
+    'transform: rotateY(720deg);',
+  );
+  await expect(earlierLogo).toHaveCSS('width', '44px');
+
+  const faces = earlierLogo.locator('img');
+  await expect(faces).toHaveCount(2);
+  const faceSources = await faces.evaluateAll(images =>
+    images.map(image => image.getAttribute('src')),
+  );
+  expect(new Set(faceSources).size).toBe(1);
+});
+
+test.describe('touch experience logos', () => {
+  test.use({hasTouch: true, viewport: {width: 390, height: 844}});
+
+  test('spin on tap', async ({page}) => {
+    await page.goto('/');
+
+    const earlierLogo = page
+      .getByRole('region', {name: 'Earlier experience'})
+      .getByRole('button', {name: 'Spin Google logo'});
+    await earlierLogo.tap();
+    await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
+      'style',
+      'transform: rotateY(180deg);',
+    );
+  });
 });
 
 test('marks video and blog links as opening in a new tab', async ({page}) => {

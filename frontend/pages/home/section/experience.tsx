@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Image from 'next/image';
 
 /**
@@ -479,16 +479,11 @@ export default function SectionExperience() {
                   key={experience.id + role.dateRange}
                   className="flex items-start gap-2"
                 >
-                  <Image
-                    width={28}
-                    height={28}
-                    className={`h-7 w-7 shrink-0 rounded-full ${
-                      whiteIconBackgrounds.has(experience.id) ? 'bg-white' : ''
-                    }`}
-                    src={`/images/icons/${experience.id}.svg`}
-                    alt=""
-                    aria-hidden="true"
-                    sizes="28px"
+                  <SpinningExperienceLogo
+                    company={experience.company}
+                    id={experience.id}
+                    isWhite={whiteIconBackgrounds.has(experience.id)}
+                    size="small"
                   />
                   <span className="min-w-0">
                     <span className="block leading-snug">
@@ -508,6 +503,68 @@ export default function SectionExperience() {
   );
 }
 
+function SpinningExperienceLogo({
+  company,
+  id,
+  isWhite,
+  size,
+}: {
+  company: string;
+  id: string;
+  isWhite: boolean;
+  size: 'small' | 'large';
+}) {
+  const [rotation, setRotation] = useState(0);
+  const isSmall = size === 'small';
+  const imageSize = isSmall ? 28 : 64;
+  const imageClasses = `absolute inset-0 h-full w-full select-none rounded-full [backface-visibility:hidden] ${
+    isWhite ? 'bg-white' : ''
+  }`;
+
+  return (
+    <button
+      type="button"
+      aria-label={`Spin ${company} logo`}
+      className={`flex shrink-0 appearance-none items-center justify-center border-0 bg-transparent p-0 ${
+        isSmall ? 'h-[44px] w-[44px]' : 'mx-auto h-16 w-16'
+      }`}
+      onClick={() => setRotation(degrees => degrees + 180)}
+    >
+      <span
+        className={`block [perspective:300px] ${
+          isSmall ? 'h-7 w-7' : 'h-16 w-16'
+        }`}
+      >
+        <span
+          data-spin-coin
+          className="relative block h-full w-full [transform-style:preserve-3d] transition-transform duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
+          style={{transform: `rotateY(${rotation}deg)`}}
+        >
+          <Image
+            width={imageSize}
+            height={imageSize}
+            className={imageClasses}
+            src={`/images/icons/${id}.svg`}
+            alt=""
+            draggable={false}
+            sizes={`${imageSize}px`}
+          />
+          <Image
+            width={imageSize}
+            height={imageSize}
+            className={`${imageClasses} [transform:rotateY(180deg)]`}
+            src={`/images/icons/${id}.svg`}
+            alt=""
+            aria-hidden="true"
+            draggable={false}
+            sizes={`${imageSize}px`}
+          />
+        </span>
+      </span>
+    </button>
+  );
+}
+
 function renderExperience(experience: Experience) {
   const experienceKey = experience.id + experience.roles[0].dateRange;
   const isWhite = whiteIconBackgrounds.has(experience.id);
@@ -517,20 +574,12 @@ function renderExperience(experience: Experience) {
       key={experienceKey}
       className={`${experience.id} grid grid-cols-[64px_1fr] items-start gap-4 rounded-[5px] p-4 hover:bg-white/5 max-[600px]:grid-cols-1`}
     >
-      <div className="mx-auto h-16 w-16 text-center">
-        <Image
-          width={64}
-          height={64}
-          className={`rounded-full ${isWhite ? 'bg-white' : ''}`}
-          src={`/images/icons/${experience.id}.svg`}
-          alt={experience.company}
-          sizes="64px"
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
-        />
-      </div>
+      <SpinningExperienceLogo
+        company={experience.company}
+        id={experience.id}
+        isWhite={isWhite}
+        size="large"
+      />
       <div>
         {experience.roles.map(role => {
           const bullets = role.bullets?.map((bullet, index) => (
