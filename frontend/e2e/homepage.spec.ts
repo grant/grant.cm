@@ -124,7 +124,7 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   ).toHaveAttribute('href', 'https://github.com/grant/new-computer-checklist');
 });
 
-test('experience logos spin and stack rapid clicks', async ({page}) => {
+test('experience logos spin once on hover', async ({page}) => {
   await page.emulateMedia({reducedMotion: 'no-preference'});
   await page.goto('/');
 
@@ -135,19 +135,28 @@ test('experience logos spin and stack rapid clicks', async ({page}) => {
     'transition-timing-function',
     'cubic-bezier(0.16, 1, 0.3, 1)',
   );
-  await recentLogo.click();
+  await recentLogo.hover();
   await expect(recentCoin).toHaveCSS('transform', /matrix3d/);
   await expect(recentCoin).toHaveAttribute(
     'style',
-    'transform: rotateY(180deg);',
+    'transform: rotateY(360deg);',
+  );
+  await recentLogo.hover();
+  await expect(recentCoin).toHaveAttribute(
+    'style',
+    'transform: rotateY(360deg);',
   );
 
   const earlierLogo = page
     .getByRole('region', {name: 'Earlier experience'})
     .getByRole('button', {name: 'Spin Google logo'});
-  for (let click = 0; click < 4; click++) {
-    await earlierLogo.click();
-  }
+  await earlierLogo.hover();
+  await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
+    'style',
+    'transform: rotateY(360deg);',
+  );
+  await page.mouse.move(0, 0);
+  await earlierLogo.hover();
   await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
     'style',
     'transform: rotateY(720deg);',
@@ -174,7 +183,7 @@ test.describe('touch experience logos', () => {
     await earlierLogo.tap();
     await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
       'style',
-      'transform: rotateY(180deg);',
+      'transform: rotateY(360deg);',
     );
   });
 });
