@@ -532,12 +532,12 @@ function SpinningExperienceLogo({
       className={`flex shrink-0 appearance-none items-center justify-center border-0 bg-transparent p-0 ${
         isSmall ? 'h-[44px] w-[44px]' : 'mx-auto h-16 w-16'
       }`}
-      onPointerEnter={() => {
+      onPointerEnter={event => {
+        if (event.pointerType === 'touch') {
+          return;
+        }
         ignoreClickFromHover.current = true;
         spinOnce();
-      }}
-      onPointerLeave={() => {
-        ignoreClickFromHover.current = false;
       }}
       onClick={() => {
         if (ignoreClickFromHover.current) {
