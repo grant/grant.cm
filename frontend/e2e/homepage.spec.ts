@@ -76,6 +76,13 @@ test.describe('mobile homepage', () => {
 test('shows compact earlier experience and all projects', async ({page}) => {
   await page.goto('/');
 
+  const cartesiaExperience = page.locator('#experience article.cartesia');
+  await expect(cartesiaExperience).toContainText(
+    'Cartesia - Software Engineer',
+  );
+  await expect(cartesiaExperience).not.toContainText(
+    'Building real-time voice AI at Cartesia',
+  );
   await expect(
     page.getByRole('heading', {name: 'Earlier experience'}),
   ).toBeVisible();
