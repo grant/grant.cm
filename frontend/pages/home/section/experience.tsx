@@ -554,7 +554,7 @@ function SpinningExperienceLogo({
       >
         <span
           data-spin-coin
-          className="relative block h-full w-full [transform-style:preserve-3d] transition-transform duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
+          className="relative block h-full w-full [transform-style:preserve-3d] transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
           style={{transform: `rotateY(${rotation}deg)`}}
         >
           <Image
