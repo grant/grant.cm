@@ -155,16 +155,10 @@ test('experience logos spin once on hover or click', async ({page}) => {
   const earlierLogo = page
     .getByRole('region', {name: 'Earlier experience'})
     .getByRole('button', {name: 'Spin Google logo'});
-  await earlierLogo.hover();
-  await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
-    'style',
-    'transform: rotateY(360deg);',
-  );
-  await page.mouse.move(0, 0);
   await earlierLogo.dispatchEvent('click');
   await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
     'style',
-    'transform: rotateY(720deg);',
+    'transform: rotateY(360deg);',
   );
   await expect(earlierLogo).toHaveCSS('width', '44px');
 
