@@ -32,14 +32,9 @@ const experiences: Experience[] = [
     id: 'cartesia',
     roles: [
       {
-        title: 'Software Engineer',
+        title: 'Member of Technical Staff',
         dateRange: 'Mar 2026 – Present',
-        summary: (
-          <span>
-            Building real-time voice AI at{' '}
-            <a href="https://cartesia.ai">Cartesia</a>.
-          </span>
-        ),
+        summary: <span>Building real-time voice AI.</span>,
         languages: ['TypeScript', 'React'],
       },
     ],
@@ -53,7 +48,7 @@ const experiences: Experience[] = [
         dateRange: 'Mar 2024 – Nov 2025',
         summary: (
           <span>
-            Product lead & full-stack engineer for Anon's dashboard and AI web
+            Product lead & full-stack engineer for the dashboard and AI web
             automation workflows.
           </span>
         ),
@@ -75,9 +70,7 @@ const experiences: Experience[] = [
         title: 'Member of Technical Staff',
         dateRange: '2023-2024',
         summary: (
-          <span>
-            Built the web console for additive.ai – an AI accounting startup.
-          </span>
+          <span>Built the web console for an AI accounting startup.</span>
         ),
         bullets: [
           <span>
@@ -111,8 +104,9 @@ const experiences: Experience[] = [
         dateRange: '2022-2023',
         summary: (
           <span>
-            Built the <a href="https://observablehq.com">observablehq.com</a>{' '}
-            data viz platform. Lots of TypeScript!
+            Built a{' '}
+            <a href="https://observablehq.com">data visualization platform</a>.
+            Lots of TypeScript!
           </span>
         ),
         bullets: [
@@ -144,10 +138,7 @@ const experiences: Experience[] = [
         title: 'Software Engineer, Google Cloud, Serverless',
         dateRange: '2021-2022',
         summary: (
-          <span>
-            Built the core runtimes for Google Cloud's serverless computing
-            platform.
-          </span>
+          <span>Built the core runtimes for the serverless platform.</span>
         ),
         bullets: [
           <span>
@@ -163,10 +154,7 @@ const experiences: Experience[] = [
         title: 'Developer Programs Engineer, Google Cloud, Serverless',
         dateRange: '2019-2021',
         summary: (
-          <span>
-            Built developer products for Google Cloud's serverless computing
-            platform.
-          </span>
+          <span>Built developer products for the serverless platform.</span>
         ),
         bullets: [
           <span>
@@ -207,8 +195,8 @@ const experiences: Experience[] = [
         dateRange: '2017-2019',
         summary: (
           <span>
-            Designed and built{' '}
-            <strong>G Suite's open source developer presence.</strong>
+            Designed and built the{' '}
+            <strong>open source developer presence.</strong>
           </span>
         ),
         bullets: [
@@ -245,9 +233,9 @@ const experiences: Experience[] = [
         dateRange: '2016-2017',
         summary: (
           <span>
-            Built a variety of features supporting Sift Science’s fraud APIs and
-            web console. Features include workflows, enhanced payment and social
-            profile data, mixpanel tracking.
+            Built features for the fraud APIs and web console, including
+            workflows, enhanced payment and social profile data, and Mixpanel
+            tracking.
           </span>
         ),
         languages: ['Java', 'React', 'SCSS'],
@@ -287,9 +275,9 @@ const experiences: Experience[] = [
         shortSummary: 'Fraud tooling and visualization',
         summary: (
           <span>
-            Built historical Sift scores visualization, feature gating/pricing
-            changes backend and frontend, and redesigned user details page for
-            Sift Science's console.
+            Built historical fraud-score visualization, backend and frontend
+            feature-gating and pricing changes, and a redesigned user details
+            page.
           </span>
         ),
         languages: ['Java', 'Maven', 'HBase', 'React', 'SCSS', 'D3'],
@@ -308,10 +296,9 @@ const experiences: Experience[] = [
         summary: (
           <span>
             Built the server-side infrastructure for internationalizing skills
-            on LinkedIn, allowing recruiters to search for skilled professionals
-            around the world independent of their language. The skills feature
-            affects over 60 million page views per month and 320+ million
-            members.
+            so recruiters could find professionals around the world independent
+            of language. The feature affected over 60 million page views per
+            month and 320+ million members.
           </span>
         ),
         languages: [
@@ -337,9 +324,8 @@ const experiences: Experience[] = [
         shortSummary: 'Socket.IO example app',
         summary: (
           <span>
-            Hand-picked to contribute to Facebook’s open-sourced projects as a
-            part of Facebook’s Open Academy Program. Created Socket.IO's
-            official example app{' '}
+            Selected for the Open Academy Program to contribute to open source.
+            Created Socket.IO's official example app{' '}
             <a href="http://socket.io/demos/chat/">Socket.IO Chat </a>. This
             example is used to teach newcomers how to use Socket.IO from
             scratch.
@@ -367,8 +353,8 @@ const experiences: Experience[] = [
         shortSummary: 'Dashboard transparency and API',
         summary: (
           <span>
-            Designed and implemented two flagship features for Tableau’s big
-            data visualization software.
+            Designed and implemented two flagship features for big-data
+            visualization software.
           </span>
         ),
         bullets: [
@@ -564,7 +550,9 @@ function renderExperience(experience: Experience) {
                 <div className="clear-both"></div>
               </div>
               <div className="mx-auto mt-2 text-white">
-                {role.summary}
+                {role.summary ? (
+                  <div className="experience-summary">{role.summary}</div>
+                ) : null}
                 {role.bullets ? (
                   <ul className="py-2 text-small leading-normal list-disc list-inside">
                     {bullets}
