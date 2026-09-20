@@ -522,7 +522,7 @@ function SpinningExperienceLogo({
     isWhite ? 'bg-white' : ''
   }`;
   const spinOnce = () => {
-    setRotation(degrees => degrees + 360);
+    setRotation(degrees => degrees + 180);
   };
 
   return (
