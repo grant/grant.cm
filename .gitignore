@@ -8,6 +8,7 @@ node_modules
 build/
 playwright-report/
 test-results/
+**/*-snapshots/
 
 # Service account keys
 *-key.json

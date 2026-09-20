@@ -1,16 +1,5 @@
 import {expect, test} from '@playwright/test';
 
-test('homepage matches its visual baseline', async ({page}) => {
-  await page.goto('/');
-  await page.evaluate(() => document.fonts.ready);
-
-  await expect(page).toHaveScreenshot('homepage.png', {
-    animations: 'disabled',
-    fullPage: true,
-    maxDiffPixels: 1_000,
-  });
-});
-
 test.describe('mobile homepage', () => {
   test.use({viewport: {width: 390, height: 844}});
 
@@ -64,12 +53,6 @@ test.describe('mobile homepage', () => {
       const box = await link.boundingBox();
       expect(box?.height).toBeGreaterThanOrEqual(44);
     }
-
-    await expect(page).toHaveScreenshot('homepage-mobile.png', {
-      animations: 'disabled',
-      fullPage: true,
-      maxDiffPixels: 1_000,
-    });
   });
 });
 

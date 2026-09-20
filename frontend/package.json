@@ -21,7 +21,6 @@
     "stage": "./deploy.sh",
     "test": "vitest run",
     "test:visual": "playwright test",
-    "test:visual:update": "playwright test --update-snapshots",
     "test:watch": "vitest"
   },
   "dependencies": {

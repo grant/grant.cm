@@ -66,3 +66,6 @@ Notes:
 
 - Do not produce screen recordings unless explicitly requested; they take too
   long. Prefer screenshots and command/log output as evidence.
+- Save screenshots under `/opt/cursor/artifacts` and include them in the pull
+  request description. Never commit screenshots or Playwright visual baselines
+  to the repository.
