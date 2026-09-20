@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import Image from 'next/image';
 
 /**
@@ -515,11 +515,15 @@ function SpinningExperienceLogo({
   size: 'small' | 'large';
 }) {
   const [rotation, setRotation] = useState(0);
+  const ignoreClickFromHover = useRef(false);
   const isSmall = size === 'small';
   const imageSize = isSmall ? 28 : 64;
   const imageClasses = `absolute inset-0 h-full w-full select-none rounded-full [backface-visibility:hidden] ${
     isWhite ? 'bg-white' : ''
   }`;
+  const spinOnce = () => {
+    setRotation(degrees => degrees + 360);
+  };
 
   return (
     <button
@@ -528,7 +532,20 @@ function SpinningExperienceLogo({
       className={`flex shrink-0 appearance-none items-center justify-center border-0 bg-transparent p-0 ${
         isSmall ? 'h-[44px] w-[44px]' : 'mx-auto h-16 w-16'
       }`}
-      onClick={() => setRotation(degrees => degrees + 180)}
+      onPointerEnter={() => {
+        ignoreClickFromHover.current = true;
+        spinOnce();
+      }}
+      onPointerLeave={() => {
+        ignoreClickFromHover.current = false;
+      }}
+      onClick={() => {
+        if (ignoreClickFromHover.current) {
+          ignoreClickFromHover.current = false;
+          return;
+        }
+        spinOnce();
+      }}
     >
       <span
         className={`block [perspective:300px] ${
