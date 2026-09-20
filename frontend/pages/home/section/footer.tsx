@@ -11,16 +11,16 @@ export default function SectionFooter() {
   ];
 
   return (
-    <footer className="block bg-navy text-gray-light text-small py-[30px] px-5 pb-[50px] md:pb-[30px]">
-      <nav>
-        <ul className="md:float-left">
+    <footer className="bg-navy px-5 py-[30px] pb-[50px] text-small text-gray-light md:pb-[30px]">
+      <nav className="flex flex-col items-center gap-5 md:flex-row md:items-center md:justify-between">
+        <ul className="flex flex-col items-center md:flex-row md:items-center">
           {links.map((link, index) => (
-            <li
-              key={link.href}
-              className="md:inline font-normal md:block text-center [&:not(:first-child)]:md:pl-[15px]"
-            >
+            <li key={link.href} className="flex items-center font-normal">
               {index > 0 && (
-                <span className="hidden md:inline text-gray-light pr-[15px]">
+                <span
+                  className="hidden px-[15px] text-gray-light md:inline"
+                  aria-hidden="true"
+                >
                   |
                 </span>
               )}
@@ -33,9 +33,7 @@ export default function SectionFooter() {
             </li>
           ))}
         </ul>
-        <div className="pt-5 text-center md:float-right md:pt-0">
-          Made with ❤ in California
-        </div>
+        <p className="text-center">Made with ❤ in California</p>
       </nav>
     </footer>
   );

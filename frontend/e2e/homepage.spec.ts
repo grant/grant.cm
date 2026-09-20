@@ -234,6 +234,29 @@ test('uses accessible homepage foreground colors', async ({page}) => {
   expect(experienceBackground).toContain('rgb(52, 119, 126)');
 });
 
+test('keeps footer links and tagline inside the navy bar', async ({page}) => {
+  await page.goto('/');
+
+  const footer = page.getByRole('contentinfo');
+  await expect(footer).toHaveCSS('background-color', 'rgb(45, 62, 82)');
+
+  const footerBox = await footer.boundingBox();
+  expect(footerBox).toBeTruthy();
+
+  const contents = [
+    ...(await footer.getByRole('link').all()),
+    footer.getByText(/Made with/),
+  ];
+  for (const content of contents) {
+    const box = await content.boundingBox();
+    expect(box).toBeTruthy();
+    expect(box!.y).toBeGreaterThanOrEqual(footerBox!.y);
+    expect(box!.y + box!.height).toBeLessThanOrEqual(
+      footerBox!.y + footerBox!.height + 1,
+    );
+  }
+});
+
 test('publishes branded favicon and social metadata', async ({page}) => {
   await page.goto('/');
 
