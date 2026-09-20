@@ -86,9 +86,7 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   await expect(cartesiaExperience).not.toContainText(
     'Building real-time voice AI at Cartesia',
   );
-  const experienceSummaries = page.locator(
-    '#experience .experience-summary',
-  );
+  const experienceSummaries = page.locator('#experience .experience-summary');
   await expect(experienceSummaries).toHaveCount(8);
   const summaryText = (await experienceSummaries.allTextContents()).join(' ');
   for (const company of [
