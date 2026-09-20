@@ -139,17 +139,17 @@ test('experience logos spin once on hover or click', async ({page}) => {
   await expect(recentCoin).toHaveCSS('transform', /matrix3d/);
   await expect(recentCoin).toHaveAttribute(
     'style',
-    'transform: rotateY(360deg);',
+    'transform: rotateY(180deg);',
+  );
+  await recentLogo.click();
+  await expect(recentCoin).toHaveAttribute(
+    'style',
+    'transform: rotateY(180deg);',
   );
   await recentLogo.click();
   await expect(recentCoin).toHaveAttribute(
     'style',
     'transform: rotateY(360deg);',
-  );
-  await recentLogo.click();
-  await expect(recentCoin).toHaveAttribute(
-    'style',
-    'transform: rotateY(720deg);',
   );
 
   const earlierLogo = page
@@ -158,7 +158,7 @@ test('experience logos spin once on hover or click', async ({page}) => {
   await earlierLogo.dispatchEvent('click');
   await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
     'style',
-    'transform: rotateY(360deg);',
+    'transform: rotateY(180deg);',
   );
   await expect(earlierLogo).toHaveCSS('width', '44px');
 
@@ -182,7 +182,7 @@ test.describe('touch experience logos', () => {
     await earlierLogo.tap();
     await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
       'style',
-      'transform: rotateY(360deg);',
+      'transform: rotateY(180deg);',
     );
   });
 });
