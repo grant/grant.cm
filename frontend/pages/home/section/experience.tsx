@@ -536,9 +536,6 @@ function SpinningExperienceLogo({
         ignoreClickFromHover.current = true;
         spinOnce();
       }}
-      onPointerLeave={() => {
-        ignoreClickFromHover.current = false;
-      }}
       onClick={() => {
         if (ignoreClickFromHover.current) {
           ignoreClickFromHover.current = false;
