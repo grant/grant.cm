@@ -32,7 +32,7 @@ const experiences: Experience[] = [
     id: 'cartesia',
     roles: [
       {
-        title: 'Software Engineer',
+        title: 'Member of Technical Staff',
         dateRange: 'Mar 2026 – Present',
         summary: <span>Building real-time voice AI.</span>,
         languages: ['TypeScript', 'React'],

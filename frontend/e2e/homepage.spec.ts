@@ -78,7 +78,7 @@ test('shows compact earlier experience and all projects', async ({page}) => {
 
   const cartesiaExperience = page.locator('#experience article.cartesia');
   await expect(cartesiaExperience).toContainText(
-    'Cartesia - Software Engineer',
+    'Cartesia - Member of Technical Staff',
   );
   await expect(cartesiaExperience).toContainText(
     'Building real-time voice AI.',
