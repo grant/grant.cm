@@ -34,6 +34,7 @@ const experiences: Experience[] = [
       {
         title: 'Software Engineer',
         dateRange: 'Mar 2026 – Present',
+        summary: <span>Building real-time voice AI.</span>,
         languages: ['TypeScript', 'React'],
       },
     ],

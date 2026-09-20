@@ -80,6 +80,7 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   await expect(cartesiaExperience).toContainText(
     'Cartesia - Software Engineer',
   );
+  await expect(cartesiaExperience).toContainText('Building real-time voice AI.');
   await expect(cartesiaExperience).not.toContainText(
     'Building real-time voice AI at Cartesia',
   );
