@@ -124,7 +124,7 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   ).toHaveAttribute('href', 'https://github.com/grant/new-computer-checklist');
 });
 
-test('experience logos spin once on hover', async ({page}) => {
+test('experience logos spin once on hover or click', async ({page}) => {
   await page.emulateMedia({reducedMotion: 'no-preference'});
   await page.goto('/');
 
@@ -141,10 +141,15 @@ test('experience logos spin once on hover', async ({page}) => {
     'style',
     'transform: rotateY(360deg);',
   );
-  await recentLogo.hover();
+  await recentLogo.click();
   await expect(recentCoin).toHaveAttribute(
     'style',
     'transform: rotateY(360deg);',
+  );
+  await recentLogo.click();
+  await expect(recentCoin).toHaveAttribute(
+    'style',
+    'transform: rotateY(720deg);',
   );
 
   const earlierLogo = page
@@ -156,7 +161,7 @@ test('experience logos spin once on hover', async ({page}) => {
     'transform: rotateY(360deg);',
   );
   await page.mouse.move(0, 0);
-  await earlierLogo.hover();
+  await earlierLogo.dispatchEvent('click');
   await expect(earlierLogo.locator('[data-spin-coin]')).toHaveAttribute(
     'style',
     'transform: rotateY(720deg);',
