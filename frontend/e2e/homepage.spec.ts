@@ -130,7 +130,7 @@ test('experience logos spin once on hover or click', async ({page}) => {
 
   const recentLogo = page.getByRole('button', {name: 'Spin Cartesia logo'});
   const recentCoin = recentLogo.locator('[data-spin-coin]');
-  await expect(recentCoin).toHaveCSS('transition-duration', '0.45s');
+  await expect(recentCoin).toHaveCSS('transition-duration', '0.9s');
   await expect(recentCoin).toHaveCSS(
     'transition-timing-function',
     'cubic-bezier(0.16, 1, 0.3, 1)',
