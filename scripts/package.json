@@ -18,13 +18,13 @@
     "fix": "gts fix"
   },
   "dependencies": {
-    "@google-cloud/storage": "^8.1.0",
+    "@google-cloud/storage": "^8.2.0",
     "axios": "^1.20.0",
     "googleapis": "^180.0.0",
     "tsx": "^4.23.13"
   },
   "devDependencies": {
-    "@types/node": "^26.5.1",
+    "@types/node": "^26.6.2",
     "gts": "^7.0.0",
     "typescript": "^6.0.3"
   }
