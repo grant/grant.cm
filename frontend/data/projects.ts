@@ -81,8 +81,7 @@ export const projects: Project[] = [
     id: 'nestvacationtracker',
     title: 'Nest Vacation Tracker',
     img: 'svg',
-    description:
-      'Save money by automattically turning off Nest when on vacation.',
+    description: 'Save money by automatically turning off Nest on vacation.',
     url: {
       demo: 'http://devpost.com/software/nest-vacation-saver',
       github: 'https://github.com/yarabarla/Nest-Vacation-Tracker',
@@ -92,8 +91,7 @@ export const projects: Project[] = [
     id: 'capture',
     title: 'Capture',
     img: 'svg',
-    description:
-      'Capture is an iOS app that allows you to generate websites from hand-drawn mocks.',
+    description: 'Generate websites from hand-drawn mocks.',
     url: {
       demo: 'http://treehackswinter2015.challengepost.com/submissions/33360-capture',
       github: 'https://github.com/grant/capture',
@@ -103,8 +101,7 @@ export const projects: Project[] = [
     id: 'snappo',
     title: 'Snappo',
     img: 'png',
-    description:
-      'Snappo is a location-based social media app for taking selfies.',
+    description: 'A location-based social app for selfies.',
     url: {
       demo: 'http://challengepost.com/software/snappo',
       github: 'https://github.com/grant/snappo',
@@ -114,8 +111,7 @@ export const projects: Project[] = [
     id: 'hawk',
     title: 'Hawk',
     img: 'svg',
-    description:
-      'A parental monitoring app that allows you to easily check-in on your teen driver.',
+    description: 'Check in on your teen driver from your phone.',
     url: {
       demo: 'http://challengepost.com/software/hawk-zi0fw',
       github: 'https://github.com/grant/hawk',

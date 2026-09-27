@@ -122,6 +122,17 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   await expect(
     page.getByRole('link', {name: 'Computer Checklist on GitHub'}),
   ).toHaveAttribute('href', 'https://github.com/grant/new-computer-checklist');
+  await expect(
+    page.getByText('Transpile TypeScript to Google Apps Script.'),
+  ).toBeVisible();
+  await expect(
+    page.getByText('A checklist and scripts for setting up a new computer.'),
+  ).toBeVisible();
+
+  const projectCard = page.getByRole('link', {name: 'ts2gas on GitHub'});
+  const projectCardBox = await projectCard.boundingBox();
+  expect(projectCardBox?.width).toBeGreaterThanOrEqual(160);
+  expect(projectCardBox?.height).toBeGreaterThanOrEqual(200);
 });
 
 test('experience logos spin once on hover or click', async ({page}) => {
