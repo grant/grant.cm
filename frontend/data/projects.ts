@@ -32,7 +32,7 @@ export const projects: Project[] = [
     id: 'new-computer-checklist',
     title: 'Computer Checklist',
     img: 'svg',
-    description: 'A checklist and scripts for setting up a new computer.',
+    description: 'Scripts and a checklist for a new machine.',
     url: {
       github: 'https://github.com/grant/new-computer-checklist',
     },
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     id: 'eagleeye',
     title: 'Eagle Eye',
     img: 'svg',
-    description: 'Keep an eye on the flights of friends and family.',
+    description: 'Track flights of friends and family.',
     url: {
       demo: 'http://devpost.com/software/eagle-eye',
       github: 'https://github.com/grant/eagleeye',
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     id: 'dubhacks15f',
     title: 'DubHacks 2015',
     img: 'svg',
-    description: 'Directed the second annual DubHack hackathon.',
+    description: 'University of Washington hackathon I organized.',
     url: {
       demo: 'http://15f.dubhacks.co/',
       github: 'https://github.com/dubhacks/15f',
@@ -81,8 +81,7 @@ export const projects: Project[] = [
     id: 'nestvacationtracker',
     title: 'Nest Vacation Tracker',
     img: 'svg',
-    description:
-      'Save money by automattically turning off Nest when on vacation.',
+    description: 'Auto-off Nest when you travel.',
     url: {
       demo: 'http://devpost.com/software/nest-vacation-saver',
       github: 'https://github.com/yarabarla/Nest-Vacation-Tracker',
@@ -92,8 +91,7 @@ export const projects: Project[] = [
     id: 'capture',
     title: 'Capture',
     img: 'svg',
-    description:
-      'Capture is an iOS app that allows you to generate websites from hand-drawn mocks.',
+    description: 'Generate websites from hand-drawn mocks.',
     url: {
       demo: 'http://treehackswinter2015.challengepost.com/submissions/33360-capture',
       github: 'https://github.com/grant/capture',
@@ -103,8 +101,7 @@ export const projects: Project[] = [
     id: 'snappo',
     title: 'Snappo',
     img: 'png',
-    description:
-      'Snappo is a location-based social media app for taking selfies.',
+    description: 'A location-based social app for selfies.',
     url: {
       demo: 'http://challengepost.com/software/snappo',
       github: 'https://github.com/grant/snappo',
@@ -114,8 +111,7 @@ export const projects: Project[] = [
     id: 'hawk',
     title: 'Hawk',
     img: 'svg',
-    description:
-      'A parental monitoring app that allows you to easily check-in on your teen driver.',
+    description: 'Check in on your teen driver.',
     url: {
       demo: 'http://challengepost.com/software/hawk-zi0fw',
       github: 'https://github.com/grant/hawk',
@@ -125,7 +121,7 @@ export const projects: Project[] = [
     id: 'issues',
     title: 'Github Issues',
     img: 'png',
-    description: 'A mobile redesign of Github Issues',
+    description: 'A mobile redesign of GitHub Issues.',
     url: {
       demo: 'http://grant.github.io/issues',
       github: 'https://github.com/grant/issues',
@@ -133,9 +129,9 @@ export const projects: Project[] = [
   },
   {
     id: 'algorythem',
-    title: 'Algo Rythem',
+    title: 'Algo Rhythm',
     img: 'svg',
-    description: 'Algorithmic Music Composition with Artificial Neural Nets',
+    description: 'Neural-net classical music generated in the browser.',
     url: {
       demo: 'https://medium.com/@granttimmerman/algo-rhythm-music-composition-using-neural-networks-f89897ff2df7',
       github: 'https://github.com/grant/algo-rhythm',
@@ -145,7 +141,7 @@ export const projects: Project[] = [
     id: 'rollen',
     title: 'Rollen',
     img: 'png',
-    description: 'Find movies with your friends',
+    description: 'A movie review app.',
     url: {
       github: 'https://github.com/grant/rollen',
     },
@@ -164,7 +160,7 @@ export const projects: Project[] = [
     id: 'safebaby',
     title: 'SafeBaby',
     img: 'png',
-    description: 'Check up on your baby from afar',
+    description: 'Baby-health tracker with Jawbone UP and Pebble.',
     url: {
       github: 'https://github.com/grant/Baby-Tracker',
       demo: 'http://challengepost.com/software/safebaby',
@@ -174,7 +170,7 @@ export const projects: Project[] = [
     id: 'herder',
     title: 'Herder',
     img: 'svg',
-    description: 'Analytics for Uber drivers to maximize their revenue',
+    description: 'Analytics that help Uber drivers earn more.',
     url: {
       github: 'https://github.com/grant/herder.co',
       youtube: 'http://youtu.be/8LZUNBag_Ok',
@@ -222,9 +218,9 @@ export const projects: Project[] = [
   },
   {
     id: 'dubhacks14f',
-    title: 'Dubhacks 2014',
+    title: 'DubHacks 2014',
     img: 'png',
-    description: 'Founded the largest hackathon in the Pacific Northwest.',
+    description: 'UW hackathon I founded and organized.',
     notes: 'Beautiful website for describing this annual event.',
     url: {
       github: 'https://github.com/dubhacks/14f',
@@ -235,7 +231,7 @@ export const projects: Project[] = [
     id: 'harmonic',
     title: 'Harmonic',
     img: 'svg',
-    description: 'A new way of discovering music with your friends.',
+    description: 'Discover music with your friends.',
     notes: 'Uses socket.io, express, SoundCloud, Redis, MongoDB and much more.',
     url: {
       github: 'https://github.com/grant/harmonic',
@@ -245,7 +241,7 @@ export const projects: Project[] = [
     id: 'leappong',
     title: 'Leap Pong',
     img: 'svg',
-    description: 'Multiplayer pong game where you use your hands as paddles.',
+    description: 'Multiplayer pong you play with your hands.',
     notes: "Uses socket.io, express, and the Leap Motion's JS SDK",
     url: {
       github: 'https://github.com/grant/leappong',
@@ -276,8 +272,7 @@ export const projects: Project[] = [
     id: 'sudosoldiers',
     title: 'Sudo Soldiers',
     img: 'png',
-    description:
-      'An organization of UW hackers who teach each other dev skills.',
+    description: 'UW hackers teaching each other to build.',
     url: {
       github: 'https://github.com/SudoSoldiers/Sudo-Soldiers-Website',
       demo: 'http://students.washington.edu/uwsudo/',
@@ -287,7 +282,7 @@ export const projects: Project[] = [
     id: 'thefourelements',
     title: 'The Four Elements',
     img: 'svg',
-    description: 'Master the four elements by solving marble puzzles.',
+    description: 'Master the elements in marble puzzles.',
     url: {
       github: 'https://github.com/grant/thefourelements',
       demo: 'http://grant.github.io/thefourelements',
@@ -297,7 +292,7 @@ export const projects: Project[] = [
     id: 'cellularwarfare',
     title: 'Cellular Warfare',
     img: 'svg',
-    description: 'Conquer the cell kingdom and evolve into an almighty cell!',
+    description: 'Evolve into an almighty cell.',
     url: {
       github: 'https://github.com/grant/cellularwarfare',
       demo: 'http://grant.github.io/cellularwarfare',
@@ -327,7 +322,7 @@ export const projects: Project[] = [
     id: 'areyouhungrynow',
     title: 'Are You Hungry Now',
     img: 'svg',
-    description: 'Find people nearby who are hungry and grab lunch together.',
+    description: 'Find nearby people and grab lunch.',
     url: {
       github: 'https://github.com/charleswli/areyouhungrynow',
       demo: 'https://www.youtube.com/watch?v=U0DQHoN3-MY',
@@ -347,7 +342,7 @@ export const projects: Project[] = [
     id: 'godiagram',
     title: 'Go Diagram',
     img: 'png',
-    description: 'A UML diagram editor for Golang projects.',
+    description: 'UML diagrams for Go projects.',
     url: {
       github: 'https://github.com/grant/go-diagram',
       demo: 'https://drive.google.com/file/d/0B4riRkl944ZqcnQzR0x1c0QxVDA/view?usp=sharing',
@@ -357,7 +352,7 @@ export const projects: Project[] = [
     id: 'slides2gif',
     title: 'Slides2Gif',
     img: 'svg',
-    description: 'Convert presentation slides to animated GIFs.',
+    description: 'Turn slides into animated GIFs.',
     url: {
       demo: 'https://slides2gif.com',
       github: 'https://github.com/grant/slides2gif',
