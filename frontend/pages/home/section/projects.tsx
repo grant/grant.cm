@@ -48,8 +48,8 @@ export default function Projects() {
       <p className="text-center text-black">
         <em>Hackathon and side projects I've shipped</em>
       </p>
-      <div className="pb-5">
-        <ul className="mx-auto grid max-w-[1100px] grid-cols-[repeat(auto-fit,96px)] justify-center gap-4 px-3 pt-4">
+      <div className="pb-8">
+        <ul className="mx-auto grid max-w-[1040px] grid-cols-2 justify-center gap-3 px-4 pt-4 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
           {projects.map(renderProject)}
         </ul>
       </div>
@@ -61,34 +61,25 @@ export default function Projects() {
  * Renders a single project
  */
 function renderProject(project: Project) {
-  const imgURL = `/images/cards/${project.id}.${project.img}`;
-  const bgColor = cardColors[project.id] || 'transparent';
-  const isSpecialImage =
-    project.id === 'eagleeye' ||
-    project.id === 'dubhacks15f' ||
-    project.id === 'rollen';
+  const bgColor = cardColors[project.id] || 'rgb(34, 34, 34)';
 
   return (
     <li
       key={project.id}
-      className="relative h-24 w-24 overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105"
-      style={{backgroundColor: bgColor, fontWeight: 700, fontSize: '40px'}}
+      className="relative w-full overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105"
+      style={{backgroundColor: bgColor}}
     >
       <a
-        className="group relative block h-full w-full"
+        className="flex min-h-[5.75rem] w-full flex-col justify-center bg-black/50 px-3 py-3"
         href={project.url.github}
         aria-label={`${project.title} on GitHub`}
       >
-        <img
-          className={`w-full ${isSpecialImage ? 'pt-[10px]' : ''}`}
-          src={imgURL}
-          alt=""
-        />
-        <div className="absolute bottom-0 left-0 right-0 h-[24%] bg-gray/40 p-1 transition-all duration-normal group-hover:h-full group-hover:bg-gray/85 group-hover:pt-8">
-          <h3 className="text-center text-xxsmall font-bold uppercase">
-            {project.title}
-          </h3>
-        </div>
+        <h3 className="text-xsmall font-bold uppercase leading-tight">
+          {project.title}
+        </h3>
+        <p className="mt-1 line-clamp-2 text-[11px] font-normal leading-snug text-white/90">
+          {project.description}
+        </p>
       </a>
     </li>
   );
