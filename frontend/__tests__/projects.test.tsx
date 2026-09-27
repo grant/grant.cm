@@ -4,7 +4,7 @@ import SectionProjects from '../pages/home/section/projects';
 import {projects} from '../data/projects';
 
 describe('SectionProjects', () => {
-  it('renders every project title and one-line tagline', () => {
+  it('renders every project title and tagline', () => {
     render(<SectionProjects />);
 
     for (const project of projects) {

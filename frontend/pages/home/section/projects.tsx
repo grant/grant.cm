@@ -66,18 +66,18 @@ function renderProject(project: Project) {
   return (
     <li
       key={project.id}
-      className="relative w-full overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105"
+      className="relative min-h-[12.5rem] w-full overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105"
       style={{backgroundColor: bgColor}}
     >
       <a
-        className="flex min-h-[5.75rem] w-full flex-col justify-center bg-black/50 px-3 py-3"
+        className="flex h-full min-h-[12.5rem] w-full flex-col justify-center bg-black/50 px-3 py-4"
         href={project.url.github}
         aria-label={`${project.title} on GitHub`}
       >
         <h3 className="text-xsmall font-bold uppercase leading-tight">
           {project.title}
         </h3>
-        <p className="mt-1 line-clamp-2 text-[11px] font-normal leading-snug text-white/90">
+        <p className="mt-1 line-clamp-3 !text-[11px] font-normal leading-snug text-white/90">
           {project.description}
         </p>
       </a>
