@@ -90,7 +90,7 @@ function renderProject(project: Project) {
           <h3 className="text-xsmall font-bold uppercase leading-tight">
             {project.title}
           </h3>
-          <p className="mt-1 line-clamp-3 text-[11px] font-normal leading-snug text-white/90">
+          <p className="mt-1 line-clamp-3 !text-[11px] font-normal leading-snug text-white/90">
             {project.description}
           </p>
         </div>
