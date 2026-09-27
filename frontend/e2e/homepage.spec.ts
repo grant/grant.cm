@@ -80,6 +80,12 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   await expect(cartesiaExperience).toContainText(
     'Cartesia - Member of Technical Staff',
   );
+  await expect(page.locator('#about > p')).toContainText(
+    'Functions Framework, java17, ruby30',
+  );
+  await expect(page.locator('#about > p')).toContainText(
+    'clasp, the Apps Script CLI',
+  );
   await expect(cartesiaExperience).toContainText(
     'Building real-time voice AI.',
   );
@@ -122,6 +128,22 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   await expect(
     page.getByRole('link', {name: 'Computer Checklist on GitHub'}),
   ).toHaveAttribute('href', 'https://github.com/grant/new-computer-checklist');
+  await expect(
+    page.getByText(
+      'Transpile TypeScript to Google Apps Script (used by clasp).',
+    ),
+  ).toBeVisible();
+  await expect(
+    page.getByText(
+      'Mac setup checklist for Homebrew, FileVault, and a fresh toolchain.',
+    ),
+  ).toBeVisible();
+
+  const projectCard = page.getByRole('link', {name: 'ts2gas on GitHub'});
+  const projectCardBox = await projectCard.boundingBox();
+  expect(projectCardBox?.width).toBeGreaterThanOrEqual(150);
+  expect(projectCardBox?.height).toBeGreaterThanOrEqual(160);
+  expect(projectCardBox?.width).toBeLessThanOrEqual(280);
 });
 
 test('experience logos spin once on hover or click', async ({page}) => {

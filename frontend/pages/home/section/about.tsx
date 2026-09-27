@@ -17,10 +17,10 @@ export default function SectionAbout() {
       />
       {/* Centered white copy is an intentional part of the homepage design. */}
       <p className="mx-auto max-w-screen-md px-5 pb-12 text-center text-small text-white sm:text-medium">
-        <em className="font-bold">Hello there!</em> I'm Grant Timmerman, a
-        software engineer and open source enthusiast. I love building delightful
-        developer and user experiences.
-        <br />
+        <em className="font-bold">Hello there!</em> I'm Grant Timmerman. I built
+        Cloud Functions and App Engine serverless runtimes—Functions Framework,
+        java17, ruby30—and created clasp, the Apps Script CLI (25k+ req/day).
+        Now I'm at Cartesia building real-time voice AI.
       </p>
     </section>
   );

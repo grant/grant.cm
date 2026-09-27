@@ -48,8 +48,7 @@ const experiences: Experience[] = [
         dateRange: 'Mar 2024 – Nov 2025',
         summary: (
           <span>
-            Product lead & full-stack engineer for the dashboard and AI web
-            automation workflows.
+            Led the dashboard, API, and docs for AI web-automation workflows.
           </span>
         ),
         bullets: [
@@ -70,7 +69,9 @@ const experiences: Experience[] = [
         title: 'Member of Technical Staff',
         dateRange: '2023-2024',
         summary: (
-          <span>Built the web console for an AI accounting startup.</span>
+          <span>
+            Built the web console, tax-PDF pipeline, and Excel workpaper tools.
+          </span>
         ),
         bullets: [
           <span>
@@ -104,9 +105,9 @@ const experiences: Experience[] = [
         dateRange: '2022-2023',
         summary: (
           <span>
-            Built a{' '}
+            Shipped social follows/timeline, private viz embeds, and editor
+            upgrades on the{' '}
             <a href="https://observablehq.com">data visualization platform</a>.
-            Lots of TypeScript!
           </span>
         ),
         bullets: [
@@ -138,7 +139,10 @@ const experiences: Experience[] = [
         title: 'Software Engineer, Google Cloud, Serverless',
         dateRange: '2021-2022',
         summary: (
-          <span>Built the core runtimes for the serverless platform.</span>
+          <span>
+            Built Cloud Functions and App Engine runtimes, including java17,
+            ruby30, and Functions Framework.
+          </span>
         ),
         bullets: [
           <span>
@@ -146,7 +150,7 @@ const experiences: Experience[] = [
             Functions.
           </span>,
           <span>Created java17 and ruby30 runtimes.</span>,
-          <span>Created new features for the Function Frameworks.</span>,
+          <span>Created new features for the Functions Framework.</span>,
         ],
         languages: ['Java', 'Ruby', 'Go', 'Node'],
       },
@@ -154,12 +158,15 @@ const experiences: Experience[] = [
         title: 'Developer Programs Engineer, Google Cloud, Serverless',
         dateRange: '2019-2021',
         summary: (
-          <span>Built developer products for the serverless platform.</span>
+          <span>
+            Built Functions Framework plus Eventarc and Cloud Workflows
+            developer experience.
+          </span>
         ),
         bullets: [
           <span>
             Led and built <strong>Google Cloud Functions</strong> computing
-            strategy though the Functions Framework. Built 7 open source
+            strategy through the Functions Framework. Built 7 open source
             function runtimes in collaboration with language experts:{' '}
             <a href="https://git.io/gcfff">git.io/gcfff</a>
           </span>,
@@ -195,8 +202,8 @@ const experiences: Experience[] = [
         dateRange: '2017-2019',
         summary: (
           <span>
-            Designed and built the{' '}
-            <strong>open source developer presence.</strong>
+            Created clasp, the Apps Script CLI (25k+ req/day), and Workspace API
+            samples.
           </span>
         ),
         bullets: [
