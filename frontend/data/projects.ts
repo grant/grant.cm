@@ -71,7 +71,7 @@ export const projects: Project[] = [
     id: 'dubhacks15f',
     title: 'DubHacks 2015',
     img: 'svg',
-    description: "Directed UW's second DubHacks.",
+    description: 'UW hackathon I organized.',
     url: {
       demo: 'http://15f.dubhacks.co/',
       github: 'https://github.com/dubhacks/15f',
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     id: 'nestvacationtracker',
     title: 'Nest Vacation Tracker',
     img: 'svg',
-    description: 'Turns Nest off automatically when you travel.',
+    description: 'Auto-off Nest when you travel.',
     url: {
       demo: 'http://devpost.com/software/nest-vacation-saver',
       github: 'https://github.com/yarabarla/Nest-Vacation-Tracker',
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     id: 'hawk',
     title: 'Hawk',
     img: 'svg',
-    description: 'Check in on your teen driver from your phone.',
+    description: 'Check in on your teen driver.',
     url: {
       demo: 'http://challengepost.com/software/hawk-zi0fw',
       github: 'https://github.com/grant/hawk',
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     id: 'issues',
     title: 'Github Issues',
     img: 'png',
-    description: 'A mobile redesign of Github Issues',
+    description: 'A mobile redesign of GitHub Issues.',
     url: {
       demo: 'http://grant.github.io/issues',
       github: 'https://github.com/grant/issues',
@@ -129,9 +129,9 @@ export const projects: Project[] = [
   },
   {
     id: 'algorythem',
-    title: 'Algo Rythem',
+    title: 'Algo Rhythm',
     img: 'svg',
-    description: 'Neural nets that compose algorithmic music.',
+    description: 'Neural-net classical music, generated in the browser.',
     url: {
       demo: 'https://medium.com/@granttimmerman/algo-rhythm-music-composition-using-neural-networks-f89897ff2df7',
       github: 'https://github.com/grant/algo-rhythm',
@@ -141,7 +141,7 @@ export const projects: Project[] = [
     id: 'rollen',
     title: 'Rollen',
     img: 'png',
-    description: 'Find movies with your friends',
+    description: 'A movie review app.',
     url: {
       github: 'https://github.com/grant/rollen',
     },
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     id: 'safebaby',
     title: 'SafeBaby',
     img: 'png',
-    description: 'Check up on your baby from afar',
+    description: 'Baby-health tracker with Jawbone UP and Pebble.',
     url: {
       github: 'https://github.com/grant/Baby-Tracker',
       demo: 'http://challengepost.com/software/safebaby',
@@ -218,9 +218,9 @@ export const projects: Project[] = [
   },
   {
     id: 'dubhacks14f',
-    title: 'Dubhacks 2014',
+    title: 'DubHacks 2014',
     img: 'png',
-    description: "Founded the PNW's largest hackathon.",
+    description: 'UW hackathon I founded and organized.',
     notes: 'Beautiful website for describing this annual event.',
     url: {
       github: 'https://github.com/dubhacks/14f',
@@ -342,7 +342,7 @@ export const projects: Project[] = [
     id: 'godiagram',
     title: 'Go Diagram',
     img: 'png',
-    description: 'A UML diagram editor for Golang projects.',
+    description: 'UML diagrams for Go projects.',
     url: {
       github: 'https://github.com/grant/go-diagram',
       demo: 'https://drive.google.com/file/d/0B4riRkl944ZqcnQzR0x1c0QxVDA/view?usp=sharing',
@@ -352,7 +352,7 @@ export const projects: Project[] = [
     id: 'slides2gif',
     title: 'Slides2Gif',
     img: 'svg',
-    description: 'Convert presentation slides to animated GIFs.',
+    description: 'Turn slides into animated GIFs.',
     url: {
       demo: 'https://slides2gif.com',
       github: 'https://github.com/grant/slides2gif',
