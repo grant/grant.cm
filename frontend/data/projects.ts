@@ -71,7 +71,7 @@ export const projects: Project[] = [
     id: 'dubhacks15f',
     title: 'DubHacks 2015',
     img: 'svg',
-    description: 'UW hackathon I organized.',
+    description: 'University of Washington hackathon I organized.',
     url: {
       demo: 'http://15f.dubhacks.co/',
       github: 'https://github.com/dubhacks/15f',
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     id: 'algorythem',
     title: 'Algo Rhythm',
     img: 'svg',
-    description: 'Neural-net classical music in the browser.',
+    description: 'Neural-net classical music you can generate in the browser.',
     url: {
       demo: 'https://medium.com/@granttimmerman/algo-rhythm-music-composition-using-neural-networks-f89897ff2df7',
       github: 'https://github.com/grant/algo-rhythm',
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     id: 'safebaby',
     title: 'SafeBaby',
     img: 'png',
-    description: 'Jawbone UP + Pebble baby tracker.',
+    description: 'Hackathon baby-health tracker with Jawbone UP and Pebble.',
     url: {
       github: 'https://github.com/grant/Baby-Tracker',
       demo: 'http://challengepost.com/software/safebaby',
@@ -220,7 +220,7 @@ export const projects: Project[] = [
     id: 'dubhacks14f',
     title: 'DubHacks 2014',
     img: 'png',
-    description: 'UW hackathon I founded and organized.',
+    description: 'University of Washington hackathon I founded and organized.',
     notes: 'Beautiful website for describing this annual event.',
     url: {
       github: 'https://github.com/dubhacks/14f',
