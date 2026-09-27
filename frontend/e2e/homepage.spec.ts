@@ -311,4 +311,13 @@ test('publishes branded favicon and social metadata', async ({page}) => {
       page.locator('footer').getByRole('link', {name: label, exact: true}),
     ).toHaveAttribute('href', /^https:\/\//);
   }
+
+  const contact = page
+    .locator('footer')
+    .getByRole('link', {name: 'Contact', exact: true});
+  await expect(contact).toHaveCSS('background-color', 'rgb(234, 95, 78)');
+  await expect(contact.locator('span')).toHaveCSS(
+    'color',
+    'rgb(255, 255, 255)',
+  );
 });

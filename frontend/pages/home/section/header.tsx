@@ -30,7 +30,7 @@ export default function SectionHeader() {
             ) : (
               <li key={l.title}>
                 <a
-                  className="inline-flex min-h-11 items-center justify-center px-2 text-medium font-bold leading-none tracking-[2px] text-ink transition-colors duration-normal ease hover:text-white"
+                  className="inline-flex min-h-11 items-center justify-center px-2 text-medium font-bold leading-none tracking-[2px] text-ink underline-offset-4 transition-colors duration-normal ease hover:text-white hover:underline"
                   href={l.link}
                   target={l.newTab ? '_blank' : undefined}
                   rel={l.newTab ? 'noreferrer' : undefined}

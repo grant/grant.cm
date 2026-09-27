@@ -601,7 +601,7 @@ function renderExperience(experience: Experience) {
   return (
     <article
       key={experienceKey}
-      className={`${experience.id} grid grid-cols-[64px_1fr] items-start gap-4 rounded-[5px] p-4 hover:bg-white/5 max-[600px]:grid-cols-1`}
+      className={`${experience.id} grid grid-cols-[64px_1fr] items-start gap-4 rounded-[5px] p-4 transition-colors duration-normal hover:bg-white/10 max-[600px]:grid-cols-1`}
     >
       <SpinningExperienceLogo
         company={experience.company}
