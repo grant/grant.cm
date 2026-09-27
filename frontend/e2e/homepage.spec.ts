@@ -237,6 +237,13 @@ test('shows a visible keyboard focus indicator', async ({page}) => {
 test('uses accessible homepage foreground colors', async ({page}) => {
   await page.goto('/');
 
+  await expect(page.locator('h1')).toHaveCSS('color', 'rgb(31, 41, 51)');
+  await expect(page.locator('h1 + h3')).toHaveCSS('color', 'rgb(31, 41, 51)');
+  await expect(page.getByRole('link', {name: 'About', exact: true})).toHaveCSS(
+    'color',
+    'rgb(31, 41, 51)',
+  );
+
   await expect(page.locator('#about > p')).toHaveCSS(
     'color',
     'rgb(255, 255, 255)',
