@@ -589,6 +589,11 @@ function SpinningExperienceLogo({
   );
 }
 
+function isOlderRole(dateRange: string) {
+  const startYear = Number.parseInt(dateRange, 10);
+  return Number.isFinite(startYear) && startYear < 2022;
+}
+
 function renderExperience(experience: Experience) {
   const experienceKey = experience.id + experience.roles[0].dateRange;
   const isWhite = whiteIconBackgrounds.has(experience.id);
@@ -627,9 +632,20 @@ function renderExperience(experience: Experience) {
                   <div className="experience-summary">{role.summary}</div>
                 ) : null}
                 {role.bullets ? (
-                  <ul className="py-2 text-small leading-normal list-disc list-inside">
-                    {bullets}
-                  </ul>
+                  isOlderRole(role.dateRange) ? (
+                    <details className="mt-2">
+                      <summary className="cursor-pointer text-small text-white/80 hover:text-white">
+                        Highlights
+                      </summary>
+                      <ul className="py-2 text-small leading-normal list-disc list-inside">
+                        {bullets}
+                      </ul>
+                    </details>
+                  ) : (
+                    <ul className="py-2 text-small leading-normal list-disc list-inside">
+                      {bullets}
+                    </ul>
+                  )
                 ) : (
                   ''
                 )}

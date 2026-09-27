@@ -94,6 +94,10 @@ test('shows compact earlier experience and all projects', async ({page}) => {
   );
   const experienceSummaries = page.locator('#experience .experience-summary');
   await expect(experienceSummaries).toHaveCount(8);
+  await expect(page.getByText('Highlights')).toHaveCount(3);
+  await expect(
+    page.getByText('Built serverless runtimes for Google Cloud'),
+  ).toBeHidden();
   const summaryText = (await experienceSummaries.allTextContents()).join(' ');
   for (const company of [
     'Cartesia',
