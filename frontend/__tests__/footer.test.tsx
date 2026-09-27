@@ -18,7 +18,7 @@ describe('SectionFooter', () => {
       'href',
       'https://www.twitter.com/granttimmerman',
     );
-    expect(screen.getByText('Contact')).toHaveAttribute(
+    expect(screen.getByRole('link', {name: 'Contact'})).toHaveAttribute(
       'href',
       expect.stringContaining('mailto:granttimmerman@gmail.com'),
     );

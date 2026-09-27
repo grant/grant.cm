@@ -26,9 +26,17 @@ export default function SectionFooter() {
               )}
               <a
                 href={link.href}
-                className="inline-flex min-h-11 items-center px-2 text-gray-light transition-colors duration-normal hover:text-white"
+                className={
+                  link.label === 'Contact'
+                    ? 'inline-flex min-h-11 items-center rounded-[5px] bg-primary px-4 font-bold transition-colors duration-normal hover:bg-primary-dark'
+                    : 'inline-flex min-h-11 items-center px-2 text-gray-light underline-offset-4 transition-colors duration-normal hover:text-white hover:underline'
+                }
               >
-                {link.label}
+                {link.label === 'Contact' ? (
+                  <span className="text-white">{link.label}</span>
+                ) : (
+                  link.label
+                )}
               </a>
             </li>
           ))}
