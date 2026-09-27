@@ -49,7 +49,7 @@ export default function Projects() {
         <em>Hackathon and side projects I've shipped</em>
       </p>
       <div className="pb-8">
-        <ul className="mx-auto grid max-w-[1100px] grid-cols-2 justify-center gap-3 px-3 pt-4 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
+        <ul className="mx-auto grid max-w-[1040px] grid-cols-2 justify-center gap-3 px-4 pt-4 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
           {projects.map(renderProject)}
         </ul>
       </div>
@@ -71,22 +71,22 @@ function renderProject(project: Project) {
   return (
     <li
       key={project.id}
-      className="relative min-h-[13rem] w-full overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105"
+      className="relative min-h-[11.25rem] w-full overflow-hidden rounded-[5px] text-center text-white transition-transform duration-normal hover:scale-105"
       style={{backgroundColor: bgColor}}
     >
       <a
-        className="group relative flex h-full min-h-[13rem] w-full flex-col"
+        className="group relative flex h-full min-h-[11.25rem] w-full flex-col"
         href={project.url.github}
         aria-label={`${project.title} on GitHub`}
       >
-        <div className="flex flex-1 items-center justify-center px-4 pb-1.5 pt-4">
+        <div className="flex flex-1 items-center justify-center px-5 pb-1 pt-4">
           <img
-            className={`w-[68%] max-w-[8.5rem] ${isSpecialImage ? 'pt-[10px]' : ''}`}
+            className={`w-[58%] max-w-[7.25rem] ${isSpecialImage ? 'pt-[10px]' : ''}`}
             src={imgURL}
             alt=""
           />
         </div>
-        <div className="flex min-h-[4.25rem] flex-col justify-start bg-black/40 px-2.5 pb-2.5 pt-2">
+        <div className="flex min-h-[3.75rem] flex-col justify-center bg-black/40 px-3 py-2">
           <h3 className="text-xsmall font-bold uppercase leading-tight">
             {project.title}
           </h3>

@@ -131,8 +131,9 @@ test('shows compact earlier experience and all projects', async ({page}) => {
 
   const projectCard = page.getByRole('link', {name: 'ts2gas on GitHub'});
   const projectCardBox = await projectCard.boundingBox();
-  expect(projectCardBox?.width).toBeGreaterThanOrEqual(160);
-  expect(projectCardBox?.height).toBeGreaterThanOrEqual(200);
+  expect(projectCardBox?.width).toBeGreaterThanOrEqual(150);
+  expect(projectCardBox?.height).toBeGreaterThanOrEqual(160);
+  expect(projectCardBox?.width).toBeLessThanOrEqual(280);
 });
 
 test('experience logos spin once on hover or click', async ({page}) => {
