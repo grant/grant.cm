@@ -160,7 +160,7 @@ export const projects: Project[] = [
     id: 'safebaby',
     title: 'SafeBaby',
     img: 'png',
-    description: 'Baby tracker with Jawbone UP and Pebble.',
+    description: 'Jawbone UP + Pebble baby tracker.',
     url: {
       github: 'https://github.com/grant/Baby-Tracker',
       demo: 'http://challengepost.com/software/safebaby',
