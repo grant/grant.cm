@@ -131,7 +131,7 @@ export const projects: Project[] = [
     id: 'algorythem',
     title: 'Algo Rhythm',
     img: 'svg',
-    description: 'Neural-net classical music, generated in the browser.',
+    description: 'Neural-net classical music in the browser.',
     url: {
       demo: 'https://medium.com/@granttimmerman/algo-rhythm-music-composition-using-neural-networks-f89897ff2df7',
       github: 'https://github.com/grant/algo-rhythm',
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     id: 'safebaby',
     title: 'SafeBaby',
     img: 'png',
-    description: 'Baby-health tracker with Jawbone UP and Pebble.',
+    description: 'Baby tracker with Jawbone UP and Pebble.',
     url: {
       github: 'https://github.com/grant/Baby-Tracker',
       demo: 'http://challengepost.com/software/safebaby',
