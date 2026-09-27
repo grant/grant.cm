@@ -126,7 +126,7 @@ test('shows compact earlier experience and all projects', async ({page}) => {
     page.getByText('Transpile TypeScript to Google Apps Script.'),
   ).toBeVisible();
   await expect(
-    page.getByText('A checklist and scripts for setting up a new computer.'),
+    page.getByText('Scripts and a checklist for a new machine.'),
   ).toBeVisible();
 
   const projectCard = page.getByRole('link', {name: 'ts2gas on GitHub'});

@@ -32,7 +32,7 @@ export const projects: Project[] = [
     id: 'new-computer-checklist',
     title: 'Computer Checklist',
     img: 'svg',
-    description: 'A checklist and scripts for setting up a new computer.',
+    description: 'Scripts and a checklist for a new machine.',
     url: {
       github: 'https://github.com/grant/new-computer-checklist',
     },
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     id: 'eagleeye',
     title: 'Eagle Eye',
     img: 'svg',
-    description: 'Keep an eye on the flights of friends and family.',
+    description: 'Track flights of friends and family.',
     url: {
       demo: 'http://devpost.com/software/eagle-eye',
       github: 'https://github.com/grant/eagleeye',
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     id: 'dubhacks15f',
     title: 'DubHacks 2015',
     img: 'svg',
-    description: 'Directed the second annual DubHack hackathon.',
+    description: "Directed UW's second DubHacks.",
     url: {
       demo: 'http://15f.dubhacks.co/',
       github: 'https://github.com/dubhacks/15f',
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     id: 'nestvacationtracker',
     title: 'Nest Vacation Tracker',
     img: 'svg',
-    description: 'Save money by automatically turning off Nest on vacation.',
+    description: 'Turns Nest off automatically when you travel.',
     url: {
       demo: 'http://devpost.com/software/nest-vacation-saver',
       github: 'https://github.com/yarabarla/Nest-Vacation-Tracker',
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     id: 'algorythem',
     title: 'Algo Rythem',
     img: 'svg',
-    description: 'Algorithmic Music Composition with Artificial Neural Nets',
+    description: 'Neural nets that compose algorithmic music.',
     url: {
       demo: 'https://medium.com/@granttimmerman/algo-rhythm-music-composition-using-neural-networks-f89897ff2df7',
       github: 'https://github.com/grant/algo-rhythm',
@@ -170,7 +170,7 @@ export const projects: Project[] = [
     id: 'herder',
     title: 'Herder',
     img: 'svg',
-    description: 'Analytics for Uber drivers to maximize their revenue',
+    description: 'Analytics that help Uber drivers earn more.',
     url: {
       github: 'https://github.com/grant/herder.co',
       youtube: 'http://youtu.be/8LZUNBag_Ok',
@@ -220,7 +220,7 @@ export const projects: Project[] = [
     id: 'dubhacks14f',
     title: 'Dubhacks 2014',
     img: 'png',
-    description: 'Founded the largest hackathon in the Pacific Northwest.',
+    description: "Founded the PNW's largest hackathon.",
     notes: 'Beautiful website for describing this annual event.',
     url: {
       github: 'https://github.com/dubhacks/14f',
@@ -231,7 +231,7 @@ export const projects: Project[] = [
     id: 'harmonic',
     title: 'Harmonic',
     img: 'svg',
-    description: 'A new way of discovering music with your friends.',
+    description: 'Discover music with your friends.',
     notes: 'Uses socket.io, express, SoundCloud, Redis, MongoDB and much more.',
     url: {
       github: 'https://github.com/grant/harmonic',
@@ -241,7 +241,7 @@ export const projects: Project[] = [
     id: 'leappong',
     title: 'Leap Pong',
     img: 'svg',
-    description: 'Multiplayer pong game where you use your hands as paddles.',
+    description: 'Multiplayer pong you play with your hands.',
     notes: "Uses socket.io, express, and the Leap Motion's JS SDK",
     url: {
       github: 'https://github.com/grant/leappong',
@@ -272,8 +272,7 @@ export const projects: Project[] = [
     id: 'sudosoldiers',
     title: 'Sudo Soldiers',
     img: 'png',
-    description:
-      'An organization of UW hackers who teach each other dev skills.',
+    description: 'UW hackers teaching each other to build.',
     url: {
       github: 'https://github.com/SudoSoldiers/Sudo-Soldiers-Website',
       demo: 'http://students.washington.edu/uwsudo/',
@@ -283,7 +282,7 @@ export const projects: Project[] = [
     id: 'thefourelements',
     title: 'The Four Elements',
     img: 'svg',
-    description: 'Master the four elements by solving marble puzzles.',
+    description: 'Master the elements in marble puzzles.',
     url: {
       github: 'https://github.com/grant/thefourelements',
       demo: 'http://grant.github.io/thefourelements',
@@ -293,7 +292,7 @@ export const projects: Project[] = [
     id: 'cellularwarfare',
     title: 'Cellular Warfare',
     img: 'svg',
-    description: 'Conquer the cell kingdom and evolve into an almighty cell!',
+    description: 'Evolve into an almighty cell.',
     url: {
       github: 'https://github.com/grant/cellularwarfare',
       demo: 'http://grant.github.io/cellularwarfare',
@@ -323,7 +322,7 @@ export const projects: Project[] = [
     id: 'areyouhungrynow',
     title: 'Are You Hungry Now',
     img: 'svg',
-    description: 'Find people nearby who are hungry and grab lunch together.',
+    description: 'Find nearby people and grab lunch.',
     url: {
       github: 'https://github.com/charleswli/areyouhungrynow',
       demo: 'https://www.youtube.com/watch?v=U0DQHoN3-MY',
