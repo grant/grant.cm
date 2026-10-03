@@ -3,7 +3,7 @@ import {render, screen, within} from '@testing-library/react';
 import SecondaryShell from '../components/secondaryShell';
 
 describe('SecondaryShell', () => {
-  it('does not advertise a public resume link', () => {
+  it('does not advertise public consulting, calendar, or resume links', () => {
     render(
       <SecondaryShell title="Consulting">
         <p>Content</p>
@@ -12,19 +12,17 @@ describe('SecondaryShell', () => {
 
     const nav = screen.getByRole('navigation', {name: 'Primary'});
     expect(
+      within(nav).queryByRole('link', {name: 'Consulting'}),
+    ).not.toBeInTheDocument();
+    expect(
+      within(nav).queryByRole('link', {name: 'Calendar'}),
+    ).not.toBeInTheDocument();
+    expect(
       within(nav).queryByRole('link', {name: 'Resume'}),
     ).not.toBeInTheDocument();
-    expect(within(nav).getByRole('link', {name: 'Consulting'})).toHaveAttribute(
-      'href',
-      '/consulting',
-    );
     expect(within(nav).getByRole('link', {name: 'Videos'})).toHaveAttribute(
       'href',
       '/videos',
-    );
-    expect(within(nav).getByRole('link', {name: 'Calendar'})).toHaveAttribute(
-      'href',
-      '/cal',
     );
   });
 });

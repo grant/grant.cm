@@ -1,10 +1,17 @@
 import {describe, it, expect} from 'vitest';
-import {render, screen} from '@testing-library/react';
+import {render, screen, within} from '@testing-library/react';
 import Cal from '../pages/cal';
 
 describe('Cal', () => {
   it('embeds Google Calendar from calendar.google.com', () => {
     render(<Cal />);
+
+    expect(
+      within(screen.getByRole('navigation', {name: 'Primary'})).queryByRole(
+        'link',
+        {name: 'Calendar'},
+      ),
+    ).not.toBeInTheDocument();
 
     const iframe = screen.getByTitle("Grant Timmerman's Calendar");
     expect(iframe).toHaveAttribute(

@@ -55,23 +55,40 @@ for (const {route, accent, color} of routeAccents) {
   });
 }
 
-test('does not advertise a public resume link', async ({page}) => {
+test('does not advertise public consulting, calendar, or resume links', async ({
+  page,
+}) => {
+  const primaryNav = page.getByRole('navigation', {name: 'Primary'});
+
   await page.goto('/consulting');
+  await expect(page.getByRole('heading', {level: 1})).toContainText(
+    'Timmerman Consulting, LLC',
+  );
+  await expect(primaryNav.getByRole('link', {name: 'Consulting'})).toHaveCount(
+    0,
+  );
+  await expect(primaryNav.getByRole('link', {name: 'Calendar'})).toHaveCount(0);
+  await expect(primaryNav.getByRole('link', {name: 'Resume'})).toHaveCount(0);
+
+  await page.goto('/cal');
   await expect(
-    page
-      .getByRole('navigation', {name: 'Primary'})
-      .getByRole('link', {name: 'Resume'}),
-  ).toHaveCount(0);
+    page.locator('iframe[title="Grant Timmerman\'s Calendar"]'),
+  ).toBeVisible();
+  await expect(primaryNav.getByRole('link', {name: 'Consulting'})).toHaveCount(
+    0,
+  );
+  await expect(primaryNav.getByRole('link', {name: 'Calendar'})).toHaveCount(0);
+  await expect(primaryNav.getByRole('link', {name: 'Resume'})).toHaveCount(0);
 
   await page.goto('/resume');
   await expect(
     page.locator('iframe[title="Grant Timmerman\'s Resume"]'),
   ).toBeVisible();
-  await expect(
-    page
-      .getByRole('navigation', {name: 'Primary'})
-      .getByRole('link', {name: 'Resume'}),
-  ).toHaveCount(0);
+  await expect(primaryNav.getByRole('link', {name: 'Consulting'})).toHaveCount(
+    0,
+  );
+  await expect(primaryNav.getByRole('link', {name: 'Calendar'})).toHaveCount(0);
+  await expect(primaryNav.getByRole('link', {name: 'Resume'})).toHaveCount(0);
 });
 
 test('privacy policy states the personal-site and health-data uses', async ({

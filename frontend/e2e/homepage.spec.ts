@@ -1,7 +1,11 @@
 import {expect, test} from '@playwright/test';
 
-test('does not advertise a public resume link', async ({page}) => {
+test('does not advertise public consulting, calendar, or resume links', async ({
+  page,
+}) => {
   await page.goto('/');
+  await expect(page.getByRole('link', {name: /consulting/i})).toHaveCount(0);
+  await expect(page.getByRole('link', {name: /calendar/i})).toHaveCount(0);
   await expect(page.getByRole('link', {name: /resume/i})).toHaveCount(0);
 });
 
