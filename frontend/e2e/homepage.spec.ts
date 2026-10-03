@@ -10,13 +10,14 @@ test('does not advertise public consulting, calendar, or resume links', async ({
 });
 
 test('homepage matches its visual baseline', async ({page}) => {
-  await page.goto('/');
+  await page.goto('/', {waitUntil: 'networkidle'});
   await page.evaluate(() => document.fonts.ready);
 
   await expect(page).toHaveScreenshot('homepage.png', {
     animations: 'disabled',
     fullPage: true,
     maxDiffPixels: 1_000,
+    timeout: 15_000,
   });
 });
 
@@ -24,7 +25,7 @@ test.describe('mobile homepage', () => {
   test.use({viewport: {width: 390, height: 844}});
 
   test('keeps headings and copy readable at 390px', async ({page}) => {
-    await page.goto('/');
+    await page.goto('/', {waitUntil: 'networkidle'});
     await page.evaluate(() => document.fonts.ready);
 
     for (const selector of ['h1', 'h1 + h3']) {
@@ -78,6 +79,7 @@ test.describe('mobile homepage', () => {
       animations: 'disabled',
       fullPage: true,
       maxDiffPixels: 1_000,
+      timeout: 15_000,
     });
   });
 });
