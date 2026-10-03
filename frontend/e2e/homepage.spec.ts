@@ -1,5 +1,10 @@
 import {expect, test} from '@playwright/test';
 
+test('does not advertise a public resume link', async ({page}) => {
+  await page.goto('/');
+  await expect(page.getByRole('link', {name: /resume/i})).toHaveCount(0);
+});
+
 test('homepage matches its visual baseline', async ({page}) => {
   await page.goto('/');
   await page.evaluate(() => document.fonts.ready);
