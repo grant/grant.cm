@@ -10,7 +10,7 @@ describe('Privacy', () => {
       screen.getByRole('heading', {name: 'Privacy', level: 1}),
     ).toBeInTheDocument();
     expect(screen.getByText('This is my personal site.')).toBeInTheDocument();
-    expect(screen.getByText(/grantcm/)).toBeInTheDocument();
+    expect(screen.queryByText(/grantcm/i)).not.toBeInTheDocument();
     expect(screen.getByText(/Google Health data/)).toBeInTheDocument();
     expect(screen.getByText(/activity and fitness/)).toBeInTheDocument();
     expect(
@@ -19,8 +19,12 @@ describe('Privacy', () => {
     expect(screen.getByText(/sleep/)).toBeInTheDocument();
     expect(screen.getByText(/read-only/)).toBeInTheDocument();
     expect(
-      screen.getByRole('link', {name: 'granttimmerman@gmail.com'}),
-    ).toHaveAttribute('href', 'mailto:granttimmerman@gmail.com');
+      screen.queryByText('granttimmerman@gmail.com'),
+    ).not.toBeInTheDocument();
+    expect(screen.getByRole('link', {name: 'Email me'})).toHaveAttribute(
+      'href',
+      'mailto:granttimmerman@gmail.com',
+    );
   });
 
   it('links to the privacy page from the secondary footer', () => {

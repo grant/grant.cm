@@ -65,12 +65,14 @@ test('privacy policy states the personal-site and health-data uses', async ({
     page.getByRole('heading', {name: 'Privacy', level: 1}),
   ).toBeVisible();
   await expect(page.getByText('This is my personal site.')).toBeVisible();
-  await expect(page.getByText(/grantcm/)).toBeVisible();
+  await expect(page.getByText(/grantcm/i)).toHaveCount(0);
   await expect(page.getByText(/Google Health data/)).toBeVisible();
   await expect(page.getByText(/read-only/)).toBeVisible();
-  await expect(
-    page.getByRole('link', {name: 'granttimmerman@gmail.com'}),
-  ).toHaveAttribute('href', 'mailto:granttimmerman@gmail.com');
+  await expect(page.getByText('granttimmerman@gmail.com')).toHaveCount(0);
+  await expect(page.getByRole('link', {name: 'Email me'})).toHaveAttribute(
+    'href',
+    'mailto:granttimmerman@gmail.com',
+  );
   await expect(
     page.getByRole('contentinfo').getByRole('link', {name: 'Privacy'}),
   ).toHaveAttribute('href', '/privacy');
