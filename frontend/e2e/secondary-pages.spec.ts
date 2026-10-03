@@ -55,6 +55,25 @@ for (const {route, accent, color} of routeAccents) {
   });
 }
 
+test('does not advertise a public resume link', async ({page}) => {
+  await page.goto('/consulting');
+  await expect(
+    page
+      .getByRole('navigation', {name: 'Primary'})
+      .getByRole('link', {name: 'Resume'}),
+  ).toHaveCount(0);
+
+  await page.goto('/resume');
+  await expect(
+    page.locator('iframe[title="Grant Timmerman\'s Resume"]'),
+  ).toBeVisible();
+  await expect(
+    page
+      .getByRole('navigation', {name: 'Primary'})
+      .getByRole('link', {name: 'Resume'}),
+  ).toHaveCount(0);
+});
+
 test('privacy policy states the personal-site and health-data uses', async ({
   page,
 }) => {

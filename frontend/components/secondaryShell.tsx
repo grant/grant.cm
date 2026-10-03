@@ -5,7 +5,6 @@ import Layout from './layout';
 const navigation = [
   {href: '/consulting', label: 'Consulting'},
   {href: '/videos', label: 'Videos'},
-  {href: '/resume', label: 'Resume'},
   {href: '/cal', label: 'Calendar'},
 ];
 
