@@ -10,19 +10,18 @@ export default function Privacy() {
           This is my personal site.
         </p>
         <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-dark">
-          Separately, I use Google OAuth on my own Google Cloud project,
-          grantcm, to read my own Google Health data—activity and fitness,
-          health metrics and measurements, and sleep. Access is read-only. I
-          store that data in a private bucket I control. I do not sell it, use
-          it for ads, or share it with other people.
+          Separately, I use Google OAuth to read my own Google Health
+          data—activity and fitness, health metrics and measurements, and sleep.
+          Access is read-only. I store that data in a private bucket I control.
+          I do not sell it, use it for ads, or share it with other people.
         </p>
         <p className="text-gray-dark">
-          Questions? Email{' '}
+          Questions?{' '}
           <a
             className="font-bold text-primary-dark underline"
             href="mailto:granttimmerman@gmail.com"
           >
-            granttimmerman@gmail.com
+            Email me
           </a>
           .
         </p>
