@@ -6,6 +6,7 @@ const routes = [
   '/cal',
   '/resume',
   '/dinner',
+  '/privacy',
   '/missing',
 ];
 
@@ -41,6 +42,7 @@ const routeAccents = [
   {route: '/cal', accent: 'teal', color: 'rgb(73, 161, 167)'},
   {route: '/resume', accent: 'navy', color: 'rgb(45, 62, 82)'},
   {route: '/dinner', accent: 'orange', color: 'rgb(232, 132, 59)'},
+  {route: '/privacy', accent: 'coral', color: 'rgb(234, 95, 78)'},
 ] as const;
 
 for (const {route, accent, color} of routeAccents) {
@@ -52,3 +54,24 @@ for (const {route, accent, color} of routeAccents) {
     await expect(shell).toHaveCSS('border-top-width', '4px');
   });
 }
+
+test('privacy policy states the personal-site and health-data uses', async ({
+  page,
+}) => {
+  await page.goto('/privacy');
+
+  await expect(page).toHaveTitle('Privacy | Grant Timmerman');
+  await expect(
+    page.getByRole('heading', {name: 'Privacy', level: 1}),
+  ).toBeVisible();
+  await expect(page.getByText('This is my personal site.')).toBeVisible();
+  await expect(page.getByText(/grantcm/)).toBeVisible();
+  await expect(page.getByText(/Google Health data/)).toBeVisible();
+  await expect(page.getByText(/read-only/)).toBeVisible();
+  await expect(
+    page.getByRole('link', {name: 'granttimmerman@gmail.com'}),
+  ).toHaveAttribute('href', 'mailto:granttimmerman@gmail.com');
+  await expect(
+    page.getByRole('contentinfo').getByRole('link', {name: 'Privacy'}),
+  ).toHaveAttribute('href', '/privacy');
+});
