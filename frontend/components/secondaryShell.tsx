@@ -75,6 +75,8 @@ export default function SecondaryShell({
         <footer className="border-t border-muted bg-white px-6 py-5 text-center text-small text-gray">
           <Link href="/">Home</Link>
           <span aria-hidden="true"> · </span>
+          <Link href="/privacy">Privacy</Link>
+          <span aria-hidden="true"> · </span>
           <a href="mailto:granttimmerman@gmail.com">Contact</a>
         </footer>
       </div>
