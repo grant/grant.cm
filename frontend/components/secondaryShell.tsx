@@ -2,11 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Layout from './layout';
 
-const navigation = [
-  {href: '/consulting', label: 'Consulting'},
-  {href: '/videos', label: 'Videos'},
-  {href: '/cal', label: 'Calendar'},
-];
+const navigation = [{href: '/videos', label: 'Videos'}];
 
 const accentClasses = {
   coral: 'border-t-primary',
