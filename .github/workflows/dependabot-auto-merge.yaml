@@ -17,22 +17,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Verify merge token
-        env:
-          GH_TOKEN: ${{ secrets.DEPENDABOT_MERGE_TOKEN }}
-        run: |
-          gh api user --jq .login
-          gh api repos/grant/grant.cm --jq .full_name
       - name: Approve Dependabot PR
         env:
           GH_TOKEN: ${{ secrets.DEPENDABOT_MERGE_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          gh pr review "$PR_NUMBER" --approve
+          gh pr review "$PR_NUMBER" \
+            --repo grant/grant.cm \
+            --approve
 
       - name: Enable auto-merge
         env:
           GH_TOKEN: ${{ secrets.DEPENDABOT_MERGE_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          gh pr merge "$PR_NUMBER" --auto --squash --delete-branch=false
+          gh pr merge "$PR_NUMBER" \
+            --repo grant/grant.cm \
+            --auto \
+            --squash \
+            --delete-branch=false
