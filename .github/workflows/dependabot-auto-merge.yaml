@@ -5,26 +5,28 @@ on:
     types: [opened, reopened, synchronize]
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
+  pull-requests: read
 
 jobs:
   auto-approve-and-enable-merge:
-    if: github.actor == 'dependabot[bot]' && github.repository == 'grant/grant.cm'
+    if: >-
+      github.actor == 'dependabot[bot]' &&
+      github.repository == 'grant/grant.cm' &&
+      github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
       - name: Approve Dependabot PR
-        run: |
-          gh pr review "${{ github.event.pull_request.number }}" --approve
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.DEPENDABOT_MERGE_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr review "$PR_NUMBER" --approve
 
       - name: Enable auto-merge
-        run: |
-          gh pr merge "${{ github.event.pull_request.number }}" --auto --squash --delete-branch=false
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.DEPENDABOT_MERGE_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr merge "$PR_NUMBER" --auto --squash --delete-branch=false
