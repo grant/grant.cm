@@ -17,6 +17,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Verify merge token
+        env:
+          GH_TOKEN: ${{ secrets.DEPENDABOT_MERGE_TOKEN }}
+        run: |
+          gh api user --jq .login
+          gh api repos/grant/grant.cm --jq .full_name
       - name: Approve Dependabot PR
         env:
           GH_TOKEN: ${{ secrets.DEPENDABOT_MERGE_TOKEN }}
