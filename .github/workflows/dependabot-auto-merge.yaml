@@ -18,17 +18,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Approve Dependabot PR
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh pr review "${{ github.event.pull_request.number }}" --approve
-
-      - name: Enable GitHub native auto-merge
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable auto-merge
         run: |
-          gh api \
-            --method PUT \
-            -H "Accept: application/vnd.github+json" \
-            "/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/auto-merge" \
-            -f merge_method=squash
+          gh pr merge "${{ github.event.pull_request.number }}" --auto --squash --delete-branch=false
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
